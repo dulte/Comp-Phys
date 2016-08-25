@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 err = np.fromfile("output/errors.bin")
 
-h = [(np.log10(10**(-i))) for i in range(10)]
+h = [(np.log10(10**(-i))) for i in range(20)]
 print err, h
 
 plt.plot(h,err)
