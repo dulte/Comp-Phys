@@ -13,4 +13,6 @@ err = np.fromfile("output/errors.bin")
 h = [(np.log10(10**(-i))) for i in range(20)]
 print err, h
 
+plt.xlabel("h")
+plt.ylabel("log(error)")
 plt.plot(h,err)
