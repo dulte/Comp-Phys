@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
-#include <vector>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -25,10 +26,20 @@ void gauss_elemination_general(int N, double *a, double* b, double* c, double* u
 
 }
 
+//Writes arrays to Files
+void writeArrayToFile(ofstream & outFile, double * array, int numBlocks)
+{
+    outFile.write(reinterpret_cast<char*>(array), numBlocks*sizeof(double));
+}
+
 int main(int argc, char *argv[])
 {
+
+
     int N = 1000;
     double dt = 1.0/(N+1);
+
+    ofstream outFile("numericalSolution.bin");
 
     double* a = new double[N+2];
     double* b = new double[N+2];
@@ -47,12 +58,12 @@ int main(int argc, char *argv[])
 
     }
 
-    a[0] = 0;
-    b[0] = 0;
-    c[0] = 0;
-
     gauss_elemination_general(N,a,b,c,u,f);
 
     cout << u[5] << "  " << exactSol[5] << endl;
+
+    writeArrayToFile(outFile, u, N+2);
+    outFile.close();
+
     return 0;
 }
