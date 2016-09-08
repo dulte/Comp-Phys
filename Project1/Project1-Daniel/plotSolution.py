@@ -4,19 +4,21 @@ import matplotlib.pyplot as plt
 
 u = np.fromfile("numericalSolution.bin")
 error = np.fromfile("logerror.bin")
+LUNum = np.loadtxt("num.txt")
+print LUNum.size
 
-x = np.linspace(0,1,1002)
+x = np.linspace(0,1,u.size)
 print x.size, u.size
 
-log_h = [-(1+i/4.) for i in range(error.size)]
+log_h = np.fromfile("logh.bin")
 
 exact = 1 - (1-np.exp(-10))*x - np.exp(-10*x)
 
 
-
+plt.plot(x,LUNum)
 plt.plot(x,u)
 plt.plot(x,exact,"r--")
-plt.legend(["Numerical", "Exact"])
+plt.legend(["LU","Numerical", "Exact"])
 
 plt.show()
 
