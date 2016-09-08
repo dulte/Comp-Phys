@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <armadillo>
 
 using namespace std;
 
@@ -13,7 +14,8 @@ void gauss_elemination_general(int N, double *a, double* b, double* c, double* u
 void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f);
 void writeArrayToFile(ofstream & outFile, double * array, int numBlocks);
 double calculate_error(double,double);
-void compute_solition(int N, double * u, double *exact);
+void compute_solution(int N, double * u, double *exact);
+void LUDecomp(int N);
 
 
 //Main
@@ -21,21 +23,29 @@ int main(int argc, char *argv[])
 {
 
     //Div variables
-    int N = 10000;
-    int iterations = 30;
+    int N = 3000;
+    int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, else you wil get the log error with different N's
+
 
 
     //Open files to write results
     ofstream outFile_u("numericalSolution.bin");
-    ofstream outFile_h("logerror.bin");
+    ofstream outFile_error("logerror.bin");
+    ofstream outFile_h("logh.bin");
+
+    LUDecomp(3002);
+
+    cout << "hei" << endl;
 
 
 
     double* max_errors = new double[iterations];
+    double* log_h = new double[iterations];
 
     for(int j = 0; j < iterations; j++){
         if (iterations > 1){
             N = pow(10,1+j/4.0);
+            log_h[j] = -(1+j/4.0);
             cout << N << endl;
         }
 
@@ -45,7 +55,7 @@ int main(int argc, char *argv[])
         double* error = new double[N+2];
 
         //Calculates the exact and numerical solution
-        compute_solition(N,u_numericalSolution, exactSol);
+        compute_solution(N,u_numericalSolution, exactSol);
 
         for(int k = 0; k < N+1; k++){
             error[k] = calculate_error(u_numericalSolution[k],exactSol[k]);
@@ -57,6 +67,7 @@ int main(int argc, char *argv[])
         if (iterations > 1){
             delete [] u_numericalSolution;
             delete [] exactSol;
+            delete [] error;
         }
         else{
             cout << u_numericalSolution[5] << "  " << exactSol[5] << endl;
@@ -64,10 +75,13 @@ int main(int argc, char *argv[])
         }
     }
 
-
-    writeArrayToFile(outFile_h, max_errors, iterations);
+    if (iterations > 1){
+        writeArrayToFile(outFile_error, max_errors, iterations);
+        writeArrayToFile(outFile_h,log_h,iterations);
+    }
     outFile_u.close();
     outFile_h.close();
+    outFile_error.close();
 
     return 0;
 }
@@ -82,7 +96,7 @@ double funct(double x){
     return 100*exp(-10*x);
 }
 
-void compute_solition(int N, double * u, double * exact){
+void compute_solution(int N, double * u, double * exact){
 
     double dt = 1.0/(N+1);
 
@@ -156,6 +170,32 @@ double calculate_error(double computed,double exact){
     else{
         return log10(abs((computed-exact)/exact));
     }
+}
+
+void LUDecomp(int N){
+    arma::mat A = arma::zeros(N,N);
+    arma::mat L,U;
+    arma::vec w,x;
+
+    arma::vec func = arma::zeros(N);
+
+    double dt = 1.0/(N+1);
+
+    for (int i = 0; i < N; i++){
+        func(i) = dt*dt*funct(dt*i);
+        A(i,i) = 2;
+        if (i-1 >= 0){
+            A(i,i-1) = -1;
+        }
+        if (i+1 <= N-1){
+            A(i,i+1) = -1;
+        }
+    }
+
+    arma::lu(L,U,A);
+    w = arma::solve(L,func);
+    x = arma::solve(U,w);
+    x.save("num.txt", arma::raw_ascii);
 }
 
 //Writes arrays to Files
