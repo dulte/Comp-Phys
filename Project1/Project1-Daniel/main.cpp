@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
     int iterations = 30;
 
 
+    //Open files to write results
     ofstream outFile_u("numericalSolution.bin");
     ofstream outFile_h("logerror.bin");
 
@@ -36,9 +37,6 @@ int main(int argc, char *argv[])
         if (iterations > 1){
             N = pow(10,1+j/4.0);
             cout << N << endl;
-        }
-        else{
-            N = 10000;
         }
 
         //Array that need updating depending on N
