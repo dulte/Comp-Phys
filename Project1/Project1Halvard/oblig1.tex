@@ -1,0 +1,160 @@
+\documentclass[a4paper,10pt,english]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{gensymb}
+\usepackage{float}
+\usepackage{array}
+\DeclareUnicodeCharacter{00A0}{ }
+
+\usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\usepackage[colorlinks]{hyperref}
+
+\usepackage{bm}
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type  
+\newcolumntype{C}{>{$}c<{$}} % math-mode version of "c" column type  
+\newcolumntype{R}{>{$}r<{$}} % math-mode version of "r" column type  
+
+\newcommand{\uvec}[1]{\hat{#1}}
+
+\newcommand{\pd}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\pdt}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pddt}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\tpddt}[2]{\tfrac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\Rar}{\Rightarrow}
+\newcommand{\curl}[1]{\nabla \times \vec{#1}}
+\newcommand{\divr}[1]{\nabla \cdot \vec{#1}}
+\newcommand{\lapl}{\nabla^2}
+\newcommand{\myequals}[1]{\underline{\underline{#1}}}
+
+
+\newcommand{\crossprod}[6]
+{   
+    \begin{vmatrix}  
+        \uvec{i}    &\uvec{j}   &\uvec{k}  \\
+        {#1}          &{#2}         &#3        \\
+        {#4}          &{#5}         &#6        \\
+    \end{vmatrix}
+}
+\newcommand{\curlmat}[3]
+{
+    \begin{vmatrix}  
+        \uvec{i}    &\uvec{j}   &\uvec{k}  \\
+        \pd{x}      &\pd{y}     &\pd{z}    \\
+        #1          &{#2}         &{#3}        \\
+    \end{vmatrix}
+}
+
+
+
+\setlength{\parindent}{4mm}
+%\setlength{\parskip}{1.5mm}
+
+%Color scheme for listings
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+
+%Listings configuration
+\usepackage{listings}
+
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=python,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+	numbers=left,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+% Custom commands        
+
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\pagesplit}[2]{\noindent
+    \begin{minipage}{0.5\linewidth}
+        #1 
+    \end{minipage}%
+    \begin{minipage}{0.5\linewidth}
+        #2
+    \end{minipage}\par\vspace{\belowdisplayskip}
+}
+
+
+\newcounter{subproject}
+\renewcommand{\thesubproject}{\alph{subproject}}
+\newenvironment{subproj}{
+\begin{description}
+\item[\refstepcounter{subproject}(\thesubproject)]
+}{\end{description}}
+
+%\renewcommand{\labelenumi}{\alph{enumi}}
+\renewcommand{\thesubsection}{\alph{subsection}}
+\graphicspath{{~/uio/fysmek1100/oblig3/bilder}}
+
+\title{FYS3150 - Project 1} 
+\author{Halvard Sutterud} 
+\begin{document}
+
+\maketitle
+\begin{abstract}
+    In this project we solved the one-dimensional Poisson equation with
+    Dirichlet boundary conditions. 
+\end{abstract}
+
+%\tableofcontents
+\newpage
+
+We will approximate the second order derivative in the general case of the one-dimensional
+Poisson equation with $v_i$, given $n$ grid points $x_i = ih$ where
+$h=1/(n+1)$. The approximation is
+
+\[ 
+    - \frac{v_{i+1} + v_{i-1} - 2v_i}{h^2} = f_i \hspace{0.5cm}
+    \mathrm{for} \hspace{0.1cm}i = 1, ... , n.
+\]
+        
+Where $f_i$ = $f(x_i)$.Multiplying by $h^2$, we then have $n$ linear
+equations, which can be written as a matrix equation on the form $A\vec{v}
+= \vec{\tilde b}$ where $\bold{A}$ is an $n\times n$ tridiagonal matrix and
+$\tilde b_i = h^2 f$.  The factors $a_ij$ in the matrix corresponds to the
+factor of $v_i$ in the equation number $j$, and the matrix is rewritten as
+
+\begin{equation}
+    {\bf A} = \left(\begin{array}{cccccc}
+                           2& -1& 0 &\dots   & \dots &0 \\
+                           -1 & 2 & -1 &0 &\dots &\dots \\
+                           0&-1 &2 & -1 & 0 & \dots \\
+                           & \dots   & \dots &\dots   &\dots & \dots \\
+                           0&\dots   &  &-1 &2& -1 \\
+                           0&\dots    &  & 0  &-1 & 2 \\
+                      \end{array} \right).
+\end{equation}
+
+
+
+
+    
+
+
+
+
+
+
+\end{document}
