@@ -31,6 +31,32 @@
 \author{Daniel Heinesen, Halvard Sutterud, Gunnar Lange}
 \begin{document}
 \maketitle
+\begin{abstract}
+
+    In this project we will study speed and numerical precision of
+    numerical algorithms. Given a tridiagonal matrix, we used both a
+    general solving algorithm for tridiagonal matrixes and a special
+    taylored 'ferrari' method for our specific problem. This is also
+    compared to a cumbersome LU-decomposition of the matrix.
+
+
+
+    Using an analytical expression for the diagonal elements in our special
+    case, we were able to reduce the total of computations down to a total
+    of (INSERT N) computations, where N is the number of row and column
+    elements in our matrix. 
+
+    
+
+\end{abstract}
+\tableofcontents
+
+\addcontentsline{toc}{section}{Introduction}
+\section*{Introduction }
+    We will solve the one-dimensional Poisson equation with
+    Dirichlet boundary conditions by reducing it to a set of differential
+    equations on the form of a tridiagonal matrix. 
+
 \section*{a)}
 \subsection*{Counting the number of timesteps}
 There are three different steps to compute:
