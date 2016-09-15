@@ -52,7 +52,8 @@ class Plotter:
     def plot(self, figname, clean = False, save = True, maketex = True):
         plt.legend(self.legend)
         plt.title(self.directory)
-        plt.show()
+        plt.xlabel('x')
+        plt.ylabel('u(x)')
         fig_dir = "./figure/"
         fig_filename  = fig_dir + directory 
 
@@ -69,18 +70,19 @@ class Plotter:
             print "Saving fig to file: ", fig_filename + '.png'
             plt.savefig(fig_filename)
 
+        plt.show()
             
-            '''
-            if maketex:
-                tex_dir = "./tex_test/"
-                tex_filename  = tex_dir + directory 
-                num = len(glob.glob(tex_filename + '*')) + 1
+'''
+if maketex:
+    tex_dir = "./tex_test/"
+    tex_filename  = tex_dir + directory 
+    num = len(glob.glob(tex_filename + '*')) + 1
 
-                plt.savefig(tex_filename + str(num))
-                num = len(glob.glob(tex_file + '*')) + 1
-                tex_file = open(tex_name+str(num), 'w')
-                tex_file.write(tex_figure_text)
-                '''
+    plt.savefig(tex_filename + str(num))
+    num = len(glob.glob(tex_file + '*')) + 1
+    tex_file = open(tex_name+str(num), 'w')
+    tex_file.write(tex_figure_text)
+    '''
            
 
 def get_args():
