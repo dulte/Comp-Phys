@@ -1,9 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import glob
 
 
 import sys
+if len(sys.argv) >1:
+    directory = sys.argv[1]
+else:
+    directory = './data'
+
+
+
 '''
 try:
     filename = sys.argv[1]
@@ -12,24 +20,43 @@ except IndexError:
     sys.exit(1)
 '''
 
+class Plotter:
+    def __init__(self):
+        self.ax = plt.subplot(111)
+        self.legend = []
+        self.title = "N = ("
 
-directory = '../build-Project1Halvard-Desktop-Debug/%s' 
-arma_name = "ArmaSolution.txt"
-exact_name = "ComputedSolution.txt"
-comp_name = "ExactSolution.txt"
-lu_decomp = np.loadtxt(directory % arma_name)
-exact = np.loadtxt(directory % exact_name)
-computed = np.loadtxt(directory % comp_name)
+    def load_and_plot(self, filename):
+        ax = self.ax
+        filetype =filename.split('.')[-1] 
+        if  filetype == 'txt':
+            data = np.loadtxt(filename)
+        elif filetype == 'bin':
+            data = np.load(filename)
+        else:
+            print "BAD USAGE. ", filetype, " not recognized. Should take\
+            bin or txt"
 
+        x = np.linspace(0,1,len(data))
+        name = filename.split('.')[-2].split('/')[-1]
+        print filename
+        self.legend.append(name + ", N = %d"%len(data))
+        self.title += '%d ,' % len(data)
+        ax.plot(x,data)
 
-x1 = np.linspace(0,1,len(exact))
-x2 = np.linspace(0,1,len(computed))
-x3 = np.linspace(0,1,len(lu_decomp))
-plt.plot(x1, exact, '--')
-plt.plot(x2, computed)
-plt.plot(x3, lu_decomp)
-plt.legend(["exact","computed", "lu"])
+        return ax
 
-plt.title('N computed = %d, N lu decomposition = %d'% (len(computed),
-    len(lu_decomp)))
-plt.show()
+    def show(self):
+        plt.legend(self.legend)
+        self.title += '\b)'
+        plt.title(self.title)
+        plt.show()
+
+if __name__ == "__main__":
+    files = [name for name in glob.glob(directory+"/*")]
+
+    Plotting = Plotter()
+    for filename in files:
+        Plotting.load_and_plot(filename)
+
+    Plotting.show()
