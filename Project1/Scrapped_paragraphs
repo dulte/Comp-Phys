@@ -1,0 +1,10 @@
+There are three different steps to compute:
+\begin{equation}
+\tilde{a}_i=a_i-\frac{b_{i-1}c_{i-1}}{\tilde{a}_{i-1}}
+\end{equation}
+\begin{equation}
+\tilde{f_i}=f_i-\tilde{f}_{i-1}\frac{c_{i-1}}{\tilde{a}_{i-1}}
+\end{equation}
+\begin{equation}
+u_i=\frac{\tilde{f_i}-b_iu_{i+1}}{\tilde{a}_i}
+\end{equation}

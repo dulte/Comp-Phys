@@ -15,22 +15,20 @@ void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f);
 void writeArrayToFile(ofstream & outFile, double * array, int numBlocks);
 double calculate_error(double,double);
 void compute_solition(int N, double * u, double *exact);
-void LUDecompose(int N);
 
 int main(int argc, char *argv[])
 {
 
     //Div variables
     int N = 10000;
-    int iterations = 25;
+    int iterations = 30;
 
 
     ofstream outFile_u("numericalSolution.bin");
     ofstream outFile_h("logerror.bin");
 
-    LUDecompose(N);
 
-    /*
+
     double* max_errors = new double[iterations];
 
     for(int j = 0; j < iterations; j++){
@@ -71,7 +69,6 @@ int main(int argc, char *argv[])
     writeArrayToFile(outFile_h, max_errors, iterations);
     outFile_u.close();
     outFile_h.close();
-    */
 
     return 0;
 }
@@ -159,34 +156,6 @@ double calculate_error(double computed,double exact){
     }
     else{
         return log10(abs((computed-exact)/exact));
-    }
-}
-
-void LUDecompose(int N){
-    double dt = 1.0/(N+1);
-    arma::mat A = arma::zeros(N,N);
-    arma::mat L,U;
-    arma::vec w, x;
-    arma::vec solution=arma::zeros(N+2);
-    arma::vec f = arma::zeros(N);
-
-    for (int i=0; i < N; i++){
-        f(i)=dt*dt*funct(dt*i);
-        A(i,i)=2;
-        if (i-1 >= 0){
-                A(i, i-1)=-1;
-    }
-        if (i+1 <= N-1){
-                A(i, i+1)=-1;
-    }
-    }
-    arma::lu(L,U,A);
-    w=arma::solve(L, f);
-    x(1;N+1)=arma::solve(U, w);
-    x.save("num.txt", arma::raw_ascii);
-    cout << x[0]<< x[N] << endl;
-    for (int i=0; i<N; i++){
-
     }
 }
 
