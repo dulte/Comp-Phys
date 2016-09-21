@@ -11,11 +11,11 @@ using namespace std;
 //Function decleration
 double funct(double x);
 void gauss_elemination_general(int N, double *a, double* b, double* c, double* u, double* f);
-void gauss_elemination_specific(int N, double *a_inv, double* u, double* f);
+void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f);
 void writeArrayToFile(ofstream & outFile, double * array, int numBlocks);
 double calculate_error(double,double);
 void compute_solution(int N, double * u, double *exact);
-void LUDecomp(int N);
+void LUDecomp(int N, double *u);
 
 
 //Main
@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
 {
 
     //Div variables
-    int N = 3000;
-    int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, otherwise you wil get the log error with different N's
+    int N = 1000;
+    int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, else you wil get the log error with different N's
 
 
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     ofstream outFile_error("logerror.bin");
     ofstream outFile_h("logh.bin");
 
-    LUDecomp(3002);
+
 
     cout << "hei" << endl;
 
@@ -55,7 +55,8 @@ int main(int argc, char *argv[])
         double* error = new double[N+2];
 
         //Calculates the exact and numerical solution
-        compute_solution(N,u_numericalSolution, exactSol);
+        //compute_solution(N,u_numericalSolution, exactSol);
+        LUDecomp(N,u_numericalSolution);
 
         for(int k = 0; k < N+1; k++){
             error[k] = calculate_error(u_numericalSolution[k],exactSol[k]);
@@ -121,8 +122,10 @@ void compute_solution(int N, double * u, double * exact){
 
     }
 
+
+
     //gauss_elemination_general(N,a,b,c,u_numericalSolution,f);
-    gauss_elemination_specific(N,a_special_inv,u,f);
+    gauss_elemination_spesific(N,a_special_inv,u,f);
 
     delete [] a;
     delete [] b;
@@ -148,11 +151,13 @@ void gauss_elemination_general(int N, double *a, double* b, double* c, double* u
     for(int i = N-1; i > 0; i--){
         u[i] = (f[i] - b[i]*u[i+1])/a[i];
     }
+
+    u[N+1] = 0;
 }
 
 
 //The specific algorithm
-void gauss_elemination_specific(int N, double *a_inv, double* u, double* f){
+void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f){
     for(int i = 2; i < N+1; i++){
         f[i] += f[i-1]*a_inv[i-1];
     }
@@ -161,6 +166,7 @@ void gauss_elemination_specific(int N, double *a_inv, double* u, double* f){
     for(int i = N-1; i > 0; i--){
         u[i] = (f[i] + u[i+1])*a_inv[i];
     }
+    u[N+1] = 0;
 }
 
 double calculate_error(double computed,double exact){
@@ -172,17 +178,18 @@ double calculate_error(double computed,double exact){
     }
 }
 
-void LUDecomp(int N){
+void LUDecomp(int N, double *u){
     arma::mat A = arma::zeros(N,N);
     arma::mat L,U;
     arma::vec w,x;
+    arma::vec solution = arma::zeros(N+2);
 
     arma::vec func = arma::zeros(N);
 
     double dt = 1.0/(N+1);
 
     for (int i = 0; i < N; i++){
-        func(i) = dt*dt*funct(dt*i);
+        func(i) = dt*dt*funct(dt*(i+1));
         A(i,i) = 2;
         if (i-1 >= 0){
             A(i,i-1) = -1;
@@ -192,10 +199,19 @@ void LUDecomp(int N){
         }
     }
 
-    arma::lu(L,U,A);
-    w = arma::solve(L,func);
-    x = arma::solve(U,w);
-    x.save("num.txt", arma::raw_ascii);
+
+    x = arma::solve(A,func);
+
+
+    for(int i = 0; i < N; i++){
+        solution[i+1] = x[i];
+        u[i+1] = x[i];
+        cout << u[i+1] << endl;
+    }
+    u[0] = 0;
+    u[N+2] = 0;
+
+    solution.save("num.txt", arma::raw_ascii);
 }
 
 //Writes arrays to Files
