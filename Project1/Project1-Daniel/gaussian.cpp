@@ -19,7 +19,7 @@ Datafilene lagres i en mappe ved navn "data".
 using namespace std;
 
 
-double funct(double x);
+double known_function(double x);
 void gauss_elemination_general(int N, double *a, double* b, double* c, double* u, double* f);
 void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f);
 void writeArrayToFile(ofstream & outFile, double * array, int numBlocks);
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
 
 
 //Function we want to integrate
-double funct(double x){
+double known_function(double x){
     return 100*exp(-10*x);
 }
 
@@ -166,7 +166,7 @@ void compute_solution(int N, double * u, double * exact, bool use_general, bool 
         b[i] = -1;
         c[i] = -1;
 
-        f[i] = dt*dt*funct(dt*i);
+        f[i] = dt*dt*known_function(dt*i);
         exact[i] = 1 - (1-exp(-10))*(dt*i) - exp(-10*dt*i);
 
         a_special_inv[i] = (double)i/(i+1);
@@ -186,12 +186,9 @@ void compute_solution(int N, double * u, double * exact, bool use_general, bool 
     }
 
 
-    //Only prints the time if we are interested in the plot, and not the error
-    finish = clock();
-    if (print_time){
-      cout << "Time used: " << float((finish-start))/CLOCKS_PER_SEC << endl;
-    }
 
+    finish = clock();
+    cout << "Time used for N =" << N << " is: " << float((finish-start))/CLOCKS_PER_SEC << " sec." << endl;
 
     //Delets the arrays to free memory
     delete [] a;
