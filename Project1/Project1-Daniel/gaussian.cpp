@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <armadillo>
 #include "time.h"
+#include <string>
 
 /*
 Denne filen brukes ved å gi 3 argumenter. Foerste argument bestemmer antall iterasjoner. Velger man 1 her, vil programmet
@@ -38,6 +39,11 @@ int main(int argc, char *argv[])
 
 
   //Checks if the arguments have the right
+  if (argc < 4){
+    cout << "You did not give enough arguments. It needs iterations, N and type of algorithm" << endl;
+    exit(1);
+  }
+
   if (atof(argv[1]) < 1){
     cout << "To small a number for iterations, it has to be 1 or larger" << endl;
     exit(1);
@@ -69,10 +75,12 @@ int main(int argc, char *argv[])
     exit(0);
   }
 
+  string filename_numerical_solution = "numericalSolution_" + to_string(N) + ".bin";
+
   //Open files to write results
-  ofstream outFile_u("data/numericalSolution.bin");
-  ofstream outFile_error("data/logerror.bin");
-  ofstream outFile_h("data/logh.bin");
+  ofstream outFile_u(filename_numerical_solution);
+  ofstream outFile_error("logerror.bin");
+  ofstream outFile_h("logh.bin");
 
 
   double* max_errors = new double[iterations];
