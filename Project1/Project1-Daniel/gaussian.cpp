@@ -35,12 +35,13 @@ int main(int argc, char *argv[])
   int N = 1000;
   int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, else you wil get the log error with different N's
   bool use_general_algorithm; //If we are going to use the general or specific algorithm
-
+  bool give_error;
+  ofstream outFile_u;
 
 
   //Checks if the arguments have the right
   if (argc < 4){
-    cout << "You did not give enough arguments. It needs iterations, N and type of algorithm" << endl;
+    cout << "You did not give enough arguments. It needs iterations, type of algorithm and error or plot" << endl;
     exit(1);
   }
 
@@ -53,21 +54,10 @@ int main(int argc, char *argv[])
     cout << "Running " << iterations << " iteration(s)" << endl;
   }
 
-  if (atof(argv[2]) < 1){
-    cout << "To small a number for N, it has to be 1 or larger" << endl;
-    exit(1);
-  }
-  else{
-    N = atof(argv[2]);
-    if (iterations == 1){
-      cout << "Using N = " << N << endl;
-    }
-  }
-
-  if (strcmp(argv[3], "general") == 0){
+  if (strcmp(argv[2], "general") == 0){
     use_general_algorithm = true;
   }
-  else if(strcmp(argv[3], "specific") == 0){
+  else if(strcmp(argv[2], "specific") == 0){
     use_general_algorithm = false;
   }
   else{
@@ -75,14 +65,22 @@ int main(int argc, char *argv[])
     exit(0);
   }
 
-  string filename_numerical_solution = "numericalSolution_" + to_string(N) + ".bin";
+  if (strcmp(argv[3], "error") == 0){
+    give_error = true;
+  }
+  else if(strcmp(argv[3], "plot") == 0){
+    give_error = false;
+  }
+  else{
+    cout << "Say if you want error or plot" << endl;
+    exit(0);
+  }
 
-  //Open files to write results
-  ofstream outFile_u(filename_numerical_solution);
+
   ofstream outFile_error("logerror.bin");
   ofstream outFile_h("logh.bin");
 
-
+  //Opens files to write out error
   double* max_errors = new double[iterations];
   double* log_h = new double[iterations];
 
@@ -91,11 +89,31 @@ int main(int argc, char *argv[])
   for(int j = 0; j < iterations; j++){
 
       //If we are looking at error, this increase the N every iteration
-      if (iterations > 1){
+      if (give_error){
           N = pow(10,1+j/4.0); //Increasing N this way to get better resolution
           log_h[j] = -(1+j/4.0);
           cout << "N: " << N << endl;
       }
+      else{
+        N = pow(10,1+j); //Increasing N this way to get better resolution
+        log_h[j] = -(1+j);
+        cout << "N: " << N << endl;
+      }
+
+
+
+
+
+
+      if (!give_error){
+        string filename_numerical_solution = "numericalSolution_" + to_string(N) + ".bin";
+        //Open files to write results
+        outFile_u.open(filename_numerical_solution);
+      }
+
+
+
+
 
       //Array that need updating depending on N
       double* u_numericalSolution = new double[N+2];
@@ -114,27 +132,27 @@ int main(int argc, char *argv[])
 
 
       //Freeing memory for the next iteration
-      if (iterations > 1){
-          delete [] u_numericalSolution;
-          delete [] exactSol;
-          delete [] error;
-      }
-      else{
+      delete [] u_numericalSolution;
+      delete [] exactSol;
+      delete [] error;
+
+      if(!give_error){
           writeArrayToFile(outFile_u, u_numericalSolution, N+2); //saves the graph instead of the error
+          outFile_u.close();
       }
   }
 
 
-  //We are only interested in the error if we iterate more than once
-  if (iterations > 1){
+
+  if (give_error){
       writeArrayToFile(outFile_error, max_errors, iterations);
       writeArrayToFile(outFile_h,log_h,iterations);
   }
 
 
-  outFile_u.close();
   outFile_h.close();
   outFile_error.close();
+
 
   return 0;
 
