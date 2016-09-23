@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 u = np.fromfile("numericalSolution.bin")
-error = np.fromfile("logerror.bin")
+#error = np.fromfile("logerror.bin")
 #LUNum = np.loadtxt("num.txt")
 #print LUNum.size
 

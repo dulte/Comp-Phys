@@ -11,7 +11,7 @@ using namespace std;
 //Function decleration
 double funct(double x);
 void gauss_elemination_general(int N, double *a, double* b, double* c, double* u, double* f);
-void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f);
+void gauss_elemination_specific(int N, double *a_inv, double* u, double* f);
 void writeArrayToFile(ofstream & outFile, double * array, int numBlocks);
 double calculate_error(double,double);
 void compute_solution(int N, double * u, double *exact);
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     //Div variables
     int N = 3000;
-    int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, else you wil get the log error with different N's
+    int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, otherwise you wil get the log error with different N's
 
 
 
@@ -122,7 +122,7 @@ void compute_solution(int N, double * u, double * exact){
     }
 
     //gauss_elemination_general(N,a,b,c,u_numericalSolution,f);
-    gauss_elemination_spesific(N,a_special_inv,u,f);
+    gauss_elemination_specific(N,a_special_inv,u,f);
 
     delete [] a;
     delete [] b;
@@ -152,7 +152,7 @@ void gauss_elemination_general(int N, double *a, double* b, double* c, double* u
 
 
 //The specific algorithm
-void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f){
+void gauss_elemination_specific(int N, double *a_inv, double* u, double* f){
     for(int i = 2; i < N+1; i++){
         f[i] += f[i-1]*a_inv[i-1];
     }

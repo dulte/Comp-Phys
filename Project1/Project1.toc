@@ -1,3 +1,10 @@
-\contentsline {section}{Introduction}{1}{section*.1}
-\contentsline {section}{Theoretical Model}{1}{section*.1}
-\contentsline {paragraph}{Equation \ref {eq:forward_substitution_1}}{4}{section*.14}
+\contentsline {section}{\numberline {1}Introduction }{1}{section.1}
+\contentsline {section}{\numberline {2}Theoretical model}{1}{section.2}
+\contentsline {paragraph}{Equation \ref {eq:forward_substitution_1}}{4}{section*.12}
+\contentsline {section}{\numberline {3}Method - Implementation}{4}{section.3}
+\contentsline {section}{\numberline {4}Results}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}The general algorithm}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}The tailored algorithm}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}LU-Decomposition}{5}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusion}{5}{section.5}
+\contentsline {section}{\numberline {6}Reference}{5}{section.6}

@@ -31,16 +31,12 @@
 \author{Daniel Heinesen, Halvard Sutterud, Gunnar Lange}
 \begin{document}
 \maketitle
-\begin{abstract}
-
-    In this project we will study speed and numerical precision of
-    numerical algorithms. Given a tridiagonal matrix, we used both a
+\begin{abstract}In this project we will study speed and numerical precision of
+    linear algebra algorithms. Given a tridiagonal matrix, we used both a
     general solving algorithm for tridiagonal matrices and a special
     tailored 'ferrari' method for our specific problem. This is also
-    compared to a cumbersome LU-decomposition of the matrix.
-
-
-
+    compared to a cumbersome LU-decomposition of the matrix.\\
+    \linebreak
     Using an analytic expression for the diagonal elements in our special
     case, we were able to reduce the total number of FLOPS down to a total
     of (INSERT N) computations, where N is the number of row and column
@@ -51,15 +47,11 @@
 \end{abstract}
 \tableofcontents
 
-\addcontentsline{toc}{section}{Introduction}
-\addcontentsline{toc}{section}{Theoretical Model}
 
-\section*{Introduction }
-    We will solve the one-dimensional Poisson equation with
-    Dirichlet boundary conditions by reducing it to a set of differential
-    equations on the form of a tridiagonal matrix. 
+\section{Introduction }
+We solve the one-dimensional Poisson equation with Dirichlet boundary conditions by reducing it to a set of equations on the form of a tridiagonal matrix. 
 
-\section*{Theoretical model}
+\section{Theoretical model}
 \subsection*{Discretizing the Poisson equation}
 Assume that $u(x)$ is a continuous, twice differentiable function, $u(x) \in \mathbb{C}^2$. Using Taylor polynomial to the second degree, a general approximation formula to the second derivative can be derived as:
 $$\frac{d^2 u}{dx^2}\approx \frac{u(x+h)+u(x-h)-2u(x)}{h^2}+O(h^2)$$
@@ -200,5 +192,29 @@ This is proved in appendix \ref{appendixX}. Thus, $\tilde{a}_i$ can also be pre-
 This gives a total of $4n-4$ FLOPS. However, we still need to compute $\tilde{v}_n/a_n$ as well, which gives on additional FLOP, for a total of:
 $$\mathrm{FLOPS}=4n-3$$
 Which approximately cuts the running time by a factor 2. 
+\section{Method - Implementation}
+All programs and benchmarks calculations can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project1}{GIT repository}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project1}. 
+\section{Results}
+\subsection{The general algorithm}
+The time taken for different grid points is shown below:\\
+
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Number of points} & \textbf{Time taken (seconds) general} & \textbf{Time taken (seconds) tailored} \\
+\hline
+$10^1$ & $2\cdot 10^{-6}$ & $2.0\cdot 10^{-6}$\\
+$10^2$ & $7\cdot 10^{-6}$ & $5.0\cdot 10^{-6}$\\
+$10^3$ & $6.6\cdot 10^{-5}$ & $4.1\cdot 10^{-5}$\\
+$10^4$ & $6.7\cdot 10^{-4}$ & $2.6\cdot 10^{-4}$\\
+$10^5$ & $6.6 \cdot 10^{-3}$& $3.0 \cdot 10^{-3}$\\
+$10^6$ & $5.9\cdot 10^{-2}$ & $2.4 \cdot 10^{-2}$\\
+$10^7$ & $6.6 \cdot 10^{-1}$ & $2.7 \cdot 10^{-1}$\\
+\hline
+\end{tabular}
+\subsection{The tailored algorithm}
+\subsection{LU-Decomposition}
+
+\section{Conclusion}
+\section{Reference}
 
 \end{document}
