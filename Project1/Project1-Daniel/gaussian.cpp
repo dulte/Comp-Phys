@@ -8,12 +8,10 @@
 #include <string>
 
 /*
-Denne filen brukes ved å gi 3 argumenter. Foerste argument bestemmer antall iterasjoner. Velger man 1 her, vil programmet
-lage en fil med loesningen for N'en gitt i argument 2. Velger man iterasjon >1 vil programmet lage sine egene N'er definert under
-og lage 2 filer med feilene for disse N'ene. Argument 2 er N. Denne betyr bare noe om iterasjon > 1. Argument 3 bestemmer
-om programmet skal bruke den generelle eller spesielle (general/specific) algoritmen.
-
-Datafilene lagres i en mappe ved navn "data".
+This program takes 3 arguments. The first is the number of iterations. The program will run this many times, with increasing N.
+The second argument is given as either "general" or "specific", and determins what kind of algorithm that is used.
+The third argument is given as "plot" or "error" and determins whether we want plots of the numerical solutions, or
+want a plot of the error. When using error you want to give a higher number of iterations, since we use smaller increments for N, due to a need for higher resultion.
 */
 
 using namespace std;
@@ -27,13 +25,12 @@ double calculate_error(double,double);
 void compute_solution(int N, double * u, double *exact, bool use_general);
 
 
-//Main
 int main(int argc, char *argv[])
 {
 
-  //Div variables
+
   int N;
-  int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, else you wil get the log error with different N's
+  int iterations = 1;
   bool use_general_algorithm; //If we are going to use the general or specific algorithm
   bool give_error;
   ofstream outFile_u;
@@ -102,10 +99,10 @@ int main(int argc, char *argv[])
 
 
 
-
+      //We have to open a new file for each iteration since it changes name
       if (!give_error){
         string filename_numerical_solution = "numericalSolution_" + to_string(N) + ".bin";
-        //Open files to write results
+
         outFile_u.open(filename_numerical_solution);
       }
 
@@ -118,7 +115,7 @@ int main(int argc, char *argv[])
       double* exactSol = new double[N+2];
       double* error = new double[N+2];
 
-      //Calculates the exact and numerical solution
+
       compute_solution(N,u_numericalSolution, exactSol, use_general_algorithm);
 
 
@@ -162,7 +159,7 @@ double known_function(double x){
 }
 
 
-//Function for doing the calculation of the solution
+
 void compute_solution(int N, double * u, double * exact, bool use_general){
 
     double dt = 1.0/(N+1);
@@ -219,7 +216,7 @@ void compute_solution(int N, double * u, double * exact, bool use_general){
 
 
 
-//The general algorithm
+
 void gauss_elemination_general(int N, double *a, double* b, double* c, double* u, double* f) {
 
     //Forward loop
@@ -241,7 +238,7 @@ void gauss_elemination_general(int N, double *a, double* b, double* c, double* u
 }
 
 
-//The specific algorithm
+
 void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f){
     for(int i = 2; i < N+1; i++){
         f[i] += f[i-1]*a_inv[i-1];
@@ -254,10 +251,10 @@ void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f){
     u[N+1] = 0;
 }
 
-//Function for calculating the log of the error
+
 double calculate_error(double computed,double exact){
     if (computed == 0  || exact == 0){
-        return 0.0;
+        return 0.0; //So we dont run the risk of taking log(0) or dividing by 0 
     }
     else{
         return log10(abs((computed-exact)/exact));
