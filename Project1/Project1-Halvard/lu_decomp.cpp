@@ -7,7 +7,7 @@
 
 using namespace std;
 
-double exact_function(double x);
+double known_function(double x);
 void lu_decompose(int n, string filename);
 
 int main(int argc, char *argv[]){
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
 
     string argument;
     for (i = 1; i <= exponent; ++i) {
-        filename = "data/luDecomp";
+        filename = "luDecomp";
         argument = to_string(i);
         filename.append(to_string(i));
         filename.append(".txt");
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]){
         start = clock();
         lu_decompose(n, filename);
         finish = clock();
-        timeused = (double) (start - finish) / CLOCKS_PER_SEC;
+        timeused = (double) (finish-start) / CLOCKS_PER_SEC;
         cout << "Time used for lu decomp with n = "<< n <<"(seconds): " << timeused << endl;
     }
 
@@ -56,13 +56,14 @@ void lu_decompose(int n, string filename){
     vec f = zeros(n);
     vec x = zeros(n);
     vec w = zeros(n);
+    vec solution = zeros(n+2);
     mat L,U;
 
     double h = 1.0/(n+1);
     int i;
-    for (i = 0; i < n; ++i) {
+    for (i = 0; i < n; i++) {
         A(i,i) = 2;
-        f(i) = h*h*exact_function(i*h);
+        f(i) = h*h*known_function((i+1)*h);
         if (i-1 >= 0) {
             A(i,i-1) = -1;
         }
@@ -75,9 +76,13 @@ void lu_decompose(int n, string filename){
     arma::lu(L,U,A);
     w = solve(L,f);
     x = solve(U,w);
-    x.save(filename , arma::raw_ascii);
+    for(int i = 0; i < n; i++){
+        solution[i+1] = x[i];
+    }
+
+    solution.save(filename , arma::raw_ascii);
 }
 
-double exact_function(double x){
+double known_function(double x){
     return 100 * exp(-10*x);
 }

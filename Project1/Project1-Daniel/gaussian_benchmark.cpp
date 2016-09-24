@@ -70,6 +70,7 @@ int main(int argc, char *argv[])
   }
 
   //Open files to write results
+  for
   ofstream outFile_u("numericalSolution.bin");
   ofstream outFile_error("logerror.bin");
   ofstream outFile_h("logh.bin");

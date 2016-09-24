@@ -51,12 +51,16 @@
 \section{Introduction }
 We solve the one-dimensional Poisson equation with Dirichlet boundary conditions by reducing it to a set of equations on the form of a tridiagonal matrix. 
 
-\section{Theoretical model}
-\subsection*{Discretizing the Poisson equation}
+\section{Theoretical model}\label{Theoretical_section}
+\subsection{Discretizing the Poisson equation}\label{Discretize_Poisson}
 Assume that $u(x)$ is a continuous, twice differentiable function, $u(x) \in \mathbb{C}^2$. Using Taylor polynomial to the second degree, a general approximation formula to the second derivative can be derived as:
-$$\frac{d^2 u}{dx^2}\approx \frac{u(x+h)+u(x-h)-2u(x)}{h^2}+O(h^2)$$
-Discretizing $u(x)$ at points $x_1, x_2, ..., x_n$, and  introducing the convenient notation $u(x_i)=u_i$, this formula can be rewritten in discrete form as:
-$$\frac{d^2 u}{dx^2}\approx \frac{u_{i+1}+u_{i-1}-2u_{i}}{h^2}+O(h^2)$$
+\begin{equation}\label{eq:continuous_derivative}
+\frac{d^2 u}{dx^2}\approx \frac{u(x+h)+u(x-h)-2u(x)}{h^2}+O(h^2)
+\end{equation}
+This formula is derived in appendix \textbf{INSERT APPENDIX}. Discretizing $u(x)$ at points $x_1, x_2, ..., x_n$, and  introducing the convenient notation $u(x_i)=u_i$, this formula can be rewritten in discrete form as:
+\begin{equation}\label{eq:discrete_Poisson}
+\frac{d^2 u}{dx^2}\approx \frac{u_{i+1}+u_{i-1}-2u_{i}}{h^2}+O(h^2)
+\end{equation}
 Where $h$ is the distance between the grid points, given by $h=1/(n+1)$. If one additionally imposes Dirichlet boundary conditions, i.e. that $u_0=u_{n+1}=0$, this formula is valid for all $x_i$, $i\in [1, n]$. Inserting this formula into the Poisson equation with right-hand side $f(x)$, and letting $f(x_i)=f_i$, gives:
 \begin{equation}\label{Poisson}
 -\frac{u_{i+1}+u_{i-1}-2u_{i}}{h^2}=f_i
@@ -73,7 +77,7 @@ $$\mathbf{A}=\begin{pmatrix}
 0 && \ldots && -1&  2  \\
 \end{pmatrix}$$
 Notice that $\mathbf{A}$ is a tridiagonal matrix. This makes the general solution algorithm much simpler.
-\subsection*{Solving a tridiagonal matrix problem}
+\subsection{Solving a general tridiagonal matrix problem}\label{general_algorithm_section}
 A general tridiagonal matrix problem can be written as:
 $$\begin{pmatrix}
 a_{1} & b_1 & 0 & \ldots &  \ldots & 0\\
@@ -162,7 +166,7 @@ This will impact the $\tilde{v}_i$, converting them into $w_i$, according to:
 w_i=\frac{\tilde{v}_i-b_iw_{i+1}}{\tilde{a_i}}
 \end{equation}
 This defines a general algorithm for solving a tridiagonal matrix problem. The efficiency of this algorithm is surprisingly easy to calculate, as shown in the next section.
-\subsection*{Counting the number of FLOPS}
+\subsection{Counting the number of FLOPS}
 The general algorithm consists of equations \ref{eq:forward_substitution_1}, \ref{eq:forward_substitution_2} and \ref{eq:backwards_substitution}. Let us look at the required FLOPS for each of these equations:
 \paragraph*{Equation \ref{eq:forward_substitution_1}}
 This equation requires the computation of $x=c_i/\tilde{a}_{i}$. After this, we compute $y=x\cdot b_i$, and finally the computation $z=a_{i+1}-y$. This is done for $n-1$ points (as it is not required for the first row), giving a total of $3(n-1)$ FLOPS for this equation.
@@ -173,7 +177,7 @@ This equation requires the computation of $x=b_iw_{i+1}$, followed by the comput
 \paragraph*{Total}
 Thus totally, the algorithm requires $8(n-1)$ FLOPS. However, we have ignored the division by $\tilde{a_n}$ to get $w_n$. This requires one additional FLOP, giving the total number of FLOPS as:
 $$\mathrm{FLOPS}=8n-7$$
-\subsection*{Tailoring an algorithm}
+\subsection{Tailoring an algorithm}\label{tailored_algorithm_section}
 In the previous sections, we have developed and analyzed an algorithm for a general tridiagonal matrix. However, as seen from equation 1, the matrix in our case is significantly simpler. This comes from the fact that there are only three distinct numbers present in our matrix. This means that \textit{all quantities} which only require $a_i$, $b_i$ or $c_i$ can be computed a priori. It is also possible to obtain an analytic expression for $\tilde{a}_i$, as follows.
 \paragraph*{Finding an analytical expression for $\tilde{a}_i$}: The general formula for $\tilde{a}_{i+1}$ is given by equation \ref{eq:forward_substitution_1}. In our case, $c_i=b_i=-1$ and $a_{i+1}=2$. Thus equation \ref{eq:forward_substitution_1} can be rewritten as:
 \begin{equation}\label{eq:forward_substitution_tailored}
@@ -184,7 +188,7 @@ Note that $\tilde{a}_1=a_1=2$. Trying out some iterations, it seems that:
 \tilde{a}_{i+1}=-\frac{(i+2)}{i+1}
 \end{equation}
 This is proved in appendix \ref{appendixX}. Thus, $\tilde{a}_i$ can also be pre-computed. This means that the number of FLOPS during runtime can be significantly reduced.
-\subsection*{Countinger the number of FLOPS in the tailored algorithm}
+\subsection{Countinger the number of FLOPS in the tailored algorithm}
 \paragraph{Equation \ref{eq:forward_substitution_1}} This can be pre-computed, and therefore does not contribute any FLOPS during runtime. 
 \paragraph*{Equation \ref{eq:forward_substitution_2}} As $\tilde{a}_i$ is already pre-computed, we can also pre-computed $\tilde{a}_i^{-1}$. Thus this equation only requires the multiplication of $x=\tilde{v_i}\frac{c_i}{\tilde{a}_i}$, followed by the subtraction $y=v_{i+1}-x$, for a total of $2(n-1)$ FLOPS. 
 \paragraph*{Equation \ref{eq:backwards_substitution}} Here we only need to compute $x=\tilde{v}_i+w_{i+1}$ (since $b_i=-1$), followed by the computation $x/\tilde{a}_i$ for a total of $2(n-1)$ FLOPS. 
@@ -192,29 +196,130 @@ This is proved in appendix \ref{appendixX}. Thus, $\tilde{a}_i$ can also be pre-
 This gives a total of $4n-4$ FLOPS. However, we still need to compute $\tilde{v}_n/a_n$ as well, which gives on additional FLOP, for a total of:
 $$\mathrm{FLOPS}=4n-3$$
 Which approximately cuts the running time by a factor 2. 
-\section{Method - Implementation}
-All programs and benchmarks calculations can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project1}{GIT repository}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project1}. 
-\section{Results}
-\subsection{The general algorithm}
-The time taken for different grid points is shown below:\\
+\subsection{Comparing with LU decomposition}
+Another common algorithm for solving a set of matrix equations (effectively inverting the marix) is LU decomposition. This is a process which decomposes any initial matrix, $\mathbf{A}$ to a product of an upper triangular ("$\mathbf{U}$") and a lower triangular ("$\mathbf{L}$") matrix, i.e:
+\begin{equation}
+\mathbf{A}=\mathbf{L}\mathbf{U}
+\end{equation}
+This is useful because the matrix equation $\mathbf{A}\mathbf{x}=\mathbf{b}$ can now be rewritten as:
+$$\mathbf{L}\mathbf{U}\mathbf{x}=\mathbf{b}$$
+Which can be solved as:\\
+\begin{equation}\label{eq:LU_1}
+\mathbf{L}\mathbf{y}=\mathbf{b}
+\end{equation}
+\begin{equation}\label{eq:LU_2}
+\mathbf{Ux}=\mathbf{x}
+\end{equation} These equations are significantly easier to solve than the original problem, as the matrices involved are now triangular.\\
+\linebreak This algorithm has been analyzed thoroughly in the literature, see for example \textbf{Add some reference here}. As proved there, the algorithm is of order $(2/3)n^3$. 
+\subsection{The specific problem and its analytic solution} \label{analytic_solution}
+In this paper we will investigate the solution to the following special case of Poisson's equation:
+\begin{equation}\label{eq:poisson_rhs}
+-\frac{d^2 u}{dx^2}=100e^{-10x}
+\end{equation}
+With Dirichlet boundary conditions on the intervanl $x\in [0, 1]$. The main motivation for choosing this specific right-hand side is that the analytic solution is relatively easy to obtain. Simply integrating twice gives:
+$$u(x)=-e^{-10x}+A+Bx$$
+Requiring that $u(0)=u(1)=0$ gives, after some algebra, the analytic solution as:
+\begin{equation}\label{eq:analytic_solution}
+u(x)=1-(1-e^{-10})x-e^{-10x}
+\end{equation}
+\section{Method}\label{Method}
+All programs and benchmarks calculations can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project1}{GIT repository}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project1}. All these calculations were timed, using the module found \textbf{INSERT CITATION TO LECTURE NOTES HERE}
+\subsection{Implementing the general algorithm}
+This algorithm consists of two loops: the decomposition and forward substitution, followed by the backwards substitution, as discussed in section \ref{general_algorithm_section}. In Pseudo-Code:
+\lstinputlisting{Pseudo_code_1.cpp}
+Note how this code does not assume anything about the tridiagonal matrix, and can thus be used for a general tridiagonal matrix. This is just a numerical implementation of the equations from section \ref{Discretize_Poisson}. Note, however, that this algorithm does not take into account the boundary conditions. These must be added (simply as zeros at the extreme points of the vectors) separately. 
+\subsection{Implementing the tailored algorithm}
+The algorithm which is tailored to our problem is computationally lighter, as described in section \ref{tailored_algorithm_section}. It is also easier to implement, as a lot of the relevant quantities can be pre-computed. There are still two loops, but these are now significantly simpler, as shown in the Pseudo-code below:
+\lstinputlisting{Pseudo_code_2.cpp} 
+Where a\_inv=$a^{-1}$. Note that this algorithm only works if the input matrix is in the form discussed in section \ref{tailored_algorithm_section}. Note also that the comment from the previous section about the boundary condition applies.
+\subsection{Implementing the LU-Decomposition}
+The LU decomposition is implemented by means of the Armadillo Linear Algebra library for $C++$. This is done in two steps. First we initialize a matrix $\mathbf{A}$ (in this case a tridiagonal matrix, though it can be of any kind). Then we solve equations \ref{eq:LU_1} and \ref{eq:LU_2} by using Armadillo's \textit{solve} method . In Pseudo-Code:
+\lstinputlisting{Pseudo_code_3.cpp} 
+\subsection{Comparing the results to the analytic solution}\label{compare_error}
+The analytic solution is rather straightforward to implement as a separate function. We tested our algorithms with multiple step-sizes $h$ (and therefore different $n$'s) to get a sense of how well it converges to the analytic solution derived in section \ref{analytic_solution}. A good measure of "closeness" to the analytic solution is the log of the relative error, as found in \textbf{INSERT REFERENCE HERE}, defined by:
+\begin{equation}\label{eq:relative_error}
+\epsilon_i=\log_{10}\left(\left|\frac{v_i-u_i}{u_i}\right|\right)
+\end{equation}
+Where $u_i$ is the analytic solution at a specified point, and $v_i$ is the numerical solution at the same point. We will employ this expression to plot the relative error. Note that we only record the maximum error which occurs for a specific value of $n$.
 
-\begin{tabular}{|c|c|c|}
+\section{Results and discussion}
+\subsection{Convergence to the analytic solution}
+\subsubsection{Results}
+At plot of the analytic solution versus a range of values for $n$ is shown in figure \ref{fig:figure_1} below. Note that $n$ denotes the number of points \textit{within} the tridiagonal matrix, so that the total number of points is $n+2$ (including the endpoints). Note also that this plot is independent of which of the methods discussed in section \ref{Theoretical_section} is used, as they are all based on the same discretization of the second derivative. The only difference between these methods is the CPU time required.\\
+\begin{figure}[h]
+\fbox{\includegraphics[scale=0.8]{Project1_general_algorithm.pdf}}
+\caption{Plot of the solution, $u(x)$,  to the differential equation defined in equation
+\ref{eq:poisson_rhs}. The dashed line is the analytic solution derived in section \ref{analytic_solution}. The other lines come from numerical simulations with a varying number of integration points, as described in section \ref{Method}}
+\label{fig:figure_1}
+\end{figure}
+\subsubsection{Discussion}
+Clearly the methods converge rapidly, as predicted by the quadratic error term in equation \ref{eq:continuous_derivative}. A closer analysis as found \textbf{INSERT http://www2.math.umd.edu/~dlevy/classes/amsc466/lecture-notes/differentiation-chap.pdf} shows that the mathematical (truncation) error of the second derivative of $u(x)$ at $a$ is given by:
+\begin{equation}
+O(h^2)= -\frac{h^2}{12}f^{(4)}(\xi), \quad \xi \in (a-h, a+h)
+\end{equation}
+Note the negative sign. Differentiating the analytical solution (equation \ref{eq:analytic_solution}) four times gives a strictly positive expression on the interval $x\in (0,1)$;
+$$\frac{d^4 u}{dx^4}=10^4 e^{-10x}$$
+And thus the error term will tend to make the numerical solution \textit{smaller} than the analytic solution. This is the behavior we can observe for $n=10$ in figure \ref{fig:figure_1}. Closer inspection of the plot reveals a similar behavior for larger values of $n$, as shown in figure \ref{fig:figure_2} below.
+\begin{center}
+\begin{figure}[h]
+\fbox{\includegraphics[scale=0.7]{project1_general_zoom.pdf}}
+\caption{Zoomed in version of figure \ref{fig:figure_1}.} 
+\label{fig:figure_2}
+\end{figure}
+\end{center}
+\pagebreak
+\subsection{Relative error}
+\subsubsection{Results}
+A log-log plot of the error, as described in section \ref{compare_error} is shown in figure \ref{fig:figure_3} below.
+\begin{center}
+\begin{figure}[h]
+\fbox{\includegraphics[scale=0.75]{Project1_log_error.pdf}}
+\caption{Plot of relative error. $x$-axis is the step-size, $y$-axis is the relative error. The effect is a combination of truncation and round-off errors.} 
+\label{fig:figure_3}
+\end{figure}
+\end{center}
+\subsubsection{Discussion}
+The error is composed of two components: a truncation error (as we used a finite step size) and a numerical (round-off) error. I have already investigated the truncation error of our method, and know that it decreases as a function of $h^2$. A close analysis of the round-off error is done in \textbf{KNUT MØRKEN}, where it is shown that the round-off error for the second-derivative at $a$ is given by:
+\begin{equation}
+\epsilon_{round-off} = \frac{3\epsilon^*}{h^2}f(\xi) \quad \xi \in (a-h, a+h)
+\end{equation}
+Here $\epsilon^*$ is the smallest possible distance between two floating points numbers (in the reference approximated as $\epsilon^* \approx 6\cdot 10^{-16}$. Thus there are two opposing factors contributing to the error - the truncation error is proportional to $h^2$, and decreases with decreasing step-size, whereas the numerical errors are proportional to $1/h^2$, and increase with decreasing step-size. Therefore, we would expect to reach a point where the increase in the round-off errors are larger than the decrease in the truncation errors, whereupon further increasing $n$ only increases the error. This is exactly what we observe.
+\subsection{Comparison of computational speed}
+\subsubsection{Results}
+We compare the computational speed of the various algorithms described in section \ref{Theoretical_section} for a range of $n$-values in the table below:
+\begin{table}[h]
+\label{table1}
+\begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Number of points} & \textbf{Time taken (seconds) general} & \textbf{Time taken (seconds) tailored} \\
+ \multicolumn{1}{|c|}{\textbf{Number of points, $\mathbf{n}$}} & 
+  \multicolumn{3}{|c|}{\textbf{Time taken, $s$ (seconds)}} \\
+\cline{2-4}
+ & \textbf{General method} & \textbf{Tailored method} & \textbf{LU-decomposition} \\
 \hline
-$10^1$ & $2\cdot 10^{-6}$ & $2.0\cdot 10^{-6}$\\
-$10^2$ & $7\cdot 10^{-6}$ & $5.0\cdot 10^{-6}$\\
-$10^3$ & $6.6\cdot 10^{-5}$ & $4.1\cdot 10^{-5}$\\
-$10^4$ & $6.7\cdot 10^{-4}$ & $2.6\cdot 10^{-4}$\\
-$10^5$ & $6.6 \cdot 10^{-3}$& $3.0 \cdot 10^{-3}$\\
-$10^6$ & $5.9\cdot 10^{-2}$ & $2.4 \cdot 10^{-2}$\\
-$10^7$ & $6.6 \cdot 10^{-1}$ & $2.7 \cdot 10^{-1}$\\
+$10^1$ & $2\cdot 10^{-6}$ & $2.0\cdot 10^{-6}$ & $2.2\cdot 10^{-3}$\\
+$10^2$ & $7\cdot 10^{-6}$ & $5.0\cdot 10^{-6}$ & $1.6 \cdot 10^{-3}$\\
+$10^3$ & $6.6\cdot 10^{-5}$ & $4.1\cdot 10^{-5}$ & $8.1\cdot 10^{-2}$\\
+$10^4$ & $6.7\cdot 10^{-4}$ & $2.6\cdot 10^{-4}$ & $7.7$\\
+$10^5$ & $6.6 \cdot 10^{-3}$& $3.0 \cdot 10^{-3}$& N/A\\
+$10^6$ & $5.9\cdot 10^{-2}$ & $2.4 \cdot 10^{-2}$& N/A\\
+$10^7$ & $6.6 \cdot 10^{-1}$ & $2.7 \cdot 10^{-1}$& N/A\\
 \hline
 \end{tabular}
-\subsection{The tailored algorithm}
-\subsection{LU-Decomposition}
+\caption{Comparing time taken to compute a solution to the Poisson equation for a range of $n$ for the different algorithms described in \ref{Theoretical_section}}
+\end{table}
+\subsection{Discussion}
+As expected (according to the theory in section \ref{Theoretical_section}), the tailored method is superior to the general method, which are both far superior to the LU-decomposition. Notice how the LU-decomposition fails after $n=10^5$, because there is not enough memory available.\\
+\linebreak
+One odd feature of the above table is that it takes \textit{more} time to LU-decompose a $10\times 10$ matrix than it takes to decompose a $100 \times 100$ matrix. Wilst both are relatively fast, they are extremely slow when compared to the other methods. It is not entirely obvious why this is the case, and this may be something worth investigating further.
+
 
 \section{Conclusion}
+We have shown that, for a tridiagonal matrix problem, it is better to carefully consider the problem in advance, and utilize as many of the special, simplifying, properties as possible. We have also shown that proper optimization and specialization of the methods can open up the possibility to compute problems (such as solving this problem with $n=10^7$) which are not solvable by more general methods.
+\subsection{Future outreach}
+
 \section{Reference}
+\section{Appendices}
+\subsection{Appendix A - Deriving the error in the second derivative}
+\subsection{Appendix B - Deriving the general formula for $a_n$}
 
 \end{document}

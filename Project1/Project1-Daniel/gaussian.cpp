@@ -24,7 +24,7 @@ void gauss_elemination_general(int N, double *a, double* b, double* c, double* u
 void gauss_elemination_spesific(int N, double *a_inv, double* u, double* f);
 void writeArrayToFile(ofstream & outFile, double * array, int numBlocks);
 double calculate_error(double,double);
-void compute_solution(int N, double * u, double *exact, bool use_general, bool print_time);
+void compute_solution(int N, double * u, double *exact, bool use_general);
 
 
 //Main
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 {
 
   //Div variables
-  int N = 1000;
+  int N;
   int iterations = 1; // 25; //If this variable is set to 1, you will get the numerical approx. with the N above, else you wil get the log error with different N's
   bool use_general_algorithm; //If we are going to use the general or specific algorithm
   bool give_error;
@@ -84,8 +84,6 @@ int main(int argc, char *argv[])
   double* max_errors = new double[iterations];
   double* log_h = new double[iterations];
 
-  bool print_time = (iterations == 1);
-
   for(int j = 0; j < iterations; j++){
 
       //If we are looking at error, this increase the N every iteration
@@ -121,7 +119,7 @@ int main(int argc, char *argv[])
       double* error = new double[N+2];
 
       //Calculates the exact and numerical solution
-      compute_solution(N,u_numericalSolution, exactSol, use_general_algorithm,print_time);
+      compute_solution(N,u_numericalSolution, exactSol, use_general_algorithm);
 
 
       for(int k = 0; k < N+1; k++){
@@ -131,15 +129,14 @@ int main(int argc, char *argv[])
       max_errors[j] = *max_element(error + 2, error + N-1); //Cuts of the end points, because the the exact solution is 0 and the error is indefined
 
 
-      //Freeing memory for the next iteration
-      delete [] u_numericalSolution;
-      delete [] exactSol;
-      delete [] error;
-
       if(!give_error){
           writeArrayToFile(outFile_u, u_numericalSolution, N+2); //saves the graph instead of the error
           outFile_u.close();
       }
+      //Freeing memory for the next iteration
+      delete [] u_numericalSolution;
+      delete [] exactSol;
+      delete [] error;
   }
 
 
@@ -166,7 +163,7 @@ double known_function(double x){
 
 
 //Function for doing the calculation of the solution
-void compute_solution(int N, double * u, double * exact, bool use_general, bool print_time){
+void compute_solution(int N, double * u, double * exact, bool use_general){
 
     double dt = 1.0/(N+1);
 
@@ -206,8 +203,12 @@ void compute_solution(int N, double * u, double * exact, bool use_general, bool 
 
 
     finish = clock();
-    cout << "Time used for N =" << N << " is: " << float((finish-start))/CLOCKS_PER_SEC << " sec." << endl;
-
+    if (use_general){
+    cout << "Time used for N =" << N << " with the general algorithm is: " << float((finish-start))/CLOCKS_PER_SEC << " sec." << endl;
+  }
+    else{
+  cout << "Time used for N =" << N << " with the specific algorithm is: " << float((finish-start))/CLOCKS_PER_SEC << " sec." << endl;
+}
     //Delets the arrays to free memory
     delete [] a;
     delete [] b;
