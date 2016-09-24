@@ -5,7 +5,7 @@
 \BOOKMARK [2][-]{subsection.2.3}{Counting the number of FLOPS}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{Tailoring an algorithm}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{Countinger the number of FLOPS in the tailored algorithm}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.6}{Comparing with LU decomposition}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.6}{Comparing with LU-decomposition}{section.2}% 8
 \BOOKMARK [2][-]{subsection.2.7}{The specific problem and its analytic solution}{section.2}% 9
 \BOOKMARK [1][-]{section.3}{Method}{}% 10
 \BOOKMARK [2][-]{subsection.3.1}{Implementing the general algorithm}{section.3}% 11
@@ -18,8 +18,8 @@
 \BOOKMARK [2][-]{subsection.4.3}{Comparison of computational speed}{section.4}% 18
 \BOOKMARK [2][-]{subsection.4.4}{Discussion}{section.4}% 19
 \BOOKMARK [1][-]{section.5}{Conclusion}{}% 20
-\BOOKMARK [2][-]{subsection.5.1}{Future outreach}{section.5}% 21
-\BOOKMARK [1][-]{section.6}{Reference}{}% 22
-\BOOKMARK [1][-]{section.7}{Appendices}{}% 23
-\BOOKMARK [2][-]{subsection.7.1}{Appendix A - Deriving the error in the second derivative}{section.7}% 24
-\BOOKMARK [2][-]{subsection.7.2}{Appendix B - Deriving the general formula for an}{section.7}% 25
+\BOOKMARK [2][-]{subsection.5.1}{Results of this project}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.2}{Future outreach}{section.5}% 22
+\BOOKMARK [1][-]{section*.12}{Appendices}{}% 23
+\BOOKMARK [1][-]{Appendix.a.A}{Deriving the error in the second derivative}{}% 24
+\BOOKMARK [1][-]{Appendix.a.B}{Deriving the general formula for an}{}% 25

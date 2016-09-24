@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn
+
+def exact_solution(x):
+	return 1 - (1-np.exp(-10))*x - np.exp(-10*x)
+
+legend=[]
+
+for k in range(1,4):
+	u = np.fromfile("numericalSolution_"+str(10**k)+".bin")
+	x = np.linspace(0,1,u.size)
+	plt.plot(x,u)
+	plt.hold('on')
+	legend.append("Numerical, n="+str(10**k))
+
+x_exact = np.linspace(0,1,10000)
+plt.plot(x_exact,exact_solution(x_exact),"r--")
+legend.append("Exact")
+
+plt.legend(legend)
+plt.xlabel('$x$')
+plt.ylabel('$u(x)$')
+plt.title('Numerical solution of the Poisson equation with varying number of points')
+
+plt.savefig('Project1_general_algorithm.pdf')
+plt.show()
+

@@ -1,31 +1,31 @@
 \contentsline {section}{\numberline {1}Introduction }{2}{section.1}
 \contentsline {section}{\numberline {2}Theoretical model}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Discretizing the Poisson equation}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Solving a general tridiagonal matrix problem}{2}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Counting the number of FLOPS}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.2}Solving a general tridiagonal matrix problem}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Counting the number of FLOPS}{4}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Tailoring an algorithm}{4}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Countinger the number of FLOPS in the tailored algorithm}{4}{subsection.2.5}
-\contentsline {paragraph}{Equation \ref {eq:forward_substitution_1}}{4}{section*.7}
-\contentsline {subsection}{\numberline {2.6}Comparing with LU decomposition}{5}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.5}Countinger the number of FLOPS in the tailored algorithm}{5}{subsection.2.5}
+\contentsline {paragraph}{Equation \ref {eq:forward_substitution_1}}{5}{section*.7}
+\contentsline {subsection}{\numberline {2.6}Comparing with LU-decomposition}{5}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}The specific problem and its analytic solution}{5}{subsection.2.7}
-\contentsline {section}{\numberline {3}Method}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Implementing the general algorithm}{5}{subsection.3.1}
+\contentsline {section}{\numberline {3}Method}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Implementing the general algorithm}{6}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Implementing the tailored algorithm}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Implementing the LU-Decomposition}{6}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Comparing the results to the analytic solution}{6}{subsection.3.4}
-\contentsline {section}{\numberline {4}Results and discussion}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Convergence to the analytic solution}{7}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Results}{7}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Discussion}{7}{subsubsection.4.1.2}
-\contentsline {subsection}{\numberline {4.2}Relative error}{9}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Results}{9}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Discussion}{9}{subsubsection.4.2.2}
-\contentsline {subsection}{\numberline {4.3}Comparison of computational speed}{10}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Results}{10}{subsubsection.4.3.1}
-\contentsline {subsection}{\numberline {4.4}Discussion}{10}{subsection.4.4}
-\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}
-\contentsline {subsection}{\numberline {5.1}Future outreach}{10}{subsection.5.1}
-\contentsline {section}{\numberline {6}Reference}{10}{section.6}
-\contentsline {section}{\numberline {7}Appendices}{10}{section.7}
-\contentsline {subsection}{\numberline {7.1}Appendix A - Deriving the error in the second derivative}{10}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Appendix B - Deriving the general formula for $a_n$}{10}{subsection.7.2}
+\contentsline {subsection}{\numberline {3.3}Implementing the LU-Decomposition}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Comparing the results to the analytic solution}{7}{subsection.3.4}
+\contentsline {section}{\numberline {4}Results and discussion}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Convergence to the analytic solution}{8}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Results}{8}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Discussion}{9}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Relative error}{10}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Results}{10}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Discussion}{10}{subsubsection.4.2.2}
+\contentsline {subsection}{\numberline {4.3}Comparison of computational speed}{11}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Results}{11}{subsubsection.4.3.1}
+\contentsline {subsection}{\numberline {4.4}Discussion}{11}{subsection.4.4}
+\contentsline {section}{\numberline {5}Conclusion}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}Results of this project}{12}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Future outreach}{12}{subsection.5.2}
+\contentsline {section}{Appendices}{13}{section*.12}
+\contentsline {section}{\numberline {A}Deriving the error in the second derivative}{13}{Appendix.a.A}
+\contentsline {section}{\numberline {B}Deriving the general formula for $a_n$}{13}{Appendix.a.B}
