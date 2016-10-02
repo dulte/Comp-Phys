@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Theoretical model}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Introducing the relevant Schroedinger equation}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Reformulating the equation as an Eigenvalue problem}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Jacobi's algorithm for solving an eigenvalue problem}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Investigating the properties of orthogonal transfomrations}{2}{subsection.2.4}
