@@ -15,6 +15,8 @@ eigensolver::eigensolver(mat& matrix_to_be_solved,int n)
 
 void eigensolver::jacobi(double eps, bool test_enabled){
 
+
+    //2 orthogonal vector for unit test.
     vec test_vec1 = zeros(col);
     test_vec1(0) = 1;
     vec test_vec2 = zeros(col);
@@ -47,14 +49,18 @@ void eigensolver::jacobi(double eps, bool test_enabled){
 
 
         double a_kk, a_ll, a_ik, a_il, r_ik, r_il;
+
         a_kk = B(k,k);
         a_ll = B(l,l);
         B(k,k) = c*c*a_kk - 2.0*c*s*B(k,l) + s*s*a_ll;
         B(l,l) = s*s*a_kk + 2.0*c*s*B(k,l) + c*c*a_ll;
         B(k,l) = 0.0;
         B(l,k) = 0.0;
-        for ( int i = 0; i < col; i++ ) {
-          if ( i != k && i != l ) {
+
+
+        for ( int i = 0; i < col; i++ ){
+          if ( i != k && i != l ){
+
             a_ik = B(i,k);
             a_il = B(i,l);
             B(i,k) = c*a_ik - s*a_il;
@@ -62,14 +68,15 @@ void eigensolver::jacobi(double eps, bool test_enabled){
             B(i,l) = c*a_il + s*a_ik;
             B(l,i) = B(i,l);
           }
+
           r_ik = R(i,k);
           r_il = R(i,l);
-
           R(i,k) = c*r_ik - s*r_il;
           R(i,l) = c*r_il + s*r_ik;
+
         }
 
-
+        //Test to check if B applied to orthogonal vectors conserves orthogonality
         if ((times_looped%10 == 0) && test_enabled){
             if(dot(B*test_vec1,B*test_vec2) != 0){
                 cout << "Orthogonality was not conserved!" << endl;
@@ -82,7 +89,7 @@ void eigensolver::jacobi(double eps, bool test_enabled){
         done = (off_mat(B)<eps);
     }
 
-    cout << times_looped << endl;
+    cout << "Done in " << times_looped << " transformations." << endl;
 
     eigenvalues = diagvec(B);
 }
