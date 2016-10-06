@@ -1,6 +1,8 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Theoretical model}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Introducing the relevant Schroedinger equation}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Reformulating the equation as an Eigenvalue problem}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Jacobi's algorithm for solving an eigenvalue problem}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Investigating the properties of orthogonal transfomrations}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Introducing the potentials}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Reformulating the equation as an Eigenvalue problem}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Implementing the boundary conditions}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Jacobi's algorithm for solving an eigenvalue problem}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Investigating the properties of orthogonal transfomrations}{section.2}% 8
