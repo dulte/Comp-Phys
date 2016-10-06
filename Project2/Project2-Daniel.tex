@@ -99,6 +99,7 @@ $$\mathbf{w}_i\cdot \mathbf{w}_j=\delta_{ij}$$
 Which shows that orthogonal transformations also preserve orthogonality between vectors.
 
 
+
 \section{Results}
 
 After solving the the Schrödingers equation for both the 2 interacting electrons and 2 non-interacting electrons, for four different frequencies for the harmonic oscillator $\omega_r$, we get these graphs(\textbf{FIG1}).\\
@@ -137,5 +138,34 @@ $$
 $$ 
 
 This means that the larger $\omega_r$ is, the larger the domain where the coloumb potential is dominant is, and thus we expect a greater probablity for a greater relative distance between the two electrons. This is exactly what can be seen from the results. For the larger $\omega$'s the HO well is quite small, and is therefor wholy dominant, causing the solutions for both potenitals to be similar. For smaller $\omega$'s the HO wells are large and the electrons have the posibility to have a large relative distance from eachother.
+
+
+\section{Methods}
+The program used to solve these equations mainly consisted of two classes. We used one class for solving the Schrödinger equation for a given potential. This class calculates the matrix elements described above and returns the matrix. The second class uses Jacobi's method to solve the eigenvalue problem. Most of the code for Jacobi's method was heavly inspired by code found \textbf{HERE}\\
+
+For different values for $\omega_r$ the width of the probability distribution varies, and becomes larger for smaller $\omega_r$. To get the best resolution without having to decrease the step length, a $\rho _{max}$ had to be choose for each $\omega_r$, mostly by trial and error.\\
+
+We chose to look at four different values for $\omega_r$ between $0.01$ and $5$. We only looked at the lowest state energy eigenfunction, and the difference between the interacting and non-interaction cases. The parameter used:\\
+
+\begin{tabular}{|l||c|c|c|c|}
+\hline
+$\omega_r$ & 0.01 & 0.5 & 1 & 5 \\
+\hline
+$\rho_{max}$ & 50 & 10 & 10 & 5 \\
+\hline
+\end{tabular}\\
+
+With a mesh grid dimensionality of 200. \\
+
+To ensure that the code behaved as we wanted, we implemented two unit test. The first unit test ensures the conservation of inner product of vectors given by $\mathbf{w}_i = \mathbf{A}\mathbf{v}_i$ after each similarity transformation done to $\mathbf{A}$. 
+
+\lstinputlisting{psudo_code1.cpp}
+
+
+
+The second unit test ensures that the method used to find the largest non-diagonal element in the matrix gives the correct element.
+
+\lstinputlisting{psudo_code2.cpp}
+
 
 \end{document}
