@@ -1,8 +1,21 @@
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
-\contentsline {section}{\numberline {2}Theoretical model}{1}{section.2}
-\contentsline {subsection}{\numberline {2.1}Introducing the relevant Schroedinger equation}{1}{subsection.2.1}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Theoretical model}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Introducing the relevant Schroedinger equation}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Introducing the potentials}{2}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Reformulating the equation as an Eigenvalue problem}{2}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Implementing the boundary conditions}{3}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Jacobi's algorithm for solving an eigenvalue problem}{3}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Investigating the properties of orthogonal transfomrations}{4}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.3}Reformulating the equation as an Eigenvalue problem}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Implementing the boundary conditions}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Jacobi's algorithm for solving an eigenvalue problem}{4}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Investigating the properties of orthogonal transfomrations}{5}{subsection.2.6}
+\contentsline {section}{\numberline {3}Methods}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Choosing a range for the independent variable}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Choosing an upper boundary for the length}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Choosing a step size}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Brief overview of the developed algorithm}{6}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Implementing unit tests}{6}{subsection.3.5}
+\contentsline {section}{\numberline {4}Results}{7}{section.4}
+\contentsline {section}{\numberline {5}Discussion}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}The non-interacting case}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}The interacting case}{7}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusion and outlook}{8}{section.6}
+\contentsline {subsection}{\numberline {6.1}Conclusion}{8}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Outlook}{8}{subsection.6.2}

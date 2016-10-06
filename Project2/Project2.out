@@ -6,3 +6,16 @@
 \BOOKMARK [2][-]{subsection.2.4}{Implementing the boundary conditions}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{Jacobi's algorithm for solving an eigenvalue problem}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.6}{Investigating the properties of orthogonal transfomrations}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Methods}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Choosing a range for the independent variable}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Choosing an upper boundary for the length}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Choosing a step size}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Brief overview of the developed algorithm}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.5}{Implementing unit tests}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Results}{}% 15
+\BOOKMARK [1][-]{section.5}{Discussion}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{The non-interacting case}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{The interacting case}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Conclusion and outlook}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{Conclusion}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.2}{Outlook}{section.6}% 21
