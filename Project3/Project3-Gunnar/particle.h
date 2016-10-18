@@ -1,5 +1,5 @@
-#ifndef PARTICLES_H
-#define PARTICLES_H
+#ifndef PARTICLE_H
+#define PARTICLE_H
 #include <armadillo>
 #include "vec3.h"
 
@@ -14,4 +14,4 @@ public:
     vec3 acceleration;
 };
 
-#endif // PARTICLES_H
+#endif // PARTICLE_H

@@ -45,7 +45,7 @@ We present numerical models of our solar system with varying levels of complexit
 \section{Introduction}
 The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques. We present two different numerical methods for solving the ODE's resulting from Newton's gravitational laws - Euler's method and the velocity-Verlet method. We investigate the stability of both methods for varying complexity of the system.
 \section{Theoretical model}\label{Theoretical_section}
-\subsection{Newtonian Gravity}
+\subsection{Newtonian Gravity}\label{Newtonian_Gravity}
 Newton's general law of gravitation, which describes the force of gravity between two objects, is given by:
 \begin{equation}
 \vec{F}_{G}=\frac{Gm_1m_2}{r^3}\vec{r}
@@ -57,15 +57,40 @@ Here $F_G$ is the force of gravity on the first mass, $G$ is the universal gravi
 \begin{equation}\label{eq:coupled_diff_2}
 \frac{d^2 y}{dt^2}=\frac{F_{G,y}}{m_1}
 \end{equation}
-Where $F_{G,x}$ and $F_{G,y}$ are the components of the gravitational force in the $x$ and $y$ directions. This assumes coplanar motion of the planets, though this can be easily extended to a third dimension.\\
+\begin{equation}\label{eq:coupled_diff_3}
+\frac{d^2 z}{dt^2}=\frac{F_{G,z}}{m_1}
+\end{equation}
+Where $F_{G,x}, F_{G,y}$ and $F_{G,z}$ are the components of the gravitational force in the $x, y$ and $z$ directions respectively. These equations can be reduced to a set of first-order equations by introducing the velocity components, $v$, such that:
+\begin{equation}\label{eq:Velocity_position_equation}
+\frac{dx}{dt}=v_x, \quad \quad \frac{dv_x}{dt}=\frac{F_{G,x}}{m_1}=a_x(x,y,z)
+\end{equation}
+And equivalently for the $y$ and $z$ direction. This gives six coupled, first-order, linear, differential equations.
+\subsection{Implementing the initial conditions}
+To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. This is described in detail\textbf{LATER}. For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.
 
 \subsection{Discretizing the equations}
-We will solve equations \ref{eq:coupled_diff_1} and \eqref{eq:coupled_diff_2} numerically. This implies that we require discretized versions of the above equations. We therefore assume that we want to simulate from $t=a$ to $t=b$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $dt$, of:
-$$dt=\frac{b-a}{N}$$
-Let $t_i=a+it$, $x_i=x(t_i)$ and $y_i=y(t_i)$. Then the above equations can be discretized as
+We will solve equations \ref{eq:coupled_diff_1}, \ref{eq:coupled_diff_2} and \ref{eq:coupled_diff_3} numerically. This implies that we require discretized versions of the above equations. We therefore assume that we want to simulate from $t=t_0$ to $t=t_f$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $h$, of:
+$$h=\frac{t_f-t_0}{N}$$
+Let now $t_i=a+ih$, where $i$ goes from $0$ to $N$. Furthermore, let $x_i=x(t_i)$ and $ v_{x,i}=v_x(t_i)$, and equivalently for the $y$ and $z$ direction. Finally, discretize the acceleration as $a_{x,i}=a_x(x_i, y_i, z_i)$. This allows us to discretize the derivatives in equation \ref{eq:Velocity_position_equation}. We will do this in two separate ways; with the forward Euler algorithm and with the Velocity-Verlet algorithm.
+\subsubsection{Euler's forward method}
+Euler's forward algorithm amounts to discretizing the derivatives from section \ref{Newtonian_Gravity} as:
+\begin{equation}
+\frac{dx}{dt}\approx \frac{x_{i+1}-x_i}{h}
+\end{equation}
+This approximation is based on Taylor-expanding the function $x$ to the second order, as explained \textbf{HERE}. Inserting this approximation into equation \ref{eq:Velocity_position_equation}, and rearranging some of the terms, gives:
+\begin{equation}
+v_{x, i+1}=v_{x,i}+ha_{x,i}
+\end{equation}
+\begin{equation}
+x_{i+1}=x_i+hv_{x,i}
+\end{equation}
+And again equivalently for the $x$ and $y$ direction. This is the Euler forward algorithm. Combining this with the initial conditions, $\vec{v}(t_0)=\vec{v}_0$ and $\vec{x}(t_0)=\vec{x}_0$, makes it possible to solve the equations of Newtonian gravity. Closer inspection (through Taylor expansion, such as found \textbf{HERE} \href{http://www.math.unl.edu/~gledder1/Math447/EulerError}{here}), reveals that the local error is proportional to $h^2$, whereas the global error is proportional to $h$. Thus, whilst this is a straightforward algorithm, the errors quickly accumulate. It is therefore of interest to investigate a slightly improved algorithm:
+
+\subsubsection{Velocity-Verlet Algorithm}
+The Velocity-Verlet algorithm is based on the idea of Taylor-expanding the acceleration, instead of the velocity and the position
 
 
-\subsection{First model - The earth-sun system}
+\subsection{First model - The earth-sun system}\label{First_model}
 We begin with a simplified model of our solar system, containing only the earth and the sun. In this case, the equations reduce to a two-body problem, which has analytic solutions that can be found \textbf{here}. We now introduce an appropriate scale for the system.\\
 \linebreak
 We will measure lengths in astronomical units, $AU$, time in years and mass in solar masses, $M_{\bigodot}$. Using these units, and assuming earth to have a circular orbit,it is possible to show that $G=4\pi^2 \mathrm{AU^3 yr^{-2}}$, as shown \textbf{HERE}. Thus the differential equations \ref{eq:coupled_diff_1} and \ref{eq:coupled_diff_2} can be formulated, for the earth, as:

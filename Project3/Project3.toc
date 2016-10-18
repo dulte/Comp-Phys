@@ -1,11 +1,14 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}
 \contentsline {section}{\numberline {2}Theoretical model}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Newtonian Gravity}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Discretizing the equations}{2}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}First model - The earth-sun system}{2}{subsection.2.3}
-\contentsline {section}{\numberline {3}Methods}{3}{section.3}
-\contentsline {section}{\numberline {4}Results}{3}{section.4}
-\contentsline {section}{\numberline {5}Discussion}{3}{section.5}
-\contentsline {section}{\numberline {6}Conclusion and outlook}{3}{section.6}
-\contentsline {subsection}{\numberline {6.1}Conclusion}{3}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Outlook}{3}{subsection.6.2}
+\contentsline {subsection}{\numberline {2.2}Implementing the initial conditions}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Discretizing the equations}{3}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Euler's forward method}{3}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Velocity-Verlet Algorithm}{3}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}First model - The earth-sun system}{3}{subsection.2.4}
+\contentsline {section}{\numberline {3}Methods}{4}{section.3}
+\contentsline {section}{\numberline {4}Results}{4}{section.4}
+\contentsline {section}{\numberline {5}Discussion}{4}{section.5}
+\contentsline {section}{\numberline {6}Conclusion and outlook}{4}{section.6}
+\contentsline {subsection}{\numberline {6.1}Conclusion}{4}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Outlook}{4}{subsection.6.2}
