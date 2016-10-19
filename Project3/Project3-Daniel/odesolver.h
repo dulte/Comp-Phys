@@ -1,4 +1,6 @@
 #pragma once
+#include "particle.h"
+#include "system.h"
 #include <vector>
 
 using namespace std;
@@ -8,9 +10,10 @@ using namespace std;
 class ODEsolver
 {
 public:
-    ODEsolver(double dt_, System* system);
-    void velocityVerlet(vector<Particle*> particles);
-    void eulerCromerOneStep(vector<Particle*> particles);
+    ODEsolver(double dt_, System* sys);
+    void velocityVerletOneStep(vector<Particle*> particles);
+    void eulerCromerOneStep();
     double dt;
+    System *system;
 
 };

@@ -5,6 +5,7 @@ class vec3
 {
 public:
     vec3();
+    vec3(double x, double y, double z);
 
     double componants[3];
     double &operator()(int index){return componants[index];}
@@ -19,6 +20,11 @@ public:
     vec3 &operator=(vec3 rhs);
     vec3 &operator=(double s);
 
+
+    double x() const { return componants[0]; }
+    double y() const { return componants[1]; }
+    double z() const { return componants[2]; }
+
     void normalize();
 
     void print();
@@ -27,6 +33,7 @@ public:
     double length();
 
     vec3 randint(int min, int max);
+    vec3 cross(vec3 otherVec);
 
 };
 

@@ -1,32 +1,39 @@
 #include "odesolver.h"
+#include "system.h"
+#include <iostream>
 #include <vector>
 
 using namespace std;
 
-ODEsolver::ODEsolver(double dt_, System *system)
+ODEsolver::ODEsolver(double dt_, System *sys)
 {
     dt = dt_;
+    system = sys;
 }
 
-void ODEsolver::eulerCromerOneStep(vector<Particle *> particles)
+void ODEsolver::eulerCromerOneStep()
 {
     system->compute_acceleration();
-    for (Particle* particle : particles){
-        particle->velocity += particle->acceleration*dt;
-        particle->postions += particle->velocity*dt;
+    //cout << system->number_of_bodies << endl;
+    //system->list_of_particles[1].m_position.print();
+    for (int i = 0; i < system->list_of_particles.size(); i++){
+        //Particle particle = system->list_of_particles[i];
+        //system->list_of_particles[i].m_position.print();
+        system->list_of_particles[i].m_velocity += system->list_of_particles[i].acceleration*dt;
+        system->list_of_particles[i].m_position += system->list_of_particles[i].m_velocity*dt;
     }
 }
 
-void velocityVerletOneStep(vector<Particle*> particles){
+void ODEsolver::velocityVerletOneStep(vector<Particle*> particles){
     for (Particle* particle : particles){
-        particle->velocity += 0.5*particle->acceleration*dt;
-        particle->postions += particle->velocity*dt;
+        particle->m_velocity += 0.5*particle->acceleration*dt;
+        particle->m_position += particle->m_velocity*dt;
     }
 
     system->compute_acceleration();
 
     for (Particle* particle : particles){
-        particle->velocity += 0.5*particle->acceleration*dt;
+        particle->m_velocity += 0.5*particle->acceleration*dt;
     }
 
 }

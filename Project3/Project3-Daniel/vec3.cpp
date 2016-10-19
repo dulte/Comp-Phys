@@ -12,6 +12,13 @@ vec3::vec3()
     componants[2] = 0;
 }
 
+vec3::vec3(double x, double y, double z)
+{
+    componants[0] = x;
+    componants[1] = y;
+    componants[2] = z;
+}
+
 vec3 &vec3::operator-=(vec3 rhs)
 {
     componants[0] -= rhs[0];
@@ -84,6 +91,9 @@ void vec3::print(){
     cout << "[" << componants[0] << "," << componants[1] << "," << componants[2] << "]" << endl;
 }
 
+vec3 vec3::cross(vec3 otherVec){
+    return vec3(y()*otherVec.z()-z()*otherVec.y(), z()*otherVec.x()-x()*otherVec.z(), x()*otherVec.y()-y()*otherVec.x());
+}
 
 double vec3::lengthSquared()
 {
