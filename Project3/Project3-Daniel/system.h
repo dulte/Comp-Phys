@@ -23,13 +23,21 @@ public:
     vec3 Angular_momentum(char* one_or_many, int body);
     void compute_acceleration();
     void compute_acceleration_relativistic(int index_body, int index_star);
+
+    void setInitialEnergyAndMomentum();
+
     double G = 4*M_PI*M_PI;
     vector<Particle> list_of_particles;
     ofstream outFile;
+    ofstream outFileEnergyMomentum;
+
     double total_potential_energy;
+    double initialEnergy;
+    double initialAngularMomentum;
 
 
     void dumpPositionsToFile();
+    void dumpErrorToFile();
 
-   };
+};
 
