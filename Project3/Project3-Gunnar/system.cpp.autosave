@@ -49,11 +49,7 @@ double System::Kinetic_energy(){
 }
 
 double System::Potential_energy(){
-    double total_potential_energy=0;
-    for(int j=0; j<number_of_bodies; j++){
-        total_potential_energy +=
-     }
-    return total_potential_energy;
+
 
 }
 

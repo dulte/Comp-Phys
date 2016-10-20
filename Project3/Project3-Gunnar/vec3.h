@@ -7,6 +7,7 @@ public:
     vec3();
 
     double componants[3];
+    vec3(double x, double y, double z);
     double &operator()(int index){return componants[index];}
     double &operator[](int index){return componants[index];}
     //double &operator*(vec3 a,vec3 b){return a(0)*b(0) + a(1)*b(1) + a(2)*b(2);}
@@ -19,6 +20,10 @@ public:
     vec3 &operator=(vec3 rhs);
     vec3 &operator=(double s);
 
+    double x() const { return componants[0]; }
+    double y() const { return componants[1]; }
+    double z() const { return componants[2]; }
+
     void normalize();
 
     void print();
@@ -27,6 +32,7 @@ public:
     double length();
 
     vec3 randint(int min, int max);
+    vec3 cross(vec3 otherVec);
 
 };
 

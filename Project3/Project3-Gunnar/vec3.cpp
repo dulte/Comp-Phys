@@ -12,6 +12,13 @@ vec3::vec3()
     componants[2] = 0;
 }
 
+vec3::vec3(double x, double y, double z)
+{
+    componants[0] = x;
+    componants[1] = y;
+    componants[2] = z;
+}
+
 vec3 &vec3::operator-=(vec3 rhs)
 {
     componants[0] -= rhs[0];
@@ -75,6 +82,11 @@ vec3 vec3::randint(int min, int max)
     componants[2] = rand()%(max-min + 1) + min;
     return *this;
 }
+
+vec3 vec3::cross(vec3 otherVec){
+    return vec3(y()*otherVec.z()-z()*otherVec.y(), z()*otherVec.x()-x()*otherVec.z(), x()*otherVec.y()-y()*otherVec.x());
+}
+
 
 void vec3::normalize(){
     *this = *this/length();

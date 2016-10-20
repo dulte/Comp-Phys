@@ -12,6 +12,7 @@ int main()
     B=vec3 (0, 1, 0);
     C=A.cross(B);
     C.print();
+    
     return 0;
 }
 
