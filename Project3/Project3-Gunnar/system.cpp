@@ -1,6 +1,7 @@
 #include "system.h"
 #include "particle.h"
 #include "vec3.h"
+#include <iostream>
 
 System::System()
 {
@@ -32,18 +33,41 @@ double System::compute_acceleration(){
     return total_potential_energy;
 }
 
+void System::compute_acceleration_relativistic(int index_body, int index_star){
+    double c = 63198;
+    vec3 angular_moment;
+    angular_moment= System::Angular_momentum("one", index_body);
+    Particle current_body=list_of_particles[index_body];
+    current_body.acceleration=0.0;
+    vec3 r = (list_of_particles[index_star].m_position-current_body.m_position);
+    double relativistic_factor=1+(3.0*angular_moment.lengthSquared())/(r.lengthSquared()*c*c);
+    double prefac=G*list_of_particles[index_star].m_mass/(r.lengthSquared()*r.length());
+    current_body.acceleration=r*relativistic_factor*prefac;
+}
 
 
-vec3 System::Angular_momentum(){
+vec3 System::Angular_momentum(char* one_or_many, int body){
     vec3 total_angular_momentum;
-    for(int j=0; j<number_of_bodies; j++){
-        vec3 linear_momentum=(list_of_particles[j].m_velocity)*(list_of_particles[j].m_mass);
-        vec3 angular_momentum=(list_of_particles[j].m_position).cross(linear_momentum);
-        total_angular_momentum += angular_momentum;
+    if (strcmp(one_or_many, "many") == 0){
+        for(int j=0; j<number_of_bodies; j++){
+         vec3 linear_momentum=(list_of_particles[j].m_velocity)*(list_of_particles[j].m_mass);
+         vec3 angular_momentum=(list_of_particles[j].m_position).cross(linear_momentum);
+         total_angular_momentum += angular_momentum;
+        }
+    }
+
+    else if (strcmp(one_or_many, "one") == 0){
+         vec3 linear_momentum=(list_of_particles[body].m_velocity)*(list_of_particles[body].m_mass);
+         vec3 angular_momentum=(list_of_particles[body].m_position).cross(linear_momentum);
+         total_angular_momentum = angular_momentum;
+    }
+
+    else{
+        cout << "Need to specify if computing angular momentum for one body or many" << endl;
+        exit(0);
     }
     return total_angular_momentum;
-
-}
+    }
 
 double System::Kinetic_energy(){
     double total_kinetic_energy=0;

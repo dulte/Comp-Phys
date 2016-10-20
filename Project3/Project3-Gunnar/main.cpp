@@ -14,8 +14,8 @@ int main()
     initial_velocity= vec3(0,1,1);
     double mass=100;
     solar_system.create_Particle(initial_position, initial_velocity, mass);
-    double ek=solar_system.Kinetic_energy();
-    cout << ek << endl;
+    vec3 angular_momentum=solar_system.Angular_momentum("many", 0);
+    angular_momentum.print();
 
     return 0;
 }
