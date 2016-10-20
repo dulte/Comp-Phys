@@ -4,9 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-    vec3.cpp \
-    main.cpp
+    ../../Project3/Project3-attempt2/vec3.cpp
 
 HEADERS += \
-    vec3.h
+    ../../Project3/Project3-attempt2/vec3.h
 
