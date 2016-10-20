@@ -14,6 +14,7 @@
 \usepackage{shadow}
 \usepackage{hyperref}
 \usepackage{titling}
+\usepackage{ marvosym }
 
 \setlength{\droptitle}{-10em}   % This is your set screw
 
@@ -42,8 +43,38 @@ We present numerical models of our solar system with varying levels of complexit
 \tableofcontents
 \newpage
 \section{Introduction}
-The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. 
+The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques. We present two different numerical methods for solving the ODE's resulting from Newton's gravitational laws - Euler's method and the velocity-Verlet method. We investigate the stability of both methods for varying complexity of the system.
 \section{Theoretical model}\label{Theoretical_section}
+\subsection{Newtonian Gravity}
+Newton's general law of gravitation, which describes the force of gravity between two objects, is given by:
+\begin{equation}
+\vec{F}_{G}=\frac{Gm_1m_2}{r^3}\vec{r}
+\end{equation}
+Here $F_G$ is the force of gravity on the first mass, $G$ is the universal gravitational constant, $m_i$ are the masses of the two objects, and $\vec{r}$ is the vector pointing from $m_1$ to $m_2$. This law can be combined with Newton's second law of motion, to give a set of coupled differential equations:
+\begin{equation}\label{eq:coupled_diff_1}
+\frac{d^2x}{dt^2}=\frac{F_{G,x}}{m_1}
+\end{equation} 
+\begin{equation}\label{eq:coupled_diff_2}
+\frac{d^2 y}{dt^2}=\frac{F_{G,y}}{m_1}
+\end{equation}
+Where $F_{G,x}$ and $F_{G,y}$ are the components of the gravitational force in the $x$ and $y$ directions. This assumes coplanar motion of the planets, though this can be easily extended to a third dimension.\\
+
+\subsection{Discretizing the equations}
+We will solve equations \ref{eq:coupled_diff_1} and \eqref{eq:coupled_diff_2} numerically. This implies that we require discretized versions of the above equations. We therefore assume that we want to simulate from $t=a$ to $t=b$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $dt$, of:
+$$dt=\frac{b-a}{N}$$
+Let $t_i=a+it$, $x_i=x(t_i)$ and $y_i=y(t_i)$. Then the above equations can be discretized as
+
+
+\subsection{First model - The earth-sun system}
+We begin with a simplified model of our solar system, containing only the earth and the sun. In this case, the equations reduce to a two-body problem, which has analytic solutions that can be found \textbf{here}. We now introduce an appropriate scale for the system.\\
+\linebreak
+We will measure lengths in astronomical units, $AU$, time in years and mass in solar masses, $M_{\bigodot}$. Using these units, and assuming earth to have a circular orbit,it is possible to show that $G=4\pi^2 \mathrm{AU^3 yr^{-2}}$, as shown \textbf{HERE}. Thus the differential equations \ref{eq:coupled_diff_1} and \ref{eq:coupled_diff_2} can be formulated, for the earth, as:
+$$\frac{d^2x}{dt^2}=\frac{GM_{\bigodot}}{r^3}x=\frac{4\pi^2 x}{(x^2+y^2)^{3/2}}$$
+$$\frac{d^2y}{dt^2}=\frac{GM_{\bigodot}}{r^3}y=\frac{4\pi^2 y}{(x^2+y^2)^{3/2}}$$
+The equivalent expressions for the the sun are:
+$$\frac{d^2x}{dt^2}=\frac{GM_{\mathrm{Earth}}}{r^3}x=\frac{4\pi^2 M_{\mathrm{Earth}} }{(x^2+y^2)^{3/2}}x$$
+$$\frac{d^2y}{dt^2}=\frac{GM_{\mathrm{Earth}}}{r^3}y=\frac{4\pi^2 M_{\mathrm{Earth}} }{(x^2+y^2)^{3/2}}y$$
+
 \section{Methods}
 \section{Results}
 \section{Discussion}
