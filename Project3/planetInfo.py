@@ -81,6 +81,9 @@ class planetInfo:
 
         data = np.zeros((2,3))
         name = ""
+        exponant = 0
+        mass = 0
+        foundMass = False
         with open('temp.txt', 'r') as fp:
             for line in fp:
                 words = line.split()
@@ -90,6 +93,43 @@ class planetInfo:
                 if words[0] == "Target":
                     name = words[3]
                     continue
+                if (("Mass" in words) or ("Mass," in words)) and (not foundMass):# or ("mass" in words) or ("mass," in words):
+                    for i in range(len(words)):
+                        if (words[i] == "Mass") or (words[i] == "Mass,"):
+
+                            try:
+                                if len(words[i+1]) == 6:
+                                    exponant = float(words[i+1][4:])
+                                else:
+
+                                    exponant = float(words[i+1][3:])
+
+                                if (words[i+2] == "g") or (words[i+2] == "g)"):
+                                    exponant -= 3
+                            except:
+                                if len(words[i+2]) == 6:
+                                    exponant = float(words[i+2][4:])
+                                else:
+
+                                    exponant = float(words[i+2][3:])
+
+                                if (words[i+2] == "g") or (words[i+2] == "g)"):
+                                    exponant -= 3
+                            for j in range(len(words)-i):
+                                try:
+                                    mass = float(words[j+i])*10**exponant
+                                    break
+                                except:
+                                    try:
+                                        nwords = words[j+i].split("+")
+
+                                        mass = float(nwords[0])*10**exponant
+                                        break
+                                    except:
+                                        continue
+                            foundMass = True
+                            break
+
                 if words[0] == "$$SOE":
                     fp.next()
                     data[0,:] = np.array(fp.next().split())
@@ -97,7 +137,7 @@ class planetInfo:
                     data[1,:] *= 365.24
                     break
 
-
+        print "Mass: ",mass
         return name,data
 
 
