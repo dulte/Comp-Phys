@@ -71,6 +71,8 @@ void System::compute_acceleration(){
 }
 
 void System::compute_acceleration_relativistic(int index_body, int index_star){
+
+    //compute_acceleration();
     double c = 63198;
     vec3 angular_moment;
     //double l2 = (0.3075*12.44)*(0.3075*12.44);
@@ -155,14 +157,16 @@ void System::dumpThetaToFile(){
 
     vec3 r_vec = list_of_particles[1].m_position-list_of_particles[0].m_position;
     double r = r_vec.length();
-    theta = atan2(r_vec(1),r_vec(0));
+    //theta = atan2(r_vec(1),r_vec(0));
 
 
-    if (rPrev < r && rPrev < rPrevPrev){
+    if (rPrev > r && rPrev > rPrevPrev){
+        theta = atan2(r_vec(1),r_vec(0));
         outFileTheta << setprecision(15) << thetaPrev << " "<< rPrev << endl;
+        thetaPrev = theta;
     }
 
-    thetaPrev = theta;
+    //thetaPrev = theta;
     rPrevPrev = rPrev;
     rPrev = r;
 }

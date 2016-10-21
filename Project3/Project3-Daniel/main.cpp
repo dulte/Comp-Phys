@@ -19,22 +19,22 @@ int main(int argc, char *argv[])
 {
     clock_t begin = clock();
     int steps_per_year = 1e7;//10000000;
-    int years = 100;
+    int years = 10;
     double dt = 1.0/(steps_per_year);
 
-    System* sysESEuler = new System("positionsMercurySun.xyz");
+    System* sysESEuler = new System("positionsMercurySun2.xyz");
     ODEsolver* solver = new ODEsolver(dt,sysESEuler);
 
 
     string folder = "/home/daniel/Dokumenter/Skole/Comp-Phys/Project3/";
     makePlanets(folder + "planetData_merc.txt", sysESEuler);
-    sysESEuler->setInitialEnergyAndMomentum();
+    //sysESEuler->setInitialEnergyAndMomentum();
     int printEvery = 100;
 
     for (int i = 0; i< years*steps_per_year; i++){
         if(i % printEvery == 0) {
             sysESEuler->dumpPositionsToFile();
-            sysESEuler->dumpErrorToFile();
+            //sysESEuler->dumpErrorToFile();
             //cout << setprecision(15) << sysESEuler->total_potential_energy + sysESEuler->Kinetic_energy() << endl;
         }
         //solver->eulerOneStep();

@@ -41,7 +41,8 @@ void ODEsolver::velocityVerletOneStep(){
 
 //        }
 //    }
-//    system->compute_acceleration();
+//    //system->compute_acceleration();
+//    system->compute_acceleration_relativistic(0,1);
 
 //    for (int i = 0; i < system->list_of_particles.size(); i++){
 //        for(int a=0; a<3; a++) {
