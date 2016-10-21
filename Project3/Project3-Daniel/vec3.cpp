@@ -92,7 +92,7 @@ void vec3::print(){
 }
 
 vec3 vec3::cross(vec3 otherVec){
-    return vec3(y()*otherVec.z()-z()*otherVec.y(), z()*otherVec.x()-x()*otherVec.z(), x()*otherVec.y()-y()*otherVec.x());
+    return vec3(y()*otherVec.z()-z()*otherVec.y(), (z()*otherVec.x()-x()*otherVec.z()), x()*otherVec.y()-y()*otherVec.x());
 }
 
 double vec3::lengthSquared()

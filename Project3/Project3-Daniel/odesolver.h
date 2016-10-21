@@ -11,7 +11,7 @@ class ODEsolver
 {
 public:
     ODEsolver(double dt_, System* sys);
-    void velocityVerletOneStep(vector<Particle*> particles);
+    void velocityVerletOneStep();
     void eulerOneStep();
     double dt;
     System *system;

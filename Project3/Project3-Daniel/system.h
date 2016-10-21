@@ -25,15 +25,25 @@ public:
     void compute_acceleration_relativistic(int index_body, int index_star);
 
     void setInitialEnergyAndMomentum();
+    void dumpThetaToFile();
 
     double G = 4*M_PI*M_PI;
     vector<Particle> list_of_particles;
     ofstream outFile;
     ofstream outFileEnergyMomentum;
+    ofstream outFileTheta;
 
     double total_potential_energy;
+    double total_energy;
     double initialEnergy;
     double initialAngularMomentum;
+
+    double theta = 0;
+    double thetaPrev = 0;
+    double prevTheta = 0;
+    double rPrev = 0;
+    double rPrevPrev = 0;
+
 
 
     void dumpPositionsToFile();

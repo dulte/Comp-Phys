@@ -5,17 +5,20 @@
 #include <fstream>
 #include <string>
 #include <cmath>
+#include <iomanip>
 
 System::System(string filename)
 {
     number_of_bodies = 0;
     outFile.open(filename);
     outFileEnergyMomentum.open("errorEnergyMomentum.txt");
+    outFileTheta.open("theta.txt");
 }
 
 System::~System(){
     outFile.close();
     outFileEnergyMomentum.close();
+    outFileTheta.close();
 }
 
 void System::create_Particle(vec3 initial_position, vec3 initial_velocity, double mass){
@@ -70,12 +73,19 @@ void System::compute_acceleration(){
 void System::compute_acceleration_relativistic(int index_body, int index_star){
     double c = 63198;
     vec3 angular_moment;
-    angular_moment= System::Angular_momentum("one", index_body);
-    Particle current_body=list_of_particles[index_body];
+    //double l2 = (0.3075*12.44)*(0.3075*12.44);
+    angular_moment= Angular_momentum("one", index_body);
+    Particle & current_body=list_of_particles[index_body];
     current_body.acceleration=0.0;
     vec3 r = (list_of_particles[index_star].m_position-current_body.m_position);
     double relativistic_factor=1+(3.0*angular_moment.lengthSquared())/(r.lengthSquared()*c*c);
+    //double relativistic_factor=1+(3.0*l2)/(r.lengthSquared()*c*c);
     double prefac=G*list_of_particles[index_star].m_mass/(r.lengthSquared()*r.length());
+
+    //cout << setprecision(15) << fabs(angular_moment.lengthSquared() - (0.3075*12.44)*(0.3075*12.44)) << endl;
+    //double testFactor = (3.0*l2)/(r.lengthSquared()*c*c)*prefac;
+    //vec3 rtest = testFactor * r;
+    //rtest.print();
     current_body.acceleration=r*relativistic_factor*prefac;
 }
 
@@ -84,7 +94,8 @@ void System::setInitialEnergyAndMomentum(){
 
     compute_acceleration();
     initialAngularMomentum = (Angular_momentum("many",0)).length();
-    initialEnergy = total_potential_energy;
+    initialEnergy = total_potential_energy + Kinetic_energy();
+
 }
 
 
@@ -102,25 +113,25 @@ void System::dumpPositionsToFile()
 void System::dumpErrorToFile()
 {
     compute_acceleration();
-    double errorMomentum = (abs(((Angular_momentum("many",0)).length() - initialAngularMomentum))/(initialAngularMomentum));
-    double errorEnergy = (abs((total_potential_energy - initialEnergy))/initialEnergy);
+    double errorMomentum = ((((Angular_momentum("many",0)).length() - initialAngularMomentum))/(initialAngularMomentum));
+    double errorEnergy = (((total_potential_energy + Kinetic_energy()) - initialEnergy)/initialEnergy);
 
-    outFileEnergyMomentum << errorMomentum << " " << errorEnergy << "\n";
+    outFileEnergyMomentum << errorMomentum << " " << errorEnergy << " " << endl;
 }
 
 vec3 System::Angular_momentum(char* one_or_many, int body){
     vec3 total_angular_momentum;
     if (strcmp(one_or_many, "many") == 0){
         for(int j=0; j<number_of_bodies; j++){
-            vec3 linear_momentum=(list_of_particles[j].m_velocity)*(list_of_particles[j].m_mass);
-            vec3 angular_momentum=(list_of_particles[j].m_position).cross(linear_momentum);
+            //vec3 linear_momentum=(list_of_particles[j].m_velocity)*(list_of_particles[j].m_mass);
+            vec3 angular_momentum=(list_of_particles[j].m_position).cross(list_of_particles[j].m_velocity);
             total_angular_momentum += angular_momentum;
         }
     }
 
     else if (strcmp(one_or_many, "one") == 0){
-        vec3 linear_momentum=(list_of_particles[body].m_velocity)*(list_of_particles[body].m_mass);
-        vec3 angular_momentum=(list_of_particles[body].m_position).cross(linear_momentum);
+        //vec3 linear_momentum=(list_of_particles[body].m_velocity)*(list_of_particles[body].m_mass);
+        vec3 angular_momentum=(list_of_particles[body].m_position).cross(list_of_particles[body].m_velocity);
         total_angular_momentum = angular_momentum;
     }
 
@@ -138,4 +149,20 @@ double System::Kinetic_energy(){
         total_kinetic_energy += 0.5*(list_of_particles[j].m_mass)*speed_squared;
     }
     return total_kinetic_energy;
+}
+
+void System::dumpThetaToFile(){
+
+    vec3 r_vec = list_of_particles[1].m_position-list_of_particles[0].m_position;
+    double r = r_vec.length();
+    theta = atan2(r_vec(1),r_vec(0));
+
+
+    if (rPrev < r && rPrev < rPrevPrev){
+        outFileTheta << setprecision(15) << thetaPrev << " "<< rPrev << endl;
+    }
+
+    thetaPrev = theta;
+    rPrevPrev = rPrev;
+    rPrev = r;
 }
