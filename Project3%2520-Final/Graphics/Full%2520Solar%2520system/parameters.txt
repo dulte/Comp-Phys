@@ -1,3 +1,0 @@
-NumberOfPlanets 10
-Years 300
-Timesteps 3e+07

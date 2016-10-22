@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 \usepackage{titling}
 \usepackage{marvosym }
+\usepackage{subcaption}
 
 \setlength{\droptitle}{-10em}   % This is your set screw
 
@@ -150,7 +151,7 @@ Solving:
 \begin{equation}
 v_{esc}=\sqrt{\frac{2GM_{\odot}}{r}}
 \end{equation}
-Which is the escape velocity of the earth, if we ignore the other planets. Note that this velocity is to be taken \textit{relative to the sun}. We can experiment with the initial velocity of our planets, and check if the velocity at which a planet manages to escape equals this quantity. This gives us another way to check the consistency of our results.
+Which is the escape velocity of the earth, if we ignore the other planets. In our units, $v_{esc} \approx 2\sqrt{2}\pi\ \mathrm{AU/yr}$. We can experiment with the initial velocity of our planets, and check if the velocity at which a planet manages to escape equals this quantity. This gives us another way to check the consistency of our results.
 \subsection{The perihelion precession of Mercury}\label{GR_section}
 One of the tests for Einstein's theory of relativity is the perihelion precession of Mercury.  Over time, the perihelion (the point where Mercury is closest to the sun) changes. This was initially thought to be due to the gravitational attraction of other planets, but the effect was too large.It turns out that this effect is due to general relativity, which predicts that gravity warps spacetime. This boils down to modifying the gravitational force to:
 \begin{equation}\label{eq:GR_equation}
@@ -203,9 +204,203 @@ To find the perihelion processions of mercury, we must develop an algorithm whic
 \lstinputlisting{Pseudo_code_perihelion.py}
 
 \section{Results}
+In this section we present the orbits of the different models, as well as quantities such as conservation of energy/momentum and escape velocity/perihelion precession. Our calculations were all done in 3D, but we include only 2D plots, as these are easier to interpret. The orbits of all planets, except Pluto, are almost two-dimensional anyway, as can be seen from the solar\_system\_3D.gif file on our \textbf{GIT PAGE}
 \subsection{Results from the first model - Earth-Sun}
 \subsubsection{Position}
-\paragraph{The Euler-Forward algorithm}
+The position of the earth and the sun, as well as a zoomed-in version of the plot, is shown in the figures below:
+\begin{figure}[t!]\label{fig:earth-sun-figure1}
+    \centering
+    \includegraphics[height=2.5in]{earthsun.png}
+    \caption{The earth-sun system, simulated for 10 years, with $10^7$ timesteps per year. We are using the Velocity-Verlet method, though there is no visible difference between the Velocity-Verlet and the Euler method at this scale.}
+\end{figure}
+
+
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitESVV.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitESEuler.png}
+        \caption{Euler's forward algorithm}
+    \end{subfigure}
+    \caption{Zoomed-in version of the figure above with two different solution methods. Note that the scale on subplot $a$ is ten time smaller than the scale of subplot $b$.}
+\end{figure}
+\subsubsection{Conservation of energy and angular momentum per unit mass}
+A plot of the relative error in the total energy and the total angular momentum per unit mass for the Velocity-Verlet and the Euler algorithm is shown below:
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrEnESEuler.png}
+        \caption{Forwad Euler algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErEnES.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}
+    \caption{Variations in the error of the total energy as a function of time for 10 years of orbit of the earth-sun system. Note the scale on the axis.}
+\end{figure}
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrMomESEuler.png}
+        \caption{Forwad Euler algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErMomES.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}
+    \caption{Variations in the error of the total angular momentum per unit mass as a function of time for 10 years of orbit of the earth-sun system. }
+\end{figure}
+\subsubsection{Investigating the required escape velocity}
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{escape888.png}
+        \caption{Forwad Euler algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{escape889.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}
+    \caption{HERE BE PLOT ESCAPE VELOCITY}
+\end{figure}
+
+\subsection{Results from the second model-Earth, Jupiter and Sun}
+\subsubsection{Position}
+The orbit of the three-body system consisting of the earth, Jupiter and the sun is shown below. We have also included a zoomed in version of the same plots.
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitESJ1.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitESJ10.png}
+        \caption{Euler's forward algorithm}
+    \end{subfigure}
+    \caption{Zoomed-in version of the figure above with two different solution methods. Note that the scale on subplot $a$ is ten time smaller than the scale of subplot $b$.}
+\end{figure}
+We wanted to do a similar thing for the mass of Jupiter being 1000 times larger than it is in reality, but here we ran into a problem. If we let the center of mass be at the origin, with zero velocity, the earth crashes into Jupiter. When we let the sun be at the origin, however, we get a chaotic system, but without crashes. We have therefore included both of these possibilities.
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitESJ1000.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitSEJMCAtOri.png}
+        \caption{Euler's forward algorithm}
+    \end{subfigure}
+    \caption{Zoomed-in version of the figure above with two different solution methods. Note that the scale on subplot $a$ is ten time smaller than the scale of subplot $b$.}
+\end{figure}
+\subsubsection{Conservation of energy and angular momentum per unit mass}
+A plot of the relative error in the total energy and the total angular momentum per unit mass for the Velocity-Verlet and the Euler algorithm is shown below:
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrEnSEJx10.png}
+        \caption{Forwad Euler algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrMomSEJx10.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}
+    \caption{Variations in the error of the total energy as a function of time for 10 years of orbit of the earth-sun system. Note the scale on the axis.}
+\end{figure}
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrEnSEJ.png}
+        \caption{Forwad Euler algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrMomSEJ.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}
+    \caption{Variations in the error of the total energy and the total angular momentum per unit mass for a system consisting of the Earth, the Sun and Jupiter, where the mass of Jupiter is ten times larger than in reality.}
+\end{figure}
+
+
+\subsection{Results from the third model - Entire Solar System}
+\subsubsection{Position}
+The position of the earth and the sun, as well as a zoomed-in version of the plot, is shown in the figures below:
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitfull.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{orbitFull.png}
+        \caption{Euler's forward algorithm}
+    \end{subfigure}
+    \caption{HERE BE SOLAR SYSTEM WITH ZOOM}
+\end{figure}
+\subsubsection{Conservation of energy and angular momentum per unit mass}
+A plot of the relative error in the total energy and the total angular momentum per unit mass for the Velocity-Verlet and the Euler algorithm is shown below:
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrMomFull.png}
+        \caption{Forwad Euler algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{relErrEnFull.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}
+    \caption{HERE BE VARIATIONS IN ENERGY OF THE SOLAR SYSTEM}
+\end{figure}
+
+\subsection{Results from the fourth model - Mercury-Sun System}
+\subsubsection{Position}
+The position of the earth and the sun, as well as a zoomed-in version of the plot, is shown in the figures below:
+\begin{figure}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{angle.png}
+        \caption{Velocity-Verlet algorithm}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{angleNoRel2.png}
+        \caption{Euler's forward algorithm}
+    \end{subfigure}
+    \caption{HERE BE PERIHELION}
+\end{figure}
 \section{Discussion}
 \subsection{Discussing the perihelion precession of mercury}
 One interesting aspect of our investigation of the precession of mercury is that it broke down when we computed the angular momentum at every time step. When we used the initial angular momentum of mercury, however, (given by $\vec{l}=\vec{r}\times \vec{v}$) we got the correct result. \textbf{WHY}
@@ -220,12 +415,13 @@ Where $m_e$ is the mass of earth. Rearranging gives:
 \begin{equation}\label{eq:Vel_for_cicrular_orbit}
 v_{circ}=\sqrt{\frac{GM_{\odot}}{r}}
 \end{equation}
-Inserting $r=1 \mathrm{AU}$ gives for the earth $v_{circ}=29\ 780 \ \mathrm{m/s}=6.279 \ \mathrm{AU/yr}$. This is the velocity we must give the earth (in a frame where the initial velocity of the sun is zero), to ensure that it orbits in a circular orbit of radius $1 \mathrm{AU}$.\\
+Inserting $r=1 \mathrm{AU}$ gives for the earth $v_{circ}=29\ 780$. This is the velocity we must give the earth (in a frame where the initial velocity of the sun is zero)\footnote{We will use this value as initial velocity of the earth in the earth-sun system, even though we give the sun an additional velocity to ensure that the center of mass does not move. It is clear that these differences will be minuscule, and doing this otherwise would result in a complicated dynamic problem.}, to ensure that it orbits in a circular orbit of radius $1 \mathrm{AU}$. 
 \linebreak
 From this equation, we can also find a value for $G$ in the units astronomical units per year. We simply say that the earth takes one year to complete one revolution, which gives $v_{circ}=2\pi r/T=2\pi \ \mathrm{AU/yr}$. Solving equation \ref{eq:Vel_for_cicrular_orbit} for $G$ gives:
 $$G=\frac{v_{circ}^2 r}{M_{\odot}}$$
 Seeing as  $r=1 \ \mathrm{AU}$, this gives:
 $$G=4\pi^2\ \ \mathrm{AU^3}\mathrm{yr^{-2}M_{\odot}^{-1}}$$
+Which also shows that $v_{circ}=2\pi \ \mathrm{AU/yr}$.
 \section{Deriving the Velocity-Verlet algorithm}\label{ap:Deriving_VelVer}
 Here will derive the Velocity-Verlet method. We will derive this for a single dimension ($x$), however the three-dimensional generalization is straightforward, as it simply amounts to repeating the exact same equation with $x$ exchanged with $y$ and $z$ respectively.\\
 \linebreak
