@@ -23,25 +23,36 @@
 \contentsline {subsection}{\numberline {3.3}Checking the consistency of our results}{8}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Checking conservation of energy and angular momentum per unit mass}{8}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Checking escape velocity}{8}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Checking the precision of the Velocity-Verlet method}{8}{subsubsection.3.3.3}
 \contentsline {subsection}{\numberline {3.4}Investigating the perihelion processions of mercury}{8}{subsection.3.4}
 \contentsline {section}{\numberline {4}Results}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Results from the first model - Earth-Sun}{8}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Position}{8}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1}Results from the first model - Earth-Sun}{9}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Position}{9}{subsubsection.4.1.1}
 \contentsline {subsubsection}{\numberline {4.1.2}Conservation of energy and angular momentum per unit mass}{9}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Investigating the required escape velocity}{9}{subsubsection.4.1.3}
-\contentsline {subsection}{\numberline {4.2}Results from the second model-Earth, Jupiter and Sun}{9}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Position}{9}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Conservation of energy and angular momentum per unit mass}{11}{subsubsection.4.2.2}
-\contentsline {subsection}{\numberline {4.3}Results from the third model - Entire Solar System}{11}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.2}Investigating the time step}{9}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Investigating the required escape velocity}{11}{subsubsection.4.2.1}
+\contentsline {subsection}{\numberline {4.3}Results from the second model-Earth, Jupiter and Sun}{11}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}Position}{11}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}Conservation of energy and angular momentum per unit mass}{11}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Results from the fourth model - Mercury-Sun System}{13}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Position}{13}{subsubsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4}Results from the third model - Entire Solar System}{12}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Position}{12}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Conservation of energy and angular momentum per unit mass}{12}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}Results from the fourth model - Mercury-Sun System}{13}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Position}{13}{subsubsection.4.5.1}
 \contentsline {section}{\numberline {5}Discussion}{13}{section.5}
-\contentsline {subsection}{\numberline {5.1}Discussing the perihelion precession of mercury}{13}{subsection.5.1}
-\contentsline {section}{\numberline {6}Conclusion and outlook}{14}{section.6}
-\contentsline {subsection}{\numberline {6.1}Conclusion}{14}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Outlook}{14}{subsection.6.2}
-\contentsline {section}{Appendices}{14}{section*.14}
-\contentsline {section}{\numberline {A}Initial velocity for circular orbits and the value of G}{14}{Appendix.a.A}
-\contentsline {section}{\numberline {B}Deriving the Velocity-Verlet algorithm}{14}{Appendix.a.B}
+\contentsline {subsection}{\numberline {5.1}Interpreting the results from the Earth-Sun model}{13}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Choice of algorithm}{13}{subsubsection.5.1.1}
+\contentsline {paragraph}{Position graphs:}{13}{section*.15}
+\contentsline {paragraph}{Conservation of energy}{14}{section*.16}
+\contentsline {subsubsection}{\numberline {5.1.2}Choice of time step}{15}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Escape velocity}{15}{subsubsection.5.1.3}
+\contentsline {subsection}{\numberline {5.2}Interpreting the results from the Earth, Sun and Jupiter model}{15}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}The orbits of the planets}{15}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Energy and angular momentum per unit mass in the Earth, Sun and Jupiter system}{16}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Discussing the perihelion precession of mercury}{16}{subsection.5.3}
+\contentsline {section}{\numberline {6}Conclusion and outlook}{16}{section.6}
+\contentsline {subsection}{\numberline {6.1}Conclusion}{16}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Outlook}{16}{subsection.6.2}
+\contentsline {section}{Appendices}{16}{section*.18}
+\contentsline {section}{\numberline {A}Initial velocity for circular orbits and the value of G}{16}{Appendix.a.A}
+\contentsline {section}{\numberline {B}Deriving the Velocity-Verlet algorithm}{17}{Appendix.a.B}
