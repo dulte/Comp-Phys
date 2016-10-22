@@ -1,0 +1,3 @@
+NumberOfPlanets 2
+Years 10
+Timesteps 1e+07
