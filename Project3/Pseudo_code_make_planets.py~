@@ -1,0 +1,14 @@
+infile=open('Planet_initial_data.txt')
+solar_system=System()
+for line in infile: //Read in planet data
+	particle_name, initial_pos, initial_vel, mass=line.split()
+	if particle_name is not "Sun": //So that COM is at x0=0, v0=0
+		solar_system.create_particle(initial_pos, initial_vel, mass)
+
+total_position=sum(particle_mass*particle_position)
+total_momentum=sum(particle_mass*particle_velocity)
+sun_pos=-total_position
+sun_vel=-total_momentum/mass_of_the_Sun
+
+solar_system.create_particle(sun_pos, sun_vel, mass_of_the_Sun) //Create the sun
+

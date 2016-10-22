@@ -1,0 +1,11 @@
+steps_per_year=1e7
+years=10
+timestep=1/steps_per_year
+solver=ODESolver(timesteps)
+N=steps_per_year*years
+
+for i in range(0, years, N):
+	solver.Velocity_verlet_one_step //update positions/velocity in solar system
+	solar_syststem.dump_positions_to_file
+	
+

@@ -64,7 +64,7 @@ Where $F_{G,x}, F_{G,y}$ and $F_{G,z}$ are the components of the gravitational f
 \frac{dx}{dt}=v_x, \quad \quad \frac{dv_x}{dt}=\frac{F_{G,x}}{m_1}=a_x(x,y,z)
 \end{equation}
 And equivalently for the $y$ and $z$ direction. This gives six coupled, first-order, linear, differential equations.
-\subsection{Implementing the initial conditions}
+\subsection{Implementing the initial conditions}\label{implement_IC}
 To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. We show in appendix \ref{ap:Find_Circular_orbit} that this results in the requirement that the initial velocity be given by:
 \begin{equation}
 v_0=\sqrt{\frac{GM_{\odot}}{r}}
@@ -121,7 +121,7 @@ As we will be modelling our solar system, a natural unit of length is the averag
 $$G=4\pi^2 \ \mathrm{AU^{3}yr^{-2}M_{\odot}^{-1}}$$
 As discussed in section \ref{GR_section}, we will also use the speed of light. With our units, this is given by:
 $$c=63\ 198 \ \mathrm{AU/yr}$$
-\subsection{Conserved quantities in the system}
+\subsection{Conserved quantities in the system}\label{conservation_of_energy}
 To check the consistency of our results, we will investigate whether certain quantities, which we expect to be conserved, are indeed conserved.
 \subsubsection{Conservation of mechanical energy}
 As there are no external forces in the system, we expect the mechanical energy to be conserved. There are two kinds of energy to consider in our system: kinetic and potential energy. The kinetic energy of a single body is simply given by:
@@ -143,7 +143,7 @@ Where $\vec{v}$ is the velocity of the body, and $\vec{r}$ is the distance to th
 Where the sum is over all bodies.\\
 \linebreak
 Equations \ref{eq:total_energy} and \ref{eq:total_angular_momentum} both describe quantities which should be conserved. Thus, an important consistency check for our code, is to test if these quantities are indeed (approximately) constant throughout our simulation.
-\subsection{Escape velocity}
+\subsection{Escape velocity}\label{escape_vel_section}
 Another way we can check the consistency of our results is to investigate the escape velocities of the planets. This can be done by equating the potential energy to the kinetic energy. This is a difficult problem for a many-body problem. Therefore, we will only implement this in  the two-body case, with the sun and the earth. Equating potential and kinetic energy of the earth gives: 
 $$\frac{1}{2}v_{esc}^2=\frac{GM_{\odot}}{r}$$
 Solving:
@@ -159,22 +159,55 @@ One of the tests for Einstein's theory of relativity is the perihelion precessio
 Where $l=|\vec{l}|$ is the absolute value of the angular momentum per mass of the body the force acts on, and $c$ is the speed of light. This assumes that all other effects, such as gravitational attraction from other planets, have been ignored. In this case, experimental data shows that the perihelion angle precesses $43''=0.2085\  \mathrm{mrad}$ per 100 earth years. We will investigate if this relativistic correction can correctly predict the precession, by comparing the motion of Mercury (removing all other planets) with Newtonian gravity and with the relativistic expression for gravity.
 \section{Methods}
 In this section we give an overview of the methods that we employed to solve the problems outlined in the previous sections. We discuss the models we have implemented, the numerical implementation of these models and the equations from the previous section and finally the implementation of initial conditions.
-\subsection{Models}
-We will implement three different models, to test our simulations under multiple circumstances. 
+\subsection{Models}\label{models}
+We will implement four different models, to test our simulations under multiple circumstances. 
 \subsubsection{First model - The earth-sun system}\label{First_model}
 We begin with a simplified model of our solar system, containing only the earth and the sun. We simulate this using both the Euler forward algorithm and the Velocity-Verlet algorithm, which enables us to compare these methods. 
 \subsubsection{Second model - The three body problem}
 We slightly expand our system by also including the most massive planet - Jupiter. We can then investigate how large the effect of Jupiter is on the orbit of the earth. We will also make this slightly more extreme, by increasing the mass of Jupiter by a factor $10$ and a factor $1000$. In the latter case, we will be approaching a binary star system, as the mass of Jupiter is about $1000$ times less than the mass of the sun. Thus we expect a fairly chaotic behavior, which will allow us to study the stability of our Verlet solver.
-\subsubsection{Final model - Entire solar system}
-Finally, we include all eight planets in the solar system, as well as Pluto for historical reasons. We also include all interactions between the planets. We use the Velocity-Verlet method to solve this numerically.
-\subsection{A brief overview of our code}
-In this section 
-\subsubsection{Class structure}
+\subsubsection{Third model - Entire solar system}
+We then include all eight planets in the solar system, as well as Pluto for historical reasons. We also include all interactions between the planets. We use the Velocity-Verlet method to solve this numerically, which gives us an opportunity to study the stability of the Verlet-method on larger scales.
+\subsubsection{Final model - The mercury-sun system}
+Finally, we model only mercury and the sun, to investigate the perihelion precessions of mercury described in section \ref{GR_section}. Here we use the Verlet-solver, and implement both the Newtonian and the relativistic expressions for the gravitational force.
+\subsection{Some interesting features of our numeric scripts}
+\subsubsection{Data flow}
+To ease the flow of data, we implement a class structure to our code. We have three interacting classes:
+\begin{enumerate}
+\item Particle class - a class which stores all variables related to a single planet.
+\item System class - A class which stores all and computes all species related to the entire system.
+\item ODESolver class - A class which computes acceleration based on the algorithms detailed in section \ref{discretize_equations}
+\end{enumerate}
+Finally we also implement a tailored vector class, which implements some key features of vector algebra needed to solve the equations in section \ref{Newtonian_Gravity}, such as addition, multiplication, norms, inner products and the cross product.
 \subsubsection{Retrieving the initial conditions}
-As 
+As described in section \ref{implement_IC}, the initial positions and velocities of all planets can be retrieved from NASA's  \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}. It is possible to establish a telnet connection to these websites, and retrieve the data automatically. We took inspiration from\textbf{INSERT STACKEXCHANGE PAGE HERE} when implementing this.\\
+\linebreak
+\linebreak
+With the class structure and the initial conditions in place, we can then simply initialize the solar system by a code akin to the one shown below:
+\lstinputlisting{Pseudo_code_make_planets.py}
+And then we can simply solve the differential equations by calling:
+\lstinputlisting{Pseudo_code_solve_system.py}
+
+\subsection{Checking the consistency of our results}
+\subsubsection{Checking conservation of energy and angular momentum per unit mass}
+We check conservation of energy for every 10$0^{th}$ timestep in all of the models described in section \ref{models}, except for the case with relativistic gravity. As our background in general relativity is relatively limited, we are unsure whether or not energy and angular momentum per mass are conserved in this case.\\
+\linebreak
+Because magnitudes of deviations are notoriously difficult to interpret, we will instead record and analyze the relative error at a time, $t$, defined as:
+\begin{equation}
+\epsilon_{rel}=\frac{E_{\mathrm{initial}}-E(t)}{E_{\mathrm{initial}}}
+\end{equation}
+Where $E$ is the energy. We employ the same expression to check conservation of angular momentum per unit mass.
+\subsubsection{Checking escape velocity}
+We experiment with the initial velocity of earth in the earth-sun system until we see that the orbit is no longer elliptic but becomes parabolic. We then compare this to the value calculated in section \ref{escape_vel_section}.
+\subsection{Investigating the perihelion processions of mercury}
+To find the perihelion processions of mercury, we must develop an algorithm which checks for a minimum of the distance between the sun and mercury. We do this by storing the absolute value of the position vector for three different timesteps, and subsequently check if the value in the middle of these three is lower than the two others. If this is the case, we save it as a perihelion passing, and compute the angle. This is illustrated in the pseudo-code below:
+\lstinputlisting{Pseudo_code_perihelion.py}
+
 \section{Results}
+\subsection{Results from the first model - Earth-Sun}
+\subsubsection{Position}
+\paragraph{The Euler-Forward algorithm}
 \section{Discussion}
-\subsection{Discussin the perihelion precession of mercury}
+\subsection{Discussing the perihelion precession of mercury}
 One interesting aspect of our investigation of the precession of mercury is that it broke down when we computed the angular momentum at every time step. When we used the initial angular momentum of mercury, however, (given by $\vec{l}=\vec{r}\times \vec{v}$) we got the correct result. \textbf{WHY}
 \section{Conclusion and outlook}
 \subsection{Conclusion}
