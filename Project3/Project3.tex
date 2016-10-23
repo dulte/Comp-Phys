@@ -18,6 +18,17 @@
 \usepackage{subcaption}
 \usepackage[noabbrev]{cleveref}
 
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+
 
 \setlength{\droptitle}{-10em}   % This is your set screw
 
@@ -39,14 +50,12 @@
 \author{Daniel Heinesen, Gunnar Lange}
 \begin{document}
 \maketitle
-\begin{abstract}
-We present an investigation into numerical algorithms for solving complex systems of ODE's, by simulating a many-body problem - our solar system, with varying levels of complexity. We present the forward Euler algorithm and the Velocity-Verlet algorithm, and show that, when computation time is not an enormous concern, the Velocity-Verlet algorithm is better in most cases. We also investigate the appropriate time step to model our system over long time scales, and find that $10^5$ steps per year gives us our required numerical precision. Finally, we present some checks for the consistency of our results, such as conservation of energy/angular momentum and the perihelion precession of mercury predicted by general relativity.
+\begin{abstract}We present an investigation into numerical algorithms for solving complex systems of ODE's, by simulating a many-body problem - our solar system, with varying levels of complexity. We present the forward Euler algorithm and the Velocity-Verlet algorithm, and show that, when computation time is not a vital concern, the Velocity-Verlet algorithm outperforms the Forward Euler. We also investigate the appropriate time step to model our system over long time scales, and find that $10^5$ steps per year gives us sufficient numerical precision. Finally, we show that our program largely reproduces some known analytic results, namely conservation of energy/angular momentum, the escape velocity of earth from the sun and the perihelion precession of mercury predicted by general relativity. All data, scripts and plots can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3}{Git-page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3}
 \end{abstract}
-
 \tableofcontents
 \newpage
 \section{Introduction}
-The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques.\\
+The n-body problem is a recurring theme in many physics publications (see for example \cite{PhysRevLett.19.1312} or \cite{Diacu2012} ), due to complexity and its applicability in fields such as statistical dynamics or astrophysics.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques.\\
 \linebreak
 We present two different numerical methods for solving the coupled ODE's resulting from Newton's gravitational laws - Euler's method and the velocity-Verlet method. We begin by a theoretical introduction to both algorithms, as well as to the equations which we wish to solve. We then discuss some checks which our simulations should pass. Specifically, we look at conservation of energy and angular momentum. We continue by looking at some results which have analytic solutions from physics - specifically the escape velocity of earth from the solar system and the perihelion precession of mercury predicted by general relativity. We compare our model to these results, as another check for consistency. We also investigate what parameters to use in our algorithms to get consistent numerical results.\\
 \linebreak
@@ -78,7 +87,7 @@ v_0=\sqrt{\frac{GM_{\odot}}{r}}
 \end{equation}
 Where $M_{\odot}$ is the mass of the sun and $r$ is the distance to the sun.\\
 \linebreak
-For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.\\
+For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to the 18th of October 1977 (right before the launch of Voyager 2, as an arbitrary start point).\\
 \linebreak
 We want to ensure that the center of mass of our solar system is stable at the origin. On NASA's webpage, we can choose the coordinate origin, however, it is not entirely clear if the velocities have been adjusted so that the center of mass is at rest. Therefore we adjusted the position and velocity of the sun to accommodate this. The position vector of the center of mass, $\vec{R}_{COM}$, is found from:
 $$\vec{R}_{COM}=\sum_i m_i\vec{r}_i$$
@@ -98,14 +107,14 @@ Euler's forward algorithm amounts to discretizing the derivatives from section \
 \begin{equation}\label{eq:Euler_Forward}
 \frac{dg}{dt}\approx \frac{g_{i+1}-g_i}{h}
 \end{equation}
-This approximation is based on Taylor-expanding the function $g(t)$ to the second order, as explained \textbf{HERE}. Inserting this approximation for the derivatives in equation \ref{eq:Euler_Forward}, and rearranging some of the terms, gives:
+This approximation is based on Taylor-expanding the function $g(t)$ to the second order, as explained by \cite{Forward_Euler}. Inserting this approximation for the derivatives in equation \ref{eq:Euler_Forward}, and rearranging some of the terms, gives:
 \begin{equation}
 \begin{split}
 v_{x, i+1}=v_{x,i}+ha_{x,i}\\
 x_{i+1}=x_i+hv_{x,i}
 \end{split}
 \end{equation}
-And again equivalently for the $x$ and $y$ direction. This is the Euler forward algorithm. Combining this with the initial conditions, $\vec{v}(t_0)=\vec{v}_0$ and $\vec{x}(t_0)=\vec{x}_0$, makes it possible to solve the equations of Newtonian gravity. Closer inspection (through Taylor expansion, such as found \textbf{HERE} \href{http://www.math.unl.edu/~gledder1/Math447/EulerError}{here}), reveals that the local error is proportional to $h^2$, whereas the global error is proportional to $h$. Thus, whilst this is a straightforward algorithm, the errors quickly accumulate. It is therefore of interest to investigate a slightly improved algorithm:
+And again equivalently for the $x$ and $y$ direction. This is the Euler forward algorithm. Combining this with the initial conditions, $\vec{v}(t_0)=\vec{v}_0$ and $\vec{x}(t_0)=\vec{x}_0$, makes it possible to solve the equations of Newtonian gravity. Closer inspection (through Taylor expansion, see for example \cite{Error_Euler}), reveals that the local error is proportional to $h^2$, whereas the global error is proportional to $h$. Thus, whilst this is a straightforward algorithm, the errors quickly accumulate. It is therefore of interest to investigate a slightly improved algorithm:
 
 \subsubsection{Velocity-Verlet Algorithm}
 The Velocity-Verlet algorithm is based on the idea of Taylor-expanding the acceleration, in addition to the velocity and position. The details can be found in appendix \ref{ap:Deriving_VelVer}, but the method produces the following equations:
@@ -115,7 +124,7 @@ x_{i+1}=x_i+hv_{x,i}+\frac{h^2}{2}a_{x,i}\\
 v_{x,i+1}=v_{x,i}+\frac{h}{2}\left(a_{x,i+1}+a_{x,i}\right)
 \end{split}
 \end{equation}
-And similarly for the $x$ and the $y$ equations. Note that $a_{i+1}$ depends on $x_i, y_i$ and $z_i$, and therefore all three position coordinates must be computed before we can compute the velocity. As shown in our analysis in the \textbf{APPENDIX}, the local error is proportional to $h^3$, and in turn the global error is proportional to $h^2$, as shown \textbf{HERE}.\\
+And similarly for the $x$ and the $y$ equations. Note that $a_{i+1}$ depends on $x_i, y_i$ and $z_i$, and therefore all three position coordinates must be computed before we can compute the velocity. As shown in our analysis in appendix \ref{ap:Deriving_VelVer}, the local error is proportional to $h^3$, and in turn the global error is proportional to $h^2$, as discussed by \cite{Global_VV}. \\
 \linebreak
 Notice that $a_{x i+1}$ can be reused in the next step, so this method does not incur any additional calls to the acceleration function in the main loop, as compared to the Forward Euler algorithm. The method only costs a few more FLOPs;
 \begin{itemize}
@@ -124,7 +133,7 @@ Notice that $a_{x i+1}$ can be reused in the next step, so this method does not 
 \end{itemize} 
 This gives four additional FLOPs per timestep and dimension, i.e. 12 FLOPs per timestep. Thus if we have $N$ points in the main-loop, this gives an additional $12N$ FLOPs. Note that $h^2/2$ and $h/2$ can be precomputed, and therefore do not contribute to the number of FLOPs in the main loop. 
 \subsection{Choice of units}
-As we will be modelling our solar system, a natural unit of length is the average distance between the earth and the sun, the astronomical unit, AU. In SI-units, $1 \mathrm{AU} \approx 1.496 \cdot 10^{11} \mathrm{m}$. As the most massive object in the solar system is the sun, we choose one solar mass, $M_{\odot}$ as our mass unit. In SI units, $M_{\odot} \approx 1.99 \cdot 10^{30}$. We will use the mean tropical year, which is about 365.24 days of 864000 seconds\textbf{REFERENCE HERE}. This choice of units has one considerable advantage - it simplifies the expression for the gravitational constant, $G$. As shown in appendix \ref{ap:Find_Circular_orbit}, with this choice of units the gravitational constant becomes:
+As we will be modelling our solar system, a natural unit of length is the average distance between the earth and the sun, the astronomical unit, AU. In SI-units, $1 \mathrm{AU} \approx 1.496 \cdot 10^{11} \mathrm{m}$. As the most massive object in the solar system is the sun, we choose one solar mass, $M_{\odot}$ as our mass unit. In SI units, $M_{\odot} \approx 1.99 \cdot 10^{30}$. We will use the mean tropical year, which is about 365.24 days of 864000 seconds (\cite{Tropical_year}). This choice of units has one considerable advantage - it simplifies the expression for the gravitational constant, $G$. As shown in appendix \ref{ap:Find_Circular_orbit}, with this choice of units the gravitational constant becomes:
 $$G=4\pi^2 \ \mathrm{AU^{3}yr^{-2}M_{\odot}^{-1}}$$
 As discussed in section \ref{GR_section}, we will also use the speed of light. With our units, this is given by:
 $$c=63\ 198 \ \mathrm{AU/yr}$$
@@ -213,27 +222,26 @@ To find the perihelion processions of mercury, we must develop an algorithm whic
 \newpage
 
 \section{Results}
-In this section we present the orbits of the different models, as well as quantities such as conservation of energy/momentum and escape velocity/perihelion precession. Our calculations were all done in 3D, but we include only 2D plots, as these are easier to interpret. The orbits of all planets, except Pluto, are almost two-dimensional anyway, as can be seen from the solar\_system\_3D.gif file on our \textbf{GIT PAGE}
+In this section we present the orbits of the different models, as well as quantities such as conservation of energy/momentum and escape velocity/perihelion precession. Our calculations were all done in 3D, but we include only 2D plots, as these are easier to interpret. The orbits of all planets, except Pluto, are almost two-dimensional anyway, as can be seen from the solar\_system\_3D.gif file on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3}{Git-page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3-Final}. We postpone an extended discussion of our results until section 5.
 \subsection{Results from the first model - Earth-Sun}
 \subsubsection{Position}
-The position of the earth and the sun, as well as a zoomed-in version of the plot, is shown in the figures below:
-\begin{figure}[t!]
+The position of the earth and the sun, as well as a zoomed-in version of the plot, are shown in the figures below:
+\begin{figure}[!ht]
     \centering
     \includegraphics[height=2.5in]{earthsun.png}
     \caption{The earth-sun system, simulated for 10 years, with $10^7$ timesteps per year. We are using the Velocity-Verlet method, though there is no visible difference between the Velocity-Verlet and the Euler method at this scale.} \label{fig:earth-sun-figure1}
 \end{figure}
-\newpage
 
 
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESVV.png}
         \caption{Velocity-Verlet algorithm}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESEuler.png}
         \caption{Euler's forward algorithm}
@@ -244,28 +252,28 @@ The position of the earth and the sun, as well as a zoomed-in version of the plo
 A plot of the relative error in the total energy and the total angular momentum per unit mass for the Velocity-Verlet and the Euler algorithm is shown below:
 \begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrEnESEuler.png}
         \caption{Forwad Euler algorithm}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErEnES.png}
         \caption{Velocity-Verlet algorithm}
     \end{subfigure}
     \caption{Variations in the error of the total energy as a function of time for 10 years of orbit of the earth-sun system. Note the scale on the axis.}
 \end{figure}
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrMomESEuler.png}
         \caption{Forwad Euler algorithm}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErMomES.png}
         \caption{Velocity-Verlet algorithm}
@@ -276,13 +284,13 @@ A plot of the relative error in the total energy and the total angular momentum 
 Plots for a variety of a timesteps are shown below. $\Delta t$ is the timestep. Note that a similar plot was already shown for $\Delta t = 10^{-5}$ in figure 2 above. 
 \begin{figure}[t!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESe2y2png.png}
         \caption{Close-up of timestep of $10^{-2}$}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESe3y2png.png}
         \caption{Close-up of timestep of $10^{-3}$}
@@ -292,15 +300,15 @@ Plots for a variety of a timesteps are shown below. $\Delta t$ is the timestep. 
 
 \subsubsection{Investigating the required escape velocity}
 The plot for the earth-sun system with the initial velocity of the earth slightly varied is shown below.
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{escape888.png}
         \caption{Initial velocity of 8.88 AU/yr}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{escape889.png}
         \caption{Initial velocity of 8.89 AU/yr}
@@ -313,13 +321,13 @@ The plot for the earth-sun system with the initial velocity of the earth slightl
 The orbit of the three-body system consisting of the earth, Jupiter and the sun is shown below. We have also included a zoomed in version of the same plots.
 \begin{figure}[t!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESJ1.png}
         \caption{Jupiter with original mass}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESJ10.png}
         \caption{Jupiter with mass ten times its original mass}
@@ -328,15 +336,15 @@ The orbit of the three-body system consisting of the earth, Jupiter and the sun 
 \end{figure}
 We wanted to do a similar thing for the mass of Jupiter being 1000 times larger than it is in reality, but here we ran into a problem. If we let the center of mass be at the origin, with zero velocity, the earth crashes into Jupiter. When we let the sun be at the origin, however, we get a chaotic system, but without crashes. We have therefore included both of these possibilities.
 
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitESJ1000.png}
         \caption{Jupiter at 1000 times its original mass, sun at the origin with zero initial velocity}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitSEJMCAtOri.png}
         \caption{Jupiter at 1000 times its original mass, center of mass at origin with zero velocity.}
@@ -347,28 +355,28 @@ We wanted to do a similar thing for the mass of Jupiter being 1000 times larger 
 A plot of the relative error in the total energy and the total angular momentum per unit mass for Jupiter's mass equal to 10 and 1000 is shown below. We did not include the plot for the situation where the center of mass is not at the origin with initial velocity, as the center of mass will be moving in this case, and we have taken the angular momentum relative to a fixed point. Thus angular momentum is not necessarily conserved in that case.
 \begin{figure}[t!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrEnSEJx10.png}
         \caption{Relative error in the total energy.}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrMomSEJx10.png}
         \caption{Relative error in the total angular momentum per unit mass.}
     \end{subfigure}
     \caption{Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 10 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year.}\label{fig:Energy_jupiter_10}
 \end{figure}
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrEnSEJ.png}
         \caption{Relative error in the total energy.}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrMomSEJ.png}
         \caption{Relative error in the total angular momentum per unit mass.}
@@ -380,15 +388,15 @@ A plot of the relative error in the total energy and the total angular momentum 
 \subsection{Results from the third model - Entire Solar System}
 \subsubsection{Position}
 A plot of the entire splar system is shown in the figures below. We have also included a zoomed in version, to illustrate the orbit of the closest planets.
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitfull.png}
         \caption{Position of all planets}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{orbitFull.png}
         \caption{Zoomed in plot, showing only the innermost planets}
@@ -397,15 +405,15 @@ A plot of the entire splar system is shown in the figures below. We have also in
 \end{figure}
 \subsubsection{Conservation of energy and angular momentum per unit mass}
 A plot of the relative error in the total energy and the total angular momentum per unit mass for the entire solar system is shown below:
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrEnFull.png}
         \caption{Relative error in the total energy}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{relErrMomFull.png}
         \caption{Relative error in the total angular momentum per unit masss}
@@ -416,15 +424,15 @@ A plot of the relative error in the total energy and the total angular momentum 
 \subsection{Results from the fourth model - Mercury-Sun System}
 \subsubsection{Position}
 For this system, we plot the variation in the perihelion angle with and without Newtonian gravity below:
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{angleNoRel2.png}
         \caption{Newtonian gravity}
     \end{subfigure}%
     ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
+    \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{angle.png}
         \caption{Relativistic gravity}
@@ -432,6 +440,7 @@ For this system, we plot the variation in the perihelion angle with and without 
     \caption{Plot of the variation of the perihelion angle over a century, using both the Newtonian and the relativistic expressions for gravity. Here we employed a higher precision of $10^7$ steps per year, because the variations in angle are so small.} \label{fig:precession}
 \end{figure}
 \section{Discussion}
+In this section we discuss the results from the previous section for the various models.
 \subsection{Interpreting the results from the Earth-Sun model}
 \subsubsection{Choice of algorithm}
 \paragraph{Position graphs:}
@@ -470,7 +479,11 @@ The orbits are shown in figure \cref{fig:solar_system}. Note that these are two-
 \subsubsection{Conservation of energy angular momentum per unit mass}
 As shown in \cref{fig:error_full_solar_system}, the oscillations of the relative error in the total energy are still minuscule but, interestingly, not with a mean of zero. The total angular momentum per unit mass shows a similar oscillating behavior as previously, but with a larger ensemble of frequencies. The reason is presumably the same as in the previous model - a moving center of mass. Whilst angular momentum should be conserved, it must be calculated relative to a point numerically. We calculated angular momentum with respect to the origin, however, if that is not where the center of mass is, and if the center of mass has a nonzero velocity, we may get deviations. These may explain the above behavior though they, as earlier, do not explain why there would be a non-zero mean.
 \subsection{Discussing the perihelion precession of mercury}
-One interesting aspect of our investigation of the precession of mercury is that it broke down when we computed the angular momentum at every time step. When we used the initial angular momentum of mercury, however, (given by $\vec{l}=\vec{r}\times \vec{v}$) we got the correct result. \textbf{WHY}
+We show the perihelion angle of Mercury with Newtonian gravity in \cref{fig:precession} a). This angle is not exactly zero, contrary to what one may expect. Because of the discretization of the position of Mercury, its closed distance to the sun will rarely be at the exact perihelion. Instead, our algorithm will tend to over- or undershoot the perihelion. We therefore expect the angle to oscillate around zero. By considering the amplitude of the oscillation,  we see that the numerical error of the angle is of the order $10^{-6}$. If we factor out this error we expect to get a constant angle of 0. But doing this with the data in \cref{fig:precession} a) gives a constant angle of $\sim 4 \cdot 10^{-6}$. We are not sure of the reason for this discrepancy, but below we shall argue that this error is so small that it can be ignored. Even with the discrepancy of $\sim 4 \cdot 10^{-6}$, the angle is more or less constant over a century, meaning that Newtonian gravity fails to give the 43 arcsec or $0.0002085$ rad precession of the angle that we expect from observations. \linebreak
+
+\cref{fig:precession} b) shows that relativistic gravity no longer gives us a constant angle of the perihelion, but instead a constant precession. To try to eliminate the discrepancy in the angle of $\sim 4 \cdot 10^{-6}$, we don't look at the value of the angle after a century, but take the difference of the endpoints, giving us a precession of the angle of $0.00020841$ or $42.9876"$, which gives $0.3\%$ relative error from the analytic result. \\
+
+The difference between the Newtonian and relativistic angle is of the magnitude $-4$, meaning that it is 100 times larger than the error we got due to the discretization of position. This means that with this error we can be sure of the restults within $\pm 1\%$. With a relative error of $0.3 \%$, our result was within this range, and we can conclude that our result gives evidence that general relativity gives a better description of gravitation than Newtonian gravity. Thus our algorithm was able to reproduce this result.
 \section{Conclusion and outlook}
 \subsection{Conclusion}
 We have shown that the Verlet solver works well for our chosen parameters,as it reproduces a stable solar system. We have also shown that the Verlet solver is far superior to the forward Euler algorithm. This illustrates that, when solving complex coupled differential equations numerically, the choice of methods and parameters is crucial. We have also investigated how well our model reproduces the expected escape velocity for earth, and the perihelion precessions of mercury predicted by general relativity. We found that our model reproduces both of these results to an acceptable precision.\\
@@ -482,6 +495,9 @@ There is much further work which could be put into this project. Most interestin
 Another interesting future topic may be to investigate the behavior of the forward Euler algorithm further, in particular why it produces linear graphs for the relative error. This is not entirely obvious, and may be interesting.\\
 \linebreak
 Finally, it may be very rewarding to have a closer look at the three-body problem posed by Jupiter being 1000 times heavier. As can be seen from \cref{fig:Jupiter1000}, the behavior of the system is stunning, and may well be worth investigating further.
+\addcontentsline{toc}{section}{References}
+\bibliography{Project3}
+\bibliographystyle{apalike}
 \begin{appendices}
 \section{Initial velocity for circular orbits and the value of G}\label{ap:Find_Circular_orbit}
 If we assume a two-body system, consisting of the earth and the sun, transform to a system where the sun's velocity is zero, and assume circular orbit, we can equate the force of gravity to the centripetal force. For the earth this gives:
@@ -517,11 +533,6 @@ $$x_{i+1}=x_i+hv_i+\frac{h^2}{2}a_i+O(h^3)$$
 These are the equations of the Velocity-Verlet algorithm described in equation \ref{eq:Vel_Ver_eq}. Notice how the error is proportional to $h^3$, as opposed to the Forward-Euler algorithm, where the error is proportional to $h^2$.
 
 \end{appendices}
-
-
-%WHY THE LINEAR STRUCTURE OF EULER ERROR
-%Investigate three-body
-%Why periodic energy?
-%Do again with taking angular momentum relative to COM?s
+\newpage
 \end{document}
 

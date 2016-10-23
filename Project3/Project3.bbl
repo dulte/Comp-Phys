@@ -1,0 +1,34 @@
+\begin{thebibliography}{}
+
+\bibitem[Diacu et~al., 2012]{Diacu2012}
+Diacu, F., P{\'e}rez-Chavela, E., and Santoprete, M. (2012).
+\newblock The n-body problem in spaces of constant curvature. part i: Relative
+  equilibria.
+\newblock {\em Journal of Nonlinear Science}, 22(2):247--266.
+
+\bibitem[Ledder, 2004]{Error_Euler}
+Ledder, G. (2004).
+\newblock Error in euler's method.
+
+\bibitem[{Mazur}, 1997]{Global_VV}
+{Mazur}, A.~K. (1997).
+\newblock {Common Molecular Dynamics Algorithms Revisited: Accuracy and Optimal
+  Time Steps of St{\"o}rmer-Leapfrog Integrators}.
+\newblock {\em Journal of Computational Physics}, 136:354--365.
+
+\bibitem[Weisstein, 2007]{Tropical_year}
+Weisstein, E. (2007).
+\newblock Tropical year.
+
+\bibitem[Yang, 1967]{PhysRevLett.19.1312}
+Yang, C.~N. (1967).
+\newblock Some exact results for the many-body problem in one dimension with
+  repulsive delta-function interaction.
+\newblock {\em Phys. Rev. Lett.}, 19:1312--1315.
+
+\bibitem[Zeltkevic, 1998]{Forward_Euler}
+Zeltkevic, M. (1998).
+\newblock Forward and backward euler methods.
+\newblock {\em MIT}.
+
+\end{thebibliography}
