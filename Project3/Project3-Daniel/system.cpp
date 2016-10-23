@@ -28,7 +28,7 @@ void System::create_Particle(vec3 initial_position, vec3 initial_velocity, doubl
 }
 
 void System::compute_acceleration(){
-    //double total_potential_energy=0;
+
     total_potential_energy = 0.0;
     for(Particle &body : list_of_particles) {
         body.acceleration=0.0;
@@ -60,43 +60,38 @@ void System::compute_acceleration(){
             body_j.acceleration[1] -= Fy * body_j.m_massInverse;
             body_j.acceleration[2] -= Fz * body_j.m_massInverse;
             total_potential_energy -= prefac*r2;
-
-            //cout << prefac << endl;
-
         }
-        //current_body.acceleration.print();
+
     }
-    // total_potential_energy=total_potential_energy/2.0;
-    //return total_potential_energy;
+
 }
 
 void System::compute_acceleration_relativistic(int index_body, int index_star){
 
-    //compute_acceleration();
+    compute_acceleration();
     double c = 63198;
     vec3 angular_moment;
-    //double l2 = (0.3075*12.44)*(0.3075*12.44);
     angular_moment= Angular_momentum("one", index_body);
     Particle & current_body=list_of_particles[index_body];
     current_body.acceleration=0.0;
     vec3 r = (list_of_particles[index_star].m_position-current_body.m_position);
     double relativistic_factor=1+(3.0*angular_moment.lengthSquared())/(r.lengthSquared()*c*c);
-    //double relativistic_factor=1+(3.0*l2)/(r.lengthSquared()*c*c);
     double prefac=G*list_of_particles[index_star].m_mass/(r.lengthSquared()*r.length());
-
-    //cout << setprecision(15) << fabs(angular_moment.lengthSquared() - (0.3075*12.44)*(0.3075*12.44)) << endl;
-    //double testFactor = (3.0*l2)/(r.lengthSquared()*c*c)*prefac;
-    //vec3 rtest = testFactor * r;
-    //rtest.print();
     current_body.acceleration=r*relativistic_factor*prefac;
 }
 
 
 void System::setInitialEnergyAndMomentum(){
 
+
+    double kinetic = Kinetic_energy();
     compute_acceleration();
+    //compute_acceleration_relativistic(0,1);
     initialAngularMomentum = (Angular_momentum("many",0)).length();
-    initialEnergy = total_potential_energy + Kinetic_energy();
+    initialEnergy = total_potential_energy + kinetic;
+//    for (Particle& part:list_of_particles){
+//        part.acceleration = 0;
+//    }
 
 }
 
@@ -114,10 +109,8 @@ void System::dumpPositionsToFile()
 
 void System::dumpErrorToFile()
 {
-    compute_acceleration();
     double errorMomentum = ((((Angular_momentum("many",0)).length() - initialAngularMomentum))/(initialAngularMomentum));
     double errorEnergy = (((total_potential_energy + Kinetic_energy()) - initialEnergy)/initialEnergy);
-
     outFileEnergyMomentum << errorMomentum << " " << errorEnergy << " " << endl;
 }
 
@@ -153,20 +146,18 @@ double System::Kinetic_energy(){
     return total_kinetic_energy;
 }
 
+
 void System::dumpThetaToFile(){
 
-    vec3 r_vec = list_of_particles[1].m_position-list_of_particles[0].m_position;
+    vec3 r_vec = list_of_particles[0].m_position-list_of_particles[1].m_position;
     double r = r_vec.length();
-    //theta = atan2(r_vec(1),r_vec(0));
 
-
-    if (rPrev > r && rPrev > rPrevPrev){
+    if (rPrev < r && rPrev < rPrevPrev){
         theta = atan2(r_vec(1),r_vec(0));
         outFileTheta << setprecision(15) << thetaPrev << " "<< rPrev << endl;
         thetaPrev = theta;
     }
 
-    //thetaPrev = theta;
     rPrevPrev = rPrev;
     rPrev = r;
 }
