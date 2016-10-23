@@ -18,31 +18,30 @@ void dumpParametersToFile(string filename, System* sys, double steps,double year
 int main(int argc, char *argv[])
 {
     clock_t begin = clock();
-    int steps_per_year = 1e7;//10000000;
-    int years = 10;
+    int steps_per_year = 1e3;
+    int years = 2;
     double dt = 1.0/(steps_per_year);
 
-    System* sysESEuler = new System("positionsMercurySun2.xyz");
-    ODEsolver* solver = new ODEsolver(dt,sysESEuler);
+    System* sys = new System("positions.xyz");
+    ODEsolver* solver = new ODEsolver(dt,sys);
 
 
     string folder = "/home/daniel/Dokumenter/Skole/Comp-Phys/Project3/";
-    makePlanets(folder + "planetData_merc.txt", sysESEuler);
-    //sysESEuler->setInitialEnergyAndMomentum();
-    int printEvery = 100;
+    makePlanets(folder + "planetData.txt", sys);
+    sys->setInitialEnergyAndMomentum();
+    int printEvery = 1;
 
     for (int i = 0; i< years*steps_per_year; i++){
-        if(i % printEvery == 0) {
-            sysESEuler->dumpPositionsToFile();
-            //sysESEuler->dumpErrorToFile();
-            //cout << setprecision(15) << sysESEuler->total_potential_energy + sysESEuler->Kinetic_energy() << endl;
-        }
         //solver->eulerOneStep();
         solver->velocityVerletOneStep();
-        sysESEuler->dumpThetaToFile();
+        sys->dumpThetaToFile();
+        if(i % printEvery == 0) {
+            sys->dumpPositionsToFile();
+            sys->dumpErrorToFile();
+        }
     }
 
-    dumpParametersToFile("parameters.txt",sysESEuler,steps_per_year*years,years);
+    dumpParametersToFile("parameters.txt",sys,steps_per_year*years,years);
 
 
     clock_t end = clock();
@@ -71,13 +70,14 @@ void makePlanets(string filename,System * sys){
 
         ss >> name >> x >> y >> z >> vx >> vy >> vz >> mass;
 
-        if (name != "Sun"){
+        if (name != "Sun" && name != ""){
             sys->create_Particle(vec3(x,y,z),vec3(vx,vy,vz),mass);
 
         }
 
     }
 
+    //The code below gives the sun an initial position and velocity such that the center of mass is always at (0,0,0)
     vec3 totalMomentum = vec3();
     vec3 sumPositions = vec3();
 
@@ -86,8 +86,8 @@ void makePlanets(string filename,System * sys){
         sumPositions += part.m_position*part.m_mass;
     }
 
-    //sys->create_Particle(-1*sumPositions,-1*totalMomentum,1);
-    sys->create_Particle(vec3(),vec3(),1);
+    sys->create_Particle(-1*sumPositions,-1*totalMomentum,1);
+    //sys->create_Particle(vec3(),vec3(),1);
 
 }
 
@@ -96,6 +96,7 @@ void dumpParametersToFile(string filename, System* sys, double steps,double year
     outFile << "NumberOfPlanets" << " " << sys->number_of_bodies << "\n";
     outFile << "Years" << " " << years << "\n";
     outFile << "Timesteps" << " " << steps << "\n";
+
 
     outFile.close();
 

@@ -7,69 +7,69 @@ using namespace std;
 
 vec3::vec3()
 {
-    components[0] = 0;
-    components[1] = 0;
-    components[2] = 0;
+    componants[0] = 0;
+    componants[1] = 0;
+    componants[2] = 0;
 }
 
 vec3::vec3(double x, double y, double z)
 {
-    components[0] = x;
-    components[1] = y;
-    components[2] = z;
+    componants[0] = x;
+    componants[1] = y;
+    componants[2] = z;
 }
 
 vec3 &vec3::operator-=(vec3 rhs)
 {
-    components[0] -= rhs[0];
-    components[1] -= rhs[1];
-    components[2] -= rhs[2];
+    componants[0] -= rhs[0];
+    componants[1] -= rhs[1];
+    componants[2] -= rhs[2];
     return *this;
 }
 
 vec3 &vec3::operator+=(vec3 rhs)
 {
-    components[0] += rhs[0];
-    components[1] += rhs[1];
-    components[2] += rhs[2];
+    componants[0] += rhs[0];
+    componants[1] += rhs[1];
+    componants[2] += rhs[2];
     return *this;
 }
 
 vec3 &vec3::operator *=(double c){
-    components[0] *= c;
-    components[1] *= c;
-    components[2] *= c;
+    componants[0] *= c;
+    componants[1] *= c;
+    componants[2] *= c;
     return *this;
 }
 
 
 vec3 &vec3::operator /=(double c){
-    components[0] /= c;
-    components[1] /= c;
-    components[2] /= c;
+    componants[0] /= c;
+    componants[1] /= c;
+    componants[2] /= c;
     return *this;
 }
 
 vec3 &vec3::operator /=(vec3 rhs){
-    components[0] /= rhs[0];
-    components[1] /= rhs[1];
-    components[2] /= rhs[2];
+    componants[0] /= rhs[0];
+    componants[1] /= rhs[1];
+    componants[2] /= rhs[2];
     return *this;
 }
 
 vec3 &vec3::operator=(vec3 rhs)
 {
-    components[0] = rhs[0];
-    components[1] = rhs[1];
-    components[2] = rhs[2];
+    componants[0] = rhs[0];
+    componants[1] = rhs[1];
+    componants[2] = rhs[2];
     return *this;
 }
 
 vec3 &vec3::operator=(double s)
 {
-    components[0] = s;
-    components[1] = s;
-    components[2] = s;
+    componants[0] = s;
+    componants[1] = s;
+    componants[2] = s;
     return *this;
 }
 
@@ -77,9 +77,9 @@ vec3 &vec3::operator=(double s)
 
 vec3 vec3::randint(int min, int max)
 {
-    components[0] = rand()%(max-min + 1) + min;
-    components[1] = rand()%(max-min + 1) + min;
-    components[2] = rand()%(max-min + 1) + min;
+    componants[0] = rand()%(max-min + 1) + min;
+    componants[1] = rand()%(max-min + 1) + min;
+    componants[2] = rand()%(max-min + 1) + min;
     return *this;
 }
 
@@ -88,7 +88,7 @@ void vec3::normalize(){
 }
 
 void vec3::print(){
-    cout << "[" << components[0] << "," << components[1] << "," << components[2] << "]" << endl;
+    cout << "[" << componants[0] << "," << componants[1] << "," << componants[2] << "]" << endl;
 }
 
 vec3 vec3::cross(vec3 otherVec){
@@ -97,10 +97,12 @@ vec3 vec3::cross(vec3 otherVec){
 
 double vec3::lengthSquared()
 {
-    return components[0]*components[0] + components[1]*components[1] + components[2]*components[2];
+    return componants[0]*componants[0] + componants[1]*componants[1] + componants[2]*componants[2];
 }
 
 double vec3::length()
 {
    return sqrt(lengthSquared());
 }
+
+
