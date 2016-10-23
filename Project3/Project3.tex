@@ -40,13 +40,17 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We present numerical models of our solar system with varying levels of complexity.
+We present an investigation into numerical algorithms for solving complex systems of ODE's, by simulating a many-body problem - our solar system, with varying levels of complexity. We present the forward Euler algorithm and the Velocity-Verlet algorithm, and show that, when computation time is not an enormous concern, the Velocity-Verlet algorithm is better in most cases. We also investigate the appropriate time step to model our system over long time scales, and find that $10^5$ steps per year gives us our required numerical precision. Finally, we present some checks for the consistency of our results, such as conservation of energy/angular momentum and the perihelion precession of mercury predicted by general relativity.
 \end{abstract}
 
 \tableofcontents
 \newpage
 \section{Introduction}
-The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques. We present two different numerical methods for solving the ODE's resulting from Newton's gravitational laws - Euler's method and the velocity-Verlet method. We investigate the stability of both methods for varying complexity of the system.
+The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques.\\
+\linebreak
+We present two different numerical methods for solving the coupled ODE's resulting from Newton's gravitational laws - Euler's method and the velocity-Verlet method. We begin by a theoretical introduction to both algorithms, as well as to the equations which we wish to solve. We then discuss some checks which our simulations should pass. Specifically, we look at conservation of energy and angular momentum. We continue by looking at some results which have analytic solutions from physics - specifically the escape velocity of earth from the solar system and the perihelion precession of mercury predicted by general relativity. We compare our model to these results, as another check for consistency. We also investigate what parameters to use in our algorithms to get consistent numerical results.\\
+\linebreak
+We then briefly present the methods we used to implement these algorithms, as well as presenting the various models we investigated. Subsequently, we present our results and discuss these.
 \section{Theoretical model}\label{Theoretical_section}
 In this section, we introduce the quantities and equations required to model the solar system. We begin by introducing the relevant equations, and subsequently discuss how to solve these numerically. We continue with a brief discussion of the units used, followed by a discussion of tests that we can implement to test our numerical results. We conclude with a brief diversion to relativistic effects in the solar system.
 \subsection{Newtonian Gravity}\label{Newtonian_Gravity}
@@ -206,6 +210,7 @@ As we mentioned in section \ref{discretize_equations}, the Velocity-Verlet metho
 \subsection{Investigating the perihelion processions of mercury}
 To find the perihelion processions of mercury, we must develop an algorithm which checks for a minimum of the distance between the sun and mercury. We do this by storing the absolute value of the position vector for three different timesteps, and subsequently check if the value in the middle of these three is lower than the two others. If this is the case, we save it as a perihelion passing, and compute the angle. This is illustrated in the pseudo-code below:
 \lstinputlisting{Pseudo_code_perihelion.py}
+\newpage
 
 \section{Results}
 In this section we present the orbits of the different models, as well as quantities such as conservation of energy/momentum and escape velocity/perihelion precession. Our calculations were all done in 3D, but we include only 2D plots, as these are easier to interpret. The orbits of all planets, except Pluto, are almost two-dimensional anyway, as can be seen from the solar\_system\_3D.gif file on our \textbf{GIT PAGE}
@@ -217,9 +222,10 @@ The position of the earth and the sun, as well as a zoomed-in version of the plo
     \includegraphics[height=2.5in]{earthsun.png}
     \caption{The earth-sun system, simulated for 10 years, with $10^7$ timesteps per year. We are using the Velocity-Verlet method, though there is no visible difference between the Velocity-Verlet and the Euler method at this scale.} \label{fig:earth-sun-figure1}
 \end{figure}
+\newpage
 
 
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
@@ -236,7 +242,7 @@ The position of the earth and the sun, as well as a zoomed-in version of the plo
 \end{figure}
 \subsubsection{Conservation of energy and angular momentum per unit mass}
 A plot of the relative error in the total energy and the total angular momentum per unit mass for the Velocity-Verlet and the Euler algorithm is shown below:
-\begin{figure}[t!]
+\begin{figure}[H!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
@@ -455,12 +461,27 @@ This shows that earth's orbit is moving slightly back and forth, due to the tida
 \linebreak
 For the case where Jupiter is 1000 times heavier than in reality, things break down slightly. Here, the mass of Jupiter is comparable to the mass of the sun, and consequently this turns into a chaotic three-body problem. It is interesting to observe that the system keeps together in an oscillating state when the sun starts at the origin, whilst it flies apart if the center of mass starts at the origin. This illustrates the complex and frequently unstable behavior of three-body systems. 
 \subsubsection{Energy and angular momentum per unit mass in the Earth, Sun and Jupiter system}
-The energy in the system where Jupiter's mass is increased by a factor 10 is shown in \cref{fig:Energy_jupiter_10}
+The energy in the system where Jupiter's mass is increased by a factor 10 is shown in \cref{fig:Energy_jupiter_10}. This shows a similar pattern to the energy in the Earth-Sun system. The energy fluctuates slightly, and the errors seems to increase over time, but the fluctuations are minuscule. The relative error of the angular momentum per unit mass, on the other hand, displays a different behavior - it oscillates periodically, with a non-negligible amplitude. This is a behavior which we observed in any system containing the two heaviest planets. It is not entirely obvious why this fluctuations occur, though the most likely explanation is that the center of mass moves periodically, due to the gravitational effects of the heaviest planets, perhaps due to an accidental incorrect initialization of the center of mass. Oddly, however, this effect seemed to persist even when the time step was lowered significantly. This may be a potential source of future investigation. One particularly interesting aspect of this is the fact that the oscillations do not have a mean of zero, but are biased towards positive values. This could indicate that the center of mass has a tendency to move so that the angular momentum relative to the origin increases. It is not obvious why this occurs.\\
+\linebreak
+The angular total energy and angular momentum per unit mass for the case where Jupiter is 1000 times heavier than in reality are shown in \cref{fig:Energy_jupiter_1000}. This is for the case where the center of mass is at the origin and does not move (so that the angular momentum, taken relative to the origin, should be constant). Here our model clearly break down.This is presumably due to the fact that the earth crashes into Jupiter. As we have excluded collision detection in our algorithm, numerical errors may have increase considerably, as the velocity of the earth changes rapidly in a single time step. Thus, these results are not representative of the underlying physics, and we do not discuss them further.
+\subsection{Interpreting the results from the full solar system}
+\subsubsection{The orbit in the solar system}
+The orbits are shown in figure \cref{fig:solar_system}. Note that these are two-dimensional projections of the orbit. An animated version of both the 2D and 3D orbits can be found on our \textbf{GIT} page. As can be seen there, the orbits are almost entirely coplanar, except for the orbit of Pluto. Notice how the oribts are stable for 300 years, though the innermost orbits show some variations - both due to numerical errors and due to the effects of the more massive planets. In general, however, the Verlet method seems stable over 300 years, with the given time step. Note that these simulations only took about 20 seconds to run. This indicates that the Verlet algorithm is quite stable at our chosen time step.
+\subsubsection{Conservation of energy angular momentum per unit mass}
+As shown in \cref{fig:error_full_solar_system}, the oscillations of the relative error in the total energy are still minuscule but, interestingly, not with a mean of zero. The total angular momentum per unit mass shows a similar oscillating behavior as previously, but with a larger ensemble of frequencies. The reason is presumably the same as in the previous model - a moving center of mass. Whilst angular momentum should be conserved, it must be calculated relative to a point numerically. We calculated angular momentum with respect to the origin, however, if that is not where the center of mass is, and if the center of mass has a nonzero velocity, we may get deviations. These may explain the above behavior though they, as earlier, do not explain why there would be a non-zero mean.
 \subsection{Discussing the perihelion precession of mercury}
 One interesting aspect of our investigation of the precession of mercury is that it broke down when we computed the angular momentum at every time step. When we used the initial angular momentum of mercury, however, (given by $\vec{l}=\vec{r}\times \vec{v}$) we got the correct result. \textbf{WHY}
 \section{Conclusion and outlook}
 \subsection{Conclusion}
+We have shown that the Verlet solver works well for our chosen parameters,as it reproduces a stable solar system. We have also shown that the Verlet solver is far superior to the forward Euler algorithm. This illustrates that, when solving complex coupled differential equations numerically, the choice of methods and parameters is crucial. We have also investigated how well our model reproduces the expected escape velocity for earth, and the perihelion precessions of mercury predicted by general relativity. We found that our model reproduces both of these results to an acceptable precision.\\
+\linebreak
+We did have some rather odd behavior for the angular momentum per unit mass and the conservation of energy for some of our models. The fluctuations were small, however, and did not impact our results significantly. Nonetheless, this seems to be an indication of an error somewhere, as the periodic change in the relative error goes against physical intuition and theoretical predictions. 
 \subsection{Outlook}
+There is much further work which could be put into this project. Most interestingly, perhaps, would be to explain the periodic behavior of the angular momentum. One way to approach this may be to calculate the position of the center of mass at every time step, and subsequently taking the angular momentum relative to this, to ensure that angular momentum is always taken relative to the center of mass as it was initially. If the center of mass moves for any reason (such as numerical errors), and the calculations do not take this into account, there may be an unexpected torque on the system.\\
+\linebreak
+Another interesting future topic may be to investigate the behavior of the forward Euler algorithm further, in particular why it produces linear graphs for the relative error. This is not entirely obvious, and may be interesting.\\
+\linebreak
+Finally, it may be very rewarding to have a closer look at the three-body problem posed by Jupiter being 1000 times heavier. As can be seen from \cref{fig:Jupiter1000}, the behavior of the system is stunning, and may well be worth investigating further.
 \begin{appendices}
 \section{Initial velocity for circular orbits and the value of G}\label{ap:Find_Circular_orbit}
 If we assume a two-body system, consisting of the earth and the sun, transform to a system where the sun's velocity is zero, and assume circular orbit, we can equate the force of gravity to the centripetal force. For the earth this gives:
@@ -500,6 +521,7 @@ These are the equations of the Velocity-Verlet algorithm described in equation \
 
 %WHY THE LINEAR STRUCTURE OF EULER ERROR
 %Investigate three-body
-
+%Why periodic energy?
+%Do again with taking angular momentum relative to COM?s
 \end{document}
 

@@ -21,10 +21,11 @@
 \BOOKMARK [1][-]{section.5}{Discussion}{}% 21
 \BOOKMARK [2][-]{subsection.5.1}{Interpreting the results from the Earth-Sun model}{section.5}% 22
 \BOOKMARK [2][-]{subsection.5.2}{Interpreting the results from the Earth, Sun and Jupiter model}{section.5}% 23
-\BOOKMARK [2][-]{subsection.5.3}{Discussing the perihelion precession of mercury}{section.5}% 24
-\BOOKMARK [1][-]{section.6}{Conclusion and outlook}{}% 25
-\BOOKMARK [2][-]{subsection.6.1}{Conclusion}{section.6}% 26
-\BOOKMARK [2][-]{subsection.6.2}{Outlook}{section.6}% 27
-\BOOKMARK [1][-]{section*.18}{Appendices}{}% 28
-\BOOKMARK [1][-]{Appendix.a.A}{Initial velocity for circular orbits and the value of G}{}% 29
-\BOOKMARK [1][-]{Appendix.a.B}{Deriving the Velocity-Verlet algorithm}{}% 30
+\BOOKMARK [2][-]{subsection.5.3}{Interpreting the results from the full solar system}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.4}{Discussing the perihelion precession of mercury}{section.5}% 25
+\BOOKMARK [1][-]{section.6}{Conclusion and outlook}{}% 26
+\BOOKMARK [2][-]{subsection.6.1}{Conclusion}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.2}{Outlook}{section.6}% 28
+\BOOKMARK [1][-]{section*.18}{Appendices}{}% 29
+\BOOKMARK [1][-]{Appendix.a.A}{Initial velocity for circular orbits and the value of G}{}% 30
+\BOOKMARK [1][-]{Appendix.a.B}{Deriving the Velocity-Verlet algorithm}{}% 31
