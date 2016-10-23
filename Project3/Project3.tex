@@ -50,8 +50,9 @@
 \author{Daniel Heinesen, Gunnar Lange}
 \begin{document}
 \maketitle
-\begin{abstract}We present an investigation into numerical algorithms for solving complex systems of ODE's, by simulating a many-body problem - our solar system, with varying levels of complexity. We present the forward Euler algorithm and the Velocity-Verlet algorithm, and show that, when computation time is not a vital concern, the Velocity-Verlet algorithm outperforms the Forward Euler. We also investigate the appropriate time step to model our system over long time scales, and find that $10^5$ steps per year gives us sufficient numerical precision. Finally, we show that our program largely reproduces some known analytic results, namely conservation of energy/angular momentum, the escape velocity of earth from the sun and the perihelion precession of mercury predicted by general relativity. All data, scripts and plots can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3}{Git-page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3}
+\begin{abstract}We present an investigation into numerical algorithms for solving complex systems of ODE's, by simulating a many-body problem - our solar system, with varying levels of complexity. We present the forward Euler algorithm and the Velocity-Verlet algorithm, and show that, when computation time is not a vital concern, the Velocity-Verlet algorithm outperforms the Forward Euler. We also investigate the appropriate time step to model our system over long time scales, and find that $10^5$ steps per year gives us sufficient numerical precision. Finally, we show that our program largely reproduces some known analytic results, namely conservation of energy/angular momentum, the escape velocity of earth from the sun and the perihelion precession of mercury predicted by general relativity. All data, scripts and plots can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3Final}{Git-page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3Final}
 \end{abstract}
+\newpage
 \tableofcontents
 \newpage
 \section{Introduction}
@@ -173,6 +174,7 @@ One of the tests for Einstein's theory of relativity is the perihelion precessio
 \vec{F}_G=\frac{GM_{\odot}M_{\mathrm{Mercury}}}{r^3}\left[1+\frac{3l^2}{r^2c^2}\right]\vec{r}
 \end{equation}
 Where $l=|\vec{l}|$ is the absolute value of the angular momentum per mass of the body the force acts on, and $c$ is the speed of light. This assumes that all other effects, such as gravitational attraction from other planets, have been ignored. In this case, experimental data shows that the perihelion angle precesses $43''=0.2085\  \mathrm{mrad}$ per 100 earth years. We will investigate if this relativistic correction can correctly predict the precession, by comparing the motion of Mercury (removing all other planets) with Newtonian gravity and with the relativistic expression for gravity.
+\newpage
 \section{Methods}
 In this section we give an overview of the methods that we employed to solve the problems outlined in the previous sections. We discuss the models we have implemented, the numerical implementation of these models and the equations from the previous section and finally the implementation of initial conditions.
 \subsection{Models}\label{models}
@@ -195,7 +197,7 @@ To ease the flow of data, we implement a class structure to our code. We have th
 \end{enumerate}
 Finally we also implement a tailored vector class, which implements some key features of vector algebra needed to solve the equations in section \ref{Newtonian_Gravity}, such as addition, multiplication, norms, inner products and the cross product.
 \subsubsection{Retrieving the initial conditions}
-As described in section \ref{implement_IC}, the initial positions and velocities of all planets can be retrieved from NASA's  \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}. It is possible to establish a telnet connection to these websites, and retrieve the data automatically. We took inspiration from\textbf{INSERT STACKEXCHANGE PAGE HERE} when implementing this.\\
+As described in section \ref{implement_IC}, the initial positions and velocities of all planets can be retrieved from NASA's  \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}. It is possible to establish a telnet connection to these websites, and retrieve the data automatically. We took inspiration from \cite{NASA} when implementing this.\\
 \linebreak
 \linebreak
 With the class structure and the initial conditions in place, we can then simply initialize the solar system by a code akin to the one shown below:
@@ -222,7 +224,7 @@ To find the perihelion processions of mercury, we must develop an algorithm whic
 \newpage
 
 \section{Results}
-In this section we present the orbits of the different models, as well as quantities such as conservation of energy/momentum and escape velocity/perihelion precession. Our calculations were all done in 3D, but we include only 2D plots, as these are easier to interpret. The orbits of all planets, except Pluto, are almost two-dimensional anyway, as can be seen from the solar\_system\_3D.gif file on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3}{Git-page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3-Final}. We postpone an extended discussion of our results until section 5.
+In this section we present the orbits of the different models, as well as quantities such as conservation of energy/momentum and escape velocity/perihelion precession. Our calculations were all done in 3D, but we include only 2D plots, as these are easier to interpret. The orbits of all planets, except Pluto, are almost two-dimensional anyway, as can be seen from the solar\_system\_3D.gif file on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3Final}{GIT-page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3Final}. We postpone an extended discussion of our results until section 5.
 \subsection{Results from the first model - Earth-Sun}
 \subsubsection{Position}
 The position of the earth and the sun, as well as a zoomed-in version of the plot, are shown in the figures below:
@@ -250,7 +252,7 @@ The position of the earth and the sun, as well as a zoomed-in version of the plo
 \end{figure}
 \subsubsection{Conservation of energy and angular momentum per unit mass}
 A plot of the relative error in the total energy and the total angular momentum per unit mass for the Velocity-Verlet and the Euler algorithm is shown below:
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -265,7 +267,7 @@ A plot of the relative error in the total energy and the total angular momentum 
     \end{subfigure}
     \caption{Variations in the error of the total energy as a function of time for 10 years of orbit of the earth-sun system. Note the scale on the axis.}
 \end{figure}
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -280,9 +282,10 @@ A plot of the relative error in the total energy and the total angular momentum 
     \end{subfigure}
     \caption{Variations in the error of the total angular momentum per unit mass as a function of time for 10 years of orbit of the earth-sun system. }
 \end{figure}
+\newpage
 \subsection{Investigating the time step}
 Plots for a variety of a timesteps are shown below. $\Delta t$ is the timestep. Note that a similar plot was already shown for $\Delta t = 10^{-5}$ in figure 2 above. 
-\begin{figure}[t!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -300,7 +303,7 @@ Plots for a variety of a timesteps are shown below. $\Delta t$ is the timestep. 
 
 \subsubsection{Investigating the required escape velocity}
 The plot for the earth-sun system with the initial velocity of the earth slightly varied is shown below.
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -315,11 +318,11 @@ The plot for the earth-sun system with the initial velocity of the earth slightl
     \end{subfigure}
     \caption{Plot of the earth-sun system for different initial velocities. The simulation runs for 2000 years, with $10^5$ timesteps per year.}\label{fig:escape_vel}
 \end{figure}
-
+\newpage
 \subsection{Results from the second model-Earth, Jupiter and Sun}
 \subsubsection{Position}
 The orbit of the three-body system consisting of the earth, Jupiter and the sun is shown below. We have also included a zoomed in version of the same plots.
-\begin{figure}[t!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -336,7 +339,7 @@ The orbit of the three-body system consisting of the earth, Jupiter and the sun 
 \end{figure}
 We wanted to do a similar thing for the mass of Jupiter being 1000 times larger than it is in reality, but here we ran into a problem. If we let the center of mass be at the origin, with zero velocity, the earth crashes into Jupiter. When we let the sun be at the origin, however, we get a chaotic system, but without crashes. We have therefore included both of these possibilities.
 
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -349,11 +352,12 @@ We wanted to do a similar thing for the mass of Jupiter being 1000 times larger 
         \includegraphics[height=2.0in]{orbitSEJMCAtOri.png}
         \caption{Jupiter at 1000 times its original mass, center of mass at origin with zero velocity.}
     \end{subfigure}
-    \caption{Sun, Earth and Jupiter system with Jupiter's mass increase by a factor 1000. The stars indicate the initial positions of the objects. We simulate for 10 years, with $10^5$ timesteps per year. Notice how earth crashes into Jupiter in subplot b.}
-\end{figure} \label{fig:Jupiter1000}
+    \caption{Sun, Earth and Jupiter system with Jupiter's mass increase by a factor 1000. The stars indicate the initial positions of the objects. We simulate for 10 years, with $10^5$ timesteps per year. Notice how earth crashes into Jupiter in subplot b.}\label{fig:Jupiter1000}
+\end{figure}
+\newpage
 \subsubsection{Conservation of energy and angular momentum per unit mass}
 A plot of the relative error in the total energy and the total angular momentum per unit mass for Jupiter's mass equal to 10 and 1000 is shown below. We did not include the plot for the situation where the center of mass is not at the origin with initial velocity, as the center of mass will be moving in this case, and we have taken the angular momentum relative to a fixed point. Thus angular momentum is not necessarily conserved in that case.
-\begin{figure}[t!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -368,7 +372,7 @@ A plot of the relative error in the total energy and the total angular momentum 
     \end{subfigure}
     \caption{Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 10 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year.}\label{fig:Energy_jupiter_10}
 \end{figure}
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -383,12 +387,12 @@ A plot of the relative error in the total energy and the total angular momentum 
     \end{subfigure}
     \caption{Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 1000 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year. The center of mass is at the origin with zero velocity.}\label{fig:Energy_jupiter_1000}
 \end{figure}
-
+\newpage
 
 \subsection{Results from the third model - Entire Solar System}
 \subsubsection{Position}
-A plot of the entire splar system is shown in the figures below. We have also included a zoomed in version, to illustrate the orbit of the closest planets.
-\begin{figure}[H!]
+A plot of the entire solar system is shown in the figures below. We have also included a zoomed in version, to illustrate the orbit of the closest planets.
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -405,7 +409,7 @@ A plot of the entire splar system is shown in the figures below. We have also in
 \end{figure}
 \subsubsection{Conservation of energy and angular momentum per unit mass}
 A plot of the relative error in the total energy and the total angular momentum per unit mass for the entire solar system is shown below:
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -420,11 +424,12 @@ A plot of the relative error in the total energy and the total angular momentum 
     \end{subfigure}
     \caption{Relative error of conserved quantities for the entire solar system.} \label{fig:error_full_solar_system}
 \end{figure}
+\newpage
 
 \subsection{Results from the fourth model - Mercury-Sun System}
 \subsubsection{Position}
 For this system, we plot the variation in the perihelion angle with and without Newtonian gravity below:
-\begin{figure}[H!]
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
@@ -439,6 +444,7 @@ For this system, we plot the variation in the perihelion angle with and without 
     \end{subfigure}
     \caption{Plot of the variation of the perihelion angle over a century, using both the Newtonian and the relativistic expressions for gravity. Here we employed a higher precision of $10^7$ steps per year, because the variations in angle are so small.} \label{fig:precession}
 \end{figure}
+\newpage
 \section{Discussion}
 In this section we discuss the results from the previous section for the various models.
 \subsection{Interpreting the results from the Earth-Sun model}
@@ -460,12 +466,13 @@ As can be seen in \cref{fig:escape_vel}, our simulation seems to reproduce the e
 \subsubsection{The orbits of the planets}
 It is reassuring to see, as shown in \cref{fig:jupiter1-10} a), that our system still appears to be stable with the most massive planet in the solar system added. On the scale shown, there are no visible deviations from the earlier plot, and even when zooming these deviations are hard to see. This shows that the sun is the utterly dominating object in the solar system.\\
 \linebreak
-For the case when Jupiter is 10 times heavier, we can seem from \cref{fig:jupiter1-10} b) that Earth's orbit becomes thicker - i.e. that there earth wobbles in the orbit. A zoomed version of the same image is shown below:
-\begin{figure}[t!]
+For the case when Jupiter is 10 times heavier, we can seem from \cref{fig:jupiter1-10} b) that Earth's orbit becomes thicker - the earth wobbles. A zoomed in version of the same image is shown below:
+\begin{figure}[!ht]
     \centering
     \includegraphics[height=2.5in]{orbitESJ10Close.png}
     \caption{A zoomed in version of \cref{fig:jupiter1-10} b).}
 \end{figure}
+\linebreak
 This shows that earth's orbit is moving slightly back and forth, due to the tidal forces from Jupiter. Nonetheless, it is clear that the sun is still the dominating body in this case.\\
 \linebreak
 For the case where Jupiter is 1000 times heavier than in reality, things break down slightly. Here, the mass of Jupiter is comparable to the mass of the sun, and consequently this turns into a chaotic three-body problem. It is interesting to observe that the system keeps together in an oscillating state when the sun starts at the origin, whilst it flies apart if the center of mass starts at the origin. This illustrates the complex and frequently unstable behavior of three-body systems. 
@@ -475,7 +482,7 @@ The energy in the system where Jupiter's mass is increased by a factor 10 is sho
 The angular total energy and angular momentum per unit mass for the case where Jupiter is 1000 times heavier than in reality are shown in \cref{fig:Energy_jupiter_1000}. This is for the case where the center of mass is at the origin and does not move (so that the angular momentum, taken relative to the origin, should be constant). Here our model clearly break down.This is presumably due to the fact that the earth crashes into Jupiter. As we have excluded collision detection in our algorithm, numerical errors may have increase considerably, as the velocity of the earth changes rapidly in a single time step. Thus, these results are not representative of the underlying physics, and we do not discuss them further.
 \subsection{Interpreting the results from the full solar system}
 \subsubsection{The orbit in the solar system}
-The orbits are shown in figure \cref{fig:solar_system}. Note that these are two-dimensional projections of the orbit. An animated version of both the 2D and 3D orbits can be found on our \textbf{GIT} page. As can be seen there, the orbits are almost entirely coplanar, except for the orbit of Pluto. Notice how the oribts are stable for 300 years, though the innermost orbits show some variations - both due to numerical errors and due to the effects of the more massive planets. In general, however, the Verlet method seems stable over 300 years, with the given time step. Note that these simulations only took about 20 seconds to run. This indicates that the Verlet algorithm is quite stable at our chosen time step.
+The orbits are shown in figure \cref{fig:solar_system}. Note that these are two-dimensional projections of the orbit. An animated version of both the 2D and 3D orbits can be found on our \href{https://github.com/dulte/Comp-Phys/tree/master/Project3Final}{GIT page}\footnote{https://github.com/dulte/Comp-Phys/tree/master/Project3Final}. As can be seen there, the orbits are almost entirely coplanar, except for the orbit of Pluto. Notice how the oribts are stable for 300 years, though the innermost orbits show some variations - both due to numerical errors and due to the effects of the more massive planets. In general, however, the Verlet method seems stable over 300 years, with the given time step. Note that these simulations only took about 20 seconds to run. This indicates that the Verlet algorithm is quite stable at our chosen time step.
 \subsubsection{Conservation of energy angular momentum per unit mass}
 As shown in \cref{fig:error_full_solar_system}, the oscillations of the relative error in the total energy are still minuscule but, interestingly, not with a mean of zero. The total angular momentum per unit mass shows a similar oscillating behavior as previously, but with a larger ensemble of frequencies. The reason is presumably the same as in the previous model - a moving center of mass. Whilst angular momentum should be conserved, it must be calculated relative to a point numerically. We calculated angular momentum with respect to the origin, however, if that is not where the center of mass is, and if the center of mass has a nonzero velocity, we may get deviations. These may explain the above behavior though they, as earlier, do not explain why there would be a non-zero mean.
 \subsection{Discussing the perihelion precession of mercury}
@@ -498,6 +505,7 @@ Finally, it may be very rewarding to have a closer look at the three-body proble
 \addcontentsline{toc}{section}{References}
 \bibliography{Project3}
 \bibliographystyle{apalike}
+\newpage
 \begin{appendices}
 \section{Initial velocity for circular orbits and the value of G}\label{ap:Find_Circular_orbit}
 If we assume a two-body system, consisting of the earth and the sun, transform to a system where the sun's velocity is zero, and assume circular orbit, we can equate the force of gravity to the centripetal force. For the earth this gives:

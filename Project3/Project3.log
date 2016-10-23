@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  23 OCT 2016 21:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  23 OCT 2016 22:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,47 +677,46 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 52.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./Project3.toc
-[1
+) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Project3.toc)
 \tf@toc=\write4
 \openout4 = `Project3.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 58--63
+Underfull \hbox (badness 10000) in paragraph at lines 59--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--63
+Underfull \hbox (badness 10000) in paragraph at lines 59--64
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 87--93
+Underfull \hbox (badness 10000) in paragraph at lines 88--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--93
+Underfull \hbox (badness 10000) in paragraph at lines 88--94
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 126--130
+Underfull \hbox (badness 10000) in paragraph at lines 127--131
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 132.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 132.
 
-Overfull \hbox (13.60312pt too wide) in paragraph at lines 132--133
+Overfull \hbox (13.60312pt too wide) in paragraph at lines 133--134
 []\T1/cmr/m/n/10 We must per-form two fur-ther ad-di-tions per di-men-sion, nam
 ely adding $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h[]=\OT1/cmr/m/n/10 2)\OML/cmm/m/
 it/10 a[]$ \T1/cmr/m/n/10 and $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h=\OT1/cmr/m/n
@@ -725,21 +724,21 @@ it/10 a[]$ \T1/cmr/m/n/10 and $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h=\OT1/cmr/m/n
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 158--162
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
 
  []
 
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 198--202
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--202
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
 
  []
 
-(./Pseudo_code_make_planets.py
+[8] (./Pseudo_code_make_planets.py
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -747,339 +746,352 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
- [8])
+)
 (./Pseudo_code_solve_system.py)
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
+Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
 
-(./Pseudo_code_perihelion.py [9]) [10]
-<earthsun.png, id=336, 578.16pt x 433.62pt>
+[9] (./Pseudo_code_perihelion.py) [10]
+<earthsun.png, id=338, 578.16pt x 433.62pt>
 File: earthsun.png Graphic file (type png)
  <use earthsun.png>
-Package pdftex.def Info: earthsun.png used on input line 231.
+Package pdftex.def Info: earthsun.png used on input line 233.
 (pdftex.def)             Requested size: 240.90234pt x 180.67499pt.
 
-<orbitESVV.png, id=338, 578.16pt x 433.62pt>
+<orbitESVV.png, id=340, 578.16pt x 433.62pt>
 File: orbitESVV.png Graphic file (type png)
  <use orbitESVV.png>
-Package pdftex.def Info: orbitESVV.png used on input line 240.
+Package pdftex.def Info: orbitESVV.png used on input line 242.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<orbitESEuler.png, id=339, 578.16pt x 433.62pt>
+<orbitESEuler.png, id=341, 578.16pt x 433.62pt>
 File: orbitESEuler.png Graphic file (type png)
  <use orbitESEuler.png>
-Package pdftex.def Info: orbitESEuler.png used on input line 246.
+Package pdftex.def Info: orbitESEuler.png used on input line 248.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 238--249
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 240--251
  []$[]$  $[]$ 
  []
 
-<relErrEnESEuler.png, id=340, 578.16pt x 433.62pt>
+<relErrEnESEuler.png, id=342, 578.16pt x 433.62pt>
 File: relErrEnESEuler.png Graphic file (type png)
  <use relErrEnESEuler.png>
-Package pdftex.def Info: relErrEnESEuler.png used on input line 257.
+Package pdftex.def Info: relErrEnESEuler.png used on input line 259.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<relErEnES.png, id=341, 578.16pt x 433.62pt>
+<relErEnES.png, id=343, 578.16pt x 433.62pt>
 File: relErEnES.png Graphic file (type png)
  <use relErEnES.png>
-Package pdftex.def Info: relErEnES.png used on input line 263.
+Package pdftex.def Info: relErEnES.png used on input line 265.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 255--266
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 257--268
  []$[]$  $[]$ 
  []
 
-<relErrMomESEuler.png, id=342, 578.16pt x 433.62pt>
+<relErrMomESEuler.png, id=344, 578.16pt x 433.62pt>
 File: relErrMomESEuler.png Graphic file (type png)
  <use relErrMomESEuler.png>
-Package pdftex.def Info: relErrMomESEuler.png used on input line 272.
+Package pdftex.def Info: relErrMomESEuler.png used on input line 274.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<relErMomES.png, id=343, 578.16pt x 433.62pt>
+<relErMomES.png, id=345, 578.16pt x 433.62pt>
 File: relErMomES.png Graphic file (type png)
  <use relErMomES.png>
-Package pdftex.def Info: relErMomES.png used on input line 278.
+Package pdftex.def Info: relErMomES.png used on input line 280.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 270--281
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 272--283
  []$[]$  $[]$ 
  []
 
-[11 <./earthsun.png> <./orbitESVV.png> <./orbitESEuler.png>]
-<orbitESe2y2png.png, id=355, 578.16pt x 433.62pt>
+[11 <./earthsun.png> <./orbitESVV.png> <./orbitESEuler.png>] [12 <./relErrEnESE
+uler.png> <./relErEnES.png> <./relErrMomESEuler.png> <./relErMomES.png>]
+<orbitESe2y2png.png, id=368, 578.16pt x 433.62pt>
 File: orbitESe2y2png.png Graphic file (type png)
  <use orbitESe2y2png.png>
-Package pdftex.def Info: orbitESe2y2png.png used on input line 289.
+Package pdftex.def Info: orbitESe2y2png.png used on input line 292.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<orbitESe3y2png.png, id=356, 578.16pt x 433.62pt>
+<orbitESe3y2png.png, id=369, 578.16pt x 433.62pt>
 File: orbitESe3y2png.png Graphic file (type png)
  <use orbitESe3y2png.png>
-Package pdftex.def Info: orbitESe3y2png.png used on input line 295.
+Package pdftex.def Info: orbitESe3y2png.png used on input line 298.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 287--298
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 290--301
  []$[]$  $[]$ 
  []
 
-<escape888.png, id=357, 578.16pt x 433.62pt>
+<escape888.png, id=370, 578.16pt x 433.62pt>
 File: escape888.png Graphic file (type png)
  <use escape888.png>
-Package pdftex.def Info: escape888.png used on input line 307.
+Package pdftex.def Info: escape888.png used on input line 310.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<escape889.png, id=358, 578.16pt x 433.62pt>
+<escape889.png, id=371, 578.16pt x 433.62pt>
 File: escape889.png Graphic file (type png)
  <use escape889.png>
-Package pdftex.def Info: escape889.png used on input line 313.
+Package pdftex.def Info: escape889.png used on input line 316.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 305--316
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 308--319
  []$[]$  $[]$ 
  []
 
-<orbitESJ1.png, id=359, 578.16pt x 433.62pt>
+[13 <./orbitESe2y2png.png> <./orbitESe3y2png.png> <./escape888.png> <./escape88
+9.png>] <orbitESJ1.png, id=385, 578.16pt x 433.62pt>
 File: orbitESJ1.png Graphic file (type png)
  <use orbitESJ1.png>
-Package pdftex.def Info: orbitESJ1.png used on input line 326.
+Package pdftex.def Info: orbitESJ1.png used on input line 329.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<orbitESJ10.png, id=360, 578.16pt x 433.62pt>
+<orbitESJ10.png, id=386, 578.16pt x 433.62pt>
 File: orbitESJ10.png Graphic file (type png)
  <use orbitESJ10.png>
-Package pdftex.def Info: orbitESJ10.png used on input line 332.
+Package pdftex.def Info: orbitESJ10.png used on input line 335.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 324--335
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 327--338
  []$[]$  $[]$ 
  []
 
-<orbitESJ1000.png, id=361, 578.16pt x 433.62pt>
+<orbitESJ1000.png, id=387, 578.16pt x 433.62pt>
 File: orbitESJ1000.png Graphic file (type png)
  <use orbitESJ1000.png>
-Package pdftex.def Info: orbitESJ1000.png used on input line 343.
+Package pdftex.def Info: orbitESJ1000.png used on input line 346.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<orbitSEJMCAtOri.png, id=362, 578.16pt x 433.62pt>
+<orbitSEJMCAtOri.png, id=388, 578.16pt x 433.62pt>
 File: orbitSEJMCAtOri.png Graphic file (type png)
  <use orbitSEJMCAtOri.png>
-Package pdftex.def Info: orbitSEJMCAtOri.png used on input line 349.
+Package pdftex.def Info: orbitSEJMCAtOri.png used on input line 352.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 341--352
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 344--355
  []$[]$  $[]$ 
  []
 
-<relErrEnSEJx10.png, id=363, 578.16pt x 433.62pt>
+[14 <./orbitESJ1.png> <./orbitESJ10.png> <./orbitESJ1000.png> <./orbitSEJMCAtOr
+i.png>] <relErrEnSEJx10.png, id=400, 578.16pt x 433.62pt>
 File: relErrEnSEJx10.png Graphic file (type png)
- <use relErrEnSEJx10.png>
-Package pdftex.def Info: relErrEnSEJx10.png used on input line 360.
-(pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<relErrMomSEJx10.png, id=364, 578.16pt x 433.62pt>
+<use relErrEnSEJx10.png>
+Package pdftex.def Info: relErrEnSEJx10.png used on input line 364.
+(pdftex.def)             Requested size: 192.71658pt x 144.54pt.
+ <relErrMomSEJx10.png, id=401, 578.16pt x 433.62pt>
 File: relErrMomSEJx10.png Graphic file (type png)
- <use relErrMomSEJx10.png>
-Package pdftex.def Info: relErrMomSEJx10.png used on input line 366.
+
+<use relErrMomSEJx10.png>
+Package pdftex.def Info: relErrMomSEJx10.png used on input line 370.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 358--369
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 362--373
  []$[]$  $[]$ 
  []
 
-<relErrEnSEJ.png, id=365, 578.16pt x 433.62pt>
+<relErrEnSEJ.png, id=402, 578.16pt x 433.62pt>
 File: relErrEnSEJ.png Graphic file (type png)
  <use relErrEnSEJ.png>
-Package pdftex.def Info: relErrEnSEJ.png used on input line 375.
+Package pdftex.def Info: relErrEnSEJ.png used on input line 379.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<relErrMomSEJ.png, id=366, 578.16pt x 433.62pt>
+<relErrMomSEJ.png, id=403, 578.16pt x 433.62pt>
 File: relErrMomSEJ.png Graphic file (type png)
  <use relErrMomSEJ.png>
-Package pdftex.def Info: relErrMomSEJ.png used on input line 381.
+Package pdftex.def Info: relErrMomSEJ.png used on input line 385.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 373--384
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 377--388
  []$[]$  $[]$ 
  []
 
-<orbitfull.png, id=367, 578.16pt x 433.62pt>
+[15 <./relErrEnSEJx10.png> <./relErrMomSEJx10.png> <./relErrEnSEJ.png> <./relEr
+rMomSEJ.png>] <orbitfull.png, id=415, 578.16pt x 433.62pt>
 File: orbitfull.png Graphic file (type png)
  <use orbitfull.png>
-Package pdftex.def Info: orbitfull.png used on input line 395.
+Package pdftex.def Info: orbitfull.png used on input line 399.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<orbitFull.png, id=368, 578.16pt x 433.62pt>
+<orbitFull.png, id=416, 578.16pt x 433.62pt>
 File: orbitFull.png Graphic file (type png)
  <use orbitFull.png>
-Package pdftex.def Info: orbitFull.png used on input line 401.
+Package pdftex.def Info: orbitFull.png used on input line 405.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 393--404
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 397--408
  []$[]$  $[]$ 
  []
 
-<relErrEnFull.png, id=369, 578.16pt x 433.62pt>
+<relErrEnFull.png, id=417, 578.16pt x 433.62pt>
 File: relErrEnFull.png Graphic file (type png)
  <use relErrEnFull.png>
-Package pdftex.def Info: relErrEnFull.png used on input line 412.
+Package pdftex.def Info: relErrEnFull.png used on input line 416.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<relErrMomFull.png, id=370, 578.16pt x 433.62pt>
+<relErrMomFull.png, id=418, 578.16pt x 433.62pt>
 File: relErrMomFull.png Graphic file (type png)
  <use relErrMomFull.png>
-Package pdftex.def Info: relErrMomFull.png used on input line 418.
+Package pdftex.def Info: relErrMomFull.png used on input line 422.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 410--421
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 414--425
  []$[]$  $[]$ 
  []
 
-<angleNoRel2.png, id=371, 666.3294pt x 433.62pt>
+[16 <./orbitfull.png> <./orbitFull.png> <./relErrEnFull.png> <./relErrMomFull.p
+ng>] <angleNoRel2.png, id=431, 666.3294pt x 433.62pt>
 File: angleNoRel2.png Graphic file (type png)
  <use angleNoRel2.png>
-Package pdftex.def Info: angleNoRel2.png used on input line 431.
+Package pdftex.def Info: angleNoRel2.png used on input line 436.
 (pdftex.def)             Requested size: 222.10587pt x 144.54pt.
 
-Overfull \hbox (9.81274pt too wide) in paragraph at lines 431--432
+Overfull \hbox (9.81274pt too wide) in paragraph at lines 436--437
  [][] 
  []
 
-<angle.png, id=372, 578.16pt x 433.62pt>
+<angle.png, id=432, 578.16pt x 433.62pt>
 File: angle.png Graphic file (type png)
  <use angle.png>
-Package pdftex.def Info: angle.png used on input line 437.
+Package pdftex.def Info: angle.png used on input line 442.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 429--440
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 434--445
  []$[]$  $[]$ 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 449--455
+[17 <./angleNoRel2.png> <./angle.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 455--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--455
+Underfull \hbox (badness 10000) in paragraph at lines 455--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--455
+Underfull \hbox (badness 10000) in paragraph at lines 455--461
 
  []
 
-<orbitESJ10Close.png, id=391, 578.16pt x 433.62pt>
+[18] <orbitESJ10Close.png, id=457, 578.16pt x 433.62pt>
 File: orbitESJ10Close.png Graphic file (type png)
- <use orbitESJ10Close.png>
-Package pdftex.def Info: orbitESJ10Close.png used on input line 466.
+
+<use orbitESJ10Close.png>
+Package pdftex.def Info: orbitESJ10Close.png used on input line 472.
 (pdftex.def)             Requested size: 240.90234pt x 180.67499pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--472
+Underfull \hbox (badness 10000) in paragraph at lines 467--479
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--472
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 473--476
-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 482--483
+Underfull \hbox (badness 10000) in paragraph at lines 467--479
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
+Underfull \hbox (badness 10000) in paragraph at lines 480--483
+
+ []
+
+[19 <./orbitESJ10Close.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--492
+Underfull \hbox (badness 10000) in paragraph at lines 496--499
 
  []
 
-[15] (./Project3.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 493--1
+(./Project3.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 500--1
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 493--1
+Underfull \hbox (badness 10000) in paragraph at lines 500--1
 
  []
 
-) [16]
-Underfull \hbox (badness 10000) in paragraph at lines 508--512
+[21]
+Underfull \hbox (badness 1540) in paragraph at lines 23--28
+[]\T1/cmr/m/n/10 Rob (2013).  Ac-cess-ing a tel-net ses-sion in python.  Avail-
+able at []$\T1/cmtt/m/n/10 http : / /
+ []
+
+
+Underfull \hbox (badness 7832) in paragraph at lines 23--28
+\T1/cmtt/m/n/10 stackoverflow . com / questions / 19845525 / accessing-[]a-[]te
+lnet-[]session-[]in-[]python$[]\T1/cmr/m/n/10 . Re-
+ []
+
+) [22]
+Underfull \hbox (badness 10000) in paragraph at lines 516--520
 \T1/cmr/m/n/10 dius $\OT1/cmr/m/n/10 1[]$\T1/cmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--520
+Underfull \hbox (badness 10000) in paragraph at lines 525--528
 
  []
 
-[17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 537.
- [18 <./relErrEnESEuler.png> <./relErEnES.png> <./relErrMomESEuler.png> <./relE
-rMomES.png> <./orbitESe2y2png.png> <./orbitESe3y2png.png>] [19 <./escape888.png
-> <./escape889.png> <./orbitESJ1.png> <./orbitESJ10.png> <./orbitESJ1000.png> <
-./orbitSEJMCAtOri.png>] [20 <./relErrEnSEJx10.png> <./relErrMomSEJx10.png> <./r
-elErrEnSEJ.png> <./relErrMomSEJ.png>] [21 <./orbitfull.png> <./orbitFull.png> <
-./relErrEnFull.png> <./relErrMomFull.png> <./angleNoRel2.png> <./angle.png>] [2
-2 <./orbitESJ10Close.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 537.
+[23] [24]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 545.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 545.
  (./Project3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 537.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 537.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 545.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 545.
 Package rerunfilecheck Info: File `Project3.out' has not changed.
 (rerunfilecheck)             Checksum: FC937B11FD1321C369D9A20201BE9283;2419.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 537.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 545.
  ) 
 Here is how much of TeX's memory you used:
- 11905 strings out of 495004
- 182285 string characters out of 6180663
- 312658 words of memory out of 5000000
- 14754 multiletter control sequences out of 15000+600000
- 23993 words of font info for 63 fonts, out of 8000000 for 9000
+ 11912 strings out of 495004
+ 182347 string characters out of 6180663
+ 339658 words of memory out of 5000000
+ 14756 multiletter control sequences out of 15000+600000
+ 24306 words of font info for 64 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 42i,16n,58p,1405b,2064s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,58p,1405b,1540s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home
-/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home/gunnnar/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/gunnnar/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/gunnnar/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecrm0700.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecrm0800.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm10
-00.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk>
- </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/g
-unnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/gunnnar/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecrm1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy9.pfb>
-Output written on Project3.pdf (22 pages, 1289732 bytes).
+/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/gunnnar/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home/gunnnar/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/gunnnar/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecti1000.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecrm0700.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx10
+00.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk>
+ </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/g
+unnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/gunnnar/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecbx0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecrm1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy9.pfb>
+Output written on Project3.pdf (24 pages, 1302296 bytes).
 PDF statistics:
- 1072 PDF objects out of 1200 (max. 8388607)
- 524 compressed objects within 6 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 1140 PDF objects out of 1200 (max. 8388607)
+ 548 compressed objects within 6 object streams
+ 164 named destinations out of 1000 (max. 500000)
  387 words of extra memory for PDF output out of 10000 (max. 10000000)
 

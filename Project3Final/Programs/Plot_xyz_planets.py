@@ -1,0 +1,69 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import time, glob, os
+from mpl_toolkits.mplot3d import Axes3D
+
+
+
+with open("planetData.txt","r") as infile:
+    bodies = []
+    for line in infile:
+	if line != '\n':
+        	words = line.split()
+        	bodies.append(words[0])
+
+no_frames=300
+
+infile=open('positionsEarthSunEuler.xyz')
+lines=np.array(infile.readlines())
+no_bodies= int(lines[0])
+lines_true= np.logical_and(lines != str(no_bodies)+'\n', lines != 'New Time step\n')
+lines=lines[lines_true]
+position=np.zeros(shape=(int(len(lines)/float(no_bodies)),no_bodies, 3))
+
+
+for i in range(0,np.shape(lines)[0], no_bodies):
+	for k in range(no_bodies):
+		position[int(i/float(no_bodies)),k,0]=float(((lines[i+k]).split())[0])
+		position[int(i/float(no_bodies)),k,1]=float(((lines[i+k]).split())[1])
+		position[int(i/float(no_bodies)),k,2]=float(((lines[i+k]).split())[2])
+
+legend_plot=[]
+
+for j in range(no_bodies):
+	if bodies[j] != "Sun":
+		legend_plot.append(bodies[j])
+legend_plot.append('Sun')
+
+
+
+
+old_files = glob.glob('solar_system*.png')
+for file in old_files:
+	os.remove(file)
+
+
+frames=np.linspace(0, int(np.shape(lines)[0]/float(no_bodies))-1, no_frames)
+
+
+frame_numbering=np.linspace(0, no_frames, no_frames)
+
+
+for k in range(len(frames)):
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    for j in range(no_bodies):
+        ax.plot(position[:, j, 0], position[:, j,1], position[:, j,2])
+    ax.legend(legend_plot, loc='upper left', prop={'size':8})
+    ax.hold('on')
+    for j in range(no_bodies):
+	ax.scatter(position[int(frames[k]), j, 0], position[int(frames[k]),j,1],position[int(frames[k]),j,2], marker ='o')
+    ax.set_xlabel('x [AU]')
+    ax.set_ylabel('y [AU]')
+    ax.set_zlabel('z [AU]')
+    plt.title('Movement of our Solar System')
+    plt.grid('on')
+    print "Done with:", k
+    fig.savefig('solar_system%06d.png' %frame_numbering[k])
+    plt.clf()
+    plt.close()

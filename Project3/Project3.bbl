@@ -9,6 +9,9 @@ Diacu, F., P{\'e}rez-Chavela, E., and Santoprete, M. (2012).
 \bibitem[Ledder, 2004]{Error_Euler}
 Ledder, G. (2004).
 \newblock Error in euler's method.
+\newblock Available at
+  \url{http://www.math.unl.edu/~gledder1/Math447/EulerError}. Retrieved 23. Oct
+  2016.
 
 \bibitem[{Mazur}, 1997]{Global_VV}
 {Mazur}, A.~K. (1997).
@@ -16,9 +19,19 @@ Ledder, G. (2004).
   Time Steps of St{\"o}rmer-Leapfrog Integrators}.
 \newblock {\em Journal of Computational Physics}, 136:354--365.
 
+\bibitem[Rob, 2013]{NASA}
+Rob (2013).
+\newblock Accessing a telnet session in python.
+\newblock Available at
+  \url{http://stackoverflow.com/questions/19845525/accessing-a-telnet-session-in-python}.
+  Retrieved 23. Oct 2016.
+
 \bibitem[Weisstein, 2007]{Tropical_year}
 Weisstein, E. (2007).
 \newblock Tropical year.
+\newblock Available at
+  \url{http://scienceworld.wolfram.com/astronomy/TropicalYear.html}. Retrieved
+  23. Oct 2016.
 
 \bibitem[Yang, 1967]{PhysRevLett.19.1312}
 Yang, C.~N. (1967).
@@ -29,6 +42,8 @@ Yang, C.~N. (1967).
 \bibitem[Zeltkevic, 1998]{Forward_Euler}
 Zeltkevic, M. (1998).
 \newblock Forward and backward euler methods.
-\newblock {\em MIT}.
+\newblock Available at
+  \url{http://web.mit.edu/10.001/Web/Course_Notes/Differential_Equations_Notes/node3.html}.
+  Retrieved 23. Oct 2016.
 
 \end{thebibliography}
