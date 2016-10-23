@@ -1,0 +1,52 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{a4wide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvips]{epsfig}
+\usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage{cite} % [2,3,4] --> [2--4]
+\usepackage{shadow}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{marvosym }
+\usepackage{subcaption}
+\usepackage[noabbrev]{cleveref}
+
+
+\setlength{\droptitle}{-10em}   % This is your set screw
+
+\setcounter{tocdepth}{2}
+
+\lstset{language=c++}
+\lstset{alsolanguage=[90]Fortran}
+\lstset{basicstyle=\small}
+\lstset{backgroundcolor=\color{white}}
+\lstset{frame=single}
+\lstset{stringstyle=\ttfamily}
+\lstset{keywordstyle=\color{red}\bfseries}
+\lstset{commentstyle=\itshape\color{blue}}
+\lstset{showspaces=false}
+\lstset{showstringspaces=false}
+\lstset{showtabs=false}
+\lstset{breaklines}
+\title{FYS3150 - Project 3}
+\author{Daniel Heinesen, Gunnar Lange}
+\begin{document}
+\maketitle
+
+
+
+Figure 13 a) shows that the angle of the perihelion of Mercury for the Newtonian gravity is not exactly zero, contrary to what should be expected. Because of the discretization of position of Mercury, its closed distance to the sun will rarly be at the actual perihelion. It will instead either over- or undershoot the perihelion. Due to this we can expect the angles to oscillate around zero. Due to the amplitude of the oscillation we got a numerical error of the angle of around $1\cdot 10^{-6}$. If we factor out this error we expect to get a constant angle of 0. But doing this with the data in figure 13 a) will give a constant angle of $\sim 4 \cdot 10^{-6}$. We are not sure of the reason for this discrepancy, but below we shall argue that this error is so small that it can be ignored. Even with the discrepancy of $\sim 4 \cdot 10^{-6}$, the angle is more or less constant over the century, meaning that Newtonian gravity failes to give the 43 arcsec or $0.0002085$ rad precession of the angle we have from observations. \linebreak
+
+Figure 13 b) shows that relativistic gravity no longer gives us a constant angle of the perihelion, but a constant precession. To try to eliminate the discrepancy in the angle of $\sim 4 \cdot 10^{-6}$, we don't look at the value of the angle after a century, but take the differance of the endpoints, giving us a precession of the angle of $0.00020841$ or $42.9876"$, which gives $0.3\%$ relative error from the analytical result. \\
+
+The difference between the Newtonian and relativistic angle is of the magnitude $-4$, meaning that it is 100 times larger than the error we got due to the discretization of position. This means that that with this error we be sure of the restults within $\pm 1\%$. With a realtive error of $0.3 \%$, our result was within this range, and we can conclude that our result gives evidence that general relativity gives a better description of gravitation than Newtonian gravity. 
+
+
+\end{document}
