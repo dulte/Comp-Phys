@@ -68,7 +68,7 @@ void System::compute_acceleration(){
 
 void System::compute_acceleration_relativistic(int index_body, int index_star){
 
-    compute_acceleration();
+    //compute_acceleration();
     double c = 63198;
     vec3 angular_moment;
     angular_moment= Angular_momentum("one", index_body);
@@ -111,6 +111,17 @@ void System::dumpErrorToFile()
 {
     double errorMomentum = ((((Angular_momentum("many",0)).length() - initialAngularMomentum))/(initialAngularMomentum));
     double errorEnergy = (((total_potential_energy + Kinetic_energy()) - initialEnergy)/initialEnergy);
+
+
+    //A small unit test to check whether energy is conserved or not
+    double epsilon = 1e-6;
+
+    if (errorEnergy > epsilon){
+        cout << "Something went wrong with conservation of energy" << endl;
+        exit(1);
+    }
+
+
     outFileEnergyMomentum << errorMomentum << " " << errorEnergy << " " << endl;
 }
 

@@ -18,8 +18,8 @@ void dumpParametersToFile(string filename, System* sys, double steps,double year
 int main(int argc, char *argv[])
 {
     clock_t begin = clock();
-    int steps_per_year = 1e3;
-    int years = 2;
+    int steps_per_year = 1e6;
+    int years = 10;
     double dt = 1.0/(steps_per_year);
 
     System* sys = new System("positions.xyz");
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     string folder = "/home/daniel/Dokumenter/Skole/Comp-Phys/Project3/";
     makePlanets(folder + "planetData.txt", sys);
     sys->setInitialEnergyAndMomentum();
-    int printEvery = 1;
+    int printEvery = 100;
 
     for (int i = 0; i< years*steps_per_year; i++){
         //solver->eulerOneStep();
@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
 }
 
 
+//Gets the initial data of the planets from the file made by planetInfo.py
 void makePlanets(string filename,System * sys){
 
     ifstream inFile(filename);
