@@ -166,7 +166,7 @@ class planetInfo:
 info = planetInfo()
 
 
-#The info is always retrieved from the startdate, the end date is only given for the telnet site to work
+#The info is always retrieved from the startdate, the end date is only given because for the telnet site to work
 start = "1977-Oct-18"
 end = "1977-Oct-19"
 

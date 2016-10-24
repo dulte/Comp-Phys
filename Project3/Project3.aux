@@ -45,7 +45,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Velocity-Verlet Algorithm}{5}{subsubsection.2.3.2}}
 \newlabel{eq:Vel_Ver_eq}{{7}{5}{Velocity-Verlet Algorithm}{equation.2.7}{}}
 \newlabel{eq:Vel_Ver_eq@cref}{{[equation][7][]7}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Choice of units}{5}{subsection.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Choice of units}{6}{subsection.2.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Conserved quantities in the system}{6}{subsection.2.5}}
 \newlabel{conservation_of_energy}{{2.5}{6}{Conserved quantities in the system}{subsection.2.5}{}}
 \newlabel{conservation_of_energy@cref}{{[subsection][5][2]2.5}{6}}
@@ -83,10 +83,11 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Checking conservation of energy and angular momentum per unit mass}{9}{subsubsection.3.3.1}}
 \newlabel{eq:relative_error}{{12}{9}{Checking conservation of energy and angular momentum per unit mass}{equation.3.12}{}}
 \newlabel{eq:relative_error@cref}{{[equation][12][]12}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Checking escape velocity}{9}{subsubsection.3.3.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Checking escape velocity}{10}{subsubsection.3.3.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Checking the precision of the Velocity-Verlet method}{10}{subsubsection.3.3.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Investigating the perihelion processions of mercury}{10}{subsection.3.4}}
 \@writefile{lol}{\contentsline {lstlisting}{Pseudo\textunderscore code\textunderscore perihelion.py}{10}{lstlisting.-3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Unit test}{10}{subsubsection.3.4.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{11}{section.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Results from the first model - Earth-Sun}{11}{subsection.4.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Position}{11}{subsubsection.4.1.1}}
@@ -107,55 +108,44 @@
 \newlabel{fig:escape_vel}{{6}{13}{Plot of the earth-sun system for different initial velocities. The simulation runs for 2000 years, with $10^5$ timesteps per year.\relax }{figure.caption.7}{}}
 \newlabel{fig:escape_vel@cref}{{[figure][6][]6}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Results from the second model-Earth, Jupiter and Sun}{14}{subsection.4.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Position}{14}{subsubsection.4.3.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Sun, Earth and Jupiter system for different masses of Jupiter. Notice the larger deviations in Earth's orbit (thicker line).\relax }}{14}{figure.caption.8}}
 \newlabel{fig:jupiter1-10}{{7}{14}{Sun, Earth and Jupiter system for different masses of Jupiter. Notice the larger deviations in Earth's orbit (thicker line).\relax }{figure.caption.8}{}}
 \newlabel{fig:jupiter1-10@cref}{{[figure][7][]7}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Sun, Earth and Jupiter system with Jupiter's mass increase by a factor 1000. The stars indicate the initial positions of the objects. We simulate for 10 years, with $10^5$ timesteps per year. Notice how earth crashes into Jupiter in subplot b.\relax }}{14}{figure.caption.9}}
 \newlabel{fig:Jupiter1000}{{8}{14}{Sun, Earth and Jupiter system with Jupiter's mass increase by a factor 1000. The stars indicate the initial positions of the objects. We simulate for 10 years, with $10^5$ timesteps per year. Notice how earth crashes into Jupiter in subplot b.\relax }{figure.caption.9}{}}
 \newlabel{fig:Jupiter1000@cref}{{[figure][8][]8}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Conservation of energy and angular momentum per unit mass}{15}{subsubsection.4.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 10 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year.\relax }}{15}{figure.caption.10}}
-\newlabel{fig:Energy_jupiter_10}{{9}{15}{Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 10 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year.\relax }{figure.caption.10}{}}
-\newlabel{fig:Energy_jupiter_10@cref}{{[figure][9][]9}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 1000 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year. The center of mass is at the origin with zero velocity.\relax }}{15}{figure.caption.11}}
-\newlabel{fig:Energy_jupiter_1000}{{10}{15}{Variations in the error of the total energy and the total angular momentum per unit mass for the Earth, Sun and Jupiter system. The mass of Jupiter is 1000 times higher than its actual mass, and the simulation are run for 10 years, with $10^5$ time steps per year. The center of mass is at the origin with zero velocity.\relax }{figure.caption.11}{}}
-\newlabel{fig:Energy_jupiter_1000@cref}{{[figure][10][]10}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Results from the third model - Entire Solar System}{16}{subsection.4.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Position}{16}{subsubsection.4.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Plot of the entire solar system, as well as a zoom on the innermost planets. This was produced with $10^5$ steps per year, running the simulation for a total of 300 years.\relax }}{16}{figure.caption.12}}
-\newlabel{fig:solar_system}{{11}{16}{Plot of the entire solar system, as well as a zoom on the innermost planets. This was produced with $10^5$ steps per year, running the simulation for a total of 300 years.\relax }{figure.caption.12}{}}
-\newlabel{fig:solar_system@cref}{{[figure][11][]11}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Conservation of energy and angular momentum per unit mass}{16}{subsubsection.4.4.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Relative error of conserved quantities for the entire solar system.\relax }}{16}{figure.caption.13}}
-\newlabel{fig:error_full_solar_system}{{12}{16}{Relative error of conserved quantities for the entire solar system.\relax }{figure.caption.13}{}}
-\newlabel{fig:error_full_solar_system@cref}{{[figure][12][]12}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Results from the fourth model - Mercury-Sun System}{17}{subsection.4.5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Position}{17}{subsubsection.4.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Plot of the variation of the perihelion angle over a century, using both the Newtonian and the relativistic expressions for gravity. Here we employed a higher precision of $10^7$ steps per year, because the variations in angle are so small.\relax }}{17}{figure.caption.14}}
-\newlabel{fig:precession}{{13}{17}{Plot of the variation of the perihelion angle over a century, using both the Newtonian and the relativistic expressions for gravity. Here we employed a higher precision of $10^7$ steps per year, because the variations in angle are so small.\relax }{figure.caption.14}{}}
-\newlabel{fig:precession@cref}{{[figure][13][]13}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{18}{section.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interpreting the results from the Earth-Sun model}{18}{subsection.5.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Choice of algorithm}{18}{subsubsection.5.1.1}}
-\@writefile{toc}{\contentsline {paragraph}{Position graphs:}{18}{section*.15}}
-\@writefile{toc}{\contentsline {paragraph}{Conservation of energy}{18}{section*.16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Choice of time step}{18}{subsubsection.5.1.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Escape velocity}{19}{subsubsection.5.1.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Interpreting the results from the Earth, Sun and Jupiter model}{19}{subsection.5.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}The orbits of the planets}{19}{subsubsection.5.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces A zoomed in version of \cref  {fig:jupiter1-10} b).\relax }}{19}{figure.caption.17}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Energy and angular momentum per unit mass in the Earth, Sun and Jupiter system}{19}{subsubsection.5.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Interpreting the results from the full solar system}{20}{subsection.5.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}The orbit in the solar system}{20}{subsubsection.5.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Conservation of energy angular momentum per unit mass}{20}{subsubsection.5.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Discussing the perihelion precession of mercury}{20}{subsection.5.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Results from the third model - Entire Solar System}{15}{subsection.4.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Position}{15}{subsubsection.4.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Plot of the entire solar system, as well as a zoom on the innermost planets. This was produced with $10^5$ steps per year, running the simulation for a total of 300 years.\relax }}{15}{figure.caption.10}}
+\newlabel{fig:solar_system}{{9}{15}{Plot of the entire solar system, as well as a zoom on the innermost planets. This was produced with $10^5$ steps per year, running the simulation for a total of 300 years.\relax }{figure.caption.10}{}}
+\newlabel{fig:solar_system@cref}{{[figure][9][]9}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Conservation of energy and angular momentum per unit mass}{15}{subsubsection.4.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Relative error of conserved quantities for the entire solar system.\relax }}{15}{figure.caption.11}}
+\newlabel{fig:error_full_solar_system}{{10}{15}{Relative error of conserved quantities for the entire solar system.\relax }{figure.caption.11}{}}
+\newlabel{fig:error_full_solar_system@cref}{{[figure][10][]10}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Results from the fourth model - Mercury-Sun System}{16}{subsection.4.5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Position}{16}{subsubsection.4.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Plot of the variation of the perihelion angle over a century, using both the Newtonian and the relativistic expressions for gravity. Here we employed a higher precision of $10^7$ steps per year, because the variations in angle are so small.\relax }}{16}{figure.caption.12}}
+\newlabel{fig:precession}{{11}{16}{Plot of the variation of the perihelion angle over a century, using both the Newtonian and the relativistic expressions for gravity. Here we employed a higher precision of $10^7$ steps per year, because the variations in angle are so small.\relax }{figure.caption.12}{}}
+\newlabel{fig:precession@cref}{{[figure][11][]11}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{17}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interpreting the results from the Earth-Sun model}{17}{subsection.5.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Choice of algorithm}{17}{subsubsection.5.1.1}}
+\@writefile{toc}{\contentsline {paragraph}{Position graphs:}{17}{section*.13}}
+\@writefile{toc}{\contentsline {paragraph}{Conservation of energy}{17}{section*.14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Choice of time step}{17}{subsubsection.5.1.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Escape velocity}{18}{subsubsection.5.1.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Interpreting the results from the Earth, Sun and Jupiter model}{18}{subsection.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces A zoomed in version of \cref  {fig:jupiter1-10} b).\relax }}{18}{figure.caption.15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Interpreting the results from the full solar system}{18}{subsection.5.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}The orbit in the solar system}{18}{subsubsection.5.3.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Conservation of energy angular momentum per unit mass}{19}{subsubsection.5.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Discussing the perihelion precession of mercury}{19}{subsection.5.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion and outlook}{20}{section.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Conclusion}{20}{subsection.6.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Outlook}{20}{subsection.6.2}}
 \bibdata{Project3}
 \bibcite{Diacu2012}{Diacu et\nobreakspace  {}al., 2012}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion and outlook}{21}{section.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Conclusion}{21}{subsection.6.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Outlook}{21}{subsection.6.2}}
-\@writefile{toc}{\contentsline {section}{References}{21}{subsection.6.2}}
 \bibcite{Error_Euler}{Ledder, 2004}
 \bibcite{Global_VV}{{Mazur}, 1997}
 \bibcite{NASA}{Rob, 2013}
@@ -163,14 +153,15 @@
 \bibcite{PhysRevLett.19.1312}{Yang, 1967}
 \bibcite{Forward_Euler}{Zeltkevic, 1998}
 \bibstyle{apalike}
-\@writefile{toc}{\contentsline {section}{Appendices}{23}{section*.19}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Initial velocity for circular orbits and the value of G}{23}{Appendix.a.A}}
-\newlabel{ap:Find_Circular_orbit}{{A}{23}{Initial velocity for circular orbits and the value of G}{Appendix.a.A}{}}
-\newlabel{ap:Find_Circular_orbit@cref}{{[section][1][]A}{23}}
-\newlabel{eq:Vel_for_cicrular_orbit}{{13}{23}{Initial velocity for circular orbits and the value of G}{equation.a.A.13}{}}
-\newlabel{eq:Vel_for_cicrular_orbit@cref}{{[equation][13][]13}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Deriving the Velocity-Verlet algorithm}{23}{Appendix.a.B}}
-\newlabel{ap:Deriving_VelVer}{{B}{23}{Deriving the Velocity-Verlet algorithm}{Appendix.a.B}{}}
-\newlabel{ap:Deriving_VelVer@cref}{{[section][2][]B}{23}}
-\newlabel{eq:discretized_acceleration}{{14}{23}{Deriving the Velocity-Verlet algorithm}{equation.a.B.14}{}}
-\newlabel{eq:discretized_acceleration@cref}{{[equation][14][]14}{23}}
+\@writefile{toc}{\contentsline {section}{References}{21}{subsection.6.2}}
+\@writefile{toc}{\contentsline {section}{Appendices}{22}{section*.17}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Initial velocity for circular orbits and the value of G}{22}{Appendix.a.A}}
+\newlabel{ap:Find_Circular_orbit}{{A}{22}{Initial velocity for circular orbits and the value of G}{Appendix.a.A}{}}
+\newlabel{ap:Find_Circular_orbit@cref}{{[section][1][]A}{22}}
+\newlabel{eq:Vel_for_cicrular_orbit}{{13}{22}{Initial velocity for circular orbits and the value of G}{equation.a.A.13}{}}
+\newlabel{eq:Vel_for_cicrular_orbit@cref}{{[equation][13][]13}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Deriving the Velocity-Verlet algorithm}{22}{Appendix.a.B}}
+\newlabel{ap:Deriving_VelVer}{{B}{22}{Deriving the Velocity-Verlet algorithm}{Appendix.a.B}{}}
+\newlabel{ap:Deriving_VelVer@cref}{{[section][2][]B}{22}}
+\newlabel{eq:discretized_acceleration}{{14}{22}{Deriving the Velocity-Verlet algorithm}{equation.a.B.14}{}}
+\newlabel{eq:discretized_acceleration@cref}{{[equation][14][]14}{22}}
