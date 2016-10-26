@@ -14,7 +14,7 @@
 \usepackage{shadow}
 \usepackage{hyperref}
 \usepackage{titling}
-\usepackage{ marvosym }
+\usepackage{marvosym }
 
 \setlength{\droptitle}{-10em}   % This is your set screw
 
@@ -51,14 +51,12 @@ Newton's general law of gravitation, which describes the force of gravity betwee
 \vec{F}_{G}=\frac{Gm_1m_2}{r^3}\vec{r}
 \end{equation}
 Here $F_G$ is the force of gravity on the first mass, $G$ is the universal gravitational constant, $m_i$ are the masses of the two objects, and $\vec{r}$ is the vector pointing from $m_1$ to $m_2$. This law can be combined with Newton's second law of motion, to give a set of coupled differential equations:
-\begin{equation}\label{eq:coupled_diff_1}
-\frac{d^2x}{dt^2}=\frac{F_{G,x}}{m_1}
-\end{equation} 
-\begin{equation}\label{eq:coupled_diff_2}
-\frac{d^2 y}{dt^2}=\frac{F_{G,y}}{m_1}
-\end{equation}
-\begin{equation}\label{eq:coupled_diff_3}
-\frac{d^2 z}{dt^2}=\frac{F_{G,z}}{m_1}
+\begin{equation}\label{eq:coupled_diff}
+\begin{split}
+\frac{d^2x}{dt^2}=\frac{F_{G,x}}{m_1}\\
+\frac{d^2 y}{dt^2}=\frac{F_{G,y}}{m_1}\\
+\frac{d^2 z}{dt^2}=\frac{F_{G,z}}{m_1}\\
+\end{split}
 \end{equation}
 Where $F_{G,x}, F_{G,y}$ and $F_{G,z}$ are the components of the gravitational force in the $x, y$ and $z$ directions respectively. These equations can be reduced to a set of first-order equations by introducing the velocity components, $v$, such that:
 \begin{equation}\label{eq:Velocity_position_equation}
@@ -69,38 +67,56 @@ And equivalently for the $y$ and $z$ direction. This gives six coupled, first-or
 To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. This is described in detail\textbf{LATER}. For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.
 
 \subsection{Discretizing the equations}
-We will solve equations \ref{eq:coupled_diff_1}, \ref{eq:coupled_diff_2} and \ref{eq:coupled_diff_3} numerically. This implies that we require discretized versions of the above equations. We therefore assume that we want to simulate from $t=t_0$ to $t=t_f$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $h$, of:
+We will solve the equations in \ref{eq:coupled_diff} numerically. Therefore we require discretized versions of the these equations. We want to simulate from $t=t_0$ to $t=t_f$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $h$, of:
 $$h=\frac{t_f-t_0}{N}$$
 Let now $t_i=a+ih$, where $i$ goes from $0$ to $N$. Furthermore, let $x_i=x(t_i)$ and $ v_{x,i}=v_x(t_i)$, and equivalently for the $y$ and $z$ direction. Finally, discretize the acceleration as $a_{x,i}=a_x(x_i, y_i, z_i)$. This allows us to discretize the derivatives in equation \ref{eq:Velocity_position_equation}. We will do this in two separate ways; with the forward Euler algorithm and with the Velocity-Verlet algorithm.
 \subsubsection{Euler's forward method}
 Euler's forward algorithm amounts to discretizing the derivatives from section \ref{Newtonian_Gravity} as:
-\begin{equation}
-\frac{dx}{dt}\approx \frac{x_{i+1}-x_i}{h}
+\begin{equation}\label{eq:Euler_Forward}
+\frac{dg}{dt}\approx \frac{x_{i+1}-x_i}{h}
 \end{equation}
-This approximation is based on Taylor-expanding the function $x$ to the second order, as explained \textbf{HERE}. Inserting this approximation into equation \ref{eq:Velocity_position_equation}, and rearranging some of the terms, gives:
+This approximation is based on Taylor-expanding the function $g(t)$ to the second order, as explained \textbf{HERE}. Inserting this approximation into equation \ref{eq:Euler_Forward}, and rearranging some of the terms, gives:
 \begin{equation}
-v_{x, i+1}=v_{x,i}+ha_{x,i}
-\end{equation}
-\begin{equation}
+\begin{split}
+v_{x, i+1}=v_{x,i}+ha_{x,i}\\
 x_{i+1}=x_i+hv_{x,i}
+\end{split}
 \end{equation}
 And again equivalently for the $x$ and $y$ direction. This is the Euler forward algorithm. Combining this with the initial conditions, $\vec{v}(t_0)=\vec{v}_0$ and $\vec{x}(t_0)=\vec{x}_0$, makes it possible to solve the equations of Newtonian gravity. Closer inspection (through Taylor expansion, such as found \textbf{HERE} \href{http://www.math.unl.edu/~gledder1/Math447/EulerError}{here}), reveals that the local error is proportional to $h^2$, whereas the global error is proportional to $h$. Thus, whilst this is a straightforward algorithm, the errors quickly accumulate. It is therefore of interest to investigate a slightly improved algorithm:
 
 \subsubsection{Velocity-Verlet Algorithm}
-The Velocity-Verlet algorithm is based on the idea of Taylor-expanding the acceleration, instead of the velocity and the position
-
-
-\subsection{First model - The earth-sun system}\label{First_model}
-We begin with a simplified model of our solar system, containing only the earth and the sun. In this case, the equations reduce to a two-body problem, which has analytic solutions that can be found \textbf{here}. We now introduce an appropriate scale for the system.\\
+The Velocity-Verlet algorithm is based on the idea of Taylor-expanding the acceleration, in addition to the velocity and position. The details can be found in the appendix \textbf{APPENDIX}, but the method produces the following equations:
+\begin{equation} \label{eq:Vel_Ver_eq}
+\begin{split}
+x_{i+1}=x_i+hv_{x,i}+\frac{h^2}{2}a_{x,i}\\
+v_{x,i+1}=v_{x,i}+\frac{h}{2}(a_{x,i+1}+a_{x,i})
+\end{split}
+\end{equation}
+And similarly for the $x$ and the $y$ equations. Note that $a_{i+1}$ depends on $x_i, y_i$ and $z_i$, and therefore all three position coordinates must be computed before we can compute the velocity. As shown in our analysis in the \textbf{APPENDIX}, the local error is proportional to $h^3$, and in turn the global error is proportional to $h^2$, as shown \textbf{HERE}.\\
 \linebreak
-We will measure lengths in astronomical units, $AU$, time in years and mass in solar masses, $M_{\bigodot}$. Using these units, and assuming earth to have a circular orbit,it is possible to show that $G=4\pi^2 \mathrm{AU^3 yr^{-2}}$, as shown \textbf{HERE}. Thus the differential equations \ref{eq:coupled_diff_1} and \ref{eq:coupled_diff_2} can be formulated, for the earth, as:
-$$\frac{d^2x}{dt^2}=\frac{GM_{\bigodot}}{r^3}x=\frac{4\pi^2 x}{(x^2+y^2)^{3/2}}$$
-$$\frac{d^2y}{dt^2}=\frac{GM_{\bigodot}}{r^3}y=\frac{4\pi^2 y}{(x^2+y^2)^{3/2}}$$
-The equivalent expressions for the the sun are:
-$$\frac{d^2x}{dt^2}=\frac{GM_{\mathrm{Earth}}}{r^3}x=\frac{4\pi^2 M_{\mathrm{Earth}} }{(x^2+y^2)^{3/2}}x$$
-$$\frac{d^2y}{dt^2}=\frac{GM_{\mathrm{Earth}}}{r^3}y=\frac{4\pi^2 M_{\mathrm{Earth}} }{(x^2+y^2)^{3/2}}y$$
+Notice that $a_{x i+1}$ can be reused in the next step, so this method does not incur any additional calls to the acceleration function in the main loop, as compared to the Forward Euler algorithm. The method only costs a few more FLOPs;
+\begin{itemize}
+\item We must perform two additional multiplications for each dimension, specifically $(h^2/2)\cdot a_{x,i}$ and $(h/2)\cdot a_{x, i+1}$
+\item We must perform two further additions per dimension, namely adding $(h^2/2)a_{x,i}$ and $(h/2)a_{x, i+1}$ to respectively $x_{i+1}$ and $v_{x, i+1}$.
+\end{itemize} 
+This gives four additional FLOPs per timestep and dimension, i.e. 12 FLOPs per timestep. Thus if we have $N$ points in the main-loop, this gives an additional $12N$ FLOPs. Note that $h^2/2$ and $h/2$ can be precomputed, and therefore do not contribute to the number of FLOPs in the main loop. 
+\subsection{Choice of units}
+As we will be modelling our solar system, a natural unit of length is the average distance between the earth and the sun, the astronomical unit, AU. In SI-units, $1 \mathrm{AU} \approx 1.496 \cdot 10^{11} \mathrm{m}$. As the most massive object in the solar system is the sun, we choose one solar mass, $M_{\odot}$ as our mass unit. In SI units, $M_{\odot} \approx 1.99 \cdot 10^{30}$. We will use the mean tropical year, which is about 365.24 days of 864000 seconds\textbf{REFERENCE HERE}. This choice of units has one considerable advantage - it simplifies the expression for the gravitational constant, $G$. As shown in \textbf{APPENDIX}, with this choice of units the gravitational constant is:
+$$G=4\pi^2 \mathrm{AU^3/yr^2}$$
+\subsection{Conserved quantities in the system}
+To check the consistency of our results, we will investigate whether certain quantities, which we expect to be conserved, are indeed conserved.
+\subsubsection{Conservation of mechanical energy}
+As there are no external forces in the system, we expect the mechanical energy to be conserved in the system with full complexity. This is not necessarily the case if we keep the sun fixed, as there is no reaction force in that case. However, in the full system, energy should be conserved. There are two kinds of energy to consider in our system: kinetic and potential energy. The kinetic energy is simply given by:
+$$E_{k}=\frac{1}{2}mv^2$$
+Where $m$ is the mass of our celestial body and $v$ is the absolute value of its velocity. This is the standard formula for the kinetic energy. The potential energy can be found by integrating the force, choosing infinity as a reference point, i.e. $U(\infty)=0$:
+$$U=-\int_r^{\infty} \frac{GMm}{r'^2} dr'=-\frac{GMm}{r}$$
+This is the potential energy 
 
 \section{Methods}
+\subsection{Models}
+We will implement a variety of models with different complexities, to test our simulations under many circumstances. 
+\subsubsection{First model - The earth-sun system}\label{First_model}
+We begin with a simplified model of our solar system, containing only the earth and the sun. We will do this in two different ways; first we will keep the sun fixed at the origin of our coordinates system, letting the earth orbit the sun. Subsequently, we will transforms this into a two-body problem by letting the earth and the sun influence each other. As the sun is significantly heavier than the earth, we expect there to be little difference between these two models. This provides an important consistency check. If these solutions differ significantly, we can conclude that there is an error somewhere. We simulate these solutions
 \section{Results}
 \section{Discussion}
 \section{Conclusion and outlook}
