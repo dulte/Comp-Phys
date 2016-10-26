@@ -64,8 +64,17 @@ Where $F_{G,x}, F_{G,y}$ and $F_{G,z}$ are the components of the gravitational f
 \end{equation}
 And equivalently for the $y$ and $z$ direction. This gives six coupled, first-order, linear, differential equations.
 \subsection{Implementing the initial conditions}
-To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. This is described in detail\textbf{LATER}. For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.
-
+To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. This is described in detail\textbf{LATER}. For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.\\
+\linebreak
+We want to ensure that the center of mass of our solar system is stable at the origin. On NASA's webpage, we can choose the coordinate origin, however, it is not entirely clear if the velocities have been adjusted so that the center of mass is at rest. Therefore we adjusted the position and velocity of the sun to accommodate this. The position vector of the center of mass, $\vec{R}_{COM}$, is found from:
+$$\vec{R}_{COM}=\sum_i m_i\vec{r}_i$$
+The sum is over all bodies. $\vec{r}_i$ is the position vector of body $i$,  and $m_i$ is its mass. As the sun is by far the heaviest mass in the system, we can ensure that $\vec{R}=\vec{0}$ by letting the position vector of the sun, $\vec{r}_{odot}$ be given by:
+$$\vec{r}_{\odot}=-\frac{\sum_j m_j\vec{r}_j}{M_{\odot}}$$
+Where the sum is over all bodies \textit{except the sun}, and $m_{\odot}$ is the mass of the sun. We can do the same thing for the velocity of the center of mass, $\vec{V}_{COM}$, which is given by:
+$$\vec{V}_{COM}=\sum_i m_i \vec{v}_i$$
+Where $\vec{v}_i$ is the velocity of body $i$. We can then let the velocity of the sun, $\vec{v}_{\odot}$ be:
+$$\vec{v}_{\odot}=-\frac{\sum_j m_j\vec{v}_j}{M_{\odot}}$$
+Where the sum is again over all bodies \textit{except} the sun. This ensure that the center of mass of our system is fixed at the origin.
 \subsection{Discretizing the equations}
 We will solve the equations in \ref{eq:coupled_diff} numerically. Therefore we require discretized versions of the these equations. We want to simulate from $t=t_0$ to $t=t_f$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $h$, of:
 $$h=\frac{t_f-t_0}{N}$$
@@ -73,9 +82,9 @@ Let now $t_i=a+ih$, where $i$ goes from $0$ to $N$. Furthermore, let $x_i=x(t_i)
 \subsubsection{Euler's forward method}
 Euler's forward algorithm amounts to discretizing the derivatives from section \ref{Newtonian_Gravity} as:
 \begin{equation}\label{eq:Euler_Forward}
-\frac{dg}{dt}\approx \frac{x_{i+1}-x_i}{h}
+\frac{dg}{dt}\approx \frac{g_{i+1}-g_i}{h}
 \end{equation}
-This approximation is based on Taylor-expanding the function $g(t)$ to the second order, as explained \textbf{HERE}. Inserting this approximation into equation \ref{eq:Euler_Forward}, and rearranging some of the terms, gives:
+This approximation is based on Taylor-expanding the function $g(t)$ to the second order, as explained \textbf{HERE}. Inserting this approximation for the derivatives in equation \ref{eq:Euler_Forward}, and rearranging some of the terms, gives:
 \begin{equation}
 \begin{split}
 v_{x, i+1}=v_{x,i}+ha_{x,i}\\
@@ -103,20 +112,45 @@ This gives four additional FLOPs per timestep and dimension, i.e. 12 FLOPs per t
 \subsection{Choice of units}
 As we will be modelling our solar system, a natural unit of length is the average distance between the earth and the sun, the astronomical unit, AU. In SI-units, $1 \mathrm{AU} \approx 1.496 \cdot 10^{11} \mathrm{m}$. As the most massive object in the solar system is the sun, we choose one solar mass, $M_{\odot}$ as our mass unit. In SI units, $M_{\odot} \approx 1.99 \cdot 10^{30}$. We will use the mean tropical year, which is about 365.24 days of 864000 seconds\textbf{REFERENCE HERE}. This choice of units has one considerable advantage - it simplifies the expression for the gravitational constant, $G$. As shown in \textbf{APPENDIX}, with this choice of units the gravitational constant is:
 $$G=4\pi^2 \mathrm{AU^3/yr^2}$$
+We will also need the speed of light in section \ref{GR_section}. With our units, this is given by:
+$$c=63\ 198 \ \mathrm{AU/yr}$$
 \subsection{Conserved quantities in the system}
 To check the consistency of our results, we will investigate whether certain quantities, which we expect to be conserved, are indeed conserved.
 \subsubsection{Conservation of mechanical energy}
-As there are no external forces in the system, we expect the mechanical energy to be conserved in the system with full complexity. This is not necessarily the case if we keep the sun fixed, as there is no reaction force in that case. However, in the full system, energy should be conserved. There are two kinds of energy to consider in our system: kinetic and potential energy. The kinetic energy is simply given by:
+As there are no external forces in the system, we expect the mechanical energy to be conserved. There are two kinds of energy to consider in our system: kinetic and potential energy. The kinetic energy of a single body is simply given by:
 $$E_{k}=\frac{1}{2}mv^2$$
 Where $m$ is the mass of our celestial body and $v$ is the absolute value of its velocity. This is the standard formula for the kinetic energy. The potential energy can be found by integrating the force, choosing infinity as a reference point, i.e. $U(\infty)=0$:
 $$U=-\int_r^{\infty} \frac{GMm}{r'^2} dr'=-\frac{GMm}{r}$$
-This is the potential energy 
-
+This is the potential energy between the bodies. Thus the total energy (which should be conserved) is given by:
+\begin{equation}\label{eq:total_energy}
+E_{tot}=\sum_{i} \frac{1}{2}m_iv_i^2 - \sum_{i<j}\sum_{j}\frac{Gm_im_j}{r_{ij}}
+\end{equation}
+Where $i$ runs over all the bodies and $r_{ij}$ is the norm of the distance between body $i$ and $j$. 
+\subsubsection{Conservation of angular momentum}
+As there is no external force, there is also no external torque. Therefore, the net angular momentum should be conserved in our system. The angular momentum of a body is generally given by:
+$$\vec{l}=\vec{r}\times \vec{p}$$
+Where $\vec{p}=m\vec{v}$ is the linear momentum of the body, and $\vec{r}$ is the distance to the center of mass. The total angular momentum is then:
+\begin{equation}\label{eq:total_angular_momentum}
+\vec{l}_{tot}=\sum_i \vec{r}_i\times \vec{p}_i
+\end{equation}
+Where the sum is over all bodies.\\
+\linebreak
+Equations \ref{eq:total_energy} and \ref{eq:total_angular_momentum} both describe quantities which should be conserved. Thus, an important consistency check for our code, is to test if these quantities are indeed (approximately) constant throughout our simulation.
+\subsection{Escape velocity}
+Another way we can check the consistency of our results is to investigate the escape velocities of the planets. This can be done by equating the potential energy to the kinetic energy. For a single planet, this results in:
+$$ 
+\subsection{The perihelion precession of Mercury}\label{GR_section}
+One of the tests for Einstein's theory of relativity is the perihelion precession of Mercury.  Over time, the perihelion (the point where Mercury is closest to the sun) changes. This was initially thought to be due to the gravitational attraction of other planets, but the effect was too large.It turns out that this effect is due to general relativity, which predicts that gravity warps spacetime. This boils down to modifying the gravitational force to:
+\begin{equation}\label{eq:GR_equation}
+\vec{F}_G=\frac{GM_{\odot}M_{\mathrm{Mercury}}}{r^3}\left[1+\frac{3l^2}{r^2c^2}\right]\vec{r}
+\end{equation}
+Where $l=|\vec{l}|$ is the absolute value of the angular momentum of the body the force acts on, and $c$ is the speed of light. This assumes that all other effects, such as gravitational attraction from other planets, have been ignored. In this case, experimental data shows that the perihelion angle precesses $43''=0.2085\  \mathrm{mrad}$ per 100 earth years. We will investigate if this relativistic correction can correctly predict the precession, by comparing the motion of Mercury (removing all other planets) with Newtonian gravity and with the relativistic expression for gravity.
 \section{Methods}
 \subsection{Models}
-We will implement a variety of models with different complexities, to test our simulations under many circumstances. 
+We will implement a variety of models with different complexities, to test our simulations under multiple circumstances. 
 \subsubsection{First model - The earth-sun system}\label{First_model}
-We begin with a simplified model of our solar system, containing only the earth and the sun. We will do this in two different ways; first we will keep the sun fixed at the origin of our coordinates system, letting the earth orbit the sun. Subsequently, we will transforms this into a two-body problem by letting the earth and the sun influence each other. As the sun is significantly heavier than the earth, we expect there to be little difference between these two models. This provides an important consistency check. If these solutions differ significantly, we can conclude that there is an error somewhere. We simulate these solutions
+We begin with a simplified model of our solar system, containing only the earth and the sun. We simulate this using both the Euler forward algorithm and the Velocity-Verlet algorithm, which enables us to compare these methods. 
+\subsubsection{Second model - The }
 \section{Results}
 \section{Discussion}
 \section{Conclusion and outlook}
