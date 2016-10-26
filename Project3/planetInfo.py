@@ -22,16 +22,34 @@ class planetInfo:
         #print IDs
         print "Getting info for %g planet(s)" %len(IDs)
 
+
+        kg_to_MS = 5.02739933e-31
+
         data = np.zeros((len(IDs),2,3))
         names = []
+        masses = []
         IDs = np.array(IDs)
         for i in range(IDs.size):
-            name,data[i,:,:] = self.getInfo(int(IDs[i]),startdate,enddate)
+            name,mass,data[i,:,:] = self.getInfo(int(IDs[i]),startdate,enddate)
             names.append(name)
+            masses.append(mass)
             print "Found info for %s" %name
 
-        np.savetxt("planetPositions.txt",data[:,0,:].reshape(len(names),3))
-        np.savetxt("planetVelocities.txt",data[:,1,:].reshape(len(names),3))
+
+        if (names[0] == "Sun"):
+            kg_to_MS = 1.0/(masses[0])
+        data_ = data.reshape(len(names),6)
+
+        with open("planetData.txt","w") as outFile:
+
+
+            for i in range(len(names)):
+
+                outFile.write(str(names[i]) + "  ")
+                for j in range(6):
+                    outFile.write(str(data_[i,j]) + " ")
+                outFile.write(str(masses[i]*kg_to_MS) + "\n")
+
 
         with open("planetConfig_" + str(len(names)) + ".txt","w") as outFile:
 
@@ -39,10 +57,6 @@ class planetInfo:
             for name in names:
                 outFile.write(name + "\n")
 
-
-
-    # def getIDsFromList(self,filename):
-    #     return np.loadtxt(filename)
 
 
     def getInfo(self,ID,startdate,enddate):
@@ -137,14 +151,14 @@ class planetInfo:
                     data[1,:] *= 365.24
                     break
 
-        print "Mass: ",mass
-        return name,data
+        #print "Mass: ",mass
+        return name,mass,data
 
 
 info = planetInfo()
 
-start = "2016-Oct-18"
-end = "2016-Oct-19"
+start = "1977-Oct-18"
+end = "1977-Oct-19"
 
-IDs = [399,801]
-info.printInfoToFile(start,end,filename = "targetids.txt")
+IDs = [10,399,599,699]
+info.printInfoToFile(start,end, filename = "targetids.txt")

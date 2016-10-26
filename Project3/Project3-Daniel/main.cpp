@@ -3,40 +3,66 @@
 #include "system.h"
 #include "particle.h"
 #include "odesolver.h"
+#include <string>
+#include <sstream>
+#include <ctime>
 
 using namespace std;
 
+void makePlanets(string filename,System * sys);
+
 int main(int argc, char *argv[])
 {
+    clock_t begin = clock();
     int steps_per_year = 10000;
-    int years = 20;
+    int years = 30;
     double dt = 1.0/(steps_per_year);
 
     System* sysESEuler = new System("positionsEarthSunEuler.xyz");
     ODEsolver* solver = new ODEsolver(dt,sysESEuler);
 
 
-    vec3 posEarth = vec3(1.0,0.0,0.0);
-    vec3 velEarth = vec3(0.0,2*M_PI,0.0);
-
-    vec3 posSun = vec3(0.0,0.0,0.0);
-    vec3 velSun = vec3(0.0,0.0,0.0);
-
-    vec3 posJup = vec3(4.0,0,0);
-    vec3 velJup = vec3(0.0,M_PI,0);
-    sysESEuler->create_Particle(posSun,velSun,1);
-    sysESEuler->create_Particle(posEarth,velEarth,3e-6);
-    sysESEuler->create_Particle(posJup,velJup,9.54e-4);
-    sysESEuler->create_Particle(posJup+vec3(0.05,0,0),velJup + vec3(0,1,0),9.54e-7);
+    string folder = "/home/daniel/Dokumenter/Skole/Comp-Phys/Project3/";
+    makePlanets(folder + "planetData.txt", sysESEuler);
+    sysESEuler->setInitialEnergyAndMomentum();
+    int printEvery = 100;
 
     for (int i = 0; i< years*steps_per_year; i++){
-        solver->eulerCromerOneStep();
-        sysESEuler->dumpPositionsToFile();
+        solver->eulerOneStep();
+        if(i % printEvery == 0) {
+            sysESEuler->dumpPositionsToFile();
+            sysESEuler->dumpErrorToFile();
+        }
     }
 
 
-
-
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / double(CLOCKS_PER_SEC);
+    cout << "Finished simulation after " << elapsed_secs << " seconds." << endl;
 
     return 0;
+}
+
+
+void makePlanets(string filename,System * sys){
+
+    ifstream inFile(filename);
+
+    inFile.clear();
+    inFile.seekg(0,ios::beg);
+
+    for (string l; getline(inFile,l);)
+    {
+        stringstream ss(l);
+
+        string name;
+        double x,y,z,vx,vy,vz,mass;
+
+        ss >> name >> x >> y >> z >> vx >> vy >> vz >> mass;
+
+        sys->create_Particle(vec3(x,y,z),vec3(vx,vy,vz),mass);
+
+    }
+
+
 }
