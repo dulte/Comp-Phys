@@ -9,8 +9,13 @@
 \BOOKMARK [2][-]{subsection.2.7}{The perihelion precession of Mercury}{section.2}% 9
 \BOOKMARK [1][-]{section.3}{Methods}{}% 10
 \BOOKMARK [2][-]{subsection.3.1}{Models}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Results}{}% 12
-\BOOKMARK [1][-]{section.5}{Discussion}{}% 13
-\BOOKMARK [1][-]{section.6}{Conclusion and outlook}{}% 14
-\BOOKMARK [2][-]{subsection.6.1}{Conclusion}{section.6}% 15
-\BOOKMARK [2][-]{subsection.6.2}{Outlook}{section.6}% 16
+\BOOKMARK [2][-]{subsection.3.2}{A brief overview of our code}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Results}{}% 13
+\BOOKMARK [1][-]{section.5}{Discussion}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Discussin the perihelion precession of mercury}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Conclusion and outlook}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Conclusion}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{Outlook}{section.6}% 18
+\BOOKMARK [1][-]{section*.2}{Appendices}{}% 19
+\BOOKMARK [1][-]{Appendix.a.A}{Initial velocity for circular orbits and the value of G}{}% 20
+\BOOKMARK [1][-]{Appendix.a.B}{Deriving the Velocity-Verlet algorithm}{}% 21

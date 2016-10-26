@@ -45,6 +45,7 @@ We present numerical models of our solar system with varying levels of complexit
 \section{Introduction}
 The n-body problem is a recurring theme in many physics publications (see for example \textbf{HERE}), due to its wide applicability in many different fields, such as \textbf{REFEREENCE}.  Analytic solutions of these problems are notoriously hard to come by and are, in most situations, unattainable. Therefore, these problems are almost always solved by use of numerical techniques. We present two different numerical methods for solving the ODE's resulting from Newton's gravitational laws - Euler's method and the velocity-Verlet method. We investigate the stability of both methods for varying complexity of the system.
 \section{Theoretical model}\label{Theoretical_section}
+In this section, we introduce the quantities and equations required to model the solar system. We begin by introducing the relevant equations, and subsequently discuss how to solve these numerically. We continue with a brief discussion of the units used, followed by a discussion of tests that we can implement to test our numerical results. We conclude with a brief diversion to relativistic effects in the solar system.
 \subsection{Newtonian Gravity}\label{Newtonian_Gravity}
 Newton's general law of gravitation, which describes the force of gravity between two objects, is given by:
 \begin{equation}
@@ -64,18 +65,24 @@ Where $F_{G,x}, F_{G,y}$ and $F_{G,z}$ are the components of the gravitational f
 \end{equation}
 And equivalently for the $y$ and $z$ direction. This gives six coupled, first-order, linear, differential equations.
 \subsection{Implementing the initial conditions}
-To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. This is described in detail\textbf{LATER}. For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.\\
+To find a unique solution of the set of equations in section \ref{Newtonian_Gravity}, we require some initial conditions, i.e. some $x(t=0)$, $v_x(t=0)$, and equivalently for the $y$ and $z$ direction. For our first model (described in section \ref{First_model}) we will, for simplicity, let the earth be $1$ AU away from the sun, with an initial velocity that ensures a circular orbit. We show in appendix \ref{ap:Find_Circular_orbit} that this results in the requirement that the initial velocity be given by:
+\begin{equation}
+v_0=\sqrt{\frac{GM_{\odot}}{r}}
+\end{equation}
+Where $M_{\odot}$ is the mass of the sun and $r$ is the distance to the sun.\\
+\linebreak
+For the subsequent models, with multiple planets, we will use the initial positions and velocity provided on NASA's \href{http://ssd.jpl.nasa.gov/horizons.cgi#top}{webpages}\footnote{http://ssd.jpl.nasa.gov/horizons.cgi\#top}, letting $t=0$ correspond to \textbf{INSERT SOMETHNG HERE}.\\
 \linebreak
 We want to ensure that the center of mass of our solar system is stable at the origin. On NASA's webpage, we can choose the coordinate origin, however, it is not entirely clear if the velocities have been adjusted so that the center of mass is at rest. Therefore we adjusted the position and velocity of the sun to accommodate this. The position vector of the center of mass, $\vec{R}_{COM}$, is found from:
 $$\vec{R}_{COM}=\sum_i m_i\vec{r}_i$$
-The sum is over all bodies. $\vec{r}_i$ is the position vector of body $i$,  and $m_i$ is its mass. As the sun is by far the heaviest mass in the system, we can ensure that $\vec{R}=\vec{0}$ by letting the position vector of the sun, $\vec{r}_{odot}$ be given by:
+The sum is over all bodies. $\vec{r}_i$ is the position vector of body $i$,  and $m_i$ is its mass. As the sun is by far the heaviest mass in the system, we can ensure that $\vec{R}=\vec{0}$ by letting the position vector of the sun, $\vec{r}_{\odot}$ be given by:
 $$\vec{r}_{\odot}=-\frac{\sum_j m_j\vec{r}_j}{M_{\odot}}$$
-Where the sum is over all bodies \textit{except the sun}, and $m_{\odot}$ is the mass of the sun. We can do the same thing for the velocity of the center of mass, $\vec{V}_{COM}$, which is given by:
+Where the sum is over all bodies \textit{except the sun}. We can do the same thing for the velocity of the center of mass, $\vec{V}_{COM}$, which is given by:
 $$\vec{V}_{COM}=\sum_i m_i \vec{v}_i$$
 Where $\vec{v}_i$ is the velocity of body $i$. We can then let the velocity of the sun, $\vec{v}_{\odot}$ be:
 $$\vec{v}_{\odot}=-\frac{\sum_j m_j\vec{v}_j}{M_{\odot}}$$
 Where the sum is again over all bodies \textit{except} the sun. This ensure that the center of mass of our system is fixed at the origin.
-\subsection{Discretizing the equations}
+\subsection{Discretizing the equations}\label{discretize_equations}
 We will solve the equations in \ref{eq:coupled_diff} numerically. Therefore we require discretized versions of the these equations. We want to simulate from $t=t_0$ to $t=t_f$, and choose $N$ evenly spaced points in this interval. This gives us a timestep, $h$, of:
 $$h=\frac{t_f-t_0}{N}$$
 Let now $t_i=a+ih$, where $i$ goes from $0$ to $N$. Furthermore, let $x_i=x(t_i)$ and $ v_{x,i}=v_x(t_i)$, and equivalently for the $y$ and $z$ direction. Finally, discretize the acceleration as $a_{x,i}=a_x(x_i, y_i, z_i)$. This allows us to discretize the derivatives in equation \ref{eq:Velocity_position_equation}. We will do this in two separate ways; with the forward Euler algorithm and with the Velocity-Verlet algorithm.
@@ -94,11 +101,11 @@ x_{i+1}=x_i+hv_{x,i}
 And again equivalently for the $x$ and $y$ direction. This is the Euler forward algorithm. Combining this with the initial conditions, $\vec{v}(t_0)=\vec{v}_0$ and $\vec{x}(t_0)=\vec{x}_0$, makes it possible to solve the equations of Newtonian gravity. Closer inspection (through Taylor expansion, such as found \textbf{HERE} \href{http://www.math.unl.edu/~gledder1/Math447/EulerError}{here}), reveals that the local error is proportional to $h^2$, whereas the global error is proportional to $h$. Thus, whilst this is a straightforward algorithm, the errors quickly accumulate. It is therefore of interest to investigate a slightly improved algorithm:
 
 \subsubsection{Velocity-Verlet Algorithm}
-The Velocity-Verlet algorithm is based on the idea of Taylor-expanding the acceleration, in addition to the velocity and position. The details can be found in the appendix \textbf{APPENDIX}, but the method produces the following equations:
+The Velocity-Verlet algorithm is based on the idea of Taylor-expanding the acceleration, in addition to the velocity and position. The details can be found in appendix \ref{ap:Deriving_VelVer}, but the method produces the following equations:
 \begin{equation} \label{eq:Vel_Ver_eq}
 \begin{split}
 x_{i+1}=x_i+hv_{x,i}+\frac{h^2}{2}a_{x,i}\\
-v_{x,i+1}=v_{x,i}+\frac{h}{2}(a_{x,i+1}+a_{x,i})
+v_{x,i+1}=v_{x,i}+\frac{h}{2}\left(a_{x,i+1}+a_{x,i}\right)
 \end{split}
 \end{equation}
 And similarly for the $x$ and the $y$ equations. Note that $a_{i+1}$ depends on $x_i, y_i$ and $z_i$, and therefore all three position coordinates must be computed before we can compute the velocity. As shown in our analysis in the \textbf{APPENDIX}, the local error is proportional to $h^3$, and in turn the global error is proportional to $h^2$, as shown \textbf{HERE}.\\
@@ -110,9 +117,9 @@ Notice that $a_{x i+1}$ can be reused in the next step, so this method does not 
 \end{itemize} 
 This gives four additional FLOPs per timestep and dimension, i.e. 12 FLOPs per timestep. Thus if we have $N$ points in the main-loop, this gives an additional $12N$ FLOPs. Note that $h^2/2$ and $h/2$ can be precomputed, and therefore do not contribute to the number of FLOPs in the main loop. 
 \subsection{Choice of units}
-As we will be modelling our solar system, a natural unit of length is the average distance between the earth and the sun, the astronomical unit, AU. In SI-units, $1 \mathrm{AU} \approx 1.496 \cdot 10^{11} \mathrm{m}$. As the most massive object in the solar system is the sun, we choose one solar mass, $M_{\odot}$ as our mass unit. In SI units, $M_{\odot} \approx 1.99 \cdot 10^{30}$. We will use the mean tropical year, which is about 365.24 days of 864000 seconds\textbf{REFERENCE HERE}. This choice of units has one considerable advantage - it simplifies the expression for the gravitational constant, $G$. As shown in \textbf{APPENDIX}, with this choice of units the gravitational constant is:
-$$G=4\pi^2 \mathrm{AU^3/yr^2}$$
-We will also need the speed of light in section \ref{GR_section}. With our units, this is given by:
+As we will be modelling our solar system, a natural unit of length is the average distance between the earth and the sun, the astronomical unit, AU. In SI-units, $1 \mathrm{AU} \approx 1.496 \cdot 10^{11} \mathrm{m}$. As the most massive object in the solar system is the sun, we choose one solar mass, $M_{\odot}$ as our mass unit. In SI units, $M_{\odot} \approx 1.99 \cdot 10^{30}$. We will use the mean tropical year, which is about 365.24 days of 864000 seconds\textbf{REFERENCE HERE}. This choice of units has one considerable advantage - it simplifies the expression for the gravitational constant, $G$. As shown in appendix \ref{ap:Find_Circular_orbit}, with this choice of units the gravitational constant becomes:
+$$G=4\pi^2 \ \mathrm{AU^{3}yr^{-2}M_{\odot}^{-1}}$$
+As discussed in section \ref{GR_section}, we will also use the speed of light. With our units, this is given by:
 $$c=63\ 198 \ \mathrm{AU/yr}$$
 \subsection{Conserved quantities in the system}
 To check the consistency of our results, we will investigate whether certain quantities, which we expect to be conserved, are indeed conserved.
@@ -125,38 +132,87 @@ This is the potential energy between the bodies. Thus the total energy (which sh
 \begin{equation}\label{eq:total_energy}
 E_{tot}=\sum_{i} \frac{1}{2}m_iv_i^2 - \sum_{i<j}\sum_{j}\frac{Gm_im_j}{r_{ij}}
 \end{equation}
-Where $i$ runs over all the bodies and $r_{ij}$ is the norm of the distance between body $i$ and $j$. 
-\subsubsection{Conservation of angular momentum}
-As there is no external force, there is also no external torque. Therefore, the net angular momentum should be conserved in our system. The angular momentum of a body is generally given by:
-$$\vec{l}=\vec{r}\times \vec{p}$$
-Where $\vec{p}=m\vec{v}$ is the linear momentum of the body, and $\vec{r}$ is the distance to the center of mass. The total angular momentum is then:
+Where $i$ runs over all the bodies and $r_{ij}$ is the norm of the distance between body $i$ and $j$. Note that the second sum of the potential energy only goes to $i<j$, to avoid double-counting the energy.
+\subsubsection{Conservation of angular momentum per unit mass}
+As there is no external force, there is also no external torque. Therefore, the net angular momentum per unit mass should be conserved in our system. The angular momentum per unit mass of a body is generally given by:
+$$\vec{l}=\vec{r}\times \vec{v}$$
+Where $\vec{v}$ is the velocity of the body, and $\vec{r}$ is the distance to the center of mass. The total angular momentum per mass is then is then:
 \begin{equation}\label{eq:total_angular_momentum}
-\vec{l}_{tot}=\sum_i \vec{r}_i\times \vec{p}_i
+\vec{l}_{tot}=\sum_i \vec{r}_i\times \vec{v}_i
 \end{equation}
 Where the sum is over all bodies.\\
 \linebreak
 Equations \ref{eq:total_energy} and \ref{eq:total_angular_momentum} both describe quantities which should be conserved. Thus, an important consistency check for our code, is to test if these quantities are indeed (approximately) constant throughout our simulation.
 \subsection{Escape velocity}
-Another way we can check the consistency of our results is to investigate the escape velocities of the planets. This can be done by equating the potential energy to the kinetic energy. For a single planet, this results in:
-$$ 
+Another way we can check the consistency of our results is to investigate the escape velocities of the planets. This can be done by equating the potential energy to the kinetic energy. This is a difficult problem for a many-body problem. Therefore, we will only implement this in  the two-body case, with the sun and the earth. Equating potential and kinetic energy of the earth gives: 
+$$\frac{1}{2}v_{esc}^2=\frac{GM_{\odot}}{r}$$
+Solving:
+\begin{equation}
+v_{esc}=\sqrt{\frac{2GM_{\odot}}{r}}
+\end{equation}
+Which is the escape velocity of the earth, if we ignore the other planets. Note that this velocity is to be taken \textit{relative to the sun}. We can experiment with the initial velocity of our planets, and check if the velocity at which a planet manages to escape equals this quantity. This gives us another way to check the consistency of our results.
 \subsection{The perihelion precession of Mercury}\label{GR_section}
 One of the tests for Einstein's theory of relativity is the perihelion precession of Mercury.  Over time, the perihelion (the point where Mercury is closest to the sun) changes. This was initially thought to be due to the gravitational attraction of other planets, but the effect was too large.It turns out that this effect is due to general relativity, which predicts that gravity warps spacetime. This boils down to modifying the gravitational force to:
 \begin{equation}\label{eq:GR_equation}
 \vec{F}_G=\frac{GM_{\odot}M_{\mathrm{Mercury}}}{r^3}\left[1+\frac{3l^2}{r^2c^2}\right]\vec{r}
 \end{equation}
-Where $l=|\vec{l}|$ is the absolute value of the angular momentum of the body the force acts on, and $c$ is the speed of light. This assumes that all other effects, such as gravitational attraction from other planets, have been ignored. In this case, experimental data shows that the perihelion angle precesses $43''=0.2085\  \mathrm{mrad}$ per 100 earth years. We will investigate if this relativistic correction can correctly predict the precession, by comparing the motion of Mercury (removing all other planets) with Newtonian gravity and with the relativistic expression for gravity.
+Where $l=|\vec{l}|$ is the absolute value of the angular momentum per mass of the body the force acts on, and $c$ is the speed of light. This assumes that all other effects, such as gravitational attraction from other planets, have been ignored. In this case, experimental data shows that the perihelion angle precesses $43''=0.2085\  \mathrm{mrad}$ per 100 earth years. We will investigate if this relativistic correction can correctly predict the precession, by comparing the motion of Mercury (removing all other planets) with Newtonian gravity and with the relativistic expression for gravity.
 \section{Methods}
+In this section we give an overview of the methods that we employed to solve the problems outlined in the previous sections. We discuss the models we have implemented, the numerical implementation of these models and the equations from the previous section and finally the implementation of initial conditions.
 \subsection{Models}
-We will implement a variety of models with different complexities, to test our simulations under multiple circumstances. 
+We will implement three different models, to test our simulations under multiple circumstances. 
 \subsubsection{First model - The earth-sun system}\label{First_model}
 We begin with a simplified model of our solar system, containing only the earth and the sun. We simulate this using both the Euler forward algorithm and the Velocity-Verlet algorithm, which enables us to compare these methods. 
-\subsubsection{Second model - The }
+\subsubsection{Second model - The three body problem}
+We slightly expand our system by also including the most massive planet - Jupiter. We can then investigate how large the effect of Jupiter is on the orbit of the earth. We will also make this slightly more extreme, by increasing the mass of Jupiter by a factor $10$ and a factor $1000$. In the latter case, we will be approaching a binary star system, as the mass of Jupiter is about $1000$ times less than the mass of the sun. Thus we expect a fairly chaotic behavior, which will allow us to study the stability of our Verlet solver.
+\subsubsection{Final model - Entire solar system}
+Finally, we include all eight planets in the solar system, as well as Pluto for historical reasons. We also include all interactions between the planets. We use the Velocity-Verlet method to solve this numerically.
+\subsection{A brief overview of our code}
+In this section 
+\subsubsection{Class structure}
+\subsubsection{Retrieving the initial conditions}
+As 
 \section{Results}
 \section{Discussion}
+\subsection{Discussin the perihelion precession of mercury}
+One interesting aspect of our investigation of the precession of mercury is that it broke down when we computed the angular momentum at every time step. When we used the initial angular momentum of mercury, however, (given by $\vec{l}=\vec{r}\times \vec{v}$) we got the correct result. \textbf{WHY}
 \section{Conclusion and outlook}
 \subsection{Conclusion}
 \subsection{Outlook}
+\begin{appendices}
+\section{Initial velocity for circular orbits and the value of G}\label{ap:Find_Circular_orbit}
+If we assume a two-body system, consisting of the earth and the sun, transform to a system where the sun's velocity is zero, and assume circular orbit, we can equate the force of gravity to the centripetal force. For the earth this gives:
+$$\frac{GM_{\odot}m_e}{r^2}=m_e\frac{v_{circ}^2}{r}$$
+Where $m_e$ is the mass of earth. Rearranging gives:
+\begin{equation}\label{eq:Vel_for_cicrular_orbit}
+v_{circ}=\sqrt{\frac{GM_{\odot}}{r}}
+\end{equation}
+Inserting $r=1 \mathrm{AU}$ gives for the earth $v_{circ}=29\ 780 \ \mathrm{m/s}=6.279 \ \mathrm{AU/yr}$. This is the velocity we must give the earth (in a frame where the initial velocity of the sun is zero), to ensure that it orbits in a circular orbit of radius $1 \mathrm{AU}$.\\
+\linebreak
+From this equation, we can also find a value for $G$ in the units astronomical units per year. We simply say that the earth takes one year to complete one revolution, which gives $v_{circ}=2\pi r/T=2\pi \ \mathrm{AU/yr}$. Solving equation \ref{eq:Vel_for_cicrular_orbit} for $G$ gives:
+$$G=\frac{v_{circ}^2 r}{M_{\odot}}$$
+Seeing as  $r=1 \ \mathrm{AU}$, this gives:
+$$G=4\pi^2\ \ \mathrm{AU^3}\mathrm{yr^{-2}M_{\odot}^{-1}}$$
+\section{Deriving the Velocity-Verlet algorithm}\label{ap:Deriving_VelVer}
+Here will derive the Velocity-Verlet method. We will derive this for a single dimension ($x$), however the three-dimensional generalization is straightforward, as it simply amounts to repeating the exact same equation with $x$ exchanged with $y$ and $z$ respectively.\\
+\linebreak
+The Velocity-Verlet method is based on Taylor-expanding the acceleration, $a$, around $x=x_0$. This gives:
+$$a(x_0+h)=a(x_0)+ha'(x_0)+O(h^2)$$
+Or, discretizing as described in section \ref{discretize_equations}, gives approximately:
+$$a_{i+1}\approx a_i+ha'_i$$
+Or, rearranging slightly:
+\begin{equation} \label{eq:discretized_acceleration}
+ha_i'\approx a_{i+1}-a_i
+\end{equation}
+Now we expand the velocity in the same way, but include another term in the Taylor expansion. This gives:
+$$v_{i+1}= v_i+ha_i+\frac{h^2}{2}a'_i+O(h^3)$$
+Inserting from equation \ref{eq:discretized_acceleration} gives:
+$$v_{i+1}=v_i+a_ih+\frac{h}{2}\left(a_{i+1}+a_i\right)+O(h^3)$$
+Finally, we Taylor expand the position in the same way to get:
+$$x_{i+1}=x_i+hv_i+\frac{h^2}{2}a_i+O(h^3)$$
+These are the equations of the Velocity-Verlet algorithm described in equation \ref{eq:Vel_Ver_eq}. Notice how the error is proportional to $h^3$, as opposed to the Forward-Euler algorithm, where the error is proportional to $h^2$.
 
+\end{appendices}
 
 \end{document}
 
