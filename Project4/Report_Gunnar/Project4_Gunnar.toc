@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}Theoretical model}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Analytical solution for the 2x2 case with periodic boundary conditions}{1}{subsection.1.1}
