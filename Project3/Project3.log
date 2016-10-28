@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  25 OCT 2016 00:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  25 OCT 2016 11:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1033,7 +1033,7 @@ Here is how much of TeX's memory you used:
  14736 multiletter control sequences out of 15000+600000
  24306 words of font info for 64 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 42i,16n,58p,1405b,1540s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,58p,1452b,1540s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home
 /gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/gunnnar/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home/gunnnar/.texmf-va
@@ -1059,7 +1059,7 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy9.pfb>
-Output written on Project3.pdf (23 pages, 1159190 bytes).
+Output written on Project3.pdf (23 pages, 1159422 bytes).
 PDF statistics:
  1120 PDF objects out of 1200 (max. 8388607)
  536 compressed objects within 6 object streams
