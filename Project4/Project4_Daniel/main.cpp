@@ -4,7 +4,7 @@
 #include <random>
 #include <fstream>
 #include <ctime>
-
+#include <mpi.h>
 
 using namespace std;
 using namespace arma;
@@ -18,63 +18,105 @@ inline int periodic(int index, int limit){
 
 int main(int argc, char *argv[])
 {
+    int numProcs,rank;
+    ofstream outFile;
+    int Nspins,monteCarloSteps,nTemp;
+    double minTemp,maxTemp;
+    mat spinMatrix;
 
-    if (argc < 6){
+    //  MPI initializations
+    MPI_Init(&argc, &argv);
+    MPI_Comm_size(MPI_COMM_WORLD, &numProcs);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    //cout << rank << endl;
+    //cout << "hei " << stod(argv[1]) << " " << "rank: " << rank << endl;
+
+
+    if (rank == 0 && argc < 6){
         cout << "You did not give enough arguments. Number of spins, minimal temperature and max temperature, number of point and number of monte carlo iterations." << endl;
         //cout << "To few arguments given!" << endl;
 
         exit(1);
     }
 
+    if (rank == 0){
+        outFile.open("data.txt");
+        Nspins = stoi(argv[1]);
+        monteCarloSteps = stoi(argv[5]);
+        nTemp = stoi(argv[4]);
+        minTemp = stod(argv[2]);
+        maxTemp = stod(argv[3]);
+    }
 
-    ofstream outFile("data.txt");
-    int Nspins = stoi(argv[1]);
-    int monteCarloSteps = stoi(argv[5]);
-    mat spinMatrix = ones(Nspins,Nspins);
-    int nTemp = stoi(argv[4]);
-    double minTemp = stod(argv[2]);
-    double maxTemp = stod(argv[3]);
 
+
+    MPI_Bcast(&Nspins, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&monteCarloSteps, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&minTemp, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&maxTemp, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&nTemp, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+    spinMatrix = ones(Nspins,Nspins);
 
 
     double dt = (maxTemp-minTemp)/double(nTemp);
-    cout << minTemp << " " << maxTemp << " " << dt << endl;
 
     double timeSinceLast = 0;
 
     //return 0;
-    clock_t begin = clock();
+    double timeStart = MPI_Wtime();
+//    if (rank == 0){
+//        clock_t begin = clock();
+//    }
 
+    cout << "I am " << rank << " and will do some cool statistical mechanics RIGHT NOW!" << endl;
     for (double temp = minTemp; temp <= maxTemp; temp+=dt){
 
+        // cout << "I am " << rank << " and will do T=" << temp << endl;
+        vec localExpectationValues = zeros(5);
 
-        vec expectationValues = zeros(4);
+        // cout << "Doing some work: " << Nspins << " and " << monteCarloSteps << endl;
+        metropolis(Nspins,monteCarloSteps, temp,spinMatrix,localExpectationValues);
+
+        vec totalExpectationValues = zeros(5);
 
 
-        metropolis(Nspins,monteCarloSteps, temp,spinMatrix,expectationValues);
-        output(outFile, expectationValues, Nspins, temp, monteCarloSteps);
+        for (int i = 0; i < totalExpectationValues.size(); i++){
+            MPI_Reduce(&localExpectationValues[i], &totalExpectationValues[i], 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+        }
+        if (rank == 0){
+            output(outFile, totalExpectationValues, Nspins, temp, monteCarloSteps*numProcs);
+        }
 
 
+        if (rank == 0){
+            cout << "Done for temp " << temp << " " << "It took " << double(MPI_Wtime() - timeSinceLast)  << " sec." << endl;;
+            timeSinceLast = MPI_Wtime();
+        }
 
-        cout << "Done for temp " << temp << endl;
-        cout << "It took " << double(clock() - timeSinceLast) / double(CLOCKS_PER_SEC) << " sec." << endl;
-        timeSinceLast = clock();
     }
 
-    outFile.close();
+    if (rank == 0){
+        outFile.close();
 
-    cout << "Program done after: "<< double(clock() - begin)/ double(CLOCKS_PER_SEC) << " sec" << endl;
+        cout << "Program done after: "<< double(MPI_Wtime() - timeStart) << " sec" << endl;
+
+    }
+
+    MPI_Finalize();
+
     return 0;
 }
 
 
 void metropolis(double Nspins,double MCSteps, double temp, mat & spinMatrix, vec & expecVal){
 
-
     random_device rd;
     mt19937_64 gen(rd());
 
     uniform_real_distribution<double> distribution(0.0,1.0);
+    // cout << "I have an awesome random number: " << distribution(gen) << endl;
 
 
     //double dE[5] = {4,2,0,-2,-4};
@@ -133,8 +175,9 @@ void metropolis(double Nspins,double MCSteps, double temp, mat & spinMatrix, vec
 
         expecVal[0] += energy;
         expecVal[1] += energy*energy;
-        expecVal[2] += fabs(magneticMoment);
+        expecVal[2] += (magneticMoment);
         expecVal[3] += magneticMoment*magneticMoment;
+        expecVal[4] += fabs(magneticMoment);
 
     }
 
@@ -151,11 +194,12 @@ void output(ofstream & file, vec & expecVal, int Nspins, double temp, double MCs
     double expectESquared = expecVal[1]*factor;
     double expectM = expecVal[2]*factor;
     double expectMSquared = expecVal[3]*factor;
+    double expectMFabs = expecVal[4]*factor;
 
 
     double Cv = (expectESquared - expectE*expectE)/temp/temp*spinNorm;
-    double sub = (expectMSquared - expectM*expectM)/temp*spinNorm;
-    cout << temp << " " << expecVal[0]*spinNorm << " " <<  expecVal[1]*spinNorm << " " <<  Cv << " " <<  expecVal[2]*spinNorm <<  " " << expecVal[3]*spinNorm << " " <<  sub << "\n";
+    double sus = (expectMSquared - expectM*expectM)/temp*spinNorm;
+    //cout << temp << " " << expectE*spinNorm << " " <<  expectESquared*spinNorm << " " <<  Cv << " " <<  expectM*spinNorm <<  " " << expectMSquared*spinNorm << " " << expectMFabs << " " <<  sus << "\n";
 
-    file << temp << " " << expecVal[0]*spinNorm << " " <<  expecVal[1]*spinNorm << " " <<  Cv << " " <<  expecVal[2]*spinNorm <<  " " << expecVal[3]*spinNorm << " " <<  sub << "\n";
+    file << temp << " " << expectE*spinNorm << " " <<  expectESquared*spinNorm << " " <<  Cv << " " <<  expectM*spinNorm <<  " " << expectMSquared*spinNorm << " " << expectMFabs << " " <<  sus << "\n";
 }
