@@ -1,0 +1,85 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+class Lattice_2_by_2:
+
+	def __init__(self, J, k_B,T):
+		self.J=J
+		self.k_B=k_B
+		self.T=T
+		self.beta=1.0/(k_B*self.T)
+		self.beta2=1.0/(k_B*self.T*self.T)
+		self.arg=8.0*J*self.beta
+
+	def compute_partition_function(self):
+		partition_func=4.0*np.cosh(self.arg)+12
+		return partition_func
+
+	def compute_energy(self):
+		first_fac=-32.0*self.J*np.sinh(self.arg)
+		second_fac=4.0*np.cosh(self.arg)+12
+		energy=first_fac/second_fac
+		return energy
+
+	def compute_energy_squared(self):
+		first_fac=256.0*self.J*self.J*np.cosh(self.arg)
+		second_fac=4.0*np.cosh(self.arg)+12.0
+		energy_squared=first_fac/second_fac
+
+		return energy_squared
+
+	def compute_magnetization(self):
+		return 0
+
+	def compute_abs_magnetization(self):
+		abs_magnetization=8.0*np.exp(self.arg)+16
+		return abs_magnetization
+
+	def compute_magnetization_squared(self):
+		first_fac=8.0*np.exp(self.arg)+4.0
+		second_fac=np.cosh(self.arg)+3
+
+		magnetization_squared=first_fac/second_fac
+		return magnetization_squared	
+
+	def compute_CV(self):
+		first_fac=128.0*(self.J**2)*(np.exp(self.arg)+np.exp(-self.arg))
+		second_fac=-16.0*self.J*np.exp(self.arg)+16.0*J*np.exp(-self.arg)
+		denominator=2.0*np.exp(self.arg)+2.0*np.exp(-self.arg)+12.0
+	
+		C_V=self.beta2*((first_fac/denominator)-(second_fac/denominator)**2)
+		return C_V
+
+	def compute_CV_hyp(self):
+		first_fac=256.0*self.J*self.J*np.cosh(self.arg)
+		second_fac=-32.0*self.J*np.sinh(self.arg)
+		denominator=4.0*np.cosh(self.arg)+12.0
+
+		C_V=self.beta2*((first_fac/denominator)-(second_fac/denominator)**2)
+		return C_V
+
+	def compute_MagSus(self):
+		first_fac=32.0*np.exp(self.arg)+16
+		denominator=2.0*np.exp(self.arg)+2.0*np.exp(-self.arg)+12.0
+
+		MagSus=self.beta*(first_fac/denominator)
+		return MagSus
+
+	def compute_MagSus_hyp(self):
+		first_fac=8.0*np.exp(self.arg)+4
+		denominator=np.cosh(self.arg)+3.0
+
+		MagSus=self.beta*(first_fac/denominator)
+		return MagSus
+
+
+
+N=4.0
+J=1
+k_B=1
+T=np.linspace(2, 3, 10000)
+Analytic_solution=Lattice_2_by_2(J, k_B,T)
+C_V=Analytic_solution.compute_MagSus()
+plt.plot(T, C_V/N)
+plt.show()
+

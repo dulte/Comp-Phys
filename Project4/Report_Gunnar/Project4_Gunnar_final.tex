@@ -1,0 +1,175 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{a4wide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvips]{epsfig}
+\usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage{cite} % [2,3,4] --> [2--4]
+\usepackage{shadow}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{marvosym }
+\usepackage{subcaption}
+\usepackage[noabbrev]{cleveref}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+
+
+\setlength{\droptitle}{-10em}   % This is your set screw
+
+\setcounter{tocdepth}{2}
+
+\lstset{language=c++}
+\lstset{alsolanguage=[90]Fortran}
+\lstset{basicstyle=\small}
+\lstset{backgroundcolor=\color{white}}
+\lstset{frame=single}
+\lstset{stringstyle=\ttfamily}
+\lstset{keywordstyle=\color{red}\bfseries}
+\lstset{commentstyle=\itshape\color{blue}}
+\lstset{showspaces=false}
+\lstset{showstringspaces=false}
+\lstset{showtabs=false}
+\lstset{breaklines}
+\title{FYS3150 - Project 4}
+\author{Gunnar Lange}
+\begin{document}
+\maketitle
+\begin{abstract}
+HEI
+\end{abstract}
+\tableofcontents
+\section{Introduction}
+The Ising model is a simple but very popular model for modelling phase transitions (see \textbf{HERE}). The model consists of a lattice of spins which have one of two possible values ("up" or "down"). The energy of each spin is determined by the nearest neighbors.  This condition results in a multiple of possible choices for the boundary conditions. Many are possible, such as \textbf{REFERENCE}. We implement periodic boundary conditions, i.e. that the lattice wraps back around itself.
+\section{Theoretical model}
+\subsection{Thermodynamic quantities and the Ising model}
+We study a square lattice consisting of $N\times N$ magnetic spins that can be in one of two states (+1 or -1, magnetic dipoles). We wish to study how certain thermodynamic quantities (specifically energy, magnetization, heat capacity and magnetic susceptibility) develop in this system. The Ising model is a microcanonical model, i.e. we fix the temperature. Then it is known from basic thermodynamics that this system can be described by Boltzmann statistics, i.e. by a distribution function given by:
+\begin{equation}\label{eq:Boltzmann_probability}
+P(E)=\frac{1}{Z}e^{-\frac{E}{k_BT}}
+\end{equation}
+Where $E$ is the energy of a microstate, $k_B$ is Boltzmann's constant and $T$ is the temperature of the system. We define $\beta = 1/(k_BT)$. Then $Z$, which is the partition function, is defined by:
+\begin{equation}\label{eq:Parition_function}
+Z=\sum_{i} e^{-\beta E_i}
+\end{equation}
+Where the sum is over all microstates, $i$. This enables us to define moments of the probability function 
+as:
+\begin{equation}
+\langle X^n \rangle = \frac{1}{Z}\sum_i X_i^n e^{-\beta E_i}
+\end{equation}
+Where $X_i$ is a quantity associated with the microstate $i$. From this probability distribution, and the partition function, we can compute all thermodynamic quantities of interest. The details of this can be found \textbf{HERE}.\\
+\linebreak
+In the simplest model of the Ising system, the energy is given by:
+\begin{equation}\label{eq:ising_system_energy}
+E=-J\sum_{\langle kl \rangle} s_ks_l
+\end{equation}
+Where the sum is over all the nearest neighbors in the lattice. $J$ is a constant which is determined by the quantum mechanical details of the system. We will simply set it to 1. The magnetization, on the other hand, is given as:
+\begin{equation}
+\mathcal{M}=\sum_i s_i
+\end{equation}
+Where the sum goes over all spins, $i$.\\
+\linebreak
+It is shown \textbf{here} that this  gives the following relation for thermodynamical quantities:\\
+\textbf{Heat capacity}, $C_V$\\
+\begin{equation}\label{eq:heat_capacity}
+C_V=\frac{\langle E^2\rangle - \langle E \rangle^2}{k_BT^2}
+\end{equation}
+\textbf{Magnetic susceptibility}, $\chi$:
+\begin{equation}\label{eq:magnetic_susp}
+\chi=\frac{\langle \mathcal{M}^2\rangle - \langle \mathcal{M} \rangle^2}{k_BT}
+\end{equation}
+The first moment of the energy, $\langle E \rangle$, can also be computed in another way, which will be useful later, namely:
+\begin{equation}
+\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}
+\end{equation}
+This is proved \textbf{here}.
+\subsection{Periodic boundary condition}
+From the above description, it is not obvious how to treat the boundaries of the lattice. We will assume the  lattice (representing for example a crystalline structure in a solid) to be essentially infinite in both directions. In this case, we can assume the boundary to have no effect on the behavior of our crystal. Therefore, we let our crystal "loop around" itself, that is, we let neighbor of the leftmost crystals be the rightmost crystals, simulating a "continuation"of the crystals to the left. We adapt the same approach for the other edges of the crystals.
+
+\subsection{Phase transitions in the Ising model}
+It is well known from literature \textbf{REFERENCE} that there exists a critical temperature, $T_C$, at which phase transitions can be observed in the Ising model. At this temperature, one can observe spikes in the thermodynamic quantities. Near $T_C$,our thermodynamic quantities can be modelled as simple power laws. As shown \textbf{HERE}, these laws take the following forms:
+\begin{equation}\label{eq:analytical_thermo_near_critical}
+\begin{split}
+\langle \mathcal{M}(T)\rangle \sim (T-T_C)^{\beta}\\
+C_V(T) \sim |T_c-T|^{-\gamma}\\
+\mathcal{X}(T) \sim |T_C-T|^{-\alpha}
+\end{split}
+\end{equation}
+Where $\alpha, \beta$ and $\gamma$ are critical exponents, given by: $\alpha=0,\  \beta=1/8,\ \gamma=7/4$\\
+\linebreak
+The temperature $T_C$ will depend upon the number of spins in our lattice, $N$. Ideally, the number of spins should be close to infinite. However, our computational capacities limit us to systems with a maximum size of about $N=140$. Luckily, however, we can estimate the critical temperature for $N=\infty$, $T_C(N=\infty)$ from the critical temperature at a finite $N$, $T_C(N)$ by the equation shown \textbf{HERE}, which we reproduce:
+\begin{equation}\label{eq:Critical_temp_at_infinite}
+T_C(N)-T_C(N=\infty)=aN^{-1/\nu}
+\end{equation}
+Where $a$ is a constant, which can be determined from:
+\begin{equation}\label{eq:a:equation}
+a=\frac{T_C(N_1)-T_C(N_2)}{N_1^{-1/\nu}-N_2^{-1/\nu}}
+\end{equation}
+$\nu$ is another critical temperature, which has the exact result $\nu=1$. Thus we can estimate the critical temperature by computing a from equation \ref{eq:a:equation} for two different lattice sizes, $N_1$ and $N_2$, and then solving equation \ref{eq:Critical_temp_at_infinite} for $T_C(N=\infty)$. Note that we can also use the equations in \ref{eq:analytical_thermo_near_critical} near the critical temperature as analytic solutions to which we can compare our numerical results. 
+\subsection{The Metropolis Algorithm}
+We will use Monte-Carlo simulations to model the time development of our spin system. Assume that we have an initial random configuration of spins, with energy $E_b$ (which we have calculated from equation \ref{eq:ising_system_energy}). We employ the famous Metropolis algorithm to achieve this. The Metropolis algorithm is described in detail \textbf{HERE}, but it can be briefly summarized in the following steps:
+\begin{itemize}
+\item Randomly select $N^2$ spins from the $N\times N$ lattice.
+\item For each spin, calculate the change in energy, $\Delta E$, that the system would experience if we were to flip it
+\item Draw a random number, $\zeta$ uniformly between $0$ and $1$, and compare it to $e^{-\beta \Delta E}$. \item If $\zeta \leq e^{-\beta \Delta E}$, flip the spin, else do not flip the spin (note that any spin flip with $\Delta E < 0$ will always be performed).
+\item Update the thermodynamic quantities.
+\end{itemize}
+It can be shown (\textbf{REFERENCE}) that this simple scheme will evolve the system towards its equilibrium state (dictated by the Helmoltz free energy). Thus, repeating the above steps many times, which corresponds to performing many Monte-Carlo cycles, will evolve our system towards equilibrium. We will therefore use the number of Monte-Carlo cycles synonymously with time in our simulation.
+\subsection{Equilibrium of the system}
+We choose multiple different starting configurations of our lattice, including a homogeneous configuration (all spins initially point the same way), and a random configuration (spins drawn from a uniform distribution). We expect that our system should approach a stationary state after some time, $T$. There are multiple indicators of this state. First of all, we expect the number of accepted spins to reach a low, constant value. Most spins will be in their stable configuration, and therefore few flips will be favorable, energy-wise. We also expect all thermodynamical quantities to reach an equilibrium state, where the variations are small. Both of these will be good indicators for equilibrium. 
+\subsection{Analytic solution for the 2x2 case with periodic boundary conditions}
+\section{Methods}
+\subsection{Energy in our system}\label{energy_in_system}
+Note that the sum in equation \ref{eq:ising_system_energy} is only over the nearest neighbors. Therefore, the change in energy from the flip of a single spin (as in the Metropolis algorithm), depends only on the configuration of the nearest neighbors (which are only four spins). This means that there are only a limited number of possible energy differences, $\Delta E$. This is illustrated in the following figure from \textbf{HERE}: \textbf{FIGURE}
+This shows that the only possible $\Delta E$ are:
+$$\Delta E = \{ -8J, -4J, 0, 4J, 8J\}$$
+These can all be precomputed. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, according to the \textbf{FIGURE} above.\\
+\linebreak
+Not that this works well for all but the initial configuration. For the initial configuration, we will have to compute the total energy. This can be done by a nested for-loop construction, where we sum over each row and column of the lattice. We start in the top-left corner, and always sum \textbf{FINISH THIS}
+\subsection{Implementing periodic boundary conditions}
+The periodic boundary conditions can be implemented by using modular division. Each spin will have four nearest neighbors in the lattice. Assume our selected spin is at $x_i$, $y_i$. This spin will be affected by the spin at position $x_{i+1}$, $y_i$ and $x_{i-1}$, $y_i$ (as well as the corresponding spins in the y-idrection). If $x_i$ is on the boundary of our lattice, however, the point to the left or to the right may not exist. Therefore, we find adjacent points by using the following formula:
+\begin{equation}\label{eq:modular_arithmetic}
+x_{i+1}=(x_{i+1}+N) \bmod N
+\end{equation}
+Note that, if $x_{i+1}$ happens to element number $N$, this equation gives element 0, and if $x{i-1}$ happens to be element 0, the equation gives element number $N-1$. Thus, this implements the periodic boundary conditions.
+\subsection{Implementing the Metropolis algorithm}
+The Metropolis algorithm is also implemented as two nested for-loops: the outer one, where we sum over Monte Carlo steps, and the inner one where we sum over $N\times N$ randomly selected spins.\\
+\linebreak
+As we mentioned in section \ref{energy_in_system}, we can precompute all possible energy differences. Thus, when we propose a spin flip, we must simply compute the energy change due to the flip, which can be found from:
+$$\Delta E = 2J\sum_k s_is_k$$
+Where the sum extends over all neighbors of the spin $s_i$. We can then associate this $\Delta E$ with the correct, precomputed, Boltzmann factor. 
+ Whenever we propose a flip
+\subsection{Investigating the time taken to arrive at the most likely state and the underlying probability distribution}
+\subsection{Paralellizing our code}
+
+%\begin{tikzpicture}[line width=0.3pt]
+%    \draw [thick, ->] (0.6ex,-0.6ex) -- (0.6ex,0.6ex);
+%    \begin{scope}[xshift=1cm]
+%    \draw [thick, ->] (1.2ex,0.6ex) -- (1.2ex,-0.6ex);
+%    \end{scope}
+%    \begin{scope}[xshift=1cm]
+%    \draw [thick, ->] (0.9ex,-0.6ex) -- (0.9ex,0.6ex);
+%    \end{scope}
+%  \end{tikzpicture}
+\section{Results}
+\section{Discussion}
+\section{Conclusion}
+\end{document}
+

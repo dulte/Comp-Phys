@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Theoretical model}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Thermodynamic quantities and the Ising model}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Periodic boundary condition}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Phase transitions in the Ising model}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{The Metropolis Algorithm}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Equilibrium of the system}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Analytic solution for the 2x2 case with periodic boundary conditions}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Methods}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Energy in our system}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Implementing periodic boundary conditions}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Implementing the metropolis algorithm}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Investigating the time taken to arrive at the most likely state and the underlying probability distribution}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.5}{Paralellizing our code}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Results}{}% 15
+\BOOKMARK [1][-]{section.5}{Discussion}{}% 16
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 17

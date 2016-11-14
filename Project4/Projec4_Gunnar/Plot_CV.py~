@@ -1,0 +1,46 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def compute_CV(T):
+	J=1.0
+	k_B=1.0
+	beta=1.0/(k_B*T)
+	beta2=1.0/(k_B*T*T)
+
+
+	first_fac=128.0*(J**2)*(np.exp(8.0*J*beta)+np.exp(-8.0*J*beta))
+	second_fac=-16.0*J*np.exp(8.0*beta*J)+16.0*J*np.exp(-8.0*beta*J)
+	denominator=2.0*np.exp(8.0*J*beta)+2.0*np.exp(-8.0*J*beta)+12.0
+
+	C_V=beta2*((first_fac/denominator)-(second_fac/denominator)**2)
+	return C_V
+
+def compute_MagSus(T):
+
+	J=1.0
+	k_B=1.0
+	beta=1.0/(k_B*T)
+	beta2=1.0/(k_B*T)
+
+
+	first_fac=32*np.exp(8.0*beta*J)+16
+	denominator=2.0*np.exp(8.0*J*beta)+2.0*np.exp(-8.0*J*beta)+12.0
+	MagSus=beta2*(first_fac/denominator)
+	return MagSus
+
+
+
+	
+
+
+
+
+T=np.linspace(2,3,1000)
+CV=compute_CV(T)
+MagSus=compute_MagSus(T)
+plt.plot(T, CV/4.0)
+plt.title('CV')
+plt.show()
+plt.title('MagSus')
+plt.plot(T, MagSus)
+plt.show()

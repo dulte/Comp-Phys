@@ -95,12 +95,34 @@ Spins up &  Energy & Magnetization &Number of microstates\\
 \end{center}
 This enables us to calculate the partition function as:
 $$Z=\sum_{i=1}^{16} e^{-\beta E_i}$$
-Where $\beta=1/k_BT$. AS most of the energies are zero, this is relatively straightforward and gives:
-$$Z=2e^{8\beta J}+2e^{-8\beta J} + 12$$
+Where $\beta=1/k_BT$. As most of the energies are zero, this is relatively straightforward and gives:
+$$Z=2e^{8\beta J}+2e^{-8\beta J} + 12=4\cosh (8J\beta) +12$$
 We can now compute the expected value of the energy as:
-$$\langle E \rangle =  -\frac{\partial \ln Z}{\beta}=-\frac{\partial}{\partial \beta}\ln\left(2e^{8\beta J}+2e^{-8\beta J}+12\right)=\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}$$
+$$\langle E \rangle =  -\frac{\partial \ln Z}{\beta}=-\frac{\partial}{\partial \beta}\ln\left(2e^{8\beta J}+2e^{-8\beta J}+12\right)=\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}=-\frac{32J\sinh(8\beta J)}{4\cosh(8\beta J)+12}$$
 Similarly, we can compute the heat capacity, $C_V$, as:
 $$C_V=\frac{d\langle E \rangle}{dT}=\frac{d}{dT}\left(\frac{-16Je^{\frac{8J}{k_BT}}+16Je^{-\frac{8J}{k_BT}}}{2e^{\frac{8J}{k_BT}}+2e^{-\frac{8J}{k_BT}}+12}\right)$$
+However, this is an ugly differentiation. Therefore, we will instead use the relation:
+$$C_V=\frac{\langle E^2 \rangle - \langle E \rangle^2}{k_BT^2}$$
+The square of the expected value of the energy is given by:
+$$\langle E^2\rangle=\frac{1}{Z} \sum_{i=1}^ {16}E_i^2e^{-\beta E_i}$$
+The sum is easy to compute:
+$$\sum_{i=1}^{16}E_i^2e^{-\beta E_i}=64J^2e^{8J\beta}+128J^2e^{-8J\beta}+64J^2e^{8J\beta}=128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)$$
+Which gives:
+$$\langle E^2\rangle = \frac{128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)}{2e^{8J\beta}+2e^{-8J\beta}+12}=\frac{256J^2\cosh(8J\beta)}{4\cosh(8J\beta)+12}$$
+From which it follows that:
+$$C_V=\frac{1}{k_BT^2}\left(\frac{128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)}{2e^{8J\beta}+2e^{-8J\beta}+12}-\left(\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}\right)^2\right)$$
+
+$$C_V=\frac{1}{k_BT}\left(\frac{256J^2\cosh(8J\beta)}{\cosh(8J\beta)+12}-\left(\frac{-32J\sinh(8J\beta)}{4\cosh(8J\beta)+12}\right)^2\right)$$
+Magnetization can be computed as:
+$$\langle M \rangle=\frac{1}{Z}\sum_{i=1}^{16}M_ie^{-\beta E_i}$$
+The sum can be computed as:
+$$\sum_{i=1}^{16}M_ie^{-\beta E_i}=4e^{8J\beta}+8-8-4e^{8J\beta}=0$$
+Thus the expected value of the magnetization is zero. The expected value of the absolute value of the magnetization on the other hand is:
+$$\langle |M|\rangle =\frac{1}{Z}\sum_{i=1}^{16}|M_i|e^{-\beta E_i}=8e^{8J\beta}+16$$
+The square of expected value of the magnetization can be computed as:
+$$\langle M^2 \rangle = \frac{1}{Z}\sum_{i=1}^{16}M_i^2e^{-\beta E_i}=\frac{1}{Z}\left(16e^{8\beta J}+8+8+16e^{8\beta J}\right)=\frac{8e^{8\beta J}+4}{\cosh(8J\beta)+3}$$
+Now it is easy to compute the susceptibility:
+$$\chi = \frac{\langle M^2\rangle - \langle M \rangle^2}{k_BT}=\frac{1}{k_BT}\left(\frac{8e^{8\beta J}+4}{\cosh(8\beta J)+3}\right)$$
 %\begin{tikzpicture}[line width=0.3pt]
 %    \draw [thick, ->] (0.6ex,-0.6ex) -- (0.6ex,0.6ex);
 %    \begin{scope}[xshift=1cm]
