@@ -1,17 +1,18 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}
-\contentsline {section}{\numberline {2}Theoretical model}{1}{section.2}
-\contentsline {subsection}{\numberline {2.1}Thermodynamic quantities and the Ising model}{1}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Periodic boundary condition}{2}{subsection.2.2}
+\contentsline {section}{\numberline {2}Theoretical model}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Thermodynamic quantities and the Ising model}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Periodic boundary condition}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Phase transitions in the Ising model}{3}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}The Metropolis Algorithm}{3}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Equilibrium of the system}{4}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Analytic solution for the 2x2 case with periodic boundary conditions}{4}{subsection.2.6}
-\contentsline {section}{\numberline {3}Methods}{4}{section.3}
-\contentsline {subsection}{\numberline {3.1}Energy in our system}{4}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Implementing periodic boundary conditions}{4}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Implementing the metropolis algorithm}{5}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Investigating the time taken to arrive at the most likely state and the underlying probability distribution}{5}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Paralellizing our code}{5}{subsection.3.5}
-\contentsline {section}{\numberline {4}Results}{5}{section.4}
-\contentsline {section}{\numberline {5}Discussion}{5}{section.5}
-\contentsline {section}{\numberline {6}Conclusion}{5}{section.6}
+\contentsline {section}{\numberline {3}Methods}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Energy in our system}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Implementing periodic boundary conditions}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Implementing the Metropolis algorithm}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Investigating the time taken to arrive at the most likely state and the underlying probability distribution}{8}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Investigating phase transitions}{8}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Parallelizing our code}{8}{subsection.3.6}
+\contentsline {section}{\numberline {4}Results}{8}{section.4}
+\contentsline {section}{\numberline {5}Discussion}{8}{section.5}
+\contentsline {section}{\numberline {6}Conclusion}{8}{section.6}
