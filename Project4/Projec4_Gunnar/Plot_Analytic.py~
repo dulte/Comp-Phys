@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborg
 
 class Lattice_2_by_2:
 
@@ -32,8 +33,9 @@ class Lattice_2_by_2:
 		return 0
 
 	def compute_abs_magnetization(self):
-		abs_magnetization=8.0*np.exp(self.arg)+16
-		return abs_magnetization
+		abs_magnetization_num=8.0*np.exp(self.arg)+16
+		abs_magnetization_denom=4.0*np.cosh(self.arg)+12
+		return abs_magnetization_num/abs_magnetization_denom
 
 	def compute_magnetization_squared(self):
 		first_fac=8.0*np.exp(self.arg)+4.0
@@ -65,7 +67,7 @@ class Lattice_2_by_2:
 		MagSus=self.beta*(first_fac/denominator)
 		return MagSus
 
-	def compute_MagSus_hyp(self:
+	def compute_MagSus_hyp(self):
 		first_fac=8.0*np.exp(self.arg)+4
 		denominator=np.cosh(self.arg)+3.0
 
@@ -79,7 +81,10 @@ J=1
 k_B=1
 T=np.linspace(2, 3, 10000)
 Analytic_solution=Lattice_2_by_2(J, k_B,T)
-C_V=Analytic_solution.compute_MagSus()
-plt.plot(T, C_V/N)
+mag=Analytic_solution.compute_energy_squared()
+plt.plot(T, mag/N)
+plt.grid('on')
+plt.title('Energy per spin')
+
 plt.show()
 

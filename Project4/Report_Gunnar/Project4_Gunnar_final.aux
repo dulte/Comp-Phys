@@ -27,8 +27,8 @@
 \newlabel{eq:ising_system_energy@cref}{{[equation][4][]4}{2}}
 \newlabel{eq:heat_capacity}{{6}{2}{Thermodynamic quantities and the Ising model}{equation.2.6}{}}
 \newlabel{eq:heat_capacity@cref}{{[equation][6][]6}{2}}
-\newlabel{eq:magnetic_susp}{{7}{2}{Thermodynamic quantities and the Ising model}{equation.2.7}{}}
-\newlabel{eq:magnetic_susp@cref}{{[equation][7][]7}{2}}
+\newlabel{eq:magnetic_susp}{{7}{3}{Thermodynamic quantities and the Ising model}{equation.2.7}{}}
+\newlabel{eq:magnetic_susp@cref}{{[equation][7][]7}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Periodic boundary condition}{3}{subsection.2.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Phase transitions in the Ising model}{3}{subsection.2.3}}
 \newlabel{phase_tranisition}{{2.3}{3}{Phase transitions in the Ising model}{subsection.2.3}{}}
@@ -46,6 +46,8 @@
 \newlabel{equilibrium_system}{{2.5}{4}{Equilibrium of the system}{subsection.2.5}{}}
 \newlabel{equilibrium_system@cref}{{[subsection][5][2]2.5}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Analytic solution for the 2x2 case with periodic boundary conditions}{4}{subsection.2.6}}
+\newlabel{2x2analytic}{{2.6}{4}{Analytic solution for the 2x2 case with periodic boundary conditions}{subsection.2.6}{}}
+\newlabel{2x2analytic@cref}{{[subsection][6][2]2.6}{4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces One microstate of our $2 \times 2$ lattice, illustrating how we label the spins.\relax }}{4}{figure.caption.2}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:2x2spins}{{1}{4}{One microstate of our $2 \times 2$ lattice, illustrating how we label the spins.\relax }{figure.caption.2}{}}
@@ -62,16 +64,29 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Energy in our system}{7}{subsection.3.1}}
 \newlabel{energy_in_system}{{3.1}{7}{Energy in our system}{subsection.3.1}{}}
 \newlabel{energy_in_system@cref}{{[subsection][1][3]3.1}{7}}
+\@writefile{lol}{\contentsline {lstlisting}{Pseudo\textunderscore code\textunderscore total\textunderscore energy.cpp}{7}{lstlisting.-1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Implementing periodic boundary conditions}{7}{subsection.3.2}}
 \newlabel{eq:modular_arithmetic}{{16}{7}{Implementing periodic boundary conditions}{equation.3.16}{}}
 \newlabel{eq:modular_arithmetic@cref}{{[equation][16][]16}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Implementing the Metropolis algorithm}{7}{subsection.3.3}}
 \newlabel{metropolis_algo_implementation}{{3.3}{7}{Implementing the Metropolis algorithm}{subsection.3.3}{}}
 \newlabel{metropolis_algo_implementation@cref}{{[subsection][3][3]3.3}{7}}
-\@writefile{lol}{\contentsline {lstlisting}{Pseudo\textunderscore code\textunderscore Metropolis.cpp}{7}{lstlisting.-1}}
+\@writefile{lol}{\contentsline {lstlisting}{Pseudo\textunderscore code\textunderscore Metropolis.cpp}{7}{lstlisting.-2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Investigating the time taken to arrive at the most likely state and the underlying probability distribution}{8}{subsection.3.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Investigating phase transitions}{8}{subsection.3.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Parallelizing our code}{8}{subsection.3.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{8}{section.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{8}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{8}{section.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Results from the 2 $\times $ 2 lattice}{8}{subsection.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good.\relax }}{9}{figure.caption.3}}
+\newlabel{fig:2x2_nsteps}{{2}{9}{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good.\relax }{figure.caption.3}{}}
+\newlabel{fig:2x2_nsteps@cref}{{[figure][2][]2}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Results from our investigation into the equilibration time}{9}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Results from our investigation into the probability distribution}{9}{subsection.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Results from our investigation of phase transitions}{9}{subsection.4.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Results from parallelizing our code}{9}{subsection.4.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}The 2 $\times $ 2 lattice}{9}{subsection.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of the numeric and analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice. \relax }}{10}{figure.caption.4}}
+\newlabel{fig:2x2_thermo}{{3}{10}{Comparison of the numeric and analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice. \relax }{figure.caption.4}{}}
+\newlabel{fig:2x2_thermo@cref}{{[figure][3][]3}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{10}{section.6}}

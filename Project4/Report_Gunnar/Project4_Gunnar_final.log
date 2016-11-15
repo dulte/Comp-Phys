@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  15 NOV 2016 00:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  19 NOV 2016 00:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,7 +980,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 134.
  [3]
-<SpinSystem.jpeg, id=144, 798.985pt x 986.68625pt>
+<SpinSystem.jpeg, id=175, 798.985pt x 986.68625pt>
 File: SpinSystem.jpeg Graphic file (type jpg)
  <use SpinSystem.jpeg>
 Package pdftex.def Info: SpinSystem.jpeg used on input line 146.
@@ -1001,59 +1001,201 @@ Underfull \hbox (badness 10000) in paragraph at lines 226--230
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 237--240
-
- []
-
-(./Pseudo_code_Metropolis.cpp
+(./Pseudo_code_total_energy.cpp
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
-) [7]
-Underfull \hbox (badness 10000) in paragraph at lines 244--247
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 255.
+(./Pseudo_code_Metropolis.cpp [7])
+Underfull \hbox (badness 10000) in paragraph at lines 245--248
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 254.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\times' on input line 254.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 254.
+
+<L2Cv4e4.png, id=222, 578.16pt x 397.485pt>
+File: L2Cv4e4.png Graphic file (type png)
+ <use L2Cv4e4.png>
+Package pdftex.def Info: L2Cv4e4.png used on input line 260.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 260--261
+ [][] 
+ []
+
+<L2Cv4e5.png, id=224, 578.16pt x 397.485pt>
+File: L2Cv4e5.png Graphic file (type png)
+ <use L2Cv4e5.png>
+Package pdftex.def Info: L2Cv4e5.png used on input line 266.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 266--267
+ [][] 
+ []
+
+<L2Cv4e6.png, id=225, 578.16pt x 397.485pt>
+File: L2Cv4e6.png Graphic file (type png)
+ <use L2Cv4e6.png>
+Package pdftex.def Info: L2Cv4e6.png used on input line 271.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 271--272
+ [][] 
+ []
+
+<L2Cv4e7.png, id=226, 578.16pt x 397.485pt>
+File: L2Cv4e7.png Graphic file (type png)
+ <use L2Cv4e7.png>
+Package pdftex.def Info: L2Cv4e7.png used on input line 277.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 277--278
+ [][] 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 258--280
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 258--280
+ []$  $[]$ 
+ []
+
+<L2MeanEner4e7.png, id=227, 578.16pt x 397.485pt>
+File: L2MeanEner4e7.png Graphic file (type png)
+ <use L2MeanEner4e7.png>
+Package pdftex.def Info: L2MeanEner4e7.png used on input line 288.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 288--289
+ [][] 
+ []
+
+File: L2Cv4e7.png Graphic file (type png)
+<use L2Cv4e7.png>
+Package pdftex.def Info: L2Cv4e7.png used on input line 294.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 294--295
+ [][] 
+ []
+
+<L2MeanabsMag4e7.png, id=228, 578.16pt x 397.485pt>
+File: L2MeanabsMag4e7.png Graphic file (type png)
+ <use L2MeanabsMag4e7.png>
+Package pdftex.def Info: L2MeanabsMag4e7.png used on input line 300.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 300--301
+ [][] 
+ []
+
+<L2MagSus4e7.png, id=229, 578.16pt x 397.485pt>
+File: L2MagSus4e7.png Graphic file (type png)
+ <use L2MagSus4e7.png>
+Package pdftex.def Info: L2MagSus4e7.png used on input line 306.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 306--307
+ [][] 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 286--309
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 286--309
+ []$  $[]$ 
+ []
+
 [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 255.
- (./Project4_Gunnar_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 255.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 255.
-Package rerunfilecheck Info: File `Project4_Gunnar_final.out' has not changed.
-(rerunfilecheck)             Checksum: 33EE69D477A317E12A65DEA991C0C96F;1352.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 255.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\times' on input line 316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 316.
+
+[9 <./L2Cv4e4.png> <./L2Cv4e5.png> <./L2Cv4e6.png> <./L2Cv4e7.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 319.
+ [10 <./L2MeanEner4e7.png> <./L2MeanabsMag4e7.png> <./L2MagSus4e7.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 319.
+
+(./Project4_Gunnar_final.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 319.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 319.
+
+
+Package rerunfilecheck Warning: File `Project4_Gunnar_final.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Project4_Gunnar_final.out':
+(rerunfilecheck)             Before: 180DCA67815D443369BD0F798A097537;1911
+(rerunfilecheck)             After:  FEEC574B919A0D964FC59AE78EEDCDE1;1911.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 319.
  ) 
 Here is how much of TeX's memory you used:
- 19919 strings out of 495004
- 345065 string characters out of 6180663
- 476568 words of memory out of 5000000
- 22715 multiletter control sequences out of 15000+600000
- 19146 words of font info for 56 fonts, out of 8000000 for 9000
+ 20007 strings out of 495004
+ 346456 string characters out of 6180663
+ 480567 words of memory out of 5000000
+ 22772 multiletter control sequences out of 15000+600000
+ 22130 words of font info for 60 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 56i,15n,58p,822b,1354s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home
-/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gunnnar/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/gunnnar/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/gunnnar/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecbx1440.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecrm0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm12
-00.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy9.pfb>
-Output written on Project4_Gunnar_final.pdf (8 pages, 227827 bytes).
+ 56i,15n,58p,839b,1846s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{subsection.5.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+ </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/g
+unnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/gunnnar/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/gunnnar/.texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecti0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecbx1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1000.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000
+.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> <
+/home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/gun
+nnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/gunnnar/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gunnnar/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy9.pfb>
+Output written on Project4_Gunnar_final.pdf (10 pages, 489811 bytes).
 PDF statistics:
- 551 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 680 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

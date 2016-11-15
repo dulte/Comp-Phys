@@ -139,7 +139,7 @@ We will use Monte-Carlo simulations to model the time development of our spin sy
 It can be shown (\textbf{REFERENCE}) that this simple scheme will evolve the system towards its equilibrium state (dictated by the Helmoltz free energy). Thus, repeating the above steps many times, which corresponds to performing many Monte-Carlo cycles, will evolve our system towards equilibrium. We will therefore use the number of Monte-Carlo cycles synonymously with time in our simulation.
 \subsection{Equilibrium of the system}\label{equilibrium_system}
 We choose multiple different starting configurations of our lattice, including a homogeneous configuration (all spins initially point the same way), and a random configuration (spins drawn from a uniform distribution). We expect that our system should approach a stationary state after some time, $T$. There are multiple indicators of this state. First of all, we expect the number of accepted spins to reach a low, constant value, i.e. the total number of accepted spins  per time steadily decreasing curve, approaching an equilibrium value. Most spins will be in their stable configuration at equilibrium, and therefore few flips will be occur. We also expect all thermodynamical quantities to reach an equilibrium state, where the variations are small. Both of these will be good indicators for equilibrium. 
-\subsection{Analytic solution for the 2x2 case with periodic boundary conditions}
+\subsection{Analytic solution for the 2x2 case with periodic boundary conditions}\label{2x2analytic}
 It is not too difficult to find an analytic solution for a small latice consisting only of $2\times 2$ spins. This analytic solution provides an important consistency check for our algorithm. Assume therefore that we have a lattice consisting of 4 magnetic dipole moments, labelled as shown in figure \ref{fig:2x2spins}:
 \begin{figure}[!ht]
 \centering
@@ -186,7 +186,7 @@ Where $\beta=1/k_BT$. As most of the energies are zero, this is relatively strai
 $$Z=2e^{8\beta J}+2e^{-8\beta J} + 12=4\cosh (8J\beta) +12$$
 We can now compute the expected value of the energy as:
 \begin{equation}\label{eq:2x2energy}
-\langle E \rangle =  -\frac{\partial \ln Z}{\beta}=-\frac{\partial}{\partial \beta}\ln\left(2e^{8\beta J}+2e^{-8\beta J}+12\right)=\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}=-\frac{32J\sinh(8\beta J)}{4\cosh(8\beta J)+12}
+\langle E \rangle =  -\frac{\partial \ln Z}{\beta}=-\frac{\partial}{\partial \beta}\ln\left(2e^{8\beta J}+2e^{-8\beta J}+12\right)=\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}=-\frac{8J\sinh(8\beta J)}{\cosh(8\beta J)+3}
 \end{equation}
 Similarly, we can compute the heat capacity, $C_V$, as:
 $$C_V=\frac{d\langle E \rangle}{dT}=\frac{d}{dT}\left(\frac{-16Je^{\frac{8J}{k_BT}}+16Je^{-\frac{8J}{k_BT}}}{2e^{\frac{8J}{k_BT}}+2e^{-\frac{8J}{k_BT}}+12}\right)$$
@@ -202,7 +202,7 @@ From which it follows that:
 $$C_V=\frac{1}{k_BT^2}\left(\frac{128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)}{2e^{8J\beta}+2e^{-8J\beta}+12}-\left(\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}\right)^2\right)$$
 
 \begin{equation}\label{eq:2x2Cv}
-C_V=\frac{1}{k_BT}\left(\frac{256J^2\cosh(8J\beta)}{\cosh(8J\beta)+12}-\left(\frac{-32J\sinh(8J\beta)}{4\cosh(8J\beta)+12}\right)^2\right)
+C_V=\frac{1}{k_BT}\left(\frac{256J^2\cosh(8J\beta)}{4\cosh(8J\beta)+12}-\left(\frac{-8J\sinh(8J\beta)}{\cosh(8J\beta)+3}\right)^2\right)
 \end{equation}
 
 Magnetization can be computed as:
@@ -211,13 +211,13 @@ The sum can be computed as:
 $$\sum_{i=1}^{16}M_ie^{-\beta E_i}=4e^{8J\beta}+8-8-4e^{8J\beta}=0$$
 Thus the expected value of the magnetization is zero. The expected value of the absolute value of the magnetization on the other hand is:
 \begin{equation}\label{eq:2x2abs_mag}
-\langle |M|\rangle =\frac{1}{Z}\sum_{i=1}^{16}|M_i|e^{-\beta E_i}=8e^{8J\beta}+16
+\langle |M|\rangle =\frac{1}{Z}\sum_{i=1}^{16}|M_i|e^{-\beta E_i}=\frac{1}{Z}\left( 4e^{8J\beta}+4\cdot 2+ 4\cdot 2 +4e^{8J\beta}\right)=\frac{2e^{8J\beta}+4}{\cosh(8J\beta)+3}
 \end{equation}
 The square of expected value of the magnetization can be computed as:
-$$\langle M^2 \rangle = \frac{1}{Z}\sum_{i=1}^{16}M_i^2e^{-\beta E_i}=\frac{1}{Z}\left(16e^{8\beta J}+8+8+16e^{8\beta J}\right)=\frac{8e^{8\beta J}+4}{\cosh(8J\beta)+3}$$
+$$\langle M^2 \rangle = \frac{1}{Z}\sum_{i=1}^{16}M_i^2e^{-\beta E_i}=\frac{1}{Z}\left(16e^{8\beta J}+4\cdot 4+4\cdot 4+16e^{8\beta J}\right)=\frac{8e^{8\beta J}+8}{\cosh(8J\beta)+3}$$
 Now it is easy to compute the susceptibility:
 \begin{equation}\label{eq:2x2Sus}
-\chi = \frac{\langle M^2\rangle - \langle M \rangle^2}{k_BT}=\frac{1}{k_BT}\left(\frac{8e^{8\beta J}+4}{\cosh(8\beta J)+3}\right)
+\chi = \frac{\langle M^2\rangle - \langle M \rangle^2}{k_BT}=\frac{1}{k_BT}\left(\frac{8e^{8\beta J}+8}{\cosh(8\beta J)+3}\right)
 \end{equation}
 We can now simulate a $2\times 2$ lattice, and check if equations \ref{eq:2x2energy}, \ref{eq:2x2Cv}, \ref{eq:2x2abs_mag} and \ref{eq:2x2Sus} hold true, which gives us a consistency check for our methods.
 \section{Methods}
@@ -226,7 +226,8 @@ Note that the sum in equation \ref{eq:ising_system_energy} is only over the near
 $$\Delta E = \{ -8J, -4J, 0, 4J, 8J\}$$
 These can all be precomputed. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, by checking the state of the neighboring spins, as described in more detial in section \ref{metropolis_algo_implementation}.\\
 \linebreak
-Not that this works well for all but the initial configuration. For the initial configuration, we will have to compute the total energy. This can be done by a nested for-loop construction, where we sum over each row and column of the lattice. We start in the top-left corner, and always sum \textbf{FINISH THIS}
+Not that this works well for all but the initial configuration. For the initial configuration, we will have to compute the total energy. This can be done by a nested for-loop construction, where we always include the energy from the spin above and to the left of our current spin, to avoid double counting. This is shown in the pseudo code below:
+\lstinputlisting{Pseudo_code_total_energy.cpp}
 \subsection{Implementing periodic boundary conditions}
 The periodic boundary conditions can be implemented by using modular division. Each spin will have four nearest neighbors in the lattice. Assume our selected spin is at $x_i$, $y_i$. This spin will be affected by the spin at position $x_{i+1}$, $y_i$ and $x_{i-1}$, $y_i$ (as well as the corresponding spins in the y-idrection). If $x_i$ is on the boundary of our lattice, however, the point to the left or to the right may not exist. Therefore, we find adjacent points by using the following formula:
 \begin{equation}\label{eq:modular_arithmetic}
@@ -247,10 +248,73 @@ Additionally, we would also like to characterize the probability distribution go
 \subsection{Investigating phase transitions}
 To investigate the phase transitions that occur in the Ising system, we employ the fact that the analytic result for $T_C(N=\infty)$ from section \ref{phase_tranisition} is approximately 2.269 \textbf{REFERENCE}. Thus we choose temperatures close to this, and find the critical temperature (the temperature at which a divergent behavior is observed for the heat capacity and the magnetic susceptibility). Then we compare with the equations from section \ref{phase_tranisition}.
 \subsection{Parallelizing our code}
-Notice how the algorithm presented schematically in section \ref{metropolis_algo_implementation} has no dependence on $i$ or $k$ - they are simply counting variables. This algorithm is therefore classified as embarrassingly simple to parallelize.
-
+Note that the quantities that we are investigating are statistical measures such as the expected value or the variance. Increasing the number of cycles will therefore result in a better data. To maximize the number of cycles that we can obtain we parallelize our code, using MPI. Thus, we let all four cores on our computer run separate simulations, and then compute the means using the data from all of these runs.\footnote{Note that we initially intended to run on a larger cluster but, due to time constraints, this was not possible.}
 \section{Results}
+In this section, we present the results from our investigation. We postpone an extended discussion of these results until the next section.
+\subsection{Results from the 2 $\times$ 2 lattice}
+We begin by investigating the number of steps required to get a good correspondence between the analytic expressions from section \ref{2x2analytic} and our simulations. We choose to compare the heat capacity of the system, as this has the most complex form. We let each core run an $N$ that is divisible by $10$, so that the total number of steps will be $4$ times a number divisible by $10$. Note that we plot all of these quantities \textit{per spin} to ease readability.
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2Cv4e4.png}
+        \caption{$N=4\times 10^4$}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2Cv4e5.png}
+        \caption{$N=4\times 10^5$}
+    \end{subfigure}
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2Cv4e6.png}
+        \caption{$N=4\times 10^6$}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2Cv4e7.png}
+        \caption{$N=4\times 10^7$}
+    \end{subfigure}
+    \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good.}\label{fig:2x2_nsteps}
+\end{figure}
+
+Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gives an excellent correspondence between the analytic and the numeric solution. The plots of our thermodynamic quantities in the $2\times 2$ lattice for this value of $N$ are shown below:
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2MeanEner4e7.png}
+        \caption{Mean energy per spin}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2Cv4e7.png}
+        \caption{Heat capacity per spin}
+    \end{subfigure}
+    ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2MeanabsMag4e7.png}
+        \caption{Mean absolute magnetic moment per spin}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{L2MagSus4e7.png}
+        \caption{Magnetic susceptibility per spin}
+    \end{subfigure}
+    \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice. }\label{fig:2x2_thermo}
+\end{figure}
+\subsection{Results from our investigation into the equilibration time}
+\subsection{Results from our investigation into the probability distribution}
+\subsection{Results from our investigation of phase transitions}
+\subsection{Results from parallelizing our code}
 \section{Discussion}
+\subsection{The 2 $\times$ 2 lattice}
+Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions.
 \section{Conclusion}
 \end{document}
 
