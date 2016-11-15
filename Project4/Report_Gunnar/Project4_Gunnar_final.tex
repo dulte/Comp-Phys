@@ -277,7 +277,7 @@ We begin by investigating the number of steps required to get a good corresponde
         \includegraphics[height=2.2in]{L2Cv4e7.png}
         \caption{$N=4\times 10^7$}
     \end{subfigure}
-    \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good.}\label{fig:2x2_nsteps}
+    \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good. This was done with temperatures in the interval $kT/J=2$ to $kT/J=3$.}\label{fig:2x2_nsteps}
 \end{figure}
 
 Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gives an excellent correspondence between the analytic and the numeric solution. The plots of our thermodynamic quantities in the $2\times 2$ lattice for this value of $N$ are shown below:
@@ -306,7 +306,7 @@ Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gi
         \includegraphics[height=2.2in]{L2MagSus4e7.png}
         \caption{Magnetic susceptibility per spin}
     \end{subfigure}
-    \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice. }\label{fig:2x2_thermo}
+    \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice, running $10^7$ Monte Carlo cycles for each temperature. }\label{fig:2x2_thermo}
 \end{figure}
 \subsection{Results from our investigation into the equilibration time}
 We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $kT/J=1.0$). We investigate how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:
@@ -335,7 +335,7 @@ We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the t
         \includegraphics[height=2.2in]{meanMagMomWUpStart.png}
         \caption{Mean absolute magnetic moment per spin from uniform state}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations. This is at temperature $kT/J=1.0$.}\label{fig:20x20_Sweep_T_1}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.Here $L=20$ and $kT/J=1.0$.}\label{fig:20x20_Sweep_T_1}
 \end{figure}
 We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure below:
 \begin{figure}[!ht]
@@ -363,7 +363,7 @@ We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure b
         \includegraphics[height=2.2in]{meanMagMomWUpStartT24.png}
         \caption{Mean absolute magnetic moment per spin from uniform start}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}\label{fig:20x20_Sweep_T_24}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations. Here $L=20$ and $kT/J=2.4$.}\label{fig:20x20_Sweep_T_24}
 \end{figure}
 
 Finally, we also plot the number of accepted flips per spin and time, to get a sense of how many spins the Metropolis algorithm flips at every time step. We do this for two different temperatures, again using both an ordered and a disordered state.
@@ -372,27 +372,27 @@ Finally, we also plot the number of accepted flips per spin and time, to get a s
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWRandomStart.png}
-        \caption{Mean energy per spin from disordered state}
+        \caption{With disordered initial state, at $kT/J=1$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWUpStart.png}
-        \caption{Mean energy per spin from uniform state}
+        \caption{With uniform initial state, at $kT/J=1$}
     \end{subfigure}
         ~
      \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWRandomStartT24.png}
-        \caption{Mean absolute magnetic moment per spin from disordered state}
+        \caption{With disordered initial state, at $kT/J=2.4$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWUpStartT24.png}
-        \caption{Mean absolute magnetic moment per spin from uniform start}
+        \caption{With uniform initial state, at $kT/J=2.4$}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}\label{fig:20x20_Sweep_flips}
+      \caption{Mean number of accepted flips per spin per Monte Carlo cycle for different initial states and different temperatures.}\label{fig:20x20_Sweep_flips}
 \end{figure}
 All these figures seem to indicate that equilibrium is quickly reached (after less than 2000 cycles). However, sometimes this is not the case, as we hit a local minimum (described in more detail \textbf{HERE}). This gives the following plots:
 
@@ -402,21 +402,21 @@ All these figures seem to indicate that equilibrium is quickly reached (after le
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{meanEnergyLocalMin.png}
-        \caption{Mean energy per spin from disordered state}
+        \caption{Mean energy per spin from uniform state}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{meanMagMomLocalMin.png}
-        \caption{Mean energy per spin from uniform state}
+        \caption{Mean magnetic moment per spin from uniform state}
     \end{subfigure}
      ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsLocalMin.png}
-        \caption{Mean energy per spin from uniform state}
+        \caption{Mean number of accepted flips per spin per Monte Carlo cycle from uniform state}
     \end{subfigure}
-       \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}\label{fig:20x20_Sweep_flips}
+       \caption{Time development of mean energy, mean magnetic moment and mean number of accepted flips per spin per Monte Carlo cycle for a system with $L=20$, $kT/J=1$, with all spins initially pointing up.}\label{fig:20x20_Sweep_flips}
 \end{figure}
 This shows that it sometimes takes significantly longer to arrive at equilibrium. Furthermore, equilibration time may also increase for higher temperature. Therefore, we choose 5000 Monte Carlo cycles as a safe equilibration time.
 \subsection{Results from our investigation into the probability distribution}
@@ -425,28 +425,16 @@ Here we plot the probability of a certain energy occurring for two different tem
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{energyDistT1.png}
-        \caption{Mean energy per spin from disordered state}
+        \includegraphics[height=2.2in]{energyDistHistoT1.png}
+        \caption{$KT/J=1$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{energyDistHistoT1.png}
-        \caption{Mean energy per spin from disordered state}
-    \end{subfigure}
-        ~
-  \begin{subfigure}[H!]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.2in]{energyDist.png}
-        \caption{Mean energy per spin from uniform state}
-   \end{subfigure}
-         ~ 
-  \begin{subfigure}[H!]{0.5\textwidth}
-        \centering
         \includegraphics[height=2.2in]{energyDistHisto.png}
-        \caption{Mean energy per spin from uniform state}
-  \end{subfigure}
-       \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+        \caption{$KT/J=2.4$}
+    \end{subfigure}
+       \caption{Histogram showing the probability of different energies occurring for two different temperature. This is for a lattice with $L=20$, simulated with $N=10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles. }
 \end{figure}
 
 \subsection{Results from our investigation of phase transitions}
@@ -455,114 +443,127 @@ Here, we wish to investigate how the critical temperature, which we extract by l
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{meanEnergyl40Ne5.png}
-        \caption{Mean energy per spin from disordered state}
+        \includegraphics[height=2.2in]{meanEnergyl40Ne5New.png}
+        \caption{Mean energy per spin for $L=40$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{meanEnergyl60Ne5.png}
-        \caption{Mean energy per spin from uniform state}
+        \includegraphics[height=2.2in]{meanEnergyl60Ne5New.png}
+        \caption{Mean energy per spin for $L=60$}
     \end{subfigure}
         ~
      \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{meanEnergyl100Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from disordered state}
+        \includegraphics[height=2.2in]{meanEnergyl100Ne5New.png}
+        \caption{Mean energy per spin for $L=100$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil40Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from uniform start}
+        \includegraphics[height=2.2in]{meanEnergyl140.png}
+        \caption{Mean energy per spin for $L=140$}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+      \caption{Development of the mean energy per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
 \end{figure}
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{meanMagMonl40Ne5.png}
-        \caption{Mean energy per spin from disordered state}
+        \includegraphics[height=2.2in]{meanMagMoml40Ne5New.png}
+        \caption{Mean absolute value of the magnetic moment per spin for $L=40$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{meanMagMoml60Ne5.png}
-        \caption{Mean energy per spin from uniform state}
+        \includegraphics[height=2.2in]{meanMagMoml60Ne5New.png}
+        \caption{Mean absolute value of the magnetic moment per spin for $L=60$}
     \end{subfigure}
         ~
      \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{meanMagMoml100Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from disordered state}
+        \includegraphics[height=2.2in]{meanMagMoml100Ne5New.png}
+        \caption{Mean absolute value of the magnetic moment per spin for $L=100$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil60Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from uniform start}
+        \includegraphics[height=2.2in]{meanMagMoml140.png}
+        \caption{Mean absolute value of the magnetic moment per spin for $L=140$}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+      \caption{Development of the mean absolute value of the magnetic moment per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
 \end{figure}
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{cvl40Ne5.png}
-        \caption{Mean energy per spin from disordered state}
+        \includegraphics[height=2.2in]{cvl40Ne5New.png}
+        \caption{Heat capacity for $L=40$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{cvl60Ne5.png}
-        \caption{Mean energy per spin from uniform state}
+        \includegraphics[height=2.2in]{cvl60Ne5New.png}
+        \caption{Heat capacity for $L=60$}
     \end{subfigure}
         ~
      \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{cvl100Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from disordered state}
+        \includegraphics[height=2.2in]{cvl100Ne5New.png}
+        \caption{Heat capacity for $L=100$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil60Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from uniform start}
+        \includegraphics[height=2.2in]{cvl140.png}
+        \caption{Heat capacity for $L=140$}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+      \caption{Development of the heat capacity for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
 \end{figure}
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil40Ne5.png}
-        \caption{Mean energy per spin from disordered state}
+        \includegraphics[height=2.2in]{chil40Ne5New.png}
+        \caption{Magnetic susceptibility for $L=40$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil60Ne5.png}
-        \caption{Mean energy per spin from uniform state}
+        \includegraphics[height=2.2in]{chil60Ne5New.png}
+        \caption{Magnetic susceptibility for $L=60$}
     \end{subfigure}
         ~
      \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil100Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from disordered state}
+        \includegraphics[height=2.2in]{chil100Ne5New.png}
+        \caption{Magnetic susceptibility for $L=100$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.2in]{chil60Ne5.png}
-        \caption{Mean absolute magnetic moment per spin from uniform start}
+        \includegraphics[height=2.2in]{chil140.png}
+        \caption{Magnetic susceptibility for $L=140$}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+      \caption{Development of the magnetic susceptibility for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
 \end{figure}
 \subsection{Results from parallelizing our code}
+\begin{table}
+\centering
+\caption{Comparison of speed with and without parallelization for a $20 \times 20$ lattice. We compare for numbers of Monte-Carlo cycles, $N$.}
+\begin{tabular}{|c|c|c|}
+\hline
+N & With MPI [s] &  Without MPI [s]\\
+\hline
+\rule{0pt}{2ex}    
+$4\cdot 10^5$ & 4.08 & 11.296 \\
+$4 \cdot 10^6$ & 45.347 & 109.675\\ 
+\hline
+\end{tabular}
+\end{table}
 \section{Discussion}
 \subsection{The 2 $\times$ 2 lattice}
-Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. Note, however, that $N=10^7$ was not attainable within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$, but start the computation after equilibrium has  been reached.  
+Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. Note, however, that $N=10^7$ was not attainable within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$, but start the computation after equilibrium has  been reached. Note that this means the system does not have to "balance out" the large errors in 
 \section{Conclusion}
 \end{document}
 

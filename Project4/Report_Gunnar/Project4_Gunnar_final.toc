@@ -21,4 +21,4 @@
 \contentsline {subsection}{\numberline {4.5}Results from parallelizing our code}{11}{subsection.4.5}
 \contentsline {section}{\numberline {5}Discussion}{11}{section.5}
 \contentsline {subsection}{\numberline {5.1}The 2 $\times $ 2 lattice}{11}{subsection.5.1}
-\contentsline {section}{\numberline {6}Conclusion}{11}{section.6}
+\contentsline {section}{\numberline {6}Conclusion}{12}{section.6}

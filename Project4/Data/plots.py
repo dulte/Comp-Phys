@@ -77,10 +77,10 @@ class Lattice_2_by_2:
 
 folder='/home/gunnnar/Documents/FYS3150/Comp-Phys/Project4/Data/'
 
-data = np.loadtxt(folder +"N40Fabs.txt")
+data = np.loadtxt(folder +"N60Fabs.txt")
 lattice=Lattice_2_by_2(1,1, data[:,0])
 
-L = 40
+L = 60
 
 plt.title(r"Heat capacity per spin, $C_v$ for L=%i" %L)
 plt.xlabel("Temperature [K]")
@@ -94,23 +94,19 @@ plt.xlabel("Temperature [K]")
 plt.ylabel("Magnetic susceptibility [$Js^2$]")
 plt.plot(data[:,0],data[:,-1])
 plt.plot(data[np.argmax(data[:,-1]),0],np.max(data[:,-1]),"ro")
-plt.text(data[np.argmax(data[:,-1]),0]-0.05,np.max(data[:,-1])+0.4,"$T_c = %g$" %data[np.argmax(data[:,-1]),0] )
+plt.text(data[np.argmax(data[:,-1]),0]-0.05,np.max(data[:,-1])-2,"$T_c = %g$" %data[np.argmax(data[:,-1]),0] )
 plt.show()
 plt.plot(data[:,0],data[:,1])
 plt.xlabel("Temperature [K]")
 plt.ylabel("Mean energy [J]")
-plt.title(r"Mean Energy, $\langle E \rangle$ per spin for L=%i and N=$4 \times 10^7$" %L)
+plt.title(r"Mean Energy, $\langle E \rangle$ per spin for L=%i" %L)
 mean_energy=lattice.compute_energy()
-plt.plot(data[:,0], mean_energy/(1.0*L*L))
-plt.legend(['Numeric','Analytic'])
 plt.show()
-plt.plot(data[:,0],data[:,-3])
+plt.plot(data[:,0],data[:,-2]/float(L*L))
 plt.ylabel("Magnetic Moment [J/T]")
 plt.xlabel("Temperature [K]")
-plt.title(r"Mean absolute Magnetic Moment $\langle |M| \rangle$ per spin for L=%i and N=$4 \times 10^7$" %L)
+plt.title(r"Mean absolute Magnetic Moment $\langle |M| \rangle$ per spin for L=%i" %L)
 mean_magnetic_moment=lattice.compute_abs_magnetization()
-plt.plot(data[:,0], mean_magnetic_moment/(1.0*L*L))
-plt.legend(['Numeric','Analytic'])
 plt.show()
 
 
