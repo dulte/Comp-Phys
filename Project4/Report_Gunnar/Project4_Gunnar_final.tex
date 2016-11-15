@@ -224,7 +224,7 @@ We can now simulate a $2\times 2$ lattice, and check if equations \ref{eq:2x2ene
 \subsection{Energy in our system}\label{energy_in_system}
 Note that the sum in equation \ref{eq:ising_system_energy} is only over the nearest neighbors. Therefore, the change in energy from the flip of a single spin (as in the Metropolis algorithm), depends only on the configuration of the nearest neighbors (which are only four spins). This means that there are only a limited number of possible energy differences, $\Delta E$. As shown \textbf{HERE}, the only possible values of $\Delta E$ are:
 $$\Delta E = \{ -8J, -4J, 0, 4J, 8J\}$$
-These can all be precomputed. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, by checking the state of the neighboring spins, as described in more detial in section \ref{metropolis_algo_implementation}.\\
+Wen can therefore precompute the Boltzmann factor, $e^{-\beta \Delta E}$, for all of these possible flips. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, by checking the state of the neighboring spins, as described in more detial in section \ref{metropolis_algo_implementation}.\\
 \linebreak
 Not that this works well for all but the initial configuration. For the initial configuration, we will have to compute the total energy. This can be done by a nested for-loop construction, where we always include the energy from the spin above and to the left of our current spin, to avoid double counting. This is shown in the pseudo code below:
 \lstinputlisting{Pseudo_code_total_energy.cpp}
@@ -309,12 +309,260 @@ Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gi
     \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice. }\label{fig:2x2_thermo}
 \end{figure}
 \subsection{Results from our investigation into the equilibration time}
+We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $kT/J=1.0$). We investigate how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyWRandomStart.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyWUpStart.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMomWRandomStart.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMomWUpStart.png}
+        \caption{Mean absolute magnetic moment per spin from uniform state}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations. This is at temperature $kT/J=1.0$.}\label{fig:20x20_Sweep_T_1}
+\end{figure}
+We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure below:
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyWRandomStartT24.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyWUpStartT24.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMomWRandomStartT24.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMomWUpStartT24.png}
+        \caption{Mean absolute magnetic moment per spin from uniform start}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}\label{fig:20x20_Sweep_T_24}
+\end{figure}
+
+Finally, we also plot the number of accepted flips per spin and time, to get a sense of how many spins the Metropolis algorithm flips at every time step. We do this for two different temperatures, again using both an ordered and a disordered state.
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{flipsWRandomStart.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{flipsWUpStart.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{flipsWRandomStartT24.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{flipsWUpStartT24.png}
+        \caption{Mean absolute magnetic moment per spin from uniform start}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}\label{fig:20x20_Sweep_flips}
+\end{figure}
+All these figures seem to indicate that equilibrium is quickly reached (after less than 2000 cycles). However, sometimes this is not the case, as we hit a local minimum (described in more detail \textbf{HERE}). This gives the following plots:
+
+
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyLocalMin.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMomLocalMin.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+     ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{flipsLocalMin.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+       \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}\label{fig:20x20_Sweep_flips}
+\end{figure}
+This shows that it sometimes takes significantly longer to arrive at equilibrium. Furthermore, equilibration time may also increase for higher temperature. Therefore, we choose 5000 Monte Carlo cycles as a safe equilibration time.
 \subsection{Results from our investigation into the probability distribution}
+Here we plot the probability of a certain energy occurring for two different temperatures. We plot this both as a curve and as a histogram.
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{energyDistT1.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{energyDistHistoT1.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}
+        ~
+  \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{energyDist.png}
+        \caption{Mean energy per spin from uniform state}
+   \end{subfigure}
+         ~ 
+  \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{energyDistHisto.png}
+        \caption{Mean energy per spin from uniform state}
+  \end{subfigure}
+       \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+\end{figure}
+
 \subsection{Results from our investigation of phase transitions}
+Here, we wish to investigate how the critical temperature, which we extract by looking at the susceptibility and heat capacity, depends on our lattice size $L$. We also include the mean energy and the absolute value of the mean magnetization for completeness. 
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyl40Ne5.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyl60Ne5.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanEnergyl100Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil40Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from uniform start}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMonl40Ne5.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMoml60Ne5.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{meanMagMoml100Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil60Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from uniform start}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{cvl40Ne5.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{cvl60Ne5.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{cvl100Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil60Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from uniform start}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil40Ne5.png}
+        \caption{Mean energy per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil60Ne5.png}
+        \caption{Mean energy per spin from uniform state}
+    \end{subfigure}
+        ~
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil100Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from disordered state}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.2in]{chil60Ne5.png}
+        \caption{Mean absolute magnetic moment per spin from uniform start}
+    \end{subfigure}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.}
+\end{figure}
 \subsection{Results from parallelizing our code}
 \section{Discussion}
 \subsection{The 2 $\times$ 2 lattice}
-Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions.
+Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. Note, however, that $N=10^7$ was not attainable within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$, but start the computation after equilibrium has  been reached.  
 \section{Conclusion}
 \end{document}
 
