@@ -54,7 +54,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We present an investigation into the thermodynamic properties of the two-dimensional Ising system, used to model a magnet. We investigate magnetization, magnetic susceptibility, mean energy and heat capacity, and find how they vary with time and temperature. We find a good correspondence with physical intuition. Finally, we investigate phase transitions in the Ising model and find the critical temperature of our model, which is in good correspondence with analytic results.
+We present an investigation into the thermodynamic properties of the two-dimensional Ising system of magnetic dipole moments. We investigate magnetization, magnetic susceptibility, mean energy and heat capacity, and find how they vary with time and temperature. We find a good correspondence with physical intuition. Finally, we investigate phase transitions in the Ising model and find the critical temperature of our model, which is in good correspondence with analytic results.
 \end{abstract}
 \tableofcontents
 \section{Introduction}
@@ -141,16 +141,17 @@ We will use Monte-Carlo simulations to model the time development of our spin sy
 It can be shown that this simple scheme will evolve the system towards its equilibrium state (dictated by the Helmoltz free energy). Thus, repeating the above steps many times, which corresponds to performing many Monte-Carlo cycles, will evolve our system towards equilibrium. We will therefore use the number of Monte-Carlo cycles synonymously with time in our simulation.
 \subsection{Equilibrium of the system}\label{equilibrium_system}
 We choose multiple different starting configurations of our lattice, including a homogeneous configuration (all spins initially point the same way), and a random configuration (spins drawn from a uniform distribution). We expect that our system should approach a stationary state after some time, $T$. There are multiple indicators of this state. First of all, we expect the number of accepted spins to reach a low, constant value, i.e. the total number of accepted spins  per time steadily decreasing curve, approaching an equilibrium value. Most spins will be in their stable configuration at equilibrium, and therefore few flips will be occur. We also expect all thermodynamical quantities to reach an equilibrium state, where the variations are small. Both of these will be good indicators for equilibrium. 
+\newpage
 \subsection{Analytic solution for the 2x2 case with periodic boundary conditions}\label{2x2analytic}
-It is not too difficult to find an analytic solution for a small latice consisting only of $2\times 2$ spins. This analytic solution provides an important consistency check for our algorithm. Assume therefore that we have a lattice consisting of 4 magnetic dipole moments, labelled as shown in figure \ref{fig:2x2spins}:
+It is not too difficult to find an analytic solution for a small latice consisting only of $2\times 2$ spins. This analytic solution provides an important consistency check for our algorithm. Assume therefore that we have a lattice consisting of 4 magnetic dipole moments, labelled as shown in figure \ref{fig:2x2spins}:\\
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.2]{SpinSystem.jpeg}
 \caption{One microstate of our $2 \times 2$ lattice, illustrating how we label the spins.}\label{fig:2x2spins}
 \end{figure}
-\newpage
+\linebreak
 We notice first there are only 5 distinct macrostates, namely 0 to 4 spins up. There should be a total of $2^4=16$ microstates. It is clear that the extremes (0 spins up and 4 spins up),  have only one microstate associated with them. The states 1 spin up and 3 spins up each have 4 associated microstates (you can flip one of the four spins). This implies that there are a total of 6 ways to have the state 2 up and 2 down. This is summarized in the table below:\\
-\begin{table}
+\begin{table}[!hb]
 \centering
 \caption{Number of microstates in a simple $2 \times 2$ lattice}
 \begin{tabular}{|c|c|}
@@ -165,12 +166,13 @@ Spins up & Number of microstates\\
 \hline
 \end{tabular}
 \end{table}
+\linebreak
 Now we must investigate the energy of each of these states. In general, the energy with periodic boundary condition for a $2\times 2$ lattice can be written as:
 $$E=-J\left[s_1s_2+s_2s_1+s_1s_3+s_3s_1+s_2s_4+s_4s_2+s_3s_4+s_4s_3\right]$$
 From this it follows immediately that the energy for the states for 4 spins up or 4 spins down is $-8J$. If we flip one spin, we will flip the sign of exactly half the terms (because each spin occurs in four of the eight pairs). Thus the energy will be zero. If we flip two spins, we can either flip spins that are nearest neighbors (such as $s_1$ and $s_2$, $s_1$ and $s_3$, $s_2$ and $s_4$ or $s_3$ and $s_4$), or we can flip spins that are not nearest neighbors (such as $s_1$ and $s_4$ or $s_2$ and $s_3$). In the first case, we flip the sign of four of the terms in the sum (namely all those that contain one of the two  spins we flip). Thus the total energy will be zero. In the other case, we flip the sign of all terms. Thus the total energy will be 8J.\\
 \linebreak
-To find the magnetization, we must simply sum the total number of spin up and subtract the number of spin down. This is all summarized in the table below:
-\begin{table}
+To find the magnetization, we must simply sum the total number of spin up and subtract the number of spin down. This is all summarized in the table below:\\
+\begin{table}[!ht]
 \centering
 \caption{Tallying up important thermodynamical indicators in the simple $2 \times 2$ lattice.}
 \begin{tabular}{|c|c|c|c|}
@@ -186,6 +188,7 @@ Spins up &  Energy & Magnetization &Number of microstates\\
 \hline
 \end{tabular}
 \end{table}
+\linebreak
 This enables us to calculate the partition function as:
 $$Z=\sum_{i=1}^{16} e^{-\beta E_i}$$
 Where $\beta=1/kT$. As most of the energies are zero, this is relatively straightforward and gives:
@@ -226,11 +229,12 @@ Now it is easy to compute the susceptibility:
 \chi = \frac{\langle M^2\rangle - \langle M \rangle^2}{kT}=\frac{1}{kT}\left(\frac{8e^{8\beta J}+8}{\cosh(8\beta J)+3}\right)
 \end{equation}
 We can now simulate a $2\times 2$ lattice, and check if equations \ref{eq:2x2energy}, \ref{eq:2x2Cv}, \ref{eq:2x2abs_mag} and \ref{eq:2x2Sus} hold true, which gives us a consistency check for our methods.
+\newpage
 \section{Methods}
 \subsection{Energy in our system}\label{energy_in_system}
 Note that the sum in equation \ref{eq:ising_system_energy} is only over the nearest neighbors. Therefore, the change in energy from the flip of a single spin (as in the Metropolis algorithm), depends only on the configuration of the nearest neighbors (which are only four spins). This means that there are only a limited number of possible energy differences, $\Delta E$. As shown here \cite{Metropolis}, the only possible values of $\Delta E$ are:
 $$\Delta E = \{ -8J, -4J, 0, 4J, 8J\}$$
-Wen can therefore precompute the Boltzmann factor, $e^{-\beta \Delta E}$, for all of these possible flips. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, by checking the state of the neighboring spins, as described in more detial in section \ref{metropolis_algo_implementation}.\\
+Wen can therefore precompute the Boltzmann factor, $e^{-\beta \Delta E}$, for all of these possible flips. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, by checking the state of the neighboring spins, as described in more detail in section \ref{metropolis_algo_implementation}.\\
 \linebreak
 Not that this works well for all but the initial configuration. For the initial configuration, we will have to compute the total energy. This can be done by a nested for-loop construction, where we always include the energy from the spin above and to the left of our current spin, to avoid double counting. This is shown in the pseudo code below:
 \lstinputlisting{Pseudo_code_total_energy.cpp}
@@ -255,10 +259,11 @@ Additionally, we would also like to characterize the probability distribution go
 To investigate the phase transitions that occur in the Ising system, we employ the fact that the analytic result for $T_C(N=\infty)$ from section \ref{phase_tranisition} is approximately 2.269, as stated here \cite{Project}. Thus we choose temperatures close to this, and find the critical temperature (the temperature at which a divergent behavior is observed for the heat capacity and the magnetic susceptibility). Then we compare with the equations from section \ref{phase_tranisition}.
 \subsection{Parallelizing our code}
 Note that the quantities that we are investigating are statistical measures such as the expected value or the variance. Increasing the number of cycles will therefore result in a better data. To maximize the number of cycles that we can obtain we parallelize our code, using MPI. Thus, we let all four cores on our computer run separate simulations, and then compute the means using the data from all of these runs.\footnote{Note that we initially intended to run on a larger cluster but, due to time constraints, this was not possible.}
+\newpage
 \section{Results}
 In this section, we present the results from our investigation. We postpone an extended discussion of these results until the next section.
 \subsection{Results from the 2 $\times$ 2 lattice}
-We begin by investigating the number of steps required to get a good correspondence between the analytic expressions from section \ref{2x2analytic} and our simulations. We choose to compare the heat capacity of the system, as this has the most complex form. We let each core run an $N$ that is divisible by $10$, so that the total number of steps will be $4$ times a number divisible by $10$. Note that we plot all of these quantities \textit{per spin} to ease readability.
+We begin by investigating the number of steps required to get a good correspondence between the analytic expressions from section \ref{2x2analytic} and our simulations. We choose to compare the heat capacity of the system, as this has the most complex form. We let each core run an $N$ that is divisible by $10$, so that the total number of steps will be $4$ times a number divisible by $10$. Note that we plot all of these quantities \textit{per spin} to ease readability.\\
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -285,10 +290,12 @@ We begin by investigating the number of steps required to get a good corresponde
     \end{subfigure}
     \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good. This was done with temperatures in the interval $kT/J=2$ to $kT/J=3$.}\label{fig:2x2_nsteps}
 \end{figure}
+\linebreak
 We also compare explicitly the value from the Ising model and the analytic solution at $kT/J=1$ in table \ref{tab:2x2_compare} below.
-\begin{table}
+\newpage
+\begin{table}[!ht]
 \centering
-\caption{Explicit comparison for the $2 \times 2$ at the point $kT/J=1$ for a different number of Monte Carlo cycles, $N$.}\label{tab:2x2_compare}
+\caption{Explicit comparison for the $2 \times 2$ lattice at the point $kT/J=1$ for different Monte Carlo cycles, $N$.}\label{tab:2x2_compare}
 \begin{tabular}{|c|ccccc|}
 \hline
 $N$ & $4 \times 10^4$ & $4\times 10^5$ & $4\times 10^6$ & $4 \times 10^7$ & Analytic\\ 
@@ -329,8 +336,9 @@ Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gi
     \end{subfigure}
     \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice, running $10^7$ Monte Carlo cycles for each temperature. }\label{fig:2x2_thermo}
 \end{figure}
-\subsection{Results from our investigation into the time used to reach equilibrium}
-We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $kT/J=1.0$). We investigate how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:
+\newpage
+\subsection{Results from our investigation into the time used to reach equilibrium for larger system}
+We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $kT/J=1.0$). We look at how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:\\
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -358,7 +366,10 @@ We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the t
     \end{subfigure}
       \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.Here $L=20$ and $kT/J=1.0$.}\label{fig:20x20_Sweep_T_1}
 \end{figure}
+\linebreak
 We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure below:
+\newpage
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -388,6 +399,7 @@ We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure b
 \end{figure}
 
 Finally, we also plot the number of accepted flips per spin and time, to get a sense of how many spins the Metropolis algorithm flips at every time step. We do this for two different temperatures, again using both an ordered and a disordered state.
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -416,8 +428,7 @@ Finally, we also plot the number of accepted flips per spin and time, to get a s
       \caption{Mean number of accepted flips per spin per Monte Carlo cycle for different initial states and different temperatures.}\label{fig:20x20_Sweep_flips}
 \end{figure}
 All these figures seem to indicate that equilibrium is quickly reached (after less than 2000 cycles). However, sometimes this is not the case, as we hit a local minimum (described in more detail in section \ref{Discussion_time_for_eq}). This gives the following plots:
-
-
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -440,8 +451,9 @@ All these figures seem to indicate that equilibrium is quickly reached (after le
        \caption{Time development of mean energy, mean magnetic moment and mean number of accepted flips per spin per Monte Carlo cycle for a system with $L=20$, $kT/J=1$, with all spins initially pointing up.}\label{fig:20x20_local_min}
 \end{figure}
 This shows that it sometimes takes significantly longer to arrive at equilibrium. Furthermore, equilibration time may also increase for higher temperature. Therefore, we choose 5000 Monte Carlo cycles as a safe equilibration time.
+\newpage
 \subsection{Results from our investigation into the probability distribution}
-Here we plot the probability of a certain energy occurring for two different temperatures. We plot this both as a curve and as a histogram.
+Here we plot the probability of a certain energy occurring for two different temperatures.
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -459,7 +471,8 @@ Here we plot the probability of a certain energy occurring for two different tem
 \end{figure}
 
 \subsection{Results from our investigation of phase transitions}
-Here, we wish to investigate how the critical temperature, which we extract by looking at the susceptibility and heat capacity, depends on our lattice size $L$. We also include the mean energy and the absolute value of the mean magnetization for completeness. We will discuss the number of temperature points that we chose in greater detail in section \ref{discussion_phase_transition}.
+Here, we wish to investigate how the critical temperature, which we extract by looking at the susceptibility and heat capacity, depends on our lattice size $L$. We also include the mean energy and the absolute value of the mean magnetization for completeness. We will discuss the number of temperature points that we chose in greater detail in section \ref{discussion_phase_transition}.\\
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -487,6 +500,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
     \end{subfigure}
       \caption{Development of the mean energy per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_tranition_energy}
 \end{figure}
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -514,6 +528,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
     \end{subfigure}
       \caption{Development of the mean absolute value of the magnetic moment per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_mag_mom}
 \end{figure}
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -541,6 +556,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
     \end{subfigure}
       \caption{Development of the heat capacity for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_Cv}
 \end{figure}
+\clearpage
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -569,7 +585,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
       \caption{Development of the magnetic susceptibility for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_chi}
 \end{figure}
 \subsection{Results from parallelizing our code}
-\begin{table}
+\begin{table}[!ht]
 \centering
 \caption{Comparison of speed with and without parallelization for a $20 \times 20$ lattice. We compare for numbers of Monte-Carlo cycles, $N$.}\label{tab:compare_parallelized}
 \begin{tabular}{|c|c|c|}
@@ -582,6 +598,7 @@ $4 \cdot 10^6$ & 45.347 & 109.675\\
 \hline
 \end{tabular}
 \end{table}
+\clearpage
 \section{Discussion}
 \subsection{The 2 $\times$ 2 lattice}
 Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Notice also how almost all quantities shown in table \ref{tab:2x2_compare} correspond to the exact quantities, at least to the precision shown. Though the table shows some random fluctuations for the earlier values of $N$, these seem to have died out in this case. Therefore, we adapt $10^7$ as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. The error is truly small at $N=10^7$, which therefore seems to be an ideal number of cycles to perform. Note, however, that $N=10^7$ was not attainable for our later, larger, simulations within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$ instead, but started our data collection after a certain equilibration time has passed, as will be explored in detail in the next section. Note that this means the system does not have to "balance out" the large errors in the means that are incurred by starting far away from the equilibrium state. Therefore, the hope is that we will be able attain useful data even with less cycles.
@@ -612,9 +629,9 @@ In the low temperature state, our space of attained energies is very small. By t
 \linebreak
 For the high-temperature limit, we observe a qualitatively different behavior. It spans a significantly larger subset of all accessible energies, and has  much higher mean. Both of these make physical sense - at higher temperature, the spins will, as earlier stated, be less tightly bound to their neighbors, and are freer to flip, giving a larger average energy at equilibrium. Additionally, however, the fact that the spins are freer to flip, means that more frequent flips will occur, even at equilibrium, which can take much furhter from equilibrium than in the low-temperature case. It is interesting to observe that the shape seems to approach a Gaussian distribution. This makes some sense: in this regime, above the critical temperature (discussed in section \ref{phase_tranisition}) the flips are governed largely by random fluctuations, as the larges-scale structures somewhat break down. It would be interesting to compare this to the variance of the energy, to see if the variance is much higher - however, this was not possible due to time constraints.
 \subsection{The phase transitions}\label{discussion_phase_transition}
-Figures \ref{fig:phase_tranition_energy}, \ref{fig:phase_mag_mom}, \ref{fig:phase_Cv} and \ref{fig:phase_chi} show the behavior of our system as a function of temperature. Note, first of all, that the scales on the axis is not quite the same. We began (for $L=40$ and $L=60$), with points in the interval $[2kT/J, 2.4kT/J]$, with $0.025 kT/J$ between each point. However, we realized that the interesting physics (the phase transition) occurred at around $2.3 kT/J$. To save time, we therefore decided to simulate only until $T=2.35 kT/J$, with steps of $0.04$ for the $L=100$ case. After considering the data from $L=100$, we decided that it would be sufficient to simulate $L=140$ up to a temperature of $2.3 kT/J$, with steps of 0.03 $kT/J$. Thus the odd axis are a result of limited computation time.\\
+Figures \ref{fig:phase_tranition_energy}, \ref{fig:phase_mag_mom}, \ref{fig:phase_Cv} and \ref{fig:phase_chi} show the behavior of our system as a function of temperature. Note, first of all, that the scales on the axis is not quite the same. We began (for $L=40$ and $L=60$), with points in the interval $[2\mathrm{kT/J}, 2.4\mathrm{kT/J}]$, with $0.025 \mathrm{kT/J}$ between each point. However, we realized that the interesting physics (the phase transition) occurred at around $2.3 kT/J$. To save time, we therefore decided to simulate only until $T=2.35 kT/J$, with steps of $0.04$ for the $L=100$ case. After considering the data from $L=100$, we decided that it would be sufficient to simulate $L=140$ up to a temperature of $2.3 kT/J$, with steps of 0.03 $kT/J$. Thus the odd axis are a result of limited computation time.\\
 \linebreak
-Note furthermore, that we have adapted a slight trick - we use $\langle |M|\rangle$ in the equation for the magnetic susceptibility (equation \ref{eq:magnetic_susp}) instead of $\langle M \rangle$. The reason for this is that $\langle M \rangle$ will, for small systems, tend to oscillate significantly, which may result in an error in $\chi$. This disappears if we employ $\langle |M|\rangle$.\\
+Note furthermore, that we have adapted a slight trick - we use $\langle |M|\rangle$ in the equation for the magnetic susceptibility (equation \ref{eq:magnetic_susp}) instead of $\langle M \rangle$, for all except the $2 \times 2$ lattice. The reason for this is that $\langle M \rangle$ will, for small systems, tend to oscillate significantly, which may result in an error in $\chi$. This disappears if we employ $\langle |M|\rangle$ instead.\\
 \linebreak
 Note then, in particular figure \ref{fig:phase_Cv} and \ref{fig:phase_chi}, showing respectively the heat capacity and the susceptibility. As mentioned in section \ref{phase_tranisition}, we expect power-laws for $C_v$ and $\chi$. We also expect these macroscopic variables  of our system to change significantly in a phase transition. Therefore, we find the critical temperature at the maximum of the graphs of $C_v$ and $\chi$, which we have indicated by a red dot.\\
 \linebreak
@@ -629,6 +646,7 @@ $$a=1.68, \quad T_C(L=\infty)=2.258, \quad \epsilon_{\mathrm{rel}}\approx 0.48 \
 Thus this would decrease our error. However, as earlier pointed out, it seems odd that the critical temperature should be the same for both cases.
 \subsection{The parallelization of our code}
 We show in table \ref{tab:compare_parallelized} the difference in speed for a system with $L=40$ of using 4 cores and not using 4 cores. Notice that the difference is large - a significant speed-up was achieved with MPI. This illustrates the fact that parallelization, when it is as straightforward as it is here, can incur huge benefits to the speed of a program.
+\clearpage
 \section{Conclusion}
 \subsection{Conclusion}
 We have presented an investigation into various aspects of the Ising model, and how it can be used to model magnetism. We started by comparing our results to a $2\times 2$ lattice, for which we had derived analytic results. We found an excellent correspondence between these models. Then we moved on to larger systems, without analytic solutions, to investigate equilibration time in our model. Here, we found that the equilibration time is generally quite low (dependent on initial configuration and temperature), however, sometimes local minima can occur, which force us to use a larger equilibration time. We also investigated the probability distribution governing our system, and found good correspondence with our physical intuition. Finally, we investigated phase transitions, where we found good correspondence with analytic results, but also clearly saw that additional computational power\footnote{Such as through the cluster Smaug, which we, due to time constraints, were unable to use}, yielding additional grid points for the temperature would have been useful to get a more reliable estimate of the critical temperature.

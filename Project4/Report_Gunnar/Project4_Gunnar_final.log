@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 09:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 09:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -985,683 +985,736 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
-
-<SpinSystem.jpeg, id=219, 798.985pt x 986.68625pt>
+ [4]
+<SpinSystem.jpeg, id=227, 798.985pt x 986.68625pt>
 File: SpinSystem.jpeg Graphic file (type jpg)
  <use SpinSystem.jpeg>
-Package pdftex.def Info: SpinSystem.jpeg used on input line 148.
+Package pdftex.def Info: SpinSystem.jpeg used on input line 149.
 (pdftex.def)             Requested size: 159.79416pt x 197.33376pt.
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 169--190
+Underfull \hbox (badness 10000) in paragraph at lines 146--171
 
  []
 
-[5 <./SpinSystem.jpeg>] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 232--236
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--193
+
+ []
+
+[5 <./SpinSystem.jpeg>] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 236--240
 
  []
 
 (./Pseudo_code_total_energy.cpp
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
-) [7]
-Underfull \hbox (badness 10000) in paragraph at lines 244--247
+)
+Underfull \hbox (badness 10000) in paragraph at lines 248--251
 
  []
 
-(./Pseudo_code_Metropolis.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 251--254
+(./Pseudo_code_Metropolis.cpp [8])
+Underfull \hbox (badness 10000) in paragraph at lines 255--258
 
  []
 
-[8]
+[9]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 260.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 260.
+(hyperref)                removing `math shift' on input line 265.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 260.
+(hyperref)                removing `\times' on input line 265.
 
-<L2Cv4e4.png, id=285, 578.16pt x 397.485pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 265.
+
+<L2Cv4e4.png, id=295, 578.16pt x 397.485pt>
 File: L2Cv4e4.png Graphic file (type png)
  <use L2Cv4e4.png>
-Package pdftex.def Info: L2Cv4e4.png used on input line 266.
+Package pdftex.def Info: L2Cv4e4.png used on input line 271.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 266--267
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 271--272
  [][] 
  []
 
-<L2Cv4e5.png, id=287, 578.16pt x 397.485pt>
+<L2Cv4e5.png, id=297, 578.16pt x 397.485pt>
 File: L2Cv4e5.png Graphic file (type png)
  <use L2Cv4e5.png>
-Package pdftex.def Info: L2Cv4e5.png used on input line 272.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
-
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 272--273
- [][] 
- []
-
-<L2Cv4e6.png, id=288, 578.16pt x 397.485pt>
-File: L2Cv4e6.png Graphic file (type png)
- <use L2Cv4e6.png>
-Package pdftex.def Info: L2Cv4e6.png used on input line 277.
+Package pdftex.def Info: L2Cv4e5.png used on input line 277.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 277--278
  [][] 
  []
 
-<L2Cv4e7.png, id=289, 578.16pt x 397.485pt>
-File: L2Cv4e7.png Graphic file (type png)
- <use L2Cv4e7.png>
-Package pdftex.def Info: L2Cv4e7.png used on input line 283.
+<L2Cv4e6.png, id=298, 578.16pt x 397.485pt>
+File: L2Cv4e6.png Graphic file (type png)
+ <use L2Cv4e6.png>
+Package pdftex.def Info: L2Cv4e6.png used on input line 282.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 283--284
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 282--283
+ [][] 
+ []
+
+<L2Cv4e7.png, id=299, 578.16pt x 397.485pt>
+File: L2Cv4e7.png Graphic file (type png)
+ <use L2Cv4e7.png>
+Package pdftex.def Info: L2Cv4e7.png used on input line 288.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 288--289
  [][] 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 264--286
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 269--291
  []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 264--286
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 269--291
  []$  $[]$ 
  []
 
-<L2MeanEner4e7.png, id=291, 578.16pt x 397.485pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--295
+
+ []
+
+[10 <./L2Cv4e4.png> <./L2Cv4e5.png> <./L2Cv4e6.png> <./L2Cv4e7.png>]
+<L2MeanEner4e7.png, id=315, 578.16pt x 397.485pt>
 File: L2MeanEner4e7.png Graphic file (type png)
  <use L2MeanEner4e7.png>
-Package pdftex.def Info: L2MeanEner4e7.png used on input line 309.
+Package pdftex.def Info: L2MeanEner4e7.png used on input line 316.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 309--310
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 316--317
  [][] 
  []
 
 File: L2Cv4e7.png Graphic file (type png)
 <use L2Cv4e7.png>
-Package pdftex.def Info: L2Cv4e7.png used on input line 315.
+Package pdftex.def Info: L2Cv4e7.png used on input line 322.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 315--316
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 322--323
  [][] 
  []
 
-<L2MeanabsMag4e7.png, id=292, 578.16pt x 397.485pt>
+<L2MeanabsMag4e7.png, id=316, 578.16pt x 397.485pt>
 File: L2MeanabsMag4e7.png Graphic file (type png)
  <use L2MeanabsMag4e7.png>
-Package pdftex.def Info: L2MeanabsMag4e7.png used on input line 321.
+Package pdftex.def Info: L2MeanabsMag4e7.png used on input line 328.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 321--322
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 328--329
  [][] 
  []
 
-<L2MagSus4e7.png, id=293, 578.16pt x 397.485pt>
+<L2MagSus4e7.png, id=317, 578.16pt x 397.485pt>
 File: L2MagSus4e7.png Graphic file (type png)
  <use L2MagSus4e7.png>
-Package pdftex.def Info: L2MagSus4e7.png used on input line 327.
+Package pdftex.def Info: L2MagSus4e7.png used on input line 334.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 327--328
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 334--335
  [][] 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 307--330
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 314--337
  []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 307--330
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 314--337
  []$  $[]$ 
  []
 
-<meanEnergyWRandomStart.png, id=294, 578.16pt x 397.485pt>
+[11 <./L2MeanEner4e7.png> <./L2MeanabsMag4e7.png> <./L2MagSus4e7.png>]
+<meanEnergyWRandomStart.png, id=326, 578.16pt x 397.485pt>
 File: meanEnergyWRandomStart.png Graphic file (type png)
 
 <use meanEnergyWRandomStart.png>
-Package pdftex.def Info: meanEnergyWRandomStart.png used on input line 338.
+Package pdftex.def Info: meanEnergyWRandomStart.png used on input line 346.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 338--339
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 346--347
  [][] 
  []
 
-<meanEnergyWUpStart.png, id=295, 578.16pt x 397.485pt>
+<meanEnergyWUpStart.png, id=327, 578.16pt x 397.485pt>
 File: meanEnergyWUpStart.png Graphic file (type png)
 
 <use meanEnergyWUpStart.png>
-Package pdftex.def Info: meanEnergyWUpStart.png used on input line 344.
+Package pdftex.def Info: meanEnergyWUpStart.png used on input line 352.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 344--345
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 352--353
  [][] 
  []
 
-<meanMagMomWRandomStart.png, id=296, 578.16pt x 397.485pt>
+<meanMagMomWRandomStart.png, id=328, 578.16pt x 397.485pt>
 File: meanMagMomWRandomStart.png Graphic file (type png)
 
 <use meanMagMomWRandomStart.png>
-Package pdftex.def Info: meanMagMomWRandomStart.png used on input line 350.
+Package pdftex.def Info: meanMagMomWRandomStart.png used on input line 358.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 350--351
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 358--359
  [][] 
  []
 
-<meanMagMomWUpStart.png, id=297, 578.16pt x 397.485pt>
+<meanMagMomWUpStart.png, id=329, 578.16pt x 397.485pt>
 File: meanMagMomWUpStart.png Graphic file (type png)
 
 <use meanMagMomWUpStart.png>
-Package pdftex.def Info: meanMagMomWUpStart.png used on input line 356.
+Package pdftex.def Info: meanMagMomWUpStart.png used on input line 364.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 356--357
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 364--365
  [][] 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 336--359
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 344--367
  []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 336--359
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 344--367
  []$  $[]$ 
  []
 
-<meanEnergyWRandomStartT24.png, id=298, 578.16pt x 397.485pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--371
+
+ []
+
+[12 <./meanEnergyWRandomStart.png> <./meanEnergyWUpStart.png> <./meanMagMomWRan
+domStart.png> <./meanMagMomWUpStart.png>]
+<meanEnergyWRandomStartT24.png, id=339, 578.16pt x 397.485pt>
 File: meanEnergyWRandomStartT24.png Graphic file (type png)
 
 <use meanEnergyWRandomStartT24.png>
-Package pdftex.def Info: meanEnergyWRandomStartT24.png used on input line 366.
+Package pdftex.def Info: meanEnergyWRandomStartT24.png used on input line 377.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 366--367
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 377--378
  [][] 
  []
 
-<meanEnergyWUpStartT24.png, id=299, 578.16pt x 397.485pt>
+<meanEnergyWUpStartT24.png, id=340, 578.16pt x 397.485pt>
 File: meanEnergyWUpStartT24.png Graphic file (type png)
 
 <use meanEnergyWUpStartT24.png>
-Package pdftex.def Info: meanEnergyWUpStartT24.png used on input line 372.
+Package pdftex.def Info: meanEnergyWUpStartT24.png used on input line 383.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 372--373
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 383--384
  [][] 
  []
 
-<meanMagMomWRandomStartT24.png, id=300, 578.16pt x 397.485pt>
+<meanMagMomWRandomStartT24.png, id=341, 578.16pt x 397.485pt>
 File: meanMagMomWRandomStartT24.png Graphic file (type png)
 
 <use meanMagMomWRandomStartT24.png>
-Package pdftex.def Info: meanMagMomWRandomStartT24.png used on input line 378.
+Package pdftex.def Info: meanMagMomWRandomStartT24.png used on input line 389.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 378--379
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 389--390
  [][] 
  []
 
-<meanMagMomWUpStartT24.png, id=301, 578.16pt x 397.485pt>
+<meanMagMomWUpStartT24.png, id=342, 578.16pt x 397.485pt>
 File: meanMagMomWUpStartT24.png Graphic file (type png)
 
 <use meanMagMomWUpStartT24.png>
-Package pdftex.def Info: meanMagMomWUpStartT24.png used on input line 384.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
-
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 384--385
- [][] 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 364--387
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 364--387
- []$  $[]$ 
- []
-
-<flipsWRandomStart.png, id=302, 578.16pt x 397.485pt>
-File: flipsWRandomStart.png Graphic file (type png)
-
-<use flipsWRandomStart.png>
-Package pdftex.def Info: flipsWRandomStart.png used on input line 395.
+Package pdftex.def Info: meanMagMomWUpStartT24.png used on input line 395.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 395--396
  [][] 
  []
 
-<flipsWUpStart.png, id=303, 578.16pt x 397.485pt>
-File: flipsWUpStart.png Graphic file (type png)
- <use flipsWUpStart.png>
-Package pdftex.def Info: flipsWUpStart.png used on input line 401.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 401--402
- [][] 
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 375--398
+ []$[]$  $[]$ 
  []
 
-<flipsWRandomStartT24.png, id=304, 578.16pt x 397.485pt>
-File: flipsWRandomStartT24.png Graphic file (type png)
 
-<use flipsWRandomStartT24.png>
-Package pdftex.def Info: flipsWRandomStartT24.png used on input line 407.
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 375--398
+ []$  $[]$ 
+ []
+
+[13
+
+ <./meanEnergyWRandomStartT24.png> <./meanEnergyWUpStartT24.png> <./meanMagMomW
+RandomStartT24.png> <./meanMagMomWUpStartT24.png>]
+<flipsWRandomStart.png, id=353, 578.16pt x 397.485pt>
+File: flipsWRandomStart.png Graphic file (type png)
+
+<use flipsWRandomStart.png>
+Package pdftex.def Info: flipsWRandomStart.png used on input line 407.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 407--408
  [][] 
  []
 
-<flipsWUpStartT24.png, id=305, 578.16pt x 397.485pt>
-File: flipsWUpStartT24.png Graphic file (type png)
-
-<use flipsWUpStartT24.png>
-Package pdftex.def Info: flipsWUpStartT24.png used on input line 413.
+<flipsWUpStart.png, id=354, 578.16pt x 397.485pt>
+File: flipsWUpStart.png Graphic file (type png)
+ <use flipsWUpStart.png>
+Package pdftex.def Info: flipsWUpStart.png used on input line 413.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 413--414
  [][] 
  []
 
+<flipsWRandomStartT24.png, id=355, 578.16pt x 397.485pt>
+File: flipsWRandomStartT24.png Graphic file (type png)
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 393--416
- []$[]$  $[]$ 
+<use flipsWRandomStartT24.png>
+Package pdftex.def Info: flipsWRandomStartT24.png used on input line 419.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 419--420
+ [][] 
  []
 
+<flipsWUpStartT24.png, id=356, 578.16pt x 397.485pt>
+File: flipsWUpStartT24.png Graphic file (type png)
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 393--416
- []$  $[]$ 
- []
-
-<meanEnergyLocalMin.png, id=307, 578.16pt x 397.485pt>
-File: meanEnergyLocalMin.png Graphic file (type png)
-
-<use meanEnergyLocalMin.png>
-Package pdftex.def Info: meanEnergyLocalMin.png used on input line 425.
+<use flipsWUpStartT24.png>
+Package pdftex.def Info: flipsWUpStartT24.png used on input line 425.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 425--426
  [][] 
  []
 
-<meanMagMomLocalMin.png, id=308, 578.16pt x 397.485pt>
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 405--428
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 405--428
+ []$  $[]$ 
+ []
+
+[14
+
+ <./flipsWRandomStart.png> <./flipsWUpStart.png> <./flipsWRandomStartT24.png> <
+./flipsWUpStartT24.png>]
+<meanEnergyLocalMin.png, id=367, 578.16pt x 397.485pt>
+File: meanEnergyLocalMin.png Graphic file (type png)
+
+<use meanEnergyLocalMin.png>
+Package pdftex.def Info: meanEnergyLocalMin.png used on input line 436.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 436--437
+ [][] 
+ []
+
+<meanMagMomLocalMin.png, id=368, 578.16pt x 397.485pt>
 File: meanMagMomLocalMin.png Graphic file (type png)
 
 <use meanMagMomLocalMin.png>
-Package pdftex.def Info: meanMagMomLocalMin.png used on input line 431.
+Package pdftex.def Info: meanMagMomLocalMin.png used on input line 442.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 431--432
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 442--443
  [][] 
  []
 
-<flipsLocalMin.png, id=309, 578.16pt x 397.485pt>
+<flipsLocalMin.png, id=369, 578.16pt x 397.485pt>
 File: flipsLocalMin.png Graphic file (type png)
  <use flipsLocalMin.png>
-Package pdftex.def Info: flipsLocalMin.png used on input line 437.
+Package pdftex.def Info: flipsLocalMin.png used on input line 448.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 437--438
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 448--449
  [][] 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 423--440
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 434--451
  []$[]$  $[]$ 
  []
 
-[9] <energyDistHistoT1.png, id=321, 578.16pt x 397.485pt>
+[15
+
+ <./meanEnergyLocalMin.png> <./meanMagMomLocalMin.png> <./flipsLocalMin.png>] <
+energyDistHistoT1.png, id=378, 578.16pt x 397.485pt>
 File: energyDistHistoT1.png Graphic file (type png)
 
 <use energyDistHistoT1.png>
-Package pdftex.def Info: energyDistHistoT1.png used on input line 449.
+Package pdftex.def Info: energyDistHistoT1.png used on input line 461.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 449--450
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 461--462
  [][] 
  []
 
-<energyDistHisto.png, id=322, 578.16pt x 397.485pt>
+<energyDistHisto.png, id=379, 578.16pt x 397.485pt>
 File: energyDistHisto.png Graphic file (type png)
  <use energyDistHisto.png>
-Package pdftex.def Info: energyDistHisto.png used on input line 455.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
-
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 455--456
- [][] 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 447--458
- []$[]$  $[]$ 
- []
-
-<meanEnergyl40Ne5New.png, id=324, 578.16pt x 397.485pt>
-File: meanEnergyl40Ne5New.png Graphic file (type png)
-
-<use meanEnergyl40Ne5New.png>
-Package pdftex.def Info: meanEnergyl40Ne5New.png used on input line 467.
+Package pdftex.def Info: energyDistHisto.png used on input line 467.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 467--468
  [][] 
  []
 
-<meanEnergyl60Ne5New.png, id=325, 578.16pt x 397.485pt>
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 459--470
+ []$[]$  $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
+
+ []
+
+[16 <./energyDistHistoT1.png> <./energyDistHisto.png>]
+<meanEnergyl40Ne5New.png, id=388, 578.16pt x 397.485pt>
+File: meanEnergyl40Ne5New.png Graphic file (type png)
+
+<use meanEnergyl40Ne5New.png>
+Package pdftex.def Info: meanEnergyl40Ne5New.png used on input line 480.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 480--481
+ [][] 
+ []
+
+<meanEnergyl60Ne5New.png, id=389, 578.16pt x 397.485pt>
 File: meanEnergyl60Ne5New.png Graphic file (type png)
 
 <use meanEnergyl60Ne5New.png>
-Package pdftex.def Info: meanEnergyl60Ne5New.png used on input line 473.
+Package pdftex.def Info: meanEnergyl60Ne5New.png used on input line 486.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 473--474
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 486--487
  [][] 
  []
 
-<meanEnergyl100Ne5New.png, id=326, 578.16pt x 397.485pt>
+<meanEnergyl100Ne5New.png, id=390, 578.16pt x 397.485pt>
 File: meanEnergyl100Ne5New.png Graphic file (type png)
 
 <use meanEnergyl100Ne5New.png>
-Package pdftex.def Info: meanEnergyl100Ne5New.png used on input line 479.
+Package pdftex.def Info: meanEnergyl100Ne5New.png used on input line 492.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 479--480
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 492--493
  [][] 
  []
 
-<meanEnergyl140.png, id=327, 578.16pt x 397.485pt>
+<meanEnergyl140.png, id=391, 578.16pt x 397.485pt>
 File: meanEnergyl140.png Graphic file (type png)
  <use meanEnergyl140.png>
-Package pdftex.def Info: meanEnergyl140.png used on input line 485.
+Package pdftex.def Info: meanEnergyl140.png used on input line 498.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 485--486
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 498--499
  [][] 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 465--488
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 478--501
  []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 465--488
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 478--501
  []$  $[]$ 
  []
 
-<meanMagMoml40Ne5New.png, id=328, 578.16pt x 397.485pt>
+[17
+
+ <./meanEnergyl40Ne5New.png> <./meanEnergyl60Ne5New.png> <./meanEnergyl100Ne5Ne
+w.png> <./meanEnergyl140.png>]
+<meanMagMoml40Ne5New.png, id=401, 578.16pt x 397.485pt>
 File: meanMagMoml40Ne5New.png Graphic file (type png)
 
 <use meanMagMoml40Ne5New.png>
-Package pdftex.def Info: meanMagMoml40Ne5New.png used on input line 494.
+Package pdftex.def Info: meanMagMoml40Ne5New.png used on input line 508.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 494--495
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 508--509
  [][] 
  []
 
-<meanMagMoml60Ne5New.png, id=329, 578.16pt x 397.485pt>
+<meanMagMoml60Ne5New.png, id=402, 578.16pt x 397.485pt>
 File: meanMagMoml60Ne5New.png Graphic file (type png)
 
 <use meanMagMoml60Ne5New.png>
-Package pdftex.def Info: meanMagMoml60Ne5New.png used on input line 500.
+Package pdftex.def Info: meanMagMoml60Ne5New.png used on input line 514.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 500--501
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 514--515
  [][] 
  []
 
-<meanMagMoml100Ne5New.png, id=330, 578.16pt x 397.485pt>
+<meanMagMoml100Ne5New.png, id=403, 578.16pt x 397.485pt>
 File: meanMagMoml100Ne5New.png Graphic file (type png)
 
 <use meanMagMoml100Ne5New.png>
-Package pdftex.def Info: meanMagMoml100Ne5New.png used on input line 506.
+Package pdftex.def Info: meanMagMoml100Ne5New.png used on input line 520.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 506--507
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 520--521
  [][] 
  []
 
-<meanMagMoml140.png, id=331, 578.16pt x 397.485pt>
+<meanMagMoml140.png, id=404, 578.16pt x 397.485pt>
 File: meanMagMoml140.png Graphic file (type png)
  <use meanMagMoml140.png>
-Package pdftex.def Info: meanMagMoml140.png used on input line 512.
+Package pdftex.def Info: meanMagMoml140.png used on input line 526.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 512--513
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 526--527
  [][] 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 492--515
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 506--529
  []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 492--515
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 506--529
  []$  $[]$ 
  []
 
-<cvl40Ne5New.png, id=332, 578.16pt x 397.485pt>
+[18
+
+ <./meanMagMoml40Ne5New.png> <./meanMagMoml60Ne5New.png> <./meanMagMoml100Ne5Ne
+w.png> <./meanMagMoml140.png>]
+<cvl40Ne5New.png, id=414, 578.16pt x 397.485pt>
 File: cvl40Ne5New.png Graphic file (type png)
  <use cvl40Ne5New.png>
-Package pdftex.def Info: cvl40Ne5New.png used on input line 521.
+Package pdftex.def Info: cvl40Ne5New.png used on input line 536.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 521--522
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 536--537
  [][] 
  []
 
-<cvl60Ne5New.png, id=333, 578.16pt x 397.485pt>
+<cvl60Ne5New.png, id=415, 578.16pt x 397.485pt>
 File: cvl60Ne5New.png Graphic file (type png)
  <use cvl60Ne5New.png>
-Package pdftex.def Info: cvl60Ne5New.png used on input line 527.
+Package pdftex.def Info: cvl60Ne5New.png used on input line 542.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 527--528
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 542--543
  [][] 
  []
 
-<cvl100Ne5New.png, id=334, 578.16pt x 397.485pt>
+<cvl100Ne5New.png, id=416, 578.16pt x 397.485pt>
 File: cvl100Ne5New.png Graphic file (type png)
  <use cvl100Ne5New.png>
-Package pdftex.def Info: cvl100Ne5New.png used on input line 533.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
-
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 533--534
- [][] 
- []
-
-<cvl140.png, id=335, 578.16pt x 397.485pt>
-File: cvl140.png Graphic file (type png)
- <use cvl140.png>
-Package pdftex.def Info: cvl140.png used on input line 539.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
-
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 539--540
- [][] 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 519--542
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 519--542
- []$  $[]$ 
- []
-
-<chil40Ne5New.png, id=336, 578.16pt x 397.485pt>
-File: chil40Ne5New.png Graphic file (type png)
- <use chil40Ne5New.png>
-Package pdftex.def Info: chil40Ne5New.png used on input line 548.
+Package pdftex.def Info: cvl100Ne5New.png used on input line 548.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 548--549
  [][] 
  []
 
-<chil60Ne5New.png, id=337, 578.16pt x 397.485pt>
-File: chil60Ne5New.png Graphic file (type png)
- <use chil60Ne5New.png>
-Package pdftex.def Info: chil60Ne5New.png used on input line 554.
+<cvl140.png, id=417, 578.16pt x 397.485pt>
+File: cvl140.png Graphic file (type png)
+ <use cvl140.png>
+Package pdftex.def Info: cvl140.png used on input line 554.
 (pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
 Overfull \hbox (18.9756pt too wide) in paragraph at lines 554--555
  [][] 
  []
 
-<chil100Ne5New.png, id=338, 578.16pt x 397.485pt>
-File: chil100Ne5New.png Graphic file (type png)
- <use chil100Ne5New.png>
-Package pdftex.def Info: chil100Ne5New.png used on input line 560.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
 
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 560--561
- [][] 
- []
-
-<chil140.png, id=339, 578.16pt x 397.485pt>
-File: chil140.png Graphic file (type png)
- <use chil140.png>
-Package pdftex.def Info: chil140.png used on input line 566.
-(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
-
-Overfull \hbox (18.9756pt too wide) in paragraph at lines 566--567
- [][] 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 546--569
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 534--557
  []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 546--569
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 534--557
  []$  $[]$ 
  []
 
+[19
+
+ <./cvl40Ne5New.png> <./cvl60Ne5New.png> <./cvl100Ne5New.png> <./cvl140.png>] <
+chil40Ne5New.png, id=428, 578.16pt x 397.485pt>
+File: chil40Ne5New.png Graphic file (type png)
+ <use chil40Ne5New.png>
+Package pdftex.def Info: chil40Ne5New.png used on input line 564.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 564--565
+ [][] 
+ []
+
+<chil60Ne5New.png, id=429, 578.16pt x 397.485pt>
+File: chil60Ne5New.png Graphic file (type png)
+ <use chil60Ne5New.png>
+Package pdftex.def Info: chil60Ne5New.png used on input line 570.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 570--571
+ [][] 
+ []
+
+<chil100Ne5New.png, id=430, 578.16pt x 397.485pt>
+File: chil100Ne5New.png Graphic file (type png)
+ <use chil100Ne5New.png>
+Package pdftex.def Info: chil100Ne5New.png used on input line 576.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 576--577
+ [][] 
+ []
+
+<chil140.png, id=431, 578.16pt x 397.485pt>
+File: chil140.png Graphic file (type png)
+ <use chil140.png>
+Package pdftex.def Info: chil140.png used on input line 582.
+(pdftex.def)             Requested size: 231.26872pt x 158.99377pt.
+
+Overfull \hbox (18.9756pt too wide) in paragraph at lines 582--583
+ [][] 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 562--585
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 562--585
+ []$  $[]$ 
+ []
+
+[20
+
+ <./chil40Ne5New.png> <./chil60Ne5New.png> <./chil100Ne5New.png> <./chil140.png
+>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 586.
+(hyperref)                removing `math shift' on input line 603.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 586.
+(hyperref)                removing `\times' on input line 603.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 586.
+(hyperref)                removing `math shift' on input line 603.
 
-[10 <./L2Cv4e4.png> <./L2Cv4e5.png> <./L2Cv4e6.png> <./L2Cv4e7.png>] [11 <./L2M
-eanEner4e7.png> <./L2MeanabsMag4e7.png> <./L2MagSus4e7.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 589--592
 
- []
-
-[12 <./meanEnergyWRandomStart.png> <./meanEnergyWUpStart.png> <./meanMagMomWRan
-domStart.png> <./meanMagMomWUpStart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 597--608
+Underfull \hbox (badness 10000) in paragraph at lines 606--609
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--608
+Underfull \hbox (badness 10000) in paragraph at lines 614--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--608
+Underfull \hbox (badness 10000) in paragraph at lines 614--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--608
+Underfull \hbox (badness 10000) in paragraph at lines 614--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--608
-
- []
-
-[13 <./meanEnergyWRandomStartT24.png> <./meanEnergyWUpStartT24.png> <./meanMagM
-omWRandomStartT24.png> <./meanMagMomWUpStartT24.png>] [14 <./flipsWRandomStart.
-png> <./flipsWUpStart.png> <./flipsWRandomStartT24.png> <./flipsWUpStartT24.png
->] [15 <./meanEnergyLocalMin.png> <./meanMagMomLocalMin.png> <./flipsLocalMin.p
-ng>]
-Underfull \hbox (badness 10000) in paragraph at lines 609--614
+Underfull \hbox (badness 10000) in paragraph at lines 614--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--614
+Underfull \hbox (badness 10000) in paragraph at lines 614--625
 
  []
 
-[16 <./energyDistHistoT1.png> <./energyDistHisto.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 615--622
+[21
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 615--622
+]
+Underfull \hbox (badness 10000) in paragraph at lines 626--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--622
+Underfull \hbox (badness 10000) in paragraph at lines 626--631
 
  []
 
-[17 <./meanEnergyl40Ne5New.png> <./meanEnergyl60Ne5New.png> <./meanEnergyl100Ne
-5New.png> <./meanEnergyl140.png>] [18 <./meanMagMoml40Ne5New.png> <./meanMagMom
-l60Ne5New.png> <./meanMagMoml100Ne5New.png> <./meanMagMoml140.png>] [19 <./cvl4
-0Ne5New.png> <./cvl60Ne5New.png> <./cvl100Ne5New.png> <./cvl140.png>]
-(./Project4_Gunnar_final.bbl [20 <./chil40Ne5New.png> <./chil60Ne5New.png> <./c
-hil100Ne5New.png> <./chil140.png>]
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 632--639
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 632--639
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 632--639
+
+ []
+
+[23] [24] (./Project4_Gunnar_final.bbl
 Overfull \hbox (68.26117pt too wide) in paragraph at lines 22--26
 []\T1/cmr/m/n/10 Morten Hjorth-Jensen.  Project4 fys3150.  http://compphysics.g
 ithub.io/ComputationalPhysics/doc/Projects/,
  []
 
-) [21]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 641.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 641.
+) [25
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 659.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 659.
  (./Project4_Gunnar_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 641.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 641.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 659.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 659.
 Package rerunfilecheck Info: File `Project4_Gunnar_final.out' has not changed.
-(rerunfilecheck)             Checksum: FF339E76169E95664E389592ED6FF50D;2405.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 641.
+(rerunfilecheck)             Checksum: 155154D711DFF781619CDFC976E2C8C8;2423.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 659.
  ) 
 Here is how much of TeX's memory you used:
- 20254 strings out of 495004
- 351794 string characters out of 6180663
- 476570 words of memory out of 5000000
+ 20258 strings out of 495004
+ 351822 string characters out of 6180663
+ 477570 words of memory out of 5000000
  22946 multiletter control sequences out of 15000+600000
  22130 words of font info for 60 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 56i,15n,58p,1817b,1339s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home
-/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/gunnnar/.texmf-va
+ 56i,15n,58p,1817b,1842s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home
+/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/gunnnar/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/.texmf-va
 r/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/gunnnar/.texmf-var/fonts/p
 k/ljfour/jknappen/ec/ecti0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
 jknappen/ec/ecbx1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
@@ -1683,10 +1736,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy9.pfb>
-Output written on Project4_Gunnar_final.pdf (21 pages, 1335168 bytes).
+Output written on Project4_Gunnar_final.pdf (25 pages, 1337732 bytes).
 PDF statistics:
- 932 PDF objects out of 1000 (max. 8388607)
- 460 compressed objects within 5 object streams
- 109 named destinations out of 1000 (max. 500000)
+ 949 PDF objects out of 1000 (max. 8388607)
+ 474 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
  466 words of extra memory for PDF output out of 10000 (max. 10000000)
 
