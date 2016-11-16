@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Theoretical model}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{The Ising model}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Thermodynamic quantities}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Phase transitions in the Ising model}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Starting State, State between Temperatures and the Equilibrium of the system}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Analytic solution for the 2x2 case with periodic boundary conditions}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{The Metropolis Algorithm}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{Periodic boundary condition}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Methods}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Finding the Energy}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{The Periodic Boundary Conditions}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Implementing the Metropolis algorithm}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Investigating the time to reach at the most likely state, and probability distribution}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.5}{The Phase transitions}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.6}{Parallelizing with MPI}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Results}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{Numerical vs Analytical results for a 2 \0402 lattice}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{Results from our investigation into the equilibration time}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{Results from our investigation into the probability distribution}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.4}{Results from our investigation of phase transitions}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.5}{Results from parallelizing our code}{section.4}% 22
+\BOOKMARK [1][-]{section.5}{Discussion}{}% 23
+\BOOKMARK [2][-]{subsection.5.1}{The 2 \0402 lattice}{section.5}% 24
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 25

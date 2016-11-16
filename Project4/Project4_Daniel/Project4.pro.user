@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.0.1, 2016-11-15T22:34:30. -->
+<!-- Written by QtCreator 3.0.1, 2016-11-16T02:19:35. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -230,8 +230,8 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Project4</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/gunnnar/Documents/FYS3150/Comp-Phys/Project4/Project4_Daniel/Project4.pro</value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments">40 2 2.4 16
-100000</value>
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments">2 1 1.1 2
+40000000</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">Project4.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseTerminal">false</value>

@@ -61,7 +61,9 @@ HEI
 \section{Theoretical model}
 \subsection{Analytical solution for the 2x2 case with periodic boundary conditions}
 We notice that there are only 5 distinct macrostates, namely 0 to 4 spins up. There should be a total of $2^4=16$ microstates. It is clear that the extremes (0 spins up and 4 spins up),  have only one microstate associated with them. The states 1 spin up and 3 spins up each have 4 associated microstates (you can flip one of the four spins). This implies that there are a total of 6 ways to have the state 2 up and 2 down. This is summarized in the table below:\\
-\begin{center}
+\begin{table}
+\centering
+\caption{Number of microstates in a simple $2 \times 2$ lattice}
 \begin{tabular}{|c|c|}
 \hline
 Spins up & Number of microstates\\
@@ -73,13 +75,15 @@ Spins up & Number of microstates\\
 0 & 1\\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 Now we must investigate the energy of each of these states. In general, the energy for the periodic boundary condition can be written as:
 $$E=-J\left[s_1s_2+s_2s_1+s_1s_3+s_3s_1+s_2s_4+s_4s_2+s_3s_4+s_4s_3\right]$$
 From this it follows immediately that the energy for the states for 4 spins up or 4 spins down is $-8J$. If we flip one spin, we will flip the sign of exactly half the terms (because each spin occurs in four of the eight pairs). Thus the energy will be zero. If we flip two spins, we can either flip spins that are nearest neighbors (such as $s_1$ and $s_2$, $s_1$ and $s_3$, $s_2$ and $s_4$ or $s_3$ and $s_4$), or we can flip spins that are not nearest neighbors (such as $s_1$ and $s_4$ or $s_2$ and $s_3$). In the first case, we flip the sign of four of the terms in the sum (namely all those that contain one of the two  spins we flip). Thus the total energy will be zero. In the other case, we flip the sign of all terms. Thus the total energy will be 8J.\\
 \linebreak
 To find the magnetization, we must simply sum the total number of spin up and subtract the number of spin down. This is all summarized in the table below:
-\begin{center}
+\begin{table}
+\centering
+\caption{Tallying up important thermodynamical indicators in the simple $2 \times 2$ lattice.}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Spins up &  Energy & Magnetization &Number of microstates\\
@@ -92,7 +96,7 @@ Spins up &  Energy & Magnetization &Number of microstates\\
 0 & -8J & -4& 1\\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 This enables us to calculate the partition function as:
 $$Z=\sum_{i=1}^{16} e^{-\beta E_i}$$
 Where $\beta=1/k_BT$. As most of the energies are zero, this is relatively straightforward and gives:

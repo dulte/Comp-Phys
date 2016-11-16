@@ -1,0 +1,6 @@
+minimumTemp 1
+maximumTemp 1.1
+tempSteps 1
+L 20
+monteCarloSteps 100000
+coresUsed 1

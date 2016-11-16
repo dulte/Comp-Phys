@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  4 NOV 2016 09:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 05:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -936,57 +936,58 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Project4_Gunnar.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--82
+Underfull \hbox (badness 10000) in paragraph at lines 80--101
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
 
 (./Project4_Gunnar.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
-Package rerunfilecheck Info: File `Project4_Gunnar.out' has not changed.
-(rerunfilecheck)             Checksum: 39815D219B8E7C5C38C561542EF774F5;171.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
+
+
+Package rerunfilecheck Warning: File `Project4_Gunnar.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Project4_Gunnar.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  39815D219B8E7C5C38C561542EF774F5;171.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 19254 strings out of 495004
- 337808 string characters out of 6180663
- 433570 words of memory out of 5000000
- 22113 multiletter control sequences out of 15000+600000
- 16915 words of font info for 49 fonts, out of 8000000 for 9000
+ 19256 strings out of 495004
+ 337864 string characters out of 6180663
+ 436569 words of memory out of 5000000
+ 22114 multiletter control sequences out of 15000+600000
+ 16139 words of font info for 48 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 56i,6n,58p,785b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home
-/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/gunnnar/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/gunnnar/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gunnnar/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecrm0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecrm1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm17
-28.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy7.pfb>
-Output written on Project4_Gunnar.pdf (3 pages, 131252 bytes).
+ 56i,9n,58p,785b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home
+/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gunnnar/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gunnnar/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/gunnnar/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecbx0900.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecrm1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Project4_Gunnar.pdf (3 pages, 127771 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

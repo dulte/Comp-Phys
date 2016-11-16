@@ -22,4 +22,7 @@
 \BOOKMARK [1][-]{section.5}{Discussion}{}% 22
 \BOOKMARK [2][-]{subsection.5.1}{The 2 \0402 lattice}{section.5}% 23
 \BOOKMARK [2][-]{subsection.5.2}{Time required to reach equilibrium}{section.5}% 24
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 25
+\BOOKMARK [2][-]{subsection.5.3}{The probability distribution}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.4}{The phase transitions}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.5}{The parallelization of our code}{section.5}% 27
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 28

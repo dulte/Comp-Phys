@@ -3,18 +3,18 @@
 \contentsline {subsection}{\numberline {2.1}Thermodynamic quantities and the Ising model}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Periodic boundary condition}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Phase transitions in the Ising model}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}The Metropolis Algorithm}{3}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}The Metropolis Algorithm}{4}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Equilibrium of the system}{4}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Analytic solution for the 2x2 case with periodic boundary conditions}{4}{subsection.2.6}
 \contentsline {section}{\numberline {3}Methods}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}Energy in our system}{7}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Implementing periodic boundary conditions}{7}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Implementing the Metropolis algorithm}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}Implementing the Metropolis algorithm}{8}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Investigating the time taken to arrive at the most likely state and the underlying probability distribution}{8}{subsection.3.4}
 \contentsline {subsection}{\numberline {3.5}Investigating phase transitions}{8}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Parallelizing our code}{8}{subsection.3.6}
-\contentsline {section}{\numberline {4}Results}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Results from the 2 $\times $ 2 lattice}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {3.6}Parallelizing our code}{9}{subsection.3.6}
+\contentsline {section}{\numberline {4}Results}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Results from the 2 $\times $ 2 lattice}{9}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Results from our investigation into the time used to reach equilibrium}{9}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Results from our investigation into the probability distribution}{10}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Results from our investigation of phase transitions}{10}{subsection.4.4}
@@ -22,4 +22,7 @@
 \contentsline {section}{\numberline {5}Discussion}{11}{section.5}
 \contentsline {subsection}{\numberline {5.1}The 2 $\times $ 2 lattice}{11}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Time required to reach equilibrium}{12}{subsection.5.2}
-\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}
+\contentsline {subsection}{\numberline {5.3}The probability distribution}{16}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}The phase transitions}{16}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}The parallelization of our code}{18}{subsection.5.5}
+\contentsline {section}{\numberline {6}Conclusion}{19}{section.6}

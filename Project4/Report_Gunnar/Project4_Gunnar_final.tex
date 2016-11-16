@@ -67,9 +67,9 @@ We begin with a discussion of the thermodynamic quantities that we will study, a
 \subsection{Thermodynamic quantities and the Ising model}
 We study a square lattice consisting of $N\times N$ magnetic dipole moments (atomic spins) that can be in one of two states (+1 or -1). We wish to study how energy, magnetization, heat capacity and magnetic susceptibility develop in this system. This system, the Ising model, is a microcanonical system, i.e. we keep the temperature fixed. Then it is known from basic thermodynamics that this system can be described by Boltzmann statistics, i.e. by a distribution function given by:
 \begin{equation}\label{eq:Boltzmann_probability}
-P(E)=\frac{1}{Z}e^{-\frac{E}{k_BT}}
+P(E)=\frac{1}{Z}e^{-\frac{E}{kT}}
 \end{equation}
-Where $E$ is the energy of a microstate, $k_B$ is Boltzmann's constant and $T$ is the temperature of the system. We define $\beta = 1/(k_BT)$. Then $Z$, the partition function, is a normalization constant defined by:
+Where $E$ is the energy of a microstate, $k$ is Boltzmann's constant and $T$ is the temperature of the system. We define $\beta = 1/(kT)$. Then $Z$, the partition function, is a normalization constant defined by:
 \begin{equation}\label{eq:Parition_function}
 Z=\sum_{i} e^{-\beta E_i}
 \end{equation}
@@ -94,11 +94,11 @@ Where the sum goes over all spins, $i$.\\
 It is shown \textbf{here} that this  gives the following relation for thermodynamical quantities:\\
 \textbf{Heat capacity}, $C_V$\\
 \begin{equation}\label{eq:heat_capacity}
-C_V=\frac{\langle E^2\rangle - \langle E \rangle^2}{k_BT^2}
+C_V=\frac{\langle E^2\rangle - \langle E \rangle^2}{kT^2}
 \end{equation}
 \textbf{Magnetic susceptibility}, $\chi$:
 \begin{equation}\label{eq:magnetic_susp}
-\chi=\frac{\langle \mathcal{M}^2\rangle - \langle \mathcal{M} \rangle^2}{k_BT}
+\chi=\frac{\langle \mathcal{M}^2\rangle - \langle \mathcal{M} \rangle^2}{kT}
 \end{equation}
 The first moment of the energy, $\langle E \rangle$, can also be computed in another way, which will be useful later, namely:
 \begin{equation}
@@ -119,19 +119,19 @@ C_V(T) \sim |T_c-T|^{-\gamma}\\
 \end{equation}
 Where $\alpha, \beta$ and $\gamma$ are critical exponents, given by: $\alpha=0,\  \beta=1/8,\ \gamma=7/4$\\
 \linebreak
-The temperature $T_C$ will depend upon the number of spins in our lattice, $N$. Ideally, the number of spins should be close to infinite. However, our computational capacities limit us to systems with a maximum size of about $N=140$. Luckily, however, we can estimate the critical temperature for $N=\infty$, $T_C(N=\infty)$ from the critical temperature at a finite $N$, $T_C(N)$ by the equation shown \textbf{HERE}, which we reproduce:
+The temperature $T_C$ will depend upon the number of spins in our lattice, $L$. Ideally, the number of spins should be close to infinite. However, our computational capacities limit us to systems with a maximum size of about $N=140$. Luckily, however, we can estimate the critical temperature for $L=\infty$, $T_C(L=\infty)$ from the critical temperature at a finite $N$, $T_C(L)$ by the equation shown \textbf{HERE}, which we reproduce:
 \begin{equation}\label{eq:Critical_temp_at_infinite}
-T_C(N)-T_C(N=\infty)=aN^{-1/\nu}
+T_C(L)-T_C(L=\infty)=aL^{-1/\nu}
 \end{equation}
 Where $a$ is a constant, which can be determined from:
 \begin{equation}\label{eq:a:equation}
-a=\frac{T_C(N_1)-T_C(N_2)}{N_1^{-1/\nu}-N_2^{-1/\nu}}
+a=\frac{T_C(L_1)-T_C(L_2)}{L_1^{-1/\nu}-L_2^{-1/\nu}}
 \end{equation}
-$\nu$ is another critical temperature, which has the exact result $\nu=1$. Thus we can estimate the critical temperature by computing a from equation \ref{eq:a:equation} for two different lattice sizes, $N_1$ and $N_2$, and then solving equation \ref{eq:Critical_temp_at_infinite} for $T_C(N=\infty)$. Note that we can also use the equations in \ref{eq:analytical_thermo_near_critical} near the critical temperature as analytic solutions to which we can compare our numerical results. 
+$\nu$ is another critical temperature, which has the exact result $\nu=1$. Thus we can estimate the critical temperature by computing a from equation \ref{eq:a:equation} for two different lattice sizes, $L_1$ and $L_2$, and then solving equation \ref{eq:Critical_temp_at_infinite} for $T_C(L=\infty)$.
 \subsection{The Metropolis Algorithm}\label{Monte-Carlo_algo}
 We will use Monte-Carlo simulations to model the time development of our spin system. Assume that we have an initial random configuration of spins, with energy $E_b$ (which we have calculated from equation \ref{eq:ising_system_energy}). We employ the famous Metropolis algorithm to achieve this. The Metropolis algorithm is described in detail \textbf{HERE}, but it can be briefly summarized in the following steps:
 \begin{itemize}
-\item Randomly select $N^2$ spins from the $N\times N$ lattice.
+\item Randomly select $L^2$ spins from the $L\times L$ lattice.
 \item For each spin, calculate the change in energy, $\Delta E$, that the system would experience if we were to flip it
 \item Draw a random number, $\zeta$ uniformly between $0$ and $1$, and compare it to $e^{-\beta \Delta E}$. \item If $\zeta \leq e^{-\beta \Delta E}$, flip the spin, else do not flip the spin (note that any spin flip with $\Delta E < 0$ will always be performed).
 \item Update the thermodynamic quantities.
@@ -148,7 +148,9 @@ It is not too difficult to find an analytic solution for a small latice consisti
 \end{figure}
 \newpage
 We notice first there are only 5 distinct macrostates, namely 0 to 4 spins up. There should be a total of $2^4=16$ microstates. It is clear that the extremes (0 spins up and 4 spins up),  have only one microstate associated with them. The states 1 spin up and 3 spins up each have 4 associated microstates (you can flip one of the four spins). This implies that there are a total of 6 ways to have the state 2 up and 2 down. This is summarized in the table below:\\
-\begin{center}
+\begin{table}
+\centering
+\caption{Number of microstates in a simple $2 \times 2$ lattice}
 \begin{tabular}{|c|c|}
 \hline
 Spins up & Number of microstates\\
@@ -160,16 +162,18 @@ Spins up & Number of microstates\\
 0 & 1\\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 Now we must investigate the energy of each of these states. In general, the energy with periodic boundary condition for a $2\times 2$ lattice can be written as:
 $$E=-J\left[s_1s_2+s_2s_1+s_1s_3+s_3s_1+s_2s_4+s_4s_2+s_3s_4+s_4s_3\right]$$
 From this it follows immediately that the energy for the states for 4 spins up or 4 spins down is $-8J$. If we flip one spin, we will flip the sign of exactly half the terms (because each spin occurs in four of the eight pairs). Thus the energy will be zero. If we flip two spins, we can either flip spins that are nearest neighbors (such as $s_1$ and $s_2$, $s_1$ and $s_3$, $s_2$ and $s_4$ or $s_3$ and $s_4$), or we can flip spins that are not nearest neighbors (such as $s_1$ and $s_4$ or $s_2$ and $s_3$). In the first case, we flip the sign of four of the terms in the sum (namely all those that contain one of the two  spins we flip). Thus the total energy will be zero. In the other case, we flip the sign of all terms. Thus the total energy will be 8J.\\
 \linebreak
 To find the magnetization, we must simply sum the total number of spin up and subtract the number of spin down. This is all summarized in the table below:
-\begin{center}
+\begin{table}
+\centering
+\caption{Tallying up important thermodynamical indicators in the simple $2 \times 2$ lattice.}
 \begin{tabular}{|c|c|c|c|}
 \hline
-Spins up &  Energy [J]& Magnetization[J/T] &Number of microstates\\
+Spins up &  Energy & Magnetization &Number of microstates\\
 \hline
 4 &-8J&4&1\\
 3 &0 & 2 & 4\\
@@ -179,19 +183,19 @@ Spins up &  Energy [J]& Magnetization[J/T] &Number of microstates\\
 0 & -8J & -4& 1\\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 This enables us to calculate the partition function as:
 $$Z=\sum_{i=1}^{16} e^{-\beta E_i}$$
-Where $\beta=1/k_BT$. As most of the energies are zero, this is relatively straightforward and gives:
+Where $\beta=1/kT$. As most of the energies are zero, this is relatively straightforward and gives:
 $$Z=2e^{8\beta J}+2e^{-8\beta J} + 12=4\cosh (8J\beta) +12$$
 We can now compute the expected value of the energy as:
 \begin{equation}\label{eq:2x2energy}
 \langle E \rangle =  -\frac{\partial \ln Z}{\beta}=-\frac{\partial}{\partial \beta}\ln\left(2e^{8\beta J}+2e^{-8\beta J}+12\right)=\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}=-\frac{8J\sinh(8\beta J)}{\cosh(8\beta J)+3}
 \end{equation}
 Similarly, we can compute the heat capacity, $C_V$, as:
-$$C_V=\frac{d\langle E \rangle}{dT}=\frac{d}{dT}\left(\frac{-16Je^{\frac{8J}{k_BT}}+16Je^{-\frac{8J}{k_BT}}}{2e^{\frac{8J}{k_BT}}+2e^{-\frac{8J}{k_BT}}+12}\right)$$
+$$C_V=\frac{d\langle E \rangle}{dT}=\frac{d}{dT}\left(\frac{-16Je^{\frac{8J}{kT}}+16Je^{-\frac{8J}{kT}}}{2e^{\frac{8J}{kT}}+2e^{-\frac{8J}{kT}}+12}\right)$$
 However, this is an ugly differentiation. Therefore, we will instead use the relation:
-$$C_V=\frac{\langle E^2 \rangle - \langle E \rangle^2}{k_BT^2}$$
+$$C_V=\frac{\langle E^2 \rangle - \langle E \rangle^2}{kT^2}$$
 The square of the expected value of the energy is given by:
 $$\langle E^2\rangle=\frac{1}{Z} \sum_{i=1}^ {16}E_i^2e^{-\beta E_i}$$
 The sum is easy to compute:
@@ -199,10 +203,10 @@ $$\sum_{i=1}^{16}E_i^2e^{-\beta E_i}=64J^2e^{8J\beta}+128J^2e^{-8J\beta}+64J^2e^
 Which gives:
 $$\langle E^2\rangle = \frac{128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)}{2e^{8J\beta}+2e^{-8J\beta}+12}=\frac{256J^2\cosh(8J\beta)}{4\cosh(8J\beta)+12}$$
 From which it follows that:
-$$C_V=\frac{1}{k_BT^2}\left(\frac{128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)}{2e^{8J\beta}+2e^{-8J\beta}+12}-\left(\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}\right)^2\right)$$
+$$C_V=\frac{1}{kT^2}\left(\frac{128J^2\left(e^{8J\beta}+e^{-8J\beta}\right)}{2e^{8J\beta}+2e^{-8J\beta}+12}-\left(\frac{-16Je^{8\beta J}+16Je^{-8\beta J}}{2e^{8\beta J}+2e^{-8\beta J}+12}\right)^2\right)$$
 
 \begin{equation}\label{eq:2x2Cv}
-C_V=\frac{1}{k_BT}\left(\frac{256J^2\cosh(8J\beta)}{4\cosh(8J\beta)+12}-\left(\frac{-8J\sinh(8J\beta)}{\cosh(8J\beta)+3}\right)^2\right)
+C_V=\frac{1}{kT}\left(\frac{256J^2\cosh(8J\beta)}{4\cosh(8J\beta)+12}-\left(\frac{-8J\sinh(8J\beta)}{\cosh(8J\beta)+3}\right)^2\right)
 \end{equation}
 
 Magnetization can be computed as:
@@ -217,7 +221,7 @@ The square of expected value of the magnetization can be computed as:
 $$\langle M^2 \rangle = \frac{1}{Z}\sum_{i=1}^{16}M_i^2e^{-\beta E_i}=\frac{1}{Z}\left(16e^{8\beta J}+4\cdot 4+4\cdot 4+16e^{8\beta J}\right)=\frac{8e^{8\beta J}+8}{\cosh(8J\beta)+3}$$
 Now it is easy to compute the susceptibility:
 \begin{equation}\label{eq:2x2Sus}
-\chi = \frac{\langle M^2\rangle - \langle M \rangle^2}{k_BT}=\frac{1}{k_BT}\left(\frac{8e^{8\beta J}+8}{\cosh(8\beta J)+3}\right)
+\chi = \frac{\langle M^2\rangle - \langle M \rangle^2}{kT}=\frac{1}{kT}\left(\frac{8e^{8\beta J}+8}{\cosh(8\beta J)+3}\right)
 \end{equation}
 We can now simulate a $2\times 2$ lattice, and check if equations \ref{eq:2x2energy}, \ref{eq:2x2Cv}, \ref{eq:2x2abs_mag} and \ref{eq:2x2Sus} hold true, which gives us a consistency check for our methods.
 \section{Methods}
@@ -279,6 +283,21 @@ We begin by investigating the number of steps required to get a good corresponde
     \end{subfigure}
     \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good. This was done with temperatures in the interval $kT/J=2$ to $kT/J=3$.}\label{fig:2x2_nsteps}
 \end{figure}
+We also compare explicitly the value from the Ising model and the analytic solution at $kT/J=1$ in table \ref{tab:2x2_compare} below.
+\begin{table}
+\centering
+\caption{Explicit comparison for the $2 \times 2$ at the point $kT/J=1$ for a different number of Monte Carlo cycles, $N$.}\label{tab:2x2_compare}
+\begin{tabular}{|c|ccccc|}
+\hline
+$N$ & $4 \times 10^4$ & $4\times 10^5$ & $4\times 10^6$ & $4 \times 10^7$ & Analytic\\ 
+\hline
+$ \langle E \rangle [J]$ &  -1.9961 & -1.9962 & -1.9961 & -1.9960 & -1.9960\\
+$\langle |M|\rangle $ [J/T] &3.9946 &  3.9946 &3.9948 & 3.9946 & 3.9946\\
+$C_v$ [J/K] &0.0315 & 0.0305 & 0.0311 & 0.0321 & 0.0320 \\
+$\chi$ [J $\mathrm{s}^2$] &3.950 & 3.991 & 3.984 & 3.993 & 3.993 \\
+\hline
+\end{tabular}
+\end{table}
 
 Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gives an excellent correspondence between the analytic and the numeric solution. The plots of our thermodynamic quantities in the $2\times 2$ lattice for this value of $N$ are shown below:
 \begin{figure}[!ht]
@@ -438,7 +457,7 @@ Here we plot the probability of a certain energy occurring for two different tem
 \end{figure}
 
 \subsection{Results from our investigation of phase transitions}
-Here, we wish to investigate how the critical temperature, which we extract by looking at the susceptibility and heat capacity, depends on our lattice size $L$. We also include the mean energy and the absolute value of the mean magnetization for completeness. 
+Here, we wish to investigate how the critical temperature, which we extract by looking at the susceptibility and heat capacity, depends on our lattice size $L$. We also include the mean energy and the absolute value of the mean magnetization for completeness. We will discuss the number of temperature points that we chose in greater detail in section \ref{discussion_phase_transition}.
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -464,7 +483,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
         \includegraphics[height=2.2in]{meanEnergyl140.png}
         \caption{Mean energy per spin for $L=140$}
     \end{subfigure}
-      \caption{Development of the mean energy per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
+      \caption{Development of the mean energy per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_tranition_energy}
 \end{figure}
 \begin{figure}[!ht]
     \centering
@@ -491,7 +510,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
         \includegraphics[height=2.2in]{meanMagMoml140.png}
         \caption{Mean absolute value of the magnetic moment per spin for $L=140$}
     \end{subfigure}
-      \caption{Development of the mean absolute value of the magnetic moment per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
+      \caption{Development of the mean absolute value of the magnetic moment per spin for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_mag_mom}
 \end{figure}
 \begin{figure}[!ht]
     \centering
@@ -518,7 +537,7 @@ Here, we wish to investigate how the critical temperature, which we extract by l
         \includegraphics[height=2.2in]{cvl140.png}
         \caption{Heat capacity for $L=140$}
     \end{subfigure}
-      \caption{Development of the heat capacity for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
+      \caption{Development of the heat capacity for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_Cv}
 \end{figure}
 \begin{figure}[!ht]
     \centering
@@ -545,12 +564,12 @@ Here, we wish to investigate how the critical temperature, which we extract by l
         \includegraphics[height=2.2in]{chil140.png}
         \caption{Magnetic susceptibility for $L=140$}
     \end{subfigure}
-      \caption{Development of the magnetic susceptibility for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}
+      \caption{Development of the magnetic susceptibility for systems of different sizes, as a function of temperature. We simulated $10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles.}\label{fig:phase_chi}
 \end{figure}
 \subsection{Results from parallelizing our code}
 \begin{table}
 \centering
-\caption{Comparison of speed with and without parallelization for a $20 \times 20$ lattice. We compare for numbers of Monte-Carlo cycles, $N$.}
+\caption{Comparison of speed with and without parallelization for a $20 \times 20$ lattice. We compare for numbers of Monte-Carlo cycles, $N$.}\label{tab:compare_parallelized}
 \begin{tabular}{|c|c|c|}
 \hline
 N & With MPI [s] &  Without MPI [s]\\
@@ -563,7 +582,7 @@ $4 \cdot 10^6$ & 45.347 & 109.675\\
 \end{table}
 \section{Discussion}
 \subsection{The 2 $\times$ 2 lattice}
-Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. Note, however, that $N=10^7$ was not attainable within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$ instead, but only start gathering data after a certain equilibration time has passed, as we will explore in the next section. Note that this means the system does not have to "balance out" the large errors in the means that are incurred by starting far away from the equilibrium state. Therefore, the hope is that we will be able attain useful data even with less cycles.
+Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Notice also how almost all quantities shown in table \ref{tab:2x2_compare} correspond to the exact quantities, at least to the precision shown. Though the table shows some random fluctuations for the earlier values of $N$, these seem to have died out in this case. Therefore, we adapt $10^7$ as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. The error is truly small at $N=10^7$, which therefore seems to be an ideal number of cycles to perform. Note, however, that $N=10^7$ was not attainable for our later, larger, simulations within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$ instead, but started our data collection after a certain equilibration time has passed, as will be explored in detail in the next section. Note that this means the system does not have to "balance out" the large errors in the means that are incurred by starting far away from the equilibrium state. Therefore, the hope is that we will be able attain useful data even with less cycles.
 \subsection{Time required to reach equilibrium}
 Figure \ref{fig:20x20_Sweep_T_1} and \ref{fig:20x20_Sweep_T_24} show the time development of our system for different temperatures. Note that uniform initial state here refers to a configuration where all spins are initially pointing upwards, whereas disordered initial state refers to a configuration where the spin is drawn from a uniform distribution containing only the values -1 and +1.\\
 \linebreak
@@ -577,8 +596,32 @@ The first point is not very surprising. Both temperatures are fairly low, and we
 \linebreak
 The second point is not particularly surprising either. At a higher temperature, we expect there to be more disturbance in the crystal (more thermal motion), so that the equilibrium state will be less uniform. This is indeed what we observe - the equilibrium mean magnetic moment is lower (which corresponds to less spins being aligned) and the mean energy per spin is less negative, from which it follows that the spins are less tightly bound. Thus the Ising model corresponds well with physical intuition. Notice further how the discrepancy between the equilibration time for the uniform initial state and the disordered initial state has decreased. They now both reach equilibrium after approximately 2000 Monte-Carlo cycles, whereas for the case where $kT/J=1$, the uniform state essentially started in the equilibrium configuration (note the scale of the axes!).\\
 \linebreak
-The final point is slightly more surprising. Given that we start in a uniform state, we would expect the mean absolute magnetic moment per spin 
+The final point is slightly more surprising. Given that we start in a uniform state, we would expect the mean absolute magnetic moment per spin to start close to 1, but it clearly does not. One possible explanation is that we hit a relatively Monte-Carlo cycle, where the magnetic moment decreased by a large amount the first iteration (note that we do not write out the initial configuration). This would however indeed be a very unlikely occurrences, so it is an interesting behavior to observe. \\
+\linebreak
+Figure \ref{fig:20x20_Sweep_flips} shows the mean number of accepted flips per spin per Monte Carlo cycle for varying initial states and temperatures. The trend in these figures is very similar to the trend in the previous figures. At the low-temperature limit, the uniform initial state starts at what is essentially the equilibrium configuration. Therefore, very few flips are accepted. This quickly stabilizes, and the system forgets all about the initial state, stabilizing at a very low average number of flips per spin, per cycle. This makes sense, because the Boltzmann factors are so large in this case, so that the Metropolis algorithm will only very rarely flip a spin. Note that the low-temperature, disordered state takes much longer to reach this equilibrium (has a much higher relaxation time). The reason is that we initially flip a large number of spins, to get into equilibrium, and as we plot the \textit{mean} number of accepted flips, this will increase the mean even long after the flip in every time step has reached equilibrium. Thus, if we measure mean flips, the time for the system to forget its initial state and reach equilibrium is much higher in the disordered initial state.\\
+\linebreak
+A very similar pattern can be seen for the high temperature, but it is less pronounced, due to the same factors as earlier - we start further from the equilibrium in the uniform case, and closer to equilibrium in the disordered case, then we did at the lower temperature. Thus these two solutions approach each other, and at high temperatures, they would even switch roles. Notice also that the equilibrium line is much higher at the higher temperatures. The Boltzmann factors are smaller, so more flips will be successful in the Metropolis algorithm, even at equilibrium. If one dares to translate this observation into actual physics, it follows that more is happening, at a microscopic level, at higher temperatures - even at equilibrium.\\
+\linebreak
+Finally, note carefully figure \ref{fig:20x20_local_min}. This is such a striking behavior that we initially thought that we had discovered a bug. In fact, this figure shows a local minimum in the Ising system. Notice that we are at a low temperature, starting from a uniform system. What happens, is that we the Monte Carlo sweep, by chance, manages to select a large number of spins in one region. The result is that these spins will be flipped to align with their neighbors, so that we get different regions in which the spins are aligned with each other (they can be all aligned upwards in some region, all downwards in another region etc.). If we now pick a spin inside any of those regions, it will be fairly stable with respect to its neighbors. Depending on the shape of the regions, it may be rather unlikely to pick a spin on the boundary. Therefore, this transitional  state can persist for some time, until the regions break up, as can be seen - the curves appear to reach an equilibrium without actually being in an equilibrium state. This forces us to reevaluate our equilibration time. From the previous plots,an equilibration time of about 2000 cycles may not seem unreasonable. However, figure \ref{fig:20x20_Sweep_T_1} shows that this would be far too low. Therefore, we decide to let the equilibration time be 5000 cycles. From figure \ref{fig:20x20_local_min}b in particular, this may still seem like a low number. Notice, however, that local minima of the duration shown in \ref{fig:20x20_local_min} are rather rare - we did not observe many of them. Furthermore, as we will be simulating $10^5$ cycles after this equilibration time, a slight, initial, deviation from the equilibrium values will not be crucial for the outcome of our simulations.
+\subsection{The probability distribution}
+\subsection{The phase transitions}\label{discussion_phase_transition}
+Figures \ref{fig:phase_tranition_energy}, \ref{fig:phase_mag_mom}, \ref{fig:phase_Cv} and \ref{fig:phase_chi} show the behavior of our system as a function of temperature. Note, first of all, that the scales on the axis is not quite the same. We began (for $L=40$ and $L=60$), with points in the interval $[2kT/J, 2.4kT/J]$, with $0.025 kT/J$ between each point. However, we realized that the interesting physics (the phase transition) occurred at around $2.3 kT/J$. To save time, we therefore decided to simulate only until $T=2.35 kT/J$, with steps of $0.04$ for the $L=100$ case. After considering the data from $L=100$, we decided that it would be sufficient to simulate $L=140$ up to a temperature of $2.3 kT/J$, with steps of 0.03 $kT/J$. Thus the odd axis are a result of limited computation time.\\
+\linebreak
+Note furthermore, that we have adapted a slight trick - we use $\langle |M|\rangle$ in the equation for the magnetic susceptibility (equation \ref{eq:magnetic_susp}) instead of $\langle M \rangle$. The reason for this is that $\langle M \rangle$ will, for small systems, tend to oscillate significantly, which may result in an error in $\chi$. This disappears if we employ $\langle |M|\rangle$.\\
+\linebreak
+Note then, in particular figure \ref{fig:phase_Cv} and \ref{fig:phase_chi}, showing respectively the heat capacity and the susceptibility. As mentioned in section \ref{phase_tranisition}, we expect power-laws for $C_v$ and $\chi$. We also expect these macroscopic variables  of our system to change significantly in a phase transition. Therefore, we find the critical temperature at the maximum of the graphs of $C_v$ and $\chi$, which we have indicated by a red dot.\\
+\linebreak
+Note how both $C_v$ and $\chi$ give the same $T_C$ for all runs, except for $L=100$. Note further, how the values of $T_C$ are all crowded close together around 2.3 $kT/J$. This is problematic, because in order to estimate a correct value for $a$ from equation \ref{eq:a:equation}. However, we do not have a unique value for $T_C$ for $L=100$, and we have identical values for $T_C$ for $L=40$ and $L=60$. We will therefore employ equation \ref{eq:a:equation} with $L_1=60$ and $L_2=140$, as the only viable options. This gives (using the analytic result that $\nu = 1$):
+$$a=\frac{2.3-2.27}{60^{-1}-140^{-1}}=3.15$$
+Which gives the critical temperature in the thermodynamic limit as (using equation \ref{eq:Critical_temp_at_infinite}):
+$$T_C(L=\infty)=T_C(L)-aL^{-1/\nu}=2.27-3.15\cdot 140^{-1}=2.2475$$
+The exact analytic expression can be found \textbf{HERE}, and is given by:
+$$T_C(L=\infty)=\frac{2}{\ln(1+\sqrt{2})}\approx2.269$$
+Thus our relative error is $\epsilon_{\mathrm{rel}}\approx 0.95 \%$, which is acceptable, though it is somewhat disappointing that we could only really check this with one point. Notice also that, because the critical temperature was the same for $L=40$, we could have done the same comparison with $L=40$ and $L=140$ (not $L=40$ and $L=60$, as this would give $a=0$). Doing this gives:
+$$a=1.68, \quad T_C(L=\infty)=2.258, \quad \epsilon_{\mathrm{rel}}\approx 0.48 \%$$
+Thus this would decrease our error. However, as earlier pointed out, it seems odd that the critical temperature should be the same for both cases.
+\subsection{The parallelization of our code}
+We show in table \ref{tab:compare_parallelized} the difference in speed for a system with $L=40$ of using 4 cores and not using 4 cores. Notice that the difference is large - a significant speed-up was achieved with MPI. This illustrates the fact that parallelization, when it is as straightforward as it is here, can incur huge benefits to the speed of a program.
 \section{Conclusion}
+We have presented an investigation into various aspects of the Ising model, and how it can be used to model magnetism. We have investigated
 \end{document}
-
-%REMEMBER TO COMPARE RESULTS AT POINT

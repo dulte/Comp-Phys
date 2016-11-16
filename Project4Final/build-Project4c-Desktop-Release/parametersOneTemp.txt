@@ -1,0 +1,5 @@
+temp 2.4
+L 20
+monteCarloSteps 100000
+coresUsed 1
+time 6.05692
