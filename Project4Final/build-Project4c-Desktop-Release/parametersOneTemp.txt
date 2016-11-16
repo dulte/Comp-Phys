@@ -1,5 +1,5 @@
-temp 2.4
+temp 1
 L 20
 monteCarloSteps 100000
 coresUsed 1
-time 6.05692
+time 5.66604

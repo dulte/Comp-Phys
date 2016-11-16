@@ -212,7 +212,7 @@ void metropolis(double Nspins,double MCSteps, double temp, mat & spinMatrix, vec
 }
 
 void output(ofstream & file, vec & expecVal, int Nspins, double temp, double MCsteps, int waitNSteps){
-    double factor = 1.0/(MCsteps- waitNSteps);
+    double factor = 1;
     double spinNorm = 1.0/(Nspins*Nspins);
 
     double expectE = expecVal[0]*factor;

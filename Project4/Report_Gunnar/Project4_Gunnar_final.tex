@@ -54,7 +54,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-HEI
+We present an investigation into the thermodynamic properties of the two-dimensional Ising system, used to model a magnet. We investigate magnetization, magnetic susceptibility, mean energy and heat capacity, and find how they vary with time and temperature. Finally, we investigate phase transitions in the Ising model and find the critical temperature of our model.
 \end{abstract}
 \tableofcontents
 \section{Introduction}
@@ -62,10 +62,12 @@ The Ising model is a simple but very popular model for modelling phase transitio
 \linebreak
 We will investigate how multiple interesting thermodynamic quantities, including heat capacity, magnetic susceptibility, mean magnetization and mean energy, behave over time in the Ising model. We will investigate both ordered and disordered initial states of the lattice, checking the equilibration time in each case. Finally, we will also investigate phase transitions in the Ising model. We implement periodic boundary conditions and simulate temporal progression in the lattice by means of the Metropolis algorithm.\\
 \linebreak
-We begin with a discussion of the thermodynamic quantities that we will study, and how they are manifested in the Ising model. We then briefly discuss our chosen boundary conditions. Subsequently, we present the theory of phase transitions and the Metropolis algorithm, and discuss how we could identify the equilibrium of our system. We then discuss some technicalities relating to our implementation of the physical model, before presenting and discussing our results..
+We begin with a discussion of the thermodynamic quantities that we will study, and how they are manifested in the Ising model. We then briefly discuss our chosen boundary conditions. Subsequently, we present the theory of phase transitions and the Metropolis algorithm, and discuss how we could identify the equilibrium of our system. We then discuss some technicalities relating to our implementation of the physical model, before presenting and discussing our results.\\
+\linebreak
+This project was a collaboration between Daniel Heinsen and myself, Gunnar Lange. As such, some similarity in our presentation is to be expected.
 \section{Theoretical model}
 \subsection{Thermodynamic quantities and the Ising model}
-We study a square lattice consisting of $N\times N$ magnetic dipole moments (atomic spins) that can be in one of two states (+1 or -1). We wish to study how energy, magnetization, heat capacity and magnetic susceptibility develop in this system. This system, the Ising model, is a microcanonical system, i.e. we keep the temperature fixed. Then it is known from basic thermodynamics that this system can be described by Boltzmann statistics, i.e. by a distribution function given by:
+We study a square lattice consisting of $L\times L$ magnetic dipole moments (atomic spins) that can be in one of two states (+1 or -1). We wish to study how energy, magnetization, heat capacity and magnetic susceptibility develop in this system. This system, the Ising model, is a microcanonical system, i.e. we keep the temperature fixed. Then it is known from basic thermodynamics that this system can be described by Boltzmann statistics, i.e. by a distribution function given by:
 \begin{equation}\label{eq:Boltzmann_probability}
 P(E)=\frac{1}{Z}e^{-\frac{E}{kT}}
 \end{equation}
@@ -445,15 +447,15 @@ Here we plot the probability of a certain energy occurring for two different tem
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{energyDistHistoT1.png}
-        \caption{$KT/J=1$}
+        \caption{$kT/J=1$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{energyDistHisto.png}
-        \caption{$KT/J=2.4$}
+        \caption{$kT/J=2.4$}
     \end{subfigure}
-       \caption{Histogram showing the probability of different energies occurring for two different temperature. This is for a lattice with $L=20$, simulated with $N=10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles. }
+       \caption{Histogram showing the probability of different energies occurring for two different temperature. This is for a lattice with $L=20$, simulated with $N=10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles. }\label{fig:histograms}
 \end{figure}
 
 \subsection{Results from our investigation of phase transitions}
@@ -604,6 +606,11 @@ A very similar pattern can be seen for the high temperature, but it is less pron
 \linebreak
 Finally, note carefully figure \ref{fig:20x20_local_min}. This is such a striking behavior that we initially thought that we had discovered a bug. In fact, this figure shows a local minimum in the Ising system. Notice that we are at a low temperature, starting from a uniform system. What happens, is that we the Monte Carlo sweep, by chance, manages to select a large number of spins in one region. The result is that these spins will be flipped to align with their neighbors, so that we get different regions in which the spins are aligned with each other (they can be all aligned upwards in some region, all downwards in another region etc.). If we now pick a spin inside any of those regions, it will be fairly stable with respect to its neighbors. Depending on the shape of the regions, it may be rather unlikely to pick a spin on the boundary. Therefore, this transitional  state can persist for some time, until the regions break up, as can be seen - the curves appear to reach an equilibrium without actually being in an equilibrium state. This forces us to reevaluate our equilibration time. From the previous plots,an equilibration time of about 2000 cycles may not seem unreasonable. However, figure \ref{fig:20x20_Sweep_T_1} shows that this would be far too low. Therefore, we decide to let the equilibration time be 5000 cycles. From figure \ref{fig:20x20_local_min}b in particular, this may still seem like a low number. Notice, however, that local minima of the duration shown in \ref{fig:20x20_local_min} are rather rare - we did not observe many of them. Furthermore, as we will be simulating $10^5$ cycles after this equilibration time, a slight, initial, deviation from the equilibrium values will not be crucial for the outcome of our simulations.
 \subsection{The probability distribution}
+We show in figure \ref{fig:histograms} how the probability distribution for our energies varies with temperature. We do this by simply counting up the number of times the different energies appear, and then divide by the total number of occurrences.\\
+\linebreak
+In the low temperature state, our space of attained energies is very small. By the ergodic hypothesis, all microstates should be equally likely, so we should be able to span all of them if we simulate long enough. Clearly this has yet to occur here, which demonstrates that the most likely state by far is the leftmost state, at an energy of almost precisely 2.\\
+\linebreak
+For the high-temperature limit, we observe a qualitatively different behavior. It spans a significantly larger subset of all accessible energies, and has  much higher mean. Both of these make physical sense - at higher temperature, the spins will, as earlier stated, be less tightly bound to their neighbors, and are freer to flip, giving a larger average energy at equilibrium. Additionally, however, the fact that the spins are freer to flip, means that more frequent flips will occur, even at equilibrium, which can take much furhter from equilibrium than in the low-temperature case. It is interesting to observe that the shape seems to approach a Gaussian distribution. This makes some sense: in this regime, above the critical temperature (discussed in section \ref{phase_tranisition}) the flips are governed largely by random fluctuations, as the larges-scale structures somewhat break down. It would be interesting to compare this to the variance of the energy, to see if the variance is much higher - however, this was not possible due to time constraints.
 \subsection{The phase transitions}\label{discussion_phase_transition}
 Figures \ref{fig:phase_tranition_energy}, \ref{fig:phase_mag_mom}, \ref{fig:phase_Cv} and \ref{fig:phase_chi} show the behavior of our system as a function of temperature. Note, first of all, that the scales on the axis is not quite the same. We began (for $L=40$ and $L=60$), with points in the interval $[2kT/J, 2.4kT/J]$, with $0.025 kT/J$ between each point. However, we realized that the interesting physics (the phase transition) occurred at around $2.3 kT/J$. To save time, we therefore decided to simulate only until $T=2.35 kT/J$, with steps of $0.04$ for the $L=100$ case. After considering the data from $L=100$, we decided that it would be sufficient to simulate $L=140$ up to a temperature of $2.3 kT/J$, with steps of 0.03 $kT/J$. Thus the odd axis are a result of limited computation time.\\
 \linebreak
@@ -623,5 +630,8 @@ Thus this would decrease our error. However, as earlier pointed out, it seems od
 \subsection{The parallelization of our code}
 We show in table \ref{tab:compare_parallelized} the difference in speed for a system with $L=40$ of using 4 cores and not using 4 cores. Notice that the difference is large - a significant speed-up was achieved with MPI. This illustrates the fact that parallelization, when it is as straightforward as it is here, can incur huge benefits to the speed of a program.
 \section{Conclusion}
-We have presented an investigation into various aspects of the Ising model, and how it can be used to model magnetism. We have investigated
+\subsection{Conclusion}
+We have presented an investigation into various aspects of the Ising model, and how it can be used to model magnetism. We started by comparing our results to a $2\times 2$ lattice, for which we had derived analytic results. We found an excellent correspondence between these models. Then we moved on to larger systems, without analytic solutions, to investigate equilibration time in our model. Here, we found that the equilibration time is generally quite low (dependent on initial configuration and temperature), however, sometimes local minima can occur, which force us to use a larger equilibration time. We also investigated the probability distribution governing our system, and found good correspondence with our physical intuition. Finally, we investigated phase transitions, where we found good correspondence with analytic results, but also clearly saw that additional computational power\footnote{Such as through the cluster Smaug, which we, due to time constraints, were unable to use}, yielding additional grid points for the temperature would have been useful to get a more reliable estimate of the critical temperature.
+\subsection{Outlook}
+There is still a significant amount of work to do. Most notably: find a better estimate for the critical temperature. Additionally, it would be interesting to investigate the variance of the energy, to see if we manage to achieve some level of correspondence with our distribution. Finally, it may be of interest to further investigate the phase transitions we observed, to study such things as how stable they are, or how many different regions are present in the material.
 \end{document}
