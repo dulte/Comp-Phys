@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 00:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 01:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,7 +1292,8 @@ Overfull \hbox (4.44336pt too wide) in paragraph at lines 372--395
  []$  $[]$ 
  []
 
-<meanEnergyLocalMin.png, id=258, 578.16pt x 397.485pt>
+[9 <./L2Cv4e4.png> <./L2Cv4e5.png> <./L2Cv4e6.png> <./L2Cv4e7.png>]
+<meanEnergyLocalMin.png, id=271, 578.16pt x 397.485pt>
 File: meanEnergyLocalMin.png Graphic file (type png)
 
 <use meanEnergyLocalMin.png>
@@ -1303,7 +1304,7 @@ Overfull \hbox (18.9756pt too wide) in paragraph at lines 404--405
  [][] 
  []
 
-<meanMagMomLocalMin.png, id=259, 578.16pt x 397.485pt>
+<meanMagMomLocalMin.png, id=272, 578.16pt x 397.485pt>
 File: meanMagMomLocalMin.png Graphic file (type png)
 
 <use meanMagMomLocalMin.png>
@@ -1314,7 +1315,7 @@ Overfull \hbox (18.9756pt too wide) in paragraph at lines 410--411
  [][] 
  []
 
-<flipsLocalMin.png, id=260, 578.16pt x 397.485pt>
+<flipsLocalMin.png, id=273, 578.16pt x 397.485pt>
 File: flipsLocalMin.png Graphic file (type png)
  <use flipsLocalMin.png>
 Package pdftex.def Info: flipsLocalMin.png used on input line 416.
@@ -1329,7 +1330,6 @@ Overfull \hbox (4.44336pt too wide) in paragraph at lines 402--419
  []$[]$  $[]$ 
  []
 
-[9 <./L2Cv4e4.png> <./L2Cv4e5.png> <./L2Cv4e6.png> <./L2Cv4e7.png>]
 <energyDistHistoT1.png, id=274, 578.16pt x 397.485pt>
 File: energyDistHistoT1.png Graphic file (type png)
 
@@ -1562,6 +1562,7 @@ Overfull \hbox (4.44336pt too wide) in paragraph at lines 525--548
  []$  $[]$ 
  []
 
+[10 <./L2MeanEner4e7.png> <./L2MeanabsMag4e7.png> <./L2MagSus4e7.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 565.
@@ -1574,41 +1575,55 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 565.
 
-[10 <./L2MeanEner4e7.png> <./L2MeanabsMag4e7.png> <./L2MagSus4e7.png>] [11 <./m
-eanEnergyWRandomStart.png> <./meanEnergyWUpStart.png> <./meanMagMomWRandomStart
-.png> <./meanMagMomWUpStart.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 568.
- [12 <./meanEnergyWRandomStartT24.png> <./meanEnergyWUpStartT24.png> <./meanMag
-MomWRandomStartT24.png> <./meanMagMomWUpStartT24.png>] [13 <./flipsWRandomStart
-.png> <./flipsWUpStart.png> <./flipsWRandomStartT24.png> <./flipsWUpStartT24.pn
-g>] [14 <./meanEnergyLocalMin.png> <./meanMagMomLocalMin.png> <./flipsLocalMin.
-png>] [15 <./energyDistHistoT1.png> <./energyDistHisto.png> <./meanEnergyl40Ne5
-New.png> <./meanEnergyl60Ne5New.png> <./meanEnergyl100Ne5New.png> <./meanEnergy
-l140.png>] [16 <./meanMagMoml40Ne5New.png> <./meanMagMoml60Ne5New.png> <./meanM
-agMoml100Ne5New.png> <./meanMagMoml140.png>]
-[17 <./cvl40Ne5New.png> <./cvl60Ne5New.png> <./cvl100Ne5New.png> <./cvl140.png>
-] [18 <./chil40Ne5New.png> <./chil60Ne5New.png> <./chil100Ne5New.png> <./chil14
-0.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 568.
- (./Project4_Gunnar_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 568.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 568.
-Package rerunfilecheck Info: File `Project4_Gunnar_final.out' has not changed.
-(rerunfilecheck)             Checksum: FEEC574B919A0D964FC59AE78EEDCDE1;1911.
+[11 <./meanEnergyWRandomStart.png> <./meanEnergyWUpStart.png> <./meanMagMomWRan
+domStart.png> <./meanMagMomWUpStart.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 568--571
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 576--579
+
+ []
+
+[12 <./meanEnergyWRandomStartT24.png> <./meanEnergyWUpStartT24.png> <./meanMagM
+omWRandomStartT24.png> <./meanMagMomWUpStartT24.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 580.
+ [13 <./flipsWRandomStart.png> <./flipsWUpStart.png> <./flipsWRandomStartT24.pn
+g> <./flipsWUpStartT24.png>] [14 <./meanEnergyLocalMin.png> <./meanMagMomLocalM
+in.png> <./flipsLocalMin.png>] [15 <./energyDistHistoT1.png> <./energyDistHisto
+.png> <./meanEnergyl40Ne5New.png> <./meanEnergyl60Ne5New.png> <./meanEnergyl100
+Ne5New.png> <./meanEnergyl140.png>] [16 <./meanMagMoml40Ne5New.png> <./meanMagM
+oml60Ne5New.png> <./meanMagMoml100Ne5New.png> <./meanMagMoml140.png>] [17 <./cv
+l40Ne5New.png> <./cvl60Ne5New.png> <./cvl100Ne5New.png> <./cvl140.png>] [18 <./
+chil40Ne5New.png> <./chil60Ne5New.png> <./chil100Ne5New.png> <./chil140.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 580.
+
+(./Project4_Gunnar_final.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 580.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 580.
+
+
+Package rerunfilecheck Warning: File `Project4_Gunnar_final.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Project4_Gunnar_final.out':
+(rerunfilecheck)             Before: FEEC574B919A0D964FC59AE78EEDCDE1;1911
+(rerunfilecheck)             After:  1A8D5ABDA50C95B9DCA59FE88FD96F97;2007.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 568.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 580.
  ) 
 Here is how much of TeX's memory you used:
- 20198 strings out of 495004
- 350870 string characters out of 6180663
- 477568 words of memory out of 5000000
- 22913 multiletter control sequences out of 15000+600000
+ 20201 strings out of 495004
+ 350931 string characters out of 6180663
+ 477569 words of memory out of 5000000
+ 22915 multiletter control sequences out of 15000+600000
  22130 words of font info for 60 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 56i,15n,58p,1032b,1842s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,15n,58p,1257b,1842s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home
 /gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/gunnnar/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/.texmf-va
@@ -1633,10 +1648,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy9.pfb>
-Output written on Project4_Gunnar_final.pdf (18 pages, 1309730 bytes).
+Output written on Project4_Gunnar_final.pdf (18 pages, 1311106 bytes).
 PDF statistics:
- 793 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 89 named destinations out of 1000 (max. 500000)
+ 796 PDF objects out of 1000 (max. 8388607)
+ 367 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
  410 words of extra memory for PDF output out of 10000 (max. 10000000)
 

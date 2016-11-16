@@ -308,7 +308,7 @@ Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gi
     \end{subfigure}
     \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice, running $10^7$ Monte Carlo cycles for each temperature. }\label{fig:2x2_thermo}
 \end{figure}
-\subsection{Results from our investigation into the equilibration time}
+\subsection{Results from our investigation into the time used to reach equilibrium}
 We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $kT/J=1.0$). We investigate how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:
 \begin{figure}[!ht]
     \centering
@@ -361,7 +361,7 @@ We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure b
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{meanMagMomWUpStartT24.png}
-        \caption{Mean absolute magnetic moment per spin from uniform start}
+        \caption{Mean absolute magnetic moment per spin from uniform state}
     \end{subfigure}
       \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations. Here $L=20$ and $kT/J=2.4$.}\label{fig:20x20_Sweep_T_24}
 \end{figure}
@@ -416,7 +416,7 @@ All these figures seem to indicate that equilibrium is quickly reached (after le
         \includegraphics[height=2.2in]{flipsLocalMin.png}
         \caption{Mean number of accepted flips per spin per Monte Carlo cycle from uniform state}
     \end{subfigure}
-       \caption{Time development of mean energy, mean magnetic moment and mean number of accepted flips per spin per Monte Carlo cycle for a system with $L=20$, $kT/J=1$, with all spins initially pointing up.}\label{fig:20x20_Sweep_flips}
+       \caption{Time development of mean energy, mean magnetic moment and mean number of accepted flips per spin per Monte Carlo cycle for a system with $L=20$, $kT/J=1$, with all spins initially pointing up.}\label{fig:20x20_local_min}
 \end{figure}
 This shows that it sometimes takes significantly longer to arrive at equilibrium. Furthermore, equilibration time may also increase for higher temperature. Therefore, we choose 5000 Monte Carlo cycles as a safe equilibration time.
 \subsection{Results from our investigation into the probability distribution}
@@ -563,7 +563,22 @@ $4 \cdot 10^6$ & 45.347 & 109.675\\
 \end{table}
 \section{Discussion}
 \subsection{The 2 $\times$ 2 lattice}
-Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. Note, however, that $N=10^7$ was not attainable within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$, but start the computation after equilibrium has  been reached. Note that this means the system does not have to "balance out" the large errors in 
+Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Therefore, we adapt this as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. Note, however, that $N=10^7$ was not attainable within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$ instead, but only start gathering data after a certain equilibration time has passed, as we will explore in the next section. Note that this means the system does not have to "balance out" the large errors in the means that are incurred by starting far away from the equilibrium state. Therefore, the hope is that we will be able attain useful data even with less cycles.
+\subsection{Time required to reach equilibrium}
+Figure \ref{fig:20x20_Sweep_T_1} and \ref{fig:20x20_Sweep_T_24} show the time development of our system for different temperatures. Note that uniform initial state here refers to a configuration where all spins are initially pointing upwards, whereas disordered initial state refers to a configuration where the spin is drawn from a uniform distribution containing only the values -1 and +1.\\
+\linebreak
+There are several interesting points to note:
+\begin{itemize}
+\item The spins in the uniform initial state generally start much closer to equilibrium than the spins in the disordered initial state
+\item The equilibrium states differs for the different temperatures
+\item The start point of the mean absolute magnetic moment per spin for the uniform initial state is not at 1.
+\end{itemize}
+The first point is not very surprising. Both temperatures are fairly low, and we therefore expect the equilibrium state to be fairly ordered. Therefore, if we start in an ordered state, we will already be much closer to equilibrium. Therefore, it takes less time to achieve equilibrium. \\
+\linebreak
+The second point is not particularly surprising either. At a higher temperature, we expect there to be more disturbance in the crystal (more thermal motion), so that the equilibrium state will be less uniform. This is indeed what we observe - the equilibrium mean magnetic moment is lower (which corresponds to less spins being aligned) and the mean energy per spin is less negative, from which it follows that the spins are less tightly bound. Thus the Ising model corresponds well with physical intuition. Notice further how the discrepancy between the equilibration time for the uniform initial state and the disordered initial state has decreased. They now both reach equilibrium after approximately 2000 Monte-Carlo cycles, whereas for the case where $kT/J=1$, the uniform state essentially started in the equilibrium configuration (note the scale of the axes!).\\
+\linebreak
+The final point is slightly more surprising. Given that we start in a uniform state, we would expect the mean absolute magnetic moment per spin 
 \section{Conclusion}
 \end{document}
 
+%REMEMBER TO COMPARE RESULTS AT POINT

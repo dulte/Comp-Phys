@@ -15,10 +15,11 @@
 \contentsline {subsection}{\numberline {3.6}Parallelizing our code}{8}{subsection.3.6}
 \contentsline {section}{\numberline {4}Results}{8}{section.4}
 \contentsline {subsection}{\numberline {4.1}Results from the 2 $\times $ 2 lattice}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Results from our investigation into the equilibration time}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.2}Results from our investigation into the time used to reach equilibrium}{9}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Results from our investigation into the probability distribution}{10}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Results from our investigation of phase transitions}{10}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}Results from parallelizing our code}{11}{subsection.4.5}
 \contentsline {section}{\numberline {5}Discussion}{11}{section.5}
 \contentsline {subsection}{\numberline {5.1}The 2 $\times $ 2 lattice}{11}{subsection.5.1}
-\contentsline {section}{\numberline {6}Conclusion}{12}{section.6}
+\contentsline {subsection}{\numberline {5.2}Time required to reach equilibrium}{12}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}
