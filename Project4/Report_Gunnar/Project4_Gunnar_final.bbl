@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{Birds}
+William Bialek, Andrea Cavagna, Irene Giardina, Thierry Mora, Edmondo
+  Silvestri, Massimiliano Viale, and Aleksandra~M. Walczak.
+\newblock Statistical mechanics for natural flocks of birds.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  109(13):4786--4791, 2012.
+
+\bibitem{Tc}
+David Cimasoni, Hugo Duminil-Copin, et~al.
+\newblock The critical temperature for the ising model on planar doubly
+  periodic graphs.
+\newblock {\em Electron. J. Probab}, 18(44):1--18, 2013.
+
+\bibitem{Metropolis}
+Morten Hjorth-Jensen.
+\newblock Computational physics lectures: Statistical physics and the ising
+  model, 2016.
+
+\bibitem{Project}
+Morten Hjorth-Jensen.
+\newblock Project4 fys3150.
+\newblock http://compphysics.github.io/ComputationalPhysics/doc/Projects/,
+  2016.
+
+\bibitem{AMS}
+Anders Malthe-Sorenssen.
+\newblock {\em Elementary Thermal and Statistical Physics Using Python}.
+\newblock Springer, 2016.
+
+\bibitem{Graphene}
+J.~K. Schoelz, P.~Xu, V.~Meunier, P.~Kumar, M.~Neek-Amal, P.~M. Thibado, and
+  F.~M. Peeters.
+\newblock Graphene ripples as a realization of a two-dimensional ising model: A
+  scanning tunneling microscope study.
+\newblock {\em Phys. Rev. B}, 91:045413, Jan 2015.
+
+\end{thebibliography}

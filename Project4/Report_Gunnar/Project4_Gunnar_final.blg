@@ -1,48 +1,51 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Project4_Gunnar_final.aux
-I found no \citation commands---while reading file Project4_Gunnar_final.aux
-I found no \bibdata command---while reading file Project4_Gunnar_final.aux
-I found no \bibstyle command---while reading file Project4_Gunnar_final.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            83 strings with 516 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
+The style file: plain.bst
+Database file #1: Project4.bib
+Warning--entry type for "Metropolis" isn't style-file defined
+--line 30 of file Project4.bib
+Warning--entry type for "Project" isn't style-file defined
+--line 39 of file Project4.bib
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            539 strings with 5041 characters,
+and the built_in function-call counts, 1935 in all, are:
+= -- 174
+> -- 115
 < -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 47
+- -- 40
+* -- 141
+:= -- 341
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 6
+duplicate$ -- 59
+empty$ -- 145
+format.name$ -- 40
+if$ -- 388
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+int.to.str$ -- 6
+missing$ -- 5
+newline$ -- 32
+num.names$ -- 12
+pop$ -- 44
+preamble$ -- 1
+purify$ -- 31
 quote$ -- 0
-skip$ -- 0
+skip$ -- 43
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 92
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 22
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+while$ -- 16
+width$ -- 7
+write$ -- 63
+(There were 2 warnings)

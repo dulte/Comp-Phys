@@ -54,11 +54,11 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We present an investigation into the thermodynamic properties of the two-dimensional Ising system, used to model a magnet. We investigate magnetization, magnetic susceptibility, mean energy and heat capacity, and find how they vary with time and temperature. Finally, we investigate phase transitions in the Ising model and find the critical temperature of our model.
+We present an investigation into the thermodynamic properties of the two-dimensional Ising system, used to model a magnet. We investigate magnetization, magnetic susceptibility, mean energy and heat capacity, and find how they vary with time and temperature. We find a good correspondence with physical intuition. Finally, we investigate phase transitions in the Ising model and find the critical temperature of our model, which is in good correspondence with analytic results.
 \end{abstract}
 \tableofcontents
 \section{Introduction}
-The Ising model is a simple but very popular model for modelling phase transitions (see e.g. \textbf{HERE}). The model consists of a lattice of atomic spins which can have one of two possible values ("up" or "down"). The energy of each spin in their configuration is determined solely by their nearest neighbors. This model is widely used in statistical physics, in particular to study ferromagnetic phenomena.\\
+The Ising model is a simple but very popular model for modelling a variety of systems, ranging from complex ripples in graphene (see e.g. \cite{Graphene}) to the modelling of bird movements (such as in \cite{Birds}). The model consists of a lattice of atomic spins which can have one of two possible values ("up" or "down"). The energy of each spin in their configuration is determined solely by their nearest neighbors. This model is widely used in statistical physics, in particular to study ferromagnetic phenomena.\\
 \linebreak
 We will investigate how multiple interesting thermodynamic quantities, including heat capacity, magnetic susceptibility, mean magnetization and mean energy, behave over time in the Ising model. We will investigate both ordered and disordered initial states of the lattice, checking the equilibration time in each case. Finally, we will also investigate phase transitions in the Ising model. We implement periodic boundary conditions and simulate temporal progression in the lattice by means of the Metropolis algorithm.\\
 \linebreak
@@ -93,7 +93,7 @@ Where the sum is over all the nearest neighbors in the lattice. $J$ is a constan
 \end{equation}
 Where the sum goes over all spins, $i$.\\
 \linebreak
-It is shown \textbf{here} that this  gives the following relation for thermodynamical quantities:\\
+It is shown here \cite{AMS} that this  gives the following relation for thermodynamical quantities:\\
 \textbf{Heat capacity}, $C_V$\\
 \begin{equation}\label{eq:heat_capacity}
 C_V=\frac{\langle E^2\rangle - \langle E \rangle^2}{kT^2}
@@ -106,12 +106,12 @@ The first moment of the energy, $\langle E \rangle$, can also be computed in ano
 \begin{equation}
 \langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}
 \end{equation}
-This is proved \textbf{here}.
+This is also proved here \cite{AMS}.
 \subsection{Periodic boundary condition}
 From the above description, it is not obvious how to treat the boundaries of the lattice. We will assume the  lattice (representing for example a crystalline structure in a solid) to be essentially infinite in all directions. In this case, we can assume the boundary to have no effect on the behavior of our crystal. Therefore, we let our crystal "loop around" itself, that is, we let neighbor of the leftmost crystals be the rightmost crystals, simulating a "continuation"of the crystals to the left. We adapt the same approach for the other edges of the crystals.
 
 \subsection{Phase transitions in the Ising model}\label{phase_tranisition}
-It is well known from literature \textbf{REFERENCE} that there exists a critical temperature, $T_C$, at which phase transitions can be observed in the Ising model. At this temperature, one can observe spikes in the thermodynamic quantities. Near $T_C$,our thermodynamic quantities can be modelled as simple power laws. As shown \textbf{HERE}, these laws take the following forms:
+It is well known from literature (see e.g. \cite{Tc}) that there exists a critical temperature, $T_C$, at which phase transitions can be observed in the Ising model. At this temperature, one can observe spikes in the thermodynamic quantities, as the macroscopic properties change quickly. Near $T_C$,our thermodynamic quantities can be modelled as simple power laws. As shown in \cite{Project}, these laws take the following forms near $T_C$:
 \begin{equation}\label{eq:analytical_thermo_near_critical}
 \begin{split}
 \langle \mathcal{M}(T)\rangle \sim (T-T_C)^{\beta}\\
@@ -121,7 +121,7 @@ C_V(T) \sim |T_c-T|^{-\gamma}\\
 \end{equation}
 Where $\alpha, \beta$ and $\gamma$ are critical exponents, given by: $\alpha=0,\  \beta=1/8,\ \gamma=7/4$\\
 \linebreak
-The temperature $T_C$ will depend upon the number of spins in our lattice, $L$. Ideally, the number of spins should be close to infinite. However, our computational capacities limit us to systems with a maximum size of about $N=140$. Luckily, however, we can estimate the critical temperature for $L=\infty$, $T_C(L=\infty)$ from the critical temperature at a finite $N$, $T_C(L)$ by the equation shown \textbf{HERE}, which we reproduce:
+The temperature $T_C$ will depend upon the number of spins in our lattice, $L$. Ideally, the number of spins should be close to infinite. However, our computational capacities limit us to systems with a maximum size of about $N=140$. Luckily, however, we can estimate the critical temperature for $L=\infty$, $T_C(L=\infty)$ from the critical temperature at a finite $N$, $T_C(L)$ by the equation shown in \cite{Project}, which we reproduce below:
 \begin{equation}\label{eq:Critical_temp_at_infinite}
 T_C(L)-T_C(L=\infty)=aL^{-1/\nu}
 \end{equation}
@@ -131,14 +131,14 @@ a=\frac{T_C(L_1)-T_C(L_2)}{L_1^{-1/\nu}-L_2^{-1/\nu}}
 \end{equation}
 $\nu$ is another critical temperature, which has the exact result $\nu=1$. Thus we can estimate the critical temperature by computing a from equation \ref{eq:a:equation} for two different lattice sizes, $L_1$ and $L_2$, and then solving equation \ref{eq:Critical_temp_at_infinite} for $T_C(L=\infty)$.
 \subsection{The Metropolis Algorithm}\label{Monte-Carlo_algo}
-We will use Monte-Carlo simulations to model the time development of our spin system. Assume that we have an initial random configuration of spins, with energy $E_b$ (which we have calculated from equation \ref{eq:ising_system_energy}). We employ the famous Metropolis algorithm to achieve this. The Metropolis algorithm is described in detail \textbf{HERE}, but it can be briefly summarized in the following steps:
+We will use Monte-Carlo simulations to model the time development of our spin system. Assume that we have an initial random configuration of spins, with energy $E_b$ (which we have calculated from equation \ref{eq:ising_system_energy}). We employ the famous Metropolis algorithm to achieve this. The Metropolis algorithm is described in detail for example in \cite{Metropolis}, but it can be briefly summarized in the following steps:
 \begin{itemize}
 \item Randomly select $L^2$ spins from the $L\times L$ lattice.
 \item For each spin, calculate the change in energy, $\Delta E$, that the system would experience if we were to flip it
 \item Draw a random number, $\zeta$ uniformly between $0$ and $1$, and compare it to $e^{-\beta \Delta E}$. \item If $\zeta \leq e^{-\beta \Delta E}$, flip the spin, else do not flip the spin (note that any spin flip with $\Delta E < 0$ will always be performed).
 \item Update the thermodynamic quantities.
 \end{itemize}
-It can be shown (\textbf{REFERENCE}) that this simple scheme will evolve the system towards its equilibrium state (dictated by the Helmoltz free energy). Thus, repeating the above steps many times, which corresponds to performing many Monte-Carlo cycles, will evolve our system towards equilibrium. We will therefore use the number of Monte-Carlo cycles synonymously with time in our simulation.
+It can be shown that this simple scheme will evolve the system towards its equilibrium state (dictated by the Helmoltz free energy). Thus, repeating the above steps many times, which corresponds to performing many Monte-Carlo cycles, will evolve our system towards equilibrium. We will therefore use the number of Monte-Carlo cycles synonymously with time in our simulation.
 \subsection{Equilibrium of the system}\label{equilibrium_system}
 We choose multiple different starting configurations of our lattice, including a homogeneous configuration (all spins initially point the same way), and a random configuration (spins drawn from a uniform distribution). We expect that our system should approach a stationary state after some time, $T$. There are multiple indicators of this state. First of all, we expect the number of accepted spins to reach a low, constant value, i.e. the total number of accepted spins  per time steadily decreasing curve, approaching an equilibrium value. Most spins will be in their stable configuration at equilibrium, and therefore few flips will be occur. We also expect all thermodynamical quantities to reach an equilibrium state, where the variations are small. Both of these will be good indicators for equilibrium. 
 \subsection{Analytic solution for the 2x2 case with periodic boundary conditions}\label{2x2analytic}
@@ -228,7 +228,7 @@ Now it is easy to compute the susceptibility:
 We can now simulate a $2\times 2$ lattice, and check if equations \ref{eq:2x2energy}, \ref{eq:2x2Cv}, \ref{eq:2x2abs_mag} and \ref{eq:2x2Sus} hold true, which gives us a consistency check for our methods.
 \section{Methods}
 \subsection{Energy in our system}\label{energy_in_system}
-Note that the sum in equation \ref{eq:ising_system_energy} is only over the nearest neighbors. Therefore, the change in energy from the flip of a single spin (as in the Metropolis algorithm), depends only on the configuration of the nearest neighbors (which are only four spins). This means that there are only a limited number of possible energy differences, $\Delta E$. As shown \textbf{HERE}, the only possible values of $\Delta E$ are:
+Note that the sum in equation \ref{eq:ising_system_energy} is only over the nearest neighbors. Therefore, the change in energy from the flip of a single spin (as in the Metropolis algorithm), depends only on the configuration of the nearest neighbors (which are only four spins). This means that there are only a limited number of possible energy differences, $\Delta E$. As shown here \cite{Metropolis}, the only possible values of $\Delta E$ are:
 $$\Delta E = \{ -8J, -4J, 0, 4J, 8J\}$$
 Wen can therefore precompute the Boltzmann factor, $e^{-\beta \Delta E}$, for all of these possible flips. Thus, for each spin flip in the Metropolis algorithm, we can simply check the configuration of the neighboring spins, and then assign an energy change, $\Delta E$, by checking the state of the neighboring spins, as described in more detial in section \ref{metropolis_algo_implementation}.\\
 \linebreak
@@ -252,7 +252,7 @@ We wish to investigate how the equilibration time (time to reach most likely sta
 \linebreak
 Additionally, we would also like to characterize the probability distribution governing the equilibrium state. Therefore, we start our simulation after the time which we determined to be the equilibration time, and compute the number of times a given energy $E$ appears.
 \subsection{Investigating phase transitions}
-To investigate the phase transitions that occur in the Ising system, we employ the fact that the analytic result for $T_C(N=\infty)$ from section \ref{phase_tranisition} is approximately 2.269 \textbf{REFERENCE}. Thus we choose temperatures close to this, and find the critical temperature (the temperature at which a divergent behavior is observed for the heat capacity and the magnetic susceptibility). Then we compare with the equations from section \ref{phase_tranisition}.
+To investigate the phase transitions that occur in the Ising system, we employ the fact that the analytic result for $T_C(N=\infty)$ from section \ref{phase_tranisition} is approximately 2.269, as stated here \cite{Project}. Thus we choose temperatures close to this, and find the critical temperature (the temperature at which a divergent behavior is observed for the heat capacity and the magnetic susceptibility). Then we compare with the equations from section \ref{phase_tranisition}.
 \subsection{Parallelizing our code}
 Note that the quantities that we are investigating are statistical measures such as the expected value or the variance. Increasing the number of cycles will therefore result in a better data. To maximize the number of cycles that we can obtain we parallelize our code, using MPI. Thus, we let all four cores on our computer run separate simulations, and then compute the means using the data from all of these runs.\footnote{Note that we initially intended to run on a larger cluster but, due to time constraints, this was not possible.}
 \section{Results}
@@ -415,7 +415,7 @@ Finally, we also plot the number of accepted flips per spin and time, to get a s
     \end{subfigure}
       \caption{Mean number of accepted flips per spin per Monte Carlo cycle for different initial states and different temperatures.}\label{fig:20x20_Sweep_flips}
 \end{figure}
-All these figures seem to indicate that equilibrium is quickly reached (after less than 2000 cycles). However, sometimes this is not the case, as we hit a local minimum (described in more detail \textbf{HERE}). This gives the following plots:
+All these figures seem to indicate that equilibrium is quickly reached (after less than 2000 cycles). However, sometimes this is not the case, as we hit a local minimum (described in more detail in section \ref{Discussion_time_for_eq}). This gives the following plots:
 
 
 \begin{figure}[!ht]
@@ -585,7 +585,7 @@ $4 \cdot 10^6$ & 45.347 & 109.675\\
 \section{Discussion}
 \subsection{The 2 $\times$ 2 lattice}
 Figure \ref{fig:2x2_nsteps} compares the analytic and numeric solution for a different number of Monte Carlo cycles. As expected, our numeric solution approaches the analytic solution with increasing $N$, and for $N=4\times 10^7$, the solutions are barely distinguishable. Notice also how almost all quantities shown in table \ref{tab:2x2_compare} correspond to the exact quantities, at least to the precision shown. Though the table shows some random fluctuations for the earlier values of $N$, these seem to have died out in this case. Therefore, we adapt $10^7$ as an acceptable $N$, for this system.  Note further that, with this $N$,all other thermodynamic quantities shown in figure \ref{fig:2x2_thermo} are also very well reproduced by our code. This shows that our simulations converge to the expected values for the $2\times2$ lattice, which hopefully implies that our code also works for larger lattices, for which there are no analytic solutions. The error is truly small at $N=10^7$, which therefore seems to be an ideal number of cycles to perform. Note, however, that $N=10^7$ was not attainable for our later, larger, simulations within our strict time constraints. Therefore, we performed the remaining simulations with $N=10^5$ instead, but started our data collection after a certain equilibration time has passed, as will be explored in detail in the next section. Note that this means the system does not have to "balance out" the large errors in the means that are incurred by starting far away from the equilibrium state. Therefore, the hope is that we will be able attain useful data even with less cycles.
-\subsection{Time required to reach equilibrium}
+\subsection{Time required to reach equilibrium}\label{Discussion_time_for_eq}
 Figure \ref{fig:20x20_Sweep_T_1} and \ref{fig:20x20_Sweep_T_24} show the time development of our system for different temperatures. Note that uniform initial state here refers to a configuration where all spins are initially pointing upwards, whereas disordered initial state refers to a configuration where the spin is drawn from a uniform distribution containing only the values -1 and +1.\\
 \linebreak
 There are several interesting points to note:
@@ -622,7 +622,7 @@ Note how both $C_v$ and $\chi$ give the same $T_C$ for all runs, except for $L=1
 $$a=\frac{2.3-2.27}{60^{-1}-140^{-1}}=3.15$$
 Which gives the critical temperature in the thermodynamic limit as (using equation \ref{eq:Critical_temp_at_infinite}):
 $$T_C(L=\infty)=T_C(L)-aL^{-1/\nu}=2.27-3.15\cdot 140^{-1}=2.2475$$
-The exact analytic expression can be found \textbf{HERE}, and is given by:
+The exact analytic expression can be found here \cite{Project}, and is given by:
 $$T_C(L=\infty)=\frac{2}{\ln(1+\sqrt{2})}\approx2.269$$
 Thus our relative error is $\epsilon_{\mathrm{rel}}\approx 0.95 \%$, which is acceptable, though it is somewhat disappointing that we could only really check this with one point. Notice also that, because the critical temperature was the same for $L=40$, we could have done the same comparison with $L=40$ and $L=140$ (not $L=40$ and $L=60$, as this would give $a=0$). Doing this gives:
 $$a=1.68, \quad T_C(L=\infty)=2.258, \quad \epsilon_{\mathrm{rel}}\approx 0.48 \%$$
@@ -634,4 +634,8 @@ We show in table \ref{tab:compare_parallelized} the difference in speed for a sy
 We have presented an investigation into various aspects of the Ising model, and how it can be used to model magnetism. We started by comparing our results to a $2\times 2$ lattice, for which we had derived analytic results. We found an excellent correspondence between these models. Then we moved on to larger systems, without analytic solutions, to investigate equilibration time in our model. Here, we found that the equilibration time is generally quite low (dependent on initial configuration and temperature), however, sometimes local minima can occur, which force us to use a larger equilibration time. We also investigated the probability distribution governing our system, and found good correspondence with our physical intuition. Finally, we investigated phase transitions, where we found good correspondence with analytic results, but also clearly saw that additional computational power\footnote{Such as through the cluster Smaug, which we, due to time constraints, were unable to use}, yielding additional grid points for the temperature would have been useful to get a more reliable estimate of the critical temperature.
 \subsection{Outlook}
 There is still a significant amount of work to do. Most notably: find a better estimate for the critical temperature. Additionally, it would be interesting to investigate the variance of the energy, to see if we manage to achieve some level of correspondence with our distribution. Finally, it may be of interest to further investigate the phase transitions we observed, to study such things as how stable they are, or how many different regions are present in the material.
+\addcontentsline{toc}{section}{References}
+\bibliography{Project4}
+\bibliographystyle{plain}
+\newpage
 \end{document}
