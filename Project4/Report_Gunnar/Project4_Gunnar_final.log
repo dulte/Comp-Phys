@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 08:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  16 NOV 2016 08:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1632,23 +1632,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 615--622
 
 [17 <./meanEnergyl40Ne5New.png> <./meanEnergyl60Ne5New.png> <./meanEnergyl100Ne
 5New.png> <./meanEnergyl140.png>] [18 <./meanMagMoml40Ne5New.png> <./meanMagMom
-l60Ne5New.png> <./meanMagMoml100Ne5New.png> <./meanMagMoml140.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 634.
- [19 <./cvl40Ne5New.png> <./cvl60Ne5New.png> <./cvl100Ne5New.png> <./cvl140.png
->] [20 <./chil40Ne5New.png> <./chil60Ne5New.png> <./chil100Ne5New.png> <./chil1
-40.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 634.
+l60Ne5New.png> <./meanMagMoml100Ne5New.png> <./meanMagMoml140.png>] [19 <./cvl4
+0Ne5New.png> <./cvl60Ne5New.png> <./cvl100Ne5New.png> <./cvl140.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 637.
+ [20 <./chil40Ne5New.png> <./chil60Ne5New.png> <./chil100Ne5New.png> <./chil140
+.png>]
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 637.
+ (./Project4_Gunnar_final.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 637.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 637.
 
-(./Project4_Gunnar_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 634.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 634.
-Package rerunfilecheck Info: File `Project4_Gunnar_final.out' has not changed.
-(rerunfilecheck)             Checksum: E466039231F244E41BD369DDC67033C4;2237.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 634.
+
+Package rerunfilecheck Warning: File `Project4_Gunnar_final.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Project4_Gunnar_final.out':
+(rerunfilecheck)             Before: E466039231F244E41BD369DDC67033C4;2237
+(rerunfilecheck)             After:  0434EFC465B9E5FF0C0C1481CE9FD22A;2354.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 637.
  ) 
 Here is how much of TeX's memory you used:
- 20229 strings out of 495004
- 351467 string characters out of 6180663
+ 20233 strings out of 495004
+ 351513 string characters out of 6180663
  476570 words of memory out of 5000000
  22935 multiletter control sequences out of 15000+600000
  22130 words of font info for 60 fonts, out of 8000000 for 9000
@@ -1678,10 +1685,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy9.pfb>
-Output written on Project4_Gunnar_final.pdf (20 pages, 1322474 bytes).
+Output written on Project4_Gunnar_final.pdf (21 pages, 1325865 bytes).
 PDF statistics:
- 861 PDF objects out of 1000 (max. 8388607)
- 419 compressed objects within 5 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 874 PDF objects out of 1000 (max. 8388607)
+ 426 compressed objects within 5 object streams
+ 102 named destinations out of 1000 (max. 500000)
  442 words of extra memory for PDF output out of 10000 (max. 10000000)
 

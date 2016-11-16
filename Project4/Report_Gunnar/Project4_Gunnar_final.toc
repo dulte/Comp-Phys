@@ -26,3 +26,5 @@
 \contentsline {subsection}{\numberline {5.4}The phase transitions}{17}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}The parallelization of our code}{19}{subsection.5.5}
 \contentsline {section}{\numberline {6}Conclusion}{20}{section.6}
+\contentsline {subsection}{\numberline {6.1}Conclusion}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Outlook}{21}{subsection.6.2}
