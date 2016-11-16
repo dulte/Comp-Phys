@@ -81,18 +81,19 @@ class Lattice_2_by_2:
 L = 2
 
 data = np.loadtxt("Temp1.txt")
-lattice=Lattice_2_by_2(1,1, data[:,0])
+lattice=Lattice_2_by_2(1,1, data[:,-2])
 Cv=lattice.compute_CV()
 chi=lattice.compute_MagSus_hyp()
 mean_energy=lattice.compute_energy()
 mean_magnetic_moment=lattice.compute_abs_magnetization()
+Nsteps=100000-5000
+print data[-5,-2]/(20.0*20.0)
 
-plt.title(r"Heat capacity per spin, $C_v$ for L=%i and N=$4 \times 10^4$" %L)
-plt.xlabel("Temperature [K]")
-plt.ylabel("$C_v$ [J/K]")
-plt.plot(data[:,0],data[:,3])
+plt.title(r"Variance of the mean energy" %L)
+plt.xlabel("Time")
+plt.ylabel("$Variance$ [J/K]")
+plt.plot(data[:,0],data[:,-2])
 plt.show()
-print np.mean(data[:,3])
 plt.title(r"Magnetic susceptibility per spin, $\chi$ for L=%i and N=$4 \times 10^7$" %L)
 plt.xlabel("Temperature [K]")
 plt.ylabel("Magnetic susceptibility [$Js^2$]")

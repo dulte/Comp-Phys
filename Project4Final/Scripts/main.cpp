@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     MPI_Bcast(&temp, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
     spinMatrix = ones(Nspins,Nspins);
-    waitSteps = 0;
+    waitSteps = 5000;
 
 
 
@@ -94,9 +94,9 @@ int main(int argc, char *argv[])
     for (int i = 0; i < totalExpectationValues.size(); i++){
         MPI_Reduce(&localExpectationValues[i], &totalExpectationValues[i], 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
     }
-//    if (rank == 0){
-//        output(outFile, totalExpectationValues, Nspins, temp, monteCarloSteps*numProcs);
-//    }
+    if (rank == 0){
+        output(outFile, totalExpectationValues, Nspins, temp, monteCarloSteps*numProcs);
+    }
 
 
 
@@ -227,7 +227,7 @@ void metropolis(double Nspins,double MCSteps, double temp, mat & spinMatrix, vec
 
 
         if (i%writingFreq == 0 && i > waitSteps){
-            outFile << (i+1- waitSteps) << " " << energy*spinNorm << " " <<expecVal[0]*spinNorm/(i+1 - waitSteps) << " " << fabs(magneticMoment)*spinNorm << " " << expecVal[4]*spinNorm/(i+1- waitSteps) << " " << acceptedFlips*spinNorm << " " << (expecVal[1]/(i+1- waitSteps) -  (expecVal[0]/(i+1- waitSteps))*(expecVal[0]/(i+1- waitSteps))) << " " << seed << endl;
+            outFile << (i+1- waitSteps) << " " << energy*spinNorm << " " <<expecVal[0]*spinNorm/(i+1 - waitSteps) << " " << fabs(magneticMoment)*spinNorm << " " << expecVal[4]*spinNorm/(i+1- waitSteps) << " " << acceptedFlips*spinNorm << " " << (expecVal[1])/(i+1- waitSteps) - (expecVal[0])/(i+1- waitSteps)*(expecVal[0])/(i+1- waitSteps) << " " << seed << endl;
         }
 
 

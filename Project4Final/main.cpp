@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 
     //cout << rank << endl;
     //cout << "hei " << stod(argv[1]) << " " << "rank: " << rank << endl;
+    cout << "I'm workng"<<endl;
 
 
     if (rank == 0 && argc < 6){
@@ -189,7 +190,7 @@ void metropolis(double Nspins,double MCSteps, double temp, mat & spinMatrix, vec
 
         if (i > waitNSteps){
             expecVal[0] += energy;
-            expecVal[1] += energy*energy;
+            expecVal[1] += fabs(energy*energy);
             expecVal[2] += (magneticMoment);
             expecVal[3] += magneticMoment*magneticMoment;
             expecVal[4] += fabs(magneticMoment);
@@ -212,16 +213,15 @@ void metropolis(double Nspins,double MCSteps, double temp, mat & spinMatrix, vec
 }
 
 void output(ofstream & file, vec & expecVal, int Nspins, double temp, double MCsteps, int waitNSteps){
-    double factor = 1;
+    double factor = 1.0/(MCsteps- waitNSteps);
     double spinNorm = 1.0/(Nspins*Nspins);
-
-    double expectE = expecVal[0]*factor;
-    double expectESquared = expecVal[1]*factor;
+    double expectE = expecVal[0];
+    double expectESquared = expecVal[1];
     double expectM = expecVal[2]*factor;
     double expectMSquared = expecVal[3]*factor;
     double expectMFabs = expecVal[4]*factor;
 
-    double varE = (expectESquared - expectE*expectE)*spinNorm;
+    double varE = (expectESquared - expectE*expectE)
     double varM = (expectMSquared - expectM*expectM)*spinNorm;
 
 
