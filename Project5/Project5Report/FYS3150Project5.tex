@@ -1,0 +1,92 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{a4wide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvips]{epsfig}
+\usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage{cite} % [2,3,4] --> [2--4]
+\usepackage{shadow}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{marvosym }
+\usepackage{subcaption}
+\usepackage[noabbrev]{cleveref}
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+
+
+\setlength{\droptitle}{-10em}   % This is your set screw
+
+\setcounter{tocdepth}{2}
+
+\lstset{language=c++}
+\lstset{alsolanguage=[90]Fortran}
+\lstset{basicstyle=\small}
+\lstset{backgroundcolor=\color{white}}
+\lstset{frame=single}
+\lstset{stringstyle=\ttfamily}
+\lstset{keywordstyle=\color{red}\bfseries}
+\lstset{commentstyle=\itshape\color{blue}}
+\lstset{showspaces=false}
+\lstset{showstringspaces=false}
+\lstset{showtabs=false}
+\lstset{breaklines}
+\title{FYS3150 - Project 5\\
+Financial Modelling}
+\author{Daniel Heinesen, Gunnar Lange}
+\begin{document}
+\maketitle
+\begin{abstract}
+HEI
+\end{abstract}
+\tableofcontents
+\section{Introduction}
+\section{Theoretical models}
+In this section we introduce the theoretical model necessary to model financial agents interacting among each other.
+\subsection{Modelling the interaction between two financial agents}
+We will begin with a simple model for the interaction of two agents. Assume that we have picked, at random, two agents $i$ and $j$, each with wealth given by $m_i$ and $m_j$. We will then model the interaction between this pair by drawing a random number, $\epsilon$ $\in [0,1]$, from a uniform distribution,  and redistributing the wealth among the two according to the equations:
+\begin{equation}
+m_1'=\epsilon(m_1+m_2)
+\end{equation}
+\begin{equation}
+m_2'=(1-\epsilon)(m_1+m_2)
+\end{equation}
+Notice that the total wealth is conserved in this interaction, seeing as:
+$$m_1'+m_2'=\epsilon(m_1+m_2)+(1-\epsilon)(m_1+m_2)=m_1+m_2$$
+Thus we are only redistributing the wealth in the economy.\\
+\subsection{Implementing savings in the economy}
+We expand our model by including the possibility of our agents retaining a certain amount of money at every transaction. This is modelled by a parameter $\beta$, which describes the fraction of money saved by each agent in the transaction. Our models can then be written as:
+\begin{equation}
+\begin{split}
+m_i'=\lambda m_i+\epsilon(1-\lambda)(m_i+m_j) \\
+m_j'=\lambda m_j+(1-\epsilon)(1-\lambda)(m_i+m_j)
+\end{split}
+\end{equation}
+Note that the total money is still conserved, seeing as:
+$$m_i'+m_j'=\lambda m_i+\epsilon(1-\lambda)(m_i+m_j)+\lambda m_j+(1-\epsilon)(1-\lambda)(m_i+m_j)=\lambda (m_i+m_j)+(1-\lambda)(m_i+m_j)=m_i+m_j$$
+\subsection{Analytic solutions}
+
+\section{Methods}
+\subsection{Implementing the Monte Carlo simulation}
+To ensure that we get good results, we run multiple simulations, and average the final distribution in each of these simulations. This is summarized in Pseudo-code below:
+\lstinputlisting{Pseudo_code_simple_walkers.cpp}
+\section{Results}
+\section{Discussion}
+\section{Conclusion}
+\end{document}
+

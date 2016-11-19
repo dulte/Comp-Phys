@@ -153,7 +153,7 @@ It is not too difficult to find an analytic solution for a small latice consisti
 We notice first there are only 5 distinct macrostates, namely 0 to 4 spins up. There should be a total of $2^4=16$ microstates. It is clear that the extremes (0 spins up and 4 spins up),  have only one microstate associated with them. The states 1 spin up and 3 spins up each have 4 associated microstates (you can flip one of the four spins). This implies that there are a total of 6 ways to have the state 2 up and 2 down. This is summarized in the table below:\\
 \begin{table}[!hb]
 \centering
-\caption{Number of microstates in a simple $2 \times 2$ lattice}
+\caption{Number of  possible microstates in a simple $2 \times 2$ lattice}
 \begin{tabular}{|c|c|}
 \hline
 Spins up & Number of microstates\\
@@ -288,14 +288,16 @@ We begin by investigating the number of steps required to get a good corresponde
         \includegraphics[height=2.2in]{L2Cv4e7.png}
         \caption{$N=4\times 10^7$}
     \end{subfigure}
-    \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good. This was done with temperatures in the interval $kT/J=2$ to $kT/J=3$.}\label{fig:2x2_nsteps}
+    \caption{Comparison of the numeric and analytic solution of heat capacity and mean energy per spin for the $2\times 2$ lattice. We plot multiple Monte Carlo steps, $N$, to find where the correspondence becomes good. This was done with temperatures in the interval $\mathrm{kT/J}=2$ to $\mathrm{kT/J}=3$.}\label{fig:2x2_nsteps}
 \end{figure}
 \linebreak
-We also compare explicitly the value from the Ising model and the analytic solution at $kT/J=1$ in table \ref{tab:2x2_compare} below.
+We also compare explicitly the value from the Ising model and the analytic solution at $\mathrm{kT/J}=1$ in table \ref{tab:2x2_compare} below.
 \newpage
 \begin{table}[!ht]
 \centering
-\caption{Explicit comparison for the $2 \times 2$ lattice at the point $kT/J=1$ for different Monte Carlo cycles, $N$.}\label{tab:2x2_compare}
+\caption{Explicit comparison for the $2 \times 2$ lattice at the point $\mathrm{kT/J}=1$ for different Monte Carlo cycles, $N$.}\label{tab:2x2_compare}
+\bgroup
+\def\arraystretch{1.1}
 \begin{tabular}{|c|ccccc|}
 \hline
 $N$ & $4 \times 10^4$ & $4\times 10^5$ & $4\times 10^6$ & $4 \times 10^7$ & Analytic\\ 
@@ -306,6 +308,7 @@ $C_v$ [J/K] &0.0315 & 0.0305 & 0.0311 & 0.0321 & 0.0320 \\
 $\chi$ [J $\mathrm{s}^2$] &3.950 & 3.991 & 3.984 & 3.993 & 3.993 \\
 \hline
 \end{tabular}
+\egroup
 \end{table}
 
 Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gives an excellent correspondence between the analytic and the numeric solution. The plots of our thermodynamic quantities in the $2\times 2$ lattice for this value of $N$ are shown below:
@@ -337,8 +340,8 @@ Looking at the plots, we choose $N=4\times 10^7$ as the required $N$, as this gi
     \caption{Comparison of the numeric and  analytic solution for the mean energy per spin, heat capacity per spin, mean absolute magnetic moment per spin and magnetic susceptibility of the $2 \times 2$ lattice, running $10^7$ Monte Carlo cycles for each temperature. }\label{fig:2x2_thermo}
 \end{figure}
 \newpage
-\subsection{Results from our investigation into the time used to reach equilibrium for larger system}
-We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $kT/J=1.0$). We look at how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:\\
+\subsection{Results from our investigation into the time required to reach equilibrium for larger system}
+We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the time (measured in number of sweeps of the lattice) that it takes our system to achieve equilibrium. We investigate this first with a low temperature (letting $\mathrm{kT/J}=1.0$). We look at how this system develops if we start with an ordered initial state (all spins pointing up) and if we start with a disordered (uniformly distributed) state. A plot of the mean energy and the mean absolute value of the magnetization in this case is shown below:\\
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
@@ -364,10 +367,10 @@ We choose to use a larger lattice, of $20 \times 20$ spins, to investigate the t
         \includegraphics[height=2.2in]{meanMagMomWUpStart.png}
         \caption{Mean absolute magnetic moment per spin from uniform state}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.Here $L=20$ and $kT/J=1.0$.}\label{fig:20x20_Sweep_T_1}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations.Here $L=20$ and $\mathrm{kT/J}=1.0$.}\label{fig:20x20_Sweep_T_1}
 \end{figure}
 \linebreak
-We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure below:
+We also plot the same quantities for a temperature of $\mathrm{kT/J}=2.4$ in the figure below:
 \newpage
 \clearpage
 \begin{figure}[!ht]
@@ -395,7 +398,7 @@ We also plot the same quantities for a temperature of $kT/J=2.4$ in the figure b
         \includegraphics[height=2.2in]{meanMagMomWUpStartT24.png}
         \caption{Mean absolute magnetic moment per spin from uniform state}
     \end{subfigure}
-      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations. Here $L=20$ and $kT/J=2.4$.}\label{fig:20x20_Sweep_T_24}
+      \caption{Time development of mean energy and mean magic moment per spin for two different initial configurations. Here $L=20$ and $\mathrm{kT/J}=2.4$.}\label{fig:20x20_Sweep_T_24}
 \end{figure}
 
 Finally, we also plot the number of accepted flips per spin and time, to get a sense of how many spins the Metropolis algorithm flips at every time step. We do this for two different temperatures, again using both an ordered and a disordered state.
@@ -405,25 +408,25 @@ Finally, we also plot the number of accepted flips per spin and time, to get a s
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWRandomStart.png}
-        \caption{With disordered initial state, at $kT/J=1$}
+        \caption{With disordered initial state, at $\mathrm{kT/J}=1$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWUpStart.png}
-        \caption{With uniform initial state, at $kT/J=1$}
+        \caption{With uniform initial state, at $\mathrm{kT/J}=1$}
     \end{subfigure}
         ~
      \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWRandomStartT24.png}
-        \caption{With disordered initial state, at $kT/J=2.4$}
+        \caption{With disordered initial state, at $\mathrm{kT/J}=2.4$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{flipsWUpStartT24.png}
-        \caption{With uniform initial state, at $kT/J=2.4$}
+        \caption{With uniform initial state, at $\mathrm{kT/J}=2.4$}
     \end{subfigure}
       \caption{Mean number of accepted flips per spin per Monte Carlo cycle for different initial states and different temperatures.}\label{fig:20x20_Sweep_flips}
 \end{figure}
@@ -448,7 +451,7 @@ All these figures seem to indicate that equilibrium is quickly reached (after le
         \includegraphics[height=2.2in]{flipsLocalMin.png}
         \caption{Mean number of accepted flips per spin per Monte Carlo cycle from uniform state}
     \end{subfigure}
-       \caption{Time development of mean energy, mean magnetic moment and mean number of accepted flips per spin per Monte Carlo cycle for a system with $L=20$, $kT/J=1$, with all spins initially pointing up.}\label{fig:20x20_local_min}
+       \caption{Time development of mean energy, mean magnetic moment and mean number of accepted flips per spin per Monte Carlo cycle for a system with $L=20$, $\mathrm{kT/J}=1$, with all spins initially pointing up.}\label{fig:20x20_local_min}
 \end{figure}
 This shows that it sometimes takes significantly longer to arrive at equilibrium. Furthermore, equilibration time may also increase for higher temperature. Therefore, we choose 5000 Monte Carlo cycles as a safe equilibration time.
 \newpage
@@ -459,30 +462,34 @@ Here we plot the probability of a certain energy occurring for two different tem
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{energyDistHistoT1.png}
-        \caption{$kT/J=1$}
+        \caption{$\mathrm{kT/J}=1$}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.2in]{energyDistHisto.png}
-        \caption{$kT/J=2.4$}
+        \caption{$\mathrm{kT/J}=2.4$}
     \end{subfigure}
-       \caption{Histogram showing the probability of different energies occurring for two different temperature. This is for a lattice with $L=20$, simulated with $N=10^5$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles. }\label{fig:histograms}
-\end{figure}
-We also compute the variance per spin, simply by computing:
+       \caption{Histogram showing the probability of different energies per spin occurring for two different temperatures. This is for a lattice with $L=20$, simulated with $N=10^6$ Monte Carlo cycles, excluding an equilibration time of 5000 cycles. }\label{fig:histograms}
+\end{figure}\\
+\linebreak
+We also compute the variance of the energy per spin, simply by computing:
 $$\mathrm{Var}(E)=\langle E^2 \rangle-\langle E \rangle^2 $$
-Writing this out for the last points (where we have simulated the longest) gives:
+Where $E$ is the energy \textit{per spin}. Taking the average over the last 100 points (where we should be at equilibrium) gives:
 \begin{table}[!hb]
 \centering
 \caption{The variance of the energy for the temperatures above}\label{tab:variance_energy}
+\bgroup
+\def\arraystretch{1.1}
 \begin{tabular}{|c|c|}
 \hline
-Temperature [kT/J] & Variance of energy [$\mathrm{J}^2$], $\sigma^2$\\
+Temperature [$\mathrm{kT/J}$] & Variance of energy per spin [$\mathrm{J}^2$], $\sigma^2$\\
 \hline
-1.0 &  0.041\\
-2.4 & 7.9026\\
+1.0 &  $9.95\times 10^{-5}$\\
+2.4 & 0.0203\\
 \hline	
 \end{tabular}
+\egroup
 \end{table}
 \subsection{Results from our investigation of phase transitions}
 Here, we wish to investigate how the critical temperature, which we extract by looking at the susceptibility and heat capacity, depends on our lattice size $L$. We also include the mean energy and the absolute value of the mean magnetization for completeness. We will discuss the number of temperature points that we chose in greater detail in section \ref{discussion_phase_transition}.\\
@@ -645,19 +652,21 @@ For the high-temperature limit, we observe a qualitatively different behavior. I
 $$P(E)=\frac{1}{Z}g(E)e^{-\beta E}$$
 Where $g(E)$ is the degeneracy of states. In this model, it is clear that this degeneracy should approximately follow binominal coefficients (i.e. highest at the point where the magnetic moment is about zero). Thus these figures show the combined effect of these two things.\\
 \linebreak
-We have also shown the variance in table \ref{tab:variance_energy}. This is also in line with our physical intuition - the variance is larger at higher temperatures. As this does not seem to be a Gaussian function (though it looks deceivingly like one), it is difficult to do a more quantitative analysis of this.
+We have also shown the variance in table \ref{tab:variance_energy}. This is also in line with our physical intuition - the variance is larger at higher temperatures. Note that the distribution is not really Gaussian, and therefore, the variance does not quite characterize the distribution. However, as shown in figure \ref{fig:histograms}, the distribution is \textit{almost} Gaussian for the case where $\mathrm{kT/J}=2.4$. In this case, the standard deviation is:
+$$\sigma = \sqrt{0.0203}\approx 0.142$$
+Which seems to correspond well with the distribution that we observe in figure \ref{fig:histograms}.
 \subsection{The phase transitions}\label{discussion_phase_transition}
-Figures \ref{fig:phase_tranition_energy}, \ref{fig:phase_mag_mom}, \ref{fig:phase_Cv} and \ref{fig:phase_chi} show the behavior of our system as a function of temperature. Note, first of all, that the scales on the axis is not quite the same. We began (for $L=40$ and $L=60$), with points in the interval $[2\mathrm{kT/J}, 2.4\mathrm{kT/J}]$, with $0.025 \mathrm{kT/J}$ between each point. However, we realized that the interesting physics (the phase transition) occurred at around $2.3 kT/J$. To save time, we therefore decided to simulate only until $T=2.35 kT/J$, with steps of $0.04$ for the $L=100$ case. After considering the data from $L=100$, we decided that it would be sufficient to simulate $L=140$ up to a temperature of $2.3 kT/J$, with steps of 0.03 $kT/J$. Thus the odd axis are a result of limited computation time.\\
+Figures \ref{fig:phase_tranition_energy}, \ref{fig:phase_mag_mom}, \ref{fig:phase_Cv} and \ref{fig:phase_chi} show the behavior of our system as a function of temperature. Note, first of all, that the scales on the axis is not quite the same. We began (for $L=40$ and $L=60$), with points in the interval $[2\mathrm{kT/J}, 2.4\mathrm{kT/J}]$, with $0.025 \mathrm{kT/J}$ between each point. However, we realized that the interesting physics (the phase transition) occurred at around $2.3 \mathrm{kT/J}$. To save time, we therefore decided to simulate only until $T=2.35 \mathrm{kT/J}$, with steps of $0.04$ for the $L=100$ case. After considering the data from $L=100$, we decided that it would be sufficient to simulate $L=140$ up to a temperature of $2.3 \mathrm{kT/J}$, with steps of 0.03 $\mathrm{kT/J}$. Thus the odd axis are a result of limited computation time.\\
 \linebreak
 Note furthermore, that we have adapted a slight trick - we use $\langle |M|\rangle$ in the equation for the magnetic susceptibility (equation \ref{eq:magnetic_susp}) instead of $\langle M \rangle$, for all except the $2 \times 2$ lattice. The reason for this is that $\langle M \rangle$ will, for small systems, tend to oscillate significantly, which may result in an error in $\chi$. This disappears if we employ $\langle |M|\rangle$ instead.\\
 \linebreak
 Note then, in particular figure \ref{fig:phase_Cv} and \ref{fig:phase_chi}, showing respectively the heat capacity and the susceptibility. As mentioned in section \ref{phase_tranisition}, we expect power-laws for $C_v$ and $\chi$. We also expect these macroscopic variables  of our system to change significantly in a phase transition. Therefore, we find the critical temperature at the maximum of the graphs of $C_v$ and $\chi$, which we have indicated by a red dot.\\
 \linebreak
-Note how both $C_v$ and $\chi$ give the same $T_C$ for all runs, except for $L=100$. Note further, how the values of $T_C$ are all crowded close together around 2.3 $kT/J$. This is problematic, because in order to estimate a correct value for $a$ from equation \ref{eq:a:equation}. However, we do not have a unique value for $T_C$ for $L=100$, and we have identical values for $T_C$ for $L=40$ and $L=60$. We will therefore employ equation \ref{eq:a:equation} with $L_1=60$ and $L_2=140$, as the only viable options. This gives (using the analytic result that $\nu = 1$):
+Note how both $C_v$ and $\chi$ give the same $T_C$ for all runs, except for $L=100$. Note further, how the values of $T_C$ are all crowded close together around 2.3 $\mathrm{kT/J}$. This is problematic, because in order to estimate a correct value for $a$ from equation \ref{eq:a:equation}. However, we do not have a unique value for $T_C$ for $L=100$, and we have identical values for $T_C$ for $L=40$ and $L=60$. We will therefore employ equation \ref{eq:a:equation} with $L_1=60$ and $L_2=140$, as the only viable options. This gives (using the analytic result that $\nu = 1$):
 $$a=\frac{2.3-2.27}{60^{-1}-140^{-1}}=3.15$$
 Which gives the critical temperature in the thermodynamic limit as (using equation \ref{eq:Critical_temp_at_infinite}):
 $$T_C(L=\infty)=T_C(L)-aL^{-1/\nu}=2.27-3.15\cdot 140^{-1}=2.2475$$
-The exact analytic expression can be found here \cite{Project}, and is given by:
+The exact analytic expression can be found in \cite{Project}, and is given by:
 $$T_C(L=\infty)=\frac{2}{\ln(1+\sqrt{2})}\approx2.269$$
 Thus our relative error is $\epsilon_{\mathrm{rel}}\approx 0.95 \%$, which is acceptable, though it is somewhat disappointing that we could only really check this with one point. Notice also that, because the critical temperature was the same for $L=40$, we could have done the same comparison with $L=40$ and $L=140$ (not $L=40$ and $L=60$, as this would give $a=0$). Doing this gives:
 $$a=1.68, \quad T_C(L=\infty)=2.258, \quad \epsilon_{\mathrm{rel}}\approx 0.48 \%$$
@@ -669,7 +678,7 @@ We show in table \ref{tab:compare_parallelized} the difference in speed for a sy
 \subsection{Conclusion}
 We have presented an investigation into various aspects of the Ising model, and how it can be used to model magnetism. We started by comparing our results to a $2\times 2$ lattice, for which we had derived analytic results. We found an excellent correspondence between these models. Then we moved on to larger systems, without analytic solutions, to investigate equilibration time in our model. Here, we found that the equilibration time is generally quite low (dependent on initial configuration and temperature), however, sometimes local minima can occur, which force us to use a larger equilibration time. We also investigated the probability distribution governing our system, and found good correspondence with our physical intuition. Finally, we investigated phase transitions, where we found good correspondence with analytic results, but also clearly saw that additional computational power\footnote{For example with the cluster "Smaug", which we, due to time constraints, were unable to learn the proper usage of.}, yielding additional grid points for the temperature would have been useful to get a more reliable estimate of the critical temperature.
 \subsection{Outlook}
-There is still a significant amount of work to do. Most notably: find a better estimate for the critical temperature. Additionally, it would be interesting to investigate the variance of the energy further, with more advanced statistical methods, to see if we manage to achieve some direct correspondence with our distribution. Finally, it may be of interest to further investigate the phase transitions we observed, to study such things as how stable they are, or how many different regions are present in the material.
+There is still a significant amount of work to do. Most notably: find a better estimate for the critical temperature. Additionally, it would be interesting to investigate the variance of the energy further, with more advanced statistical methods, to see if we manage to achieve some direct correspondence the distribution at $\mathrm{kT/J}$. Finally, it may be of interest to further investigate the phase transitions we observed, to study such things as how stable they are, or how many different regions are present in the material.
 \addcontentsline{toc}{section}{References}
 \bibliography{Project4}
 \bibliographystyle{plain}
