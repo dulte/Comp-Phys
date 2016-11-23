@@ -69,7 +69,7 @@ m_2'=(1-\epsilon)(m_1+m_2)
 Notice that the total wealth is conserved in this interaction, seeing as:
 $$m_1'+m_2'=\epsilon(m_1+m_2)+(1-\epsilon)(m_1+m_2)=m_1+m_2$$
 Thus we are only redistributing the wealth in the economy.\\
-\subsection{Implementing savings in the economy}
+\subsection{First modification: implementing savings in the economy}
 We expand our model by including the possibility of our agents retaining a certain amount of money at every transaction. This is modelled by a parameter $\beta$, which describes the fraction of money saved by each agent in the transaction. Our models can then be written as:
 \begin{equation}
 \begin{split}
@@ -79,6 +79,8 @@ m_j'=\lambda m_j+(1-\epsilon)(1-\lambda)(m_i+m_j)
 \end{equation}
 Note that the total money is still conserved, seeing as:
 $$m_i'+m_j'=\lambda m_i+\epsilon(1-\lambda)(m_i+m_j)+\lambda m_j+(1-\epsilon)(1-\lambda)(m_i+m_j)=\lambda (m_i+m_j)+(1-\lambda)(m_i+m_j)=m_i+m_j$$
+\subsection{Second modification: Including the effect of proximity}
+Our second modification is inspired by an idea published \textbf{HERE}. We introduce a bias on the interaction of the agents, by making it more likely for agents with comparable amount of wealth to interact. 
 \subsection{Analytic solutions}
 
 \section{Methods}
