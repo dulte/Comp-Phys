@@ -102,8 +102,10 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
 
 
     for (int i = 0; i < MCSteps; i++){
+        int counter = 0;
 
         players.fill(m0);
+        cout << players(0) << endl;
 
         for (int j = 0; j < transactions; j++){
             int index_i = distribution(gen);
@@ -121,14 +123,22 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
 
             if (eps(gen) < p){
 
-                double m1 = lambda*players(index_i) + (1-lambda)*epsFac*(players(index_i) + players(index_j));
+                double before = players(index_i) + players(index_j);
+
+                double m1 = lambda*players(index_i) + (1-lambda)*epsFac*    (players(index_i) + players(index_j));
                 double m2 = lambda*players(index_j) + (1-lambda)*(1-epsFac)*(players(index_i) + players(index_j));
 
                 //cout << "hei" << endl;
 
-                players[index_i] = m1;
-                players[index_j] = m2;
+                players(index_i) = m1;
+                players(index_j) = m2;
 
+
+                if (fabs(before - (players(index_i) + players(index_j))) > 1e-5 && j!= 0){
+                    counter++;
+                    cout << fabs(m1-players(index_i)) << endl;
+                    //cout << lambda << " " <<m1 << " " << m2 << " " <<fabs(before - (players(index_i) + players(index_j))) << " " << epsFac << " " << counter/((double)j) << endl;
+                }
                 c(index_j,index_i) += 1;
                 c(index_i,index_j) += 1;
 
@@ -137,9 +147,20 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
 
 
 
+
             if (MCSteps == 1){
                 if (j%writingFreq == 0){
-                    outFile << (j+1) << " " << findVariance(players,j+1,N,m0) << "\n";
+
+                    double mean = 0;
+                    for (int i = 0; i < N; i++){
+                        mean += players(i)/m0;
+
+                    }
+
+                    mean /= (N);
+
+
+                    outFile << (j+1) << " " << findVariance(players,j+1,N,m0) << " " << mean << "\n";
                 }
 
             }
