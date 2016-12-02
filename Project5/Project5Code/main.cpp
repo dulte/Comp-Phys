@@ -12,7 +12,7 @@ using namespace std;
 using namespace arma;
 
 
-void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambda, double alpha, double gamma, ofstream &outFile, vec &binCounts, double binSize, double m0);
+void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambda, double alpha, double gamma, ofstream &outFile, vec &binCounts, double binSize, double m0, ofstream &outFileErr);
 void outPut(vec &players, int MCSteps, int N, int transactions, mat &expectVal);
 double findVariance(vec &players, int transaction, int N, double m0);
 void makeBins(vec &players, vec &binCount, double binSize);
@@ -26,16 +26,19 @@ int main(int argc, char *argv[])
     int N = stoi(argv[1]);
     int MCSteps = stoi(argv[2]);
     int transactions = stoi(argv[3]);
-    double binSize = 10;
+
 
     double startMoney = stod(argv[4]);
     double lambda = stod(argv[5]);
     double alpha = stod(argv[6]);
     double gamma = stod(argv[7]);
 
+    double binSize = 0.01*startMoney;
 
 
     ofstream outFileVar = ofstream("variance.txt");
+    ofstream outFileErr = ofstream("distError.txt");
+
     //outFileVar.open("variance.txt");
     ofstream outFileParameter;
     outFileParameter.open("parameters.txt");
@@ -53,12 +56,20 @@ int main(int argc, char *argv[])
     outFileParameter << "Gamma " << gamma;
 
 
+    double binEnd;
+    if (alpha > 0 || gamma > 0){
+        binEnd = 2*startMoney/(sqrt(lambda + 0.1)) + startMoney;
+    }
+    else{
+        binEnd = 2*startMoney/(sqrt(lambda + 0.1)) + startMoney;
+    }
 
-    double binEnd = 2*startMoney/(sqrt(lambda + 0.1));
     int binNum = int(binEnd/double(binSize));
     cout << binNum << endl;
     vec binCounts = zeros(binNum);
     vec players = ones(N)*startMoney;
+
+    cout << alpha << " " << gamma << endl;
 
     binParameters << MCSteps << " " << N << " " << startMoney << " " << binSize << " " << binNum << " " << (binEnd) << " " << lambda << " " << alpha << " " << gamma << endl;
     binParameters.close();
@@ -66,7 +77,8 @@ int main(int argc, char *argv[])
 
 
 
-    MonteCarlo(players, MCSteps,  N,transactions,lambda,alpha,gamma,outFileVar,binCounts,binSize,startMoney);
+
+    MonteCarlo(players, MCSteps,  N,transactions,lambda,alpha,gamma,outFileVar,binCounts,binSize,startMoney,outFileErr);
     //outPut(players, MCSteps, N, transactions, expectVal);
 
 
@@ -75,6 +87,9 @@ int main(int argc, char *argv[])
 
     binCounts.save("bins.bin",raw_binary);
     players.save("data.bin",raw_binary);
+
+    outFileErr.close();
+    outFileVar.close();
 
     //players.save("data.bin",raw_binary);
 
@@ -85,7 +100,7 @@ int main(int argc, char *argv[])
 }
 
 
-void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambda,double alpha,double gamma, ofstream &outFile, vec &binCounts,double binSize,double m0){
+void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambda,double alpha,double gamma, ofstream &outFile, vec &binCounts,double binSize,double m0,ofstream &outFileErr){
 
 
     random_device rd;
@@ -94,18 +109,19 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
     uniform_real_distribution<double> distribution(0.0,N);
     uniform_real_distribution<double> eps(0.0,1.0);
 
-    int writingFreq = 10000;
+    int writingFreq = 100;
     double p = 0;
 
     mat c = zeros(N,N);
+    double maxTransactions = 1;
 
 
 
     for (int i = 0; i < MCSteps; i++){
-        int counter = 0;
+
 
         players.fill(m0);
-        cout << players(0) << endl;
+
 
         for (int j = 0; j < transactions; j++){
             int index_i = distribution(gen);
@@ -118,12 +134,14 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
                 p = 1.;
             }
             else{
-                p = pow(fabs(players(index_i) - players(index_j)),-alpha)*(pow(c(index_i,index_j)+1,gamma));
+                p = 2*pow(fabs((players(index_i) - players(index_j))/double(m0)),-alpha)*(pow((c(index_i,index_j)+1)/(maxTransactions+1),gamma));
             }
 
-            if (eps(gen) < p){
+            if (eps(gen) < p && (index_i != index_j)){
 
-                double before = players(index_i) + players(index_j);
+
+
+
 
                 double m1 = lambda*players(index_i) + (1-lambda)*epsFac*    (players(index_i) + players(index_j));
                 double m2 = lambda*players(index_j) + (1-lambda)*(1-epsFac)*(players(index_i) + players(index_j));
@@ -134,13 +152,16 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
                 players(index_j) = m2;
 
 
-                if (fabs(before - (players(index_i) + players(index_j))) > 1e-5 && j!= 0){
-                    counter++;
-                    cout << fabs(m1-players(index_i)) << endl;
-                    //cout << lambda << " " <<m1 << " " << m2 << " " <<fabs(before - (players(index_i) + players(index_j))) << " " << epsFac << " " << counter/((double)j) << endl;
-                }
                 c(index_j,index_i) += 1;
                 c(index_i,index_j) += 1;
+
+                if (c(index_j,index_i) > maxTransactions){
+                    maxTransactions = c(index_j,index_i);
+                }
+
+                else if (c(index_i,index_j) > maxTransactions){
+                    maxTransactions = c(index_i,index_j);
+                }
 
             }
 
@@ -166,8 +187,14 @@ void MonteCarlo(vec &players, int MCSteps, int N, int transactions, double lambd
             }
         }
 
-
+    vec tempCounts = binCounts;
     makeBins(players,binCounts,binSize);
+
+    if (i > 1){
+        outFileErr << i+1 << " " << norm(tempCounts/double(i-1) - binCounts/(double(i)) ) << endl;
+    }
+
+
 
 
 
