@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  3 DEC 2016 17:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  3 DEC 2016 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -717,404 +717,498 @@ t/10 ^^U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/1
 /10 ) = \OML/cmm/m/it/10 m[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 m[]
  []
 
-[2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 154--157
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 94--98
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 158.
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 159.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 158.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--170
+Underfull \hbox (badness 10000) in paragraph at lines 167--171
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
+Underfull \hbox (badness 10000) in paragraph at lines 187--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
+Underfull \hbox (badness 10000) in paragraph at lines 187--193
 
  []
 
-(./Pseudo_code_simple_walkers.cpp [6]
+[6] (./Pseudo_code_simple_walkers.cpp
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
-)
-<varLamb0.png, id=236, 578.16pt x 397.485pt>
+) [7]
+<varLamb0.png, id=263, 578.16pt x 397.485pt>
 File: varLamb0.png Graphic file (type png)
  <use varLamb0.png>
-Package pdftex.def Info: varLamb0.png used on input line 208.
+Package pdftex.def Info: varLamb0.png used on input line 211.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<relDiffL0A0G0.png, id=238, 578.16pt x 397.485pt>
+<relDiffL0A0G0.png, id=265, 578.16pt x 397.485pt>
 File: relDiffL0A0G0.png Graphic file (type png)
  <use relDiffL0A0G0.png>
-Package pdftex.def Info: relDiffL0A0G0.png used on input line 214.
+Package pdftex.def Info: relDiffL0A0G0.png used on input line 217.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 206--217
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 209--220
  []$[]$  $[]$ 
  []
 
-<distLamb0.png, id=243, 578.16pt x 397.485pt>
+<distLamb0.png, id=272, 578.16pt x 397.485pt>
 File: distLamb0.png Graphic file (type png)
  <use distLamb0.png>
-Package pdftex.def Info: distLamb0.png used on input line 224.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-<logDistLamb0.png, id=245, 578.16pt x 397.485pt>
-File: logDistLamb0.png Graphic file (type png)
- <use logDistLamb0.png>
-Package pdftex.def Info: logDistLamb0.png used on input line 233.
+Package pdftex.def Info: distLamb0.png used on input line 227.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<logDistLamb0WAnalyt.png, id=248, 578.16pt x 397.485pt>
+Underfull \hbox (badness 10000) in paragraph at lines 223--230
+
+ []
+
+[8 <./varLamb0.png> <./relDiffL0A0G0.png> <./distLamb0.png>]
+<logDistLamb0.png, id=285, 578.16pt x 397.485pt>
+File: logDistLamb0.png Graphic file (type png)
+ <use logDistLamb0.png>
+Package pdftex.def Info: logDistLamb0.png used on input line 237.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<logDistLamb0WAnalyt.png, id=288, 578.16pt x 397.485pt>
 File: logDistLamb0WAnalyt.png Graphic file (type png)
 
 <use logDistLamb0WAnalyt.png>
-Package pdftex.def Info: logDistLamb0WAnalyt.png used on input line 239.
+Package pdftex.def Info: logDistLamb0WAnalyt.png used on input line 243.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 231--242
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 235--246
  []$[]$  $[]$ 
  []
 
-<distLamb0WAnalyt.png, id=253, 578.16pt x 397.485pt>
+<distLamb0WAnalyt.png, id=294, 578.16pt x 397.485pt>
 File: distLamb0WAnalyt.png Graphic file (type png)
 
 <use distLamb0WAnalyt.png>
-Package pdftex.def Info: distLamb0WAnalyt.png used on input line 247.
+Package pdftex.def Info: distLamb0WAnalyt.png used on input line 252.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
- <tailPowerlamb0.png, id=258, 578.16pt x 397.485pt>
+ [9 <./logDistLamb0.png> <./logDistLamb0WAnalyt.png> <./distLamb0WAnalyt.png>] 
+<tailPowerlamb0.png, id=311, 578.16pt x 397.485pt>
 File: tailPowerlamb0.png Graphic file (type png)
 
 <use tailPowerlamb0.png>
-Package pdftex.def Info: tailPowerlamb0.png used on input line 254.
+Package pdftex.def Info: tailPowerlamb0.png used on input line 260.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
- [7 <./varLamb0.png> <./relDiffL0A0G0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--268
 
  []
 
-[8 <./distLamb0.png> <./logDistLamb0.png> <./logDistLamb0WAnalyt.png>] [9 <./di
-stLamb0WAnalyt.png> <./tailPowerlamb0.png>]
-<varLamb09.png, id=308, 578.16pt x 397.485pt>
+[10 <./tailPowerlamb0.png>] <varLamb09.png, id=328, 578.16pt x 397.485pt>
 File: varLamb09.png Graphic file (type png)
- <use varLamb09.png>
-Package pdftex.def Info: varLamb09.png used on input line 274.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<relDiffL09A0G0.png, id=309, 578.16pt x 397.485pt>
+<use varLamb09.png>
+Package pdftex.def Info: varLamb09.png used on input line 280.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+ <relDiffL09A0G0.png, id=329, 578.16pt x 397.485pt>
 File: relDiffL09A0G0.png Graphic file (type png)
- <use relDiffL09A0G0.png>
-Package pdftex.def Info: relDiffL09A0G0.png used on input line 280.
+
+<use relDiffL09A0G0.png>
+Package pdftex.def Info: relDiffL09A0G0.png used on input line 286.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 272--283
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 278--289
  []$[]$  $[]$ 
  []
 
-<distDiffLamb.png, id=314, 578.16pt x 397.485pt>
+[11 <./varLamb09.png> <./relDiffL09A0G0.png>]
+<distDiffLamb.png, id=348, 578.16pt x 397.485pt>
 File: distDiffLamb.png Graphic file (type png)
  <use distDiffLamb.png>
-Package pdftex.def Info: distDiffLamb.png used on input line 289.
+Package pdftex.def Info: distDiffLamb.png used on input line 296.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
 
-<logDistDiffLamb.png, id=317, 578.16pt x 397.485pt>
+<logDistDiffLamb.png, id=351, 578.16pt x 397.485pt>
 File: logDistDiffLamb.png Graphic file (type png)
  <use logDistDiffLamb.png>
-Package pdftex.def Info: logDistDiffLamb.png used on input line 294.
+Package pdftex.def Info: logDistDiffLamb.png used on input line 301.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
 
-<tailPowerlamb025.png, id=321, 578.16pt x 397.485pt>
+[12 <./distDiffLamb.png> <./logDistDiffLamb.png>]
+<tailPowerlamb025.png, id=365, 578.16pt x 397.485pt>
 File: tailPowerlamb025.png Graphic file (type png)
 
 <use tailPowerlamb025.png>
-Package pdftex.def Info: tailPowerlamb025.png used on input line 304.
+Package pdftex.def Info: tailPowerlamb025.png used on input line 311.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailPowerlamb05.png, id=322, 578.16pt x 397.485pt>
+ <tailPowerlamb05.png, id=366, 578.16pt x 397.485pt>
 File: tailPowerlamb05.png Graphic file (type png)
 
 <use tailPowerlamb05.png>
-Package pdftex.def Info: tailPowerlamb05.png used on input line 310.
+Package pdftex.def Info: tailPowerlamb05.png used on input line 317.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailLamb9_2.png, id=323, 578.16pt x 397.485pt>
-File: tailLamb9_2.png Graphic file (type png)
+ <tailL09A0G0_v2.png, id=367, 578.16pt x 397.485pt>
+File: tailL09A0G0_v2.png Graphic file (type png)
 
-<use tailLamb9_2.png>
-Package pdftex.def Info: tailLamb9_2.png used on input line 315.
+<use tailL09A0G0_v2.png>
+Package pdftex.def Info: tailL09A0G0_v2.png used on input line 322.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 302--318
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 309--325
  []$[]$  $[]$ 
  []
 
-[10 <./varLamb09.png> <./relDiffL09A0G0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 325--330
+[13 <./tailPowerlamb025.png> <./tailPowerlamb05.png> <./tailL09A0G0_v2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 333--340
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--330
+Underfull \hbox (badness 10000) in paragraph at lines 333--340
 
  []
 
-[11 <./distDiffLamb.png> <./logDistDiffLamb.png>] [12 <./tailPowerlamb025.png> 
-<./tailPowerlamb05.png> <./tailLamb9_2.png>]
-<varL0A2G0.png, id=365, 578.16pt x 397.485pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--340
+
+ []
+
+[14] <varL0A2G0.png, id=397, 578.16pt x 397.485pt>
 File: varL0A2G0.png Graphic file (type png)
  <use varL0A2G0.png>
-Package pdftex.def Info: varL0A2G0.png used on input line 340.
+Package pdftex.def Info: varL0A2G0.png used on input line 351.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<varL0A15G0.png, id=366, 578.16pt x 397.485pt>
+<varL0A15G0.png, id=398, 578.16pt x 397.485pt>
 File: varL0A15G0.png Graphic file (type png)
  <use varL0A15G0.png>
-Package pdftex.def Info: varL0A15G0.png used on input line 346.
+Package pdftex.def Info: varL0A15G0.png used on input line 357.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 338--349
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 349--360
  []$[]$  $[]$ 
  []
 
-<relDiffL0A2G0.png, id=367, 578.16pt x 397.485pt>
+<relDiffL0A2G0.png, id=399, 578.16pt x 397.485pt>
 File: relDiffL0A2G0.png Graphic file (type png)
  <use relDiffL0A2G0.png>
-Package pdftex.def Info: relDiffL0A2G0.png used on input line 354.
+Package pdftex.def Info: relDiffL0A2G0.png used on input line 366.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
 
-<distAlphas.png, id=368, 578.16pt x 397.485pt>
+Underfull \hbox (badness 10000) in paragraph at lines 345--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--369
+
+ []
+
+[15 <./varL0A2G0.png> <./varL0A15G0.png> <./relDiffL0A2G0.png>]
+<distAlphas.png, id=410, 578.16pt x 397.485pt>
 File: distAlphas.png Graphic file (type png)
  <use distAlphas.png>
-Package pdftex.def Info: distAlphas.png used on input line 361.
+Package pdftex.def Info: distAlphas.png used on input line 374.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
 
-<logDistAlphas.png, id=369, 578.16pt x 397.485pt>
+<logDistAlphas.png, id=411, 578.16pt x 397.485pt>
 File: logDistAlphas.png Graphic file (type png)
  <use logDistAlphas.png>
-Package pdftex.def Info: logDistAlphas.png used on input line 366.
+Package pdftex.def Info: logDistAlphas.png used on input line 379.
 (pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
 
-[13 <./varL0A2G0.png> <./varL0A15G0.png> <./relDiffL0A2G0.png>]
-<tailL0A05G0.png, id=384, 578.16pt x 397.485pt>
+[16 <./distAlphas.png> <./logDistAlphas.png>]
+<tailL0A05G0.png, id=423, 578.16pt x 397.485pt>
 File: tailL0A05G0.png Graphic file (type png)
  <use tailL0A05G0.png>
-Package pdftex.def Info: tailL0A05G0.png used on input line 374.
+Package pdftex.def Info: tailL0A05G0.png used on input line 388.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<tailL0A1G0.png, id=385, 578.16pt x 397.485pt>
+<tailL0A1G0.png, id=424, 578.16pt x 397.485pt>
 File: tailL0A1G0.png Graphic file (type png)
  <use tailL0A1G0.png>
-Package pdftex.def Info: tailL0A1G0.png used on input line 380.
+Package pdftex.def Info: tailL0A1G0.png used on input line 394.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<tailL0A15G0.png, id=386, 578.16pt x 397.485pt>
+<tailL0A15G0.png, id=425, 578.16pt x 397.485pt>
 File: tailL0A15G0.png Graphic file (type png)
  <use tailL0A15G0.png>
-Package pdftex.def Info: tailL0A15G0.png used on input line 386.
+Package pdftex.def Info: tailL0A15G0.png used on input line 400.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<tailL0A2G0.png, id=387, 578.16pt x 397.485pt>
+<tailL0A2G0.png, id=426, 578.16pt x 397.485pt>
 File: tailL0A2G0.png Graphic file (type png)
  <use tailL0A2G0.png>
-Package pdftex.def Info: tailL0A2G0.png used on input line 392.
+Package pdftex.def Info: tailL0A2G0.png used on input line 406.
 (pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 372--395
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 386--409
 []$[]$  $[]$
  []
 
 
-Overfull \hbox (6.66504pt too wide) in paragraph at lines 372--395
+Overfull \hbox (6.66504pt too wide) in paragraph at lines 386--409
+[]$   $[]$ 
+ []
+
+[17 <./tailL0A05G0.png> <./tailL0A1G0.png> <./tailL0A15G0.png> <./tailL0A2G0.pn
+g>]
+Underfull \hbox (badness 10000) in paragraph at lines 428--433
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 428--433
+
+ []
+
+[18] <varL0A2G1.png, id=458, 578.16pt x 397.485pt>
+File: varL0A2G1.png Graphic file (type png)
+ <use varL0A2G1.png>
+Package pdftex.def Info: varL0A2G1.png used on input line 445.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<relDiffL0A2G1.png, id=459, 578.16pt x 397.485pt>
+File: relDiffL0A2G1.png Graphic file (type png)
+ <use relDiffL0A2G1.png>
+Package pdftex.def Info: relDiffL0A2G1.png used on input line 451.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 443--454
+ []$[]$  $[]$ 
+ []
+
+[19 <./varL0A2G1.png> <./relDiffL0A2G1.png>]
+<distGammasA0.png, id=473, 578.16pt x 397.485pt>
+File: distGammasA0.png Graphic file (type png)
+ <use distGammasA0.png>
+Package pdftex.def Info: distGammasA0.png used on input line 463.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<distGammasA1.png, id=474, 578.16pt x 397.485pt>
+File: distGammasA1.png Graphic file (type png)
+ <use distGammasA1.png>
+Package pdftex.def Info: distGammasA1.png used on input line 469.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<distGammasA2.png, id=475, 578.16pt x 397.485pt>
+File: distGammasA2.png Graphic file (type png)
+ <use distGammasA2.png>
+Package pdftex.def Info: distGammasA2.png used on input line 475.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<distGammasA1L05.png, id=476, 578.16pt x 397.485pt>
+File: distGammasA1L05.png Graphic file (type png)
+ <use distGammasA1L05.png>
+Package pdftex.def Info: distGammasA1L05.png used on input line 481.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 461--484
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 461--484
+ []$  $[]$ 
+ []
+
+<logDistGammasA0.png, id=477, 578.16pt x 397.485pt>
+File: logDistGammasA0.png Graphic file (type png)
+ <use logDistGammasA0.png>
+Package pdftex.def Info: logDistGammasA0.png used on input line 490.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<logDistGammasA1.png, id=478, 578.16pt x 397.485pt>
+File: logDistGammasA1.png Graphic file (type png)
+ <use logDistGammasA1.png>
+Package pdftex.def Info: logDistGammasA1.png used on input line 496.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<logDistGammasA2.png, id=479, 578.16pt x 397.485pt>
+File: logDistGammasA2.png Graphic file (type png)
+ <use logDistGammasA2.png>
+Package pdftex.def Info: logDistGammasA2.png used on input line 502.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<logDistGammasA1L05.png, id=480, 578.16pt x 397.485pt>
+File: logDistGammasA1L05.png Graphic file (type png)
+
+<use logDistGammasA1L05.png>
+Package pdftex.def Info: logDistGammasA1L05.png used on input line 508.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 488--511
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 488--511
+ []$  $[]$ 
+ []
+
+[20 <./distGammasA0.png> <./distGammasA1.png> <./distGammasA2.png> <./distGamma
+sA1L05.png>] <tailL0A1G1.png, id=494, 578.16pt x 397.485pt>
+File: tailL0A1G1.png Graphic file (type png)
+
+<use tailL0A1G1.png>
+Package pdftex.def Info: tailL0A1G1.png used on input line 520.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+ <tailL0A1G2.png, id=495, 578.16pt x 397.485pt>
+File: tailL0A1G2.png Graphic file (type png)
+
+<use tailL0A1G2.png>
+Package pdftex.def Info: tailL0A1G2.png used on input line 526.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+ <tailL0A2G1.png, id=496, 578.16pt x 397.485pt>
+File: tailL0A2G1.png Graphic file (type png)
+
+<use tailL0A2G1.png>
+Package pdftex.def Info: tailL0A2G1.png used on input line 532.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+ <tailL05A1G1.png, id=497, 578.16pt x 397.485pt>
+File: tailL05A1G1.png Graphic file (type png)
+
+<use tailL05A1G1.png>
+Package pdftex.def Info: tailL05A1G1.png used on input line 538.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+ <tailL05A1G2.png, id=498, 578.16pt x 397.485pt>
+File: tailL05A1G2.png Graphic file (type png)
+
+<use tailL05A1G2.png>
+Package pdftex.def Info: tailL05A1G2.png used on input line 544.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 518--547
+ []$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 518--547
+ []$  $[]$ 
+ []
+
+[21 <./logDistGammasA0.png> <./logDistGammasA1.png> <./logDistGammasA2.png> <./
+logDistGammasA1L05.png>] [22 <./tailL0A1G1.png> <./tailL0A1G2.png> <./tailL0A2G
+1.png> <./tailL05A1G1.png> <./tailL05A1G2.png>]
+File: logDistGammasA1.png Graphic file (type png)
+ <use logDistGammasA1.png>
+Package pdftex.def Info: logDistGammasA1.png used on input line 586.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<logDistGammasA1_v2.png, id=531, 578.16pt x 397.485pt>
+File: logDistGammasA1_v2.png Graphic file (type png)
+
+<use logDistGammasA1_v2.png>
+Package pdftex.def Info: logDistGammasA1_v2.png used on input line 592.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+File: logDistGammasA2.png Graphic file (type png)
+ <use logDistGammasA2.png>
+Package pdftex.def Info: logDistGammasA2.png used on input line 598.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+<logDistGammasA2_v2.png, id=532, 578.16pt x 397.485pt>
+File: logDistGammasA2_v2.png Graphic file (type png)
+
+<use logDistGammasA2_v2.png>
+Package pdftex.def Info: logDistGammasA2_v2.png used on input line 604.
+(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 584--607
+[]$[]$  $[]$
+ []
+
+
+Overfull \hbox (6.66504pt too wide) in paragraph at lines 584--607
 []$   $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--416
-
- []
-
-[14 <./distAlphas.png> <./logDistAlphas.png>] [15 <./tailL0A05G0.png> <./tailL0
-A1G0.png> <./tailL0A15G0.png> <./tailL0A2G0.png>]
-<varL0A2G1.png, id=418, 578.16pt x 397.485pt>
-File: varL0A2G1.png Graphic file (type png)
- <use varL0A2G1.png>
-Package pdftex.def Info: varL0A2G1.png used on input line 428.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<relDiffL0A2G1.png, id=419, 578.16pt x 397.485pt>
-File: relDiffL0A2G1.png Graphic file (type png)
- <use relDiffL0A2G1.png>
-Package pdftex.def Info: relDiffL0A2G1.png used on input line 434.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 426--437
- []$[]$  $[]$ 
- []
-
-<distGammasA0.png, id=424, 578.16pt x 397.485pt>
-File: distGammasA0.png Graphic file (type png)
- <use distGammasA0.png>
-Package pdftex.def Info: distGammasA0.png used on input line 446.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<distGammasA1.png, id=425, 578.16pt x 397.485pt>
-File: distGammasA1.png Graphic file (type png)
- <use distGammasA1.png>
-Package pdftex.def Info: distGammasA1.png used on input line 452.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<distGammasA2.png, id=426, 578.16pt x 397.485pt>
-File: distGammasA2.png Graphic file (type png)
- <use distGammasA2.png>
-Package pdftex.def Info: distGammasA2.png used on input line 458.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<distGammasA1L05.png, id=427, 578.16pt x 397.485pt>
-File: distGammasA1L05.png Graphic file (type png)
- <use distGammasA1L05.png>
-Package pdftex.def Info: distGammasA1L05.png used on input line 464.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 444--467
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 444--467
- []$  $[]$ 
- []
-
-<logDistGammasA0.png, id=428, 578.16pt x 397.485pt>
-File: logDistGammasA0.png Graphic file (type png)
- <use logDistGammasA0.png>
-Package pdftex.def Info: logDistGammasA0.png used on input line 474.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA1.png, id=429, 578.16pt x 397.485pt>
-File: logDistGammasA1.png Graphic file (type png)
- <use logDistGammasA1.png>
-Package pdftex.def Info: logDistGammasA1.png used on input line 480.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA2.png, id=430, 578.16pt x 397.485pt>
-File: logDistGammasA2.png Graphic file (type png)
- <use logDistGammasA2.png>
-Package pdftex.def Info: logDistGammasA2.png used on input line 486.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA1L05.png, id=431, 578.16pt x 397.485pt>
-File: logDistGammasA1L05.png Graphic file (type png)
-
-<use logDistGammasA1L05.png>
-Package pdftex.def Info: logDistGammasA1L05.png used on input line 492.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 472--495
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 472--495
- []$  $[]$ 
- []
-
-<tailL0A1G1.png, id=434, 578.16pt x 397.485pt>
-File: tailL0A1G1.png Graphic file (type png)
- <use tailL0A1G1.png>
-Package pdftex.def Info: tailL0A1G1.png used on input line 504.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL0A1G2.png, id=435, 578.16pt x 397.485pt>
-File: tailL0A1G2.png Graphic file (type png)
- <use tailL0A1G2.png>
-Package pdftex.def Info: tailL0A1G2.png used on input line 510.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL0A2G1.png, id=436, 578.16pt x 397.485pt>
-File: tailL0A2G1.png Graphic file (type png)
- <use tailL0A2G1.png>
-Package pdftex.def Info: tailL0A2G1.png used on input line 516.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL05A1G1.png, id=437, 578.16pt x 397.485pt>
-File: tailL05A1G1.png Graphic file (type png)
- <use tailL05A1G1.png>
-Package pdftex.def Info: tailL05A1G1.png used on input line 522.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL05A1G2.png, id=438, 578.16pt x 397.485pt>
-File: tailL05A1G2.png Graphic file (type png)
- <use tailL05A1G2.png>
-Package pdftex.def Info: tailL05A1G2.png used on input line 528.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 502--531
-[]$[]$  $[]$
- []
-
-
-Overfull \hbox (6.66504pt too wide) in paragraph at lines 502--531
-[]$   $[]$
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 555--564
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--564
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--564
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--564
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
 
  []
 
-[17 <./varL0A2G1.png> <./relDiffL0A2G1.png>] [18 <./distGammasA0.png> <./distGa
-mmasA1.png> <./distGammasA2.png> <./distGammasA1L05.png>]
-(./FYS3150Project5.bbl [19 <./logDistGammasA0.png> <./logDistGammasA1.png> <./l
-ogDistGammasA2.png> <./logDistGammasA1L05.png>] [20 <./tailL0A1G1.png> <./tailL
-0A1G2.png> <./tailL0A2G1.png> <./tailL05A1G1.png> <./tailL05A1G2.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
 
-[21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
+[]\T1/cmr/m/n/10 16d[].
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--611
+
+ []
+
+[23
+
+] [24 <./logDistGammasA1_v2.png> <./logDistGammasA2_v2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 615--618
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--624
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--624
+
+ []
+
+[25] (./FYS3150Project5.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 631.
+ [26]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 631.
  (./FYS3150Project5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 631.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 631.
 Package rerunfilecheck Info: File `FYS3150Project5.out' has not changed.
 (rerunfilecheck)             Checksum: E3284B1290A9A74D430BF978775DD9C1;1609.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 631.
  ) 
 Here is how much of TeX's memory you used:
- 12124 strings out of 495004
- 185763 string characters out of 6180663
- 311964 words of memory out of 5000000
- 14976 multiletter control sequences out of 15000+600000
+ 12146 strings out of 495004
+ 186165 string characters out of 6180663
+ 325964 words of memory out of 5000000
+ 14988 multiletter control sequences out of 15000+600000
  23626 words of font info for 67 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 42i,15n,58p,1694b,2070s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,58p,1672b,1362s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home
 /gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/gunnnar/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/gunnnar/.texmf-va
@@ -1143,10 +1237,10 @@ ublic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy/wasy10.pfb>
-Output written on FYS3150Project5.pdf (21 pages, 1662806 bytes).
+Output written on FYS3150Project5.pdf (26 pages, 1767586 bytes).
 PDF statistics:
- 984 PDF objects out of 1000 (max. 8388607)
- 493 compressed objects within 5 object streams
- 143 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1042 PDF objects out of 1200 (max. 8388607)
+ 543 compressed objects within 6 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 385 words of extra memory for PDF output out of 10000 (max. 10000000)
 

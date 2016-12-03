@@ -5,53 +5,53 @@
 \contentsline {subsubsection}{\numberline {2.1.2}First modification: Implementing savings (model B)}{2}{subsubsection.2.1.2}
 \contentsline {subsubsection}{\numberline {2.1.3}Second modification: Including the effect of proximity (model C)}{3}{subsubsection.2.1.3}
 \contentsline {subsubsection}{\numberline {2.1.4}Final modification: Including the previous transactions (model D)}{3}{subsubsection.2.1.4}
-\contentsline {subsection}{\numberline {2.2}Analytic solutions}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.2}Analytic solutions}{4}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Analytic solution to the initial model (model A)}{4}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Analytic solution to the first modification (model B) and variance}{4}{subsubsection.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}Consistency checks for all solutions}{4}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3}Consistency checks for all solutions}{5}{subsubsection.2.2.3}
 \contentsline {section}{\numberline {3}Methods}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}Obtaining reliable data}{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Ensuring we perform a sufficient number of transactions}{5}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Determining the number of Monte Carlo cycles needed}{5}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2}Determining the number of Monte Carlo cycles needed}{6}{subsubsection.3.1.2}
 \contentsline {subsection}{\numberline {3.2}Normalizing the data}{6}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Determining the number of bins}{6}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Determining the Tail}{6}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Implementing the Monte Carlo simulations}{6}{subsection.3.5}
-\contentsline {section}{\numberline {4}Results and discussion}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Results from the initial model (model A)}{7}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Results from our investigation into the optimal combination of parameters}{7}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}The distribution from model A}{7}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Comparison with the analytic model}{7}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}Investigating the tail of the distribution from model A}{8}{subsubsection.4.1.4}
-\contentsline {subsection}{\numberline {4.2}Discussion of model A}{8}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Choosing parameters}{8}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}The distribution}{9}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}The tail of the distribution}{10}{subsubsection.4.2.3}
-\contentsline {subsection}{\numberline {4.3}Results from the first modification (model B)}{10}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Results from our investigation into the optimal combination of parameters}{10}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}The distribution from model B}{10}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}Investigating the tail of the distribution from model B}{10}{subsubsection.4.3.3}
-\contentsline {subsection}{\numberline {4.4}Discussion of model B}{11}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Choosing parameters}{11}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}The distribution}{11}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}The tail of the distribution}{12}{subsubsection.4.4.3}
-\contentsline {subsection}{\numberline {4.5}Results from the second modification (model C)}{13}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}Results from our investigation into the optimal combination of parameters}{13}{subsubsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.2}The distribution from model C}{14}{subsubsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.3}Investigating the tail of the distribution from model C}{14}{subsubsection.4.5.3}
-\contentsline {subsection}{\numberline {4.6}Discussion of model C}{15}{subsection.4.6}
-\contentsline {subsubsection}{\numberline {4.6.1}Choosing parameters}{15}{subsubsection.4.6.1}
-\contentsline {subsubsection}{\numberline {4.6.2}The distribution}{16}{subsubsection.4.6.2}
-\contentsline {subsubsection}{\numberline {4.6.3}The tail of the distribution}{16}{subsubsection.4.6.3}
-\contentsline {subsection}{\numberline {4.7}Results from the final modification (model D)}{16}{subsection.4.7}
-\contentsline {subsubsection}{\numberline {4.7.1}Results from our investigation into the optimal combination of parameters}{16}{subsubsection.4.7.1}
-\contentsline {subsubsection}{\numberline {4.7.2}The distribution from model D}{16}{subsubsection.4.7.2}
-\contentsline {subsubsection}{\numberline {4.7.3}Investigating the tail of the distribution from model D}{16}{subsubsection.4.7.3}
-\contentsline {subsection}{\numberline {4.8}Discussion of model D}{16}{subsection.4.8}
-\contentsline {subsubsection}{\numberline {4.8.1}Choosing parameters}{16}{subsubsection.4.8.1}
-\contentsline {subsubsection}{\numberline {4.8.2}The distribution}{17}{subsubsection.4.8.2}
-\contentsline {subsubsection}{\numberline {4.8.3}The tail of the distribution}{19}{subsubsection.4.8.3}
-\contentsline {section}{\numberline {5}Conclusion}{20}{section.5}
-\contentsline {subsection}{\numberline {5.1}Conclusion}{20}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Outlook}{20}{subsection.5.2}
-\contentsline {section}{References}{20}{subsection.5.2}
+\contentsline {subsection}{\numberline {3.4}Determining the Tail}{7}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Implementing the Monte Carlo simulations}{7}{subsection.3.5}
+\contentsline {section}{\numberline {4}Results and discussion}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Results from the initial model (model A)}{8}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Results from our investigation into the optimal combination of parameters}{8}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}The distribution from model A}{8}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Comparison with the analytic model}{9}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}Investigating the tail of the distribution from model A}{10}{subsubsection.4.1.4}
+\contentsline {subsection}{\numberline {4.2}Discussion of model A}{10}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Choosing parameters}{10}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}The distribution}{10}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}The tail of the distribution}{11}{subsubsection.4.2.3}
+\contentsline {subsection}{\numberline {4.3}Results from the first modification (model B)}{11}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Results from our investigation into the optimal combination of parameters}{11}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}The distribution from model B}{12}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}Investigating the tail of the distribution from model B}{13}{subsubsection.4.3.3}
+\contentsline {subsection}{\numberline {4.4}Discussion of model B}{13}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Choosing parameters}{13}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}The distribution}{14}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}The tail of the distribution}{14}{subsubsection.4.4.3}
+\contentsline {subsection}{\numberline {4.5}Results from the second modification (model C)}{15}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Results from our investigation into the optimal combination of parameters}{15}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}The distribution from model C}{16}{subsubsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Investigating the tail of the distribution from model C}{17}{subsubsection.4.5.3}
+\contentsline {subsection}{\numberline {4.6}Discussion of model C}{18}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Choosing parameters}{18}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}The distribution}{18}{subsubsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.3}The tail of the distribution}{18}{subsubsection.4.6.3}
+\contentsline {subsection}{\numberline {4.7}Results from the final modification (model D)}{19}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}Results from our investigation into the optimal combination of parameters}{19}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}The distribution from model D}{20}{subsubsection.4.7.2}
+\contentsline {subsubsection}{\numberline {4.7.3}Investigating the tail of the distribution from model D}{21}{subsubsection.4.7.3}
+\contentsline {subsection}{\numberline {4.8}Discussion of model D}{23}{subsection.4.8}
+\contentsline {subsubsection}{\numberline {4.8.1}Choosing parameters}{23}{subsubsection.4.8.1}
+\contentsline {subsubsection}{\numberline {4.8.2}The distribution}{23}{subsubsection.4.8.2}
+\contentsline {subsubsection}{\numberline {4.8.3}The tail of the distribution}{25}{subsubsection.4.8.3}
+\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}
+\contentsline {subsection}{\numberline {5.1}Conclusion}{25}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Outlook}{25}{subsection.5.2}
+\contentsline {section}{References}{26}{subsection.5.2}

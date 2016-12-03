@@ -1,5 +1,15 @@
 \begin{thebibliography}{}
 
+\bibitem[Coelho et~al., 2008]{DoublePower}
+Coelho, R., Richmond, P., Barry, J., and Hutzler, S. (2008).
+\newblock Double power laws in income and wealth distributions.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  387(15):3847 -- 3851.
+\newblock Applications of Physics in Financial AnalysisSelected papers from the
+  6th International Conference ’Applications of Physics in Financial
+  Analysis’ (APFA6), Lisbon, Portugal, 4–7 July 2007Applications of Physics
+  in Financial Analysis.
+
 \bibitem[Egenter et~al., 1999]{Finite-size}
 Egenter, E., Lux, T., and Stauffer, D. (1999).
 \newblock Finite-size effects in monte carlo simulations of two stock market
@@ -27,5 +37,11 @@ Patriarca, M., Chakraborti, A., and Kaski, K. (2004).
 \newblock {\em Physica A: Statistical Mechanics and its Applications},
   340(1–3):334 -- 339.
 \newblock News and Expectations in Thermostatistics.
+
+\bibitem[Repetowicz et~al., 2005]{Dynamics}
+Repetowicz, P., Hutzler, S., and Richmond, P. (2005).
+\newblock Dynamics of money and income distributions.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  356(2–4):641 -- 654.
 
 \end{thebibliography}
