@@ -1,0 +1,84 @@
+% This file was created with JabRef 2.10b2.
+% Encoding: UTF-8
+
+
+@Article{Coelho20083847,
+  Title                    = {Double power laws in income and wealth distributions },
+  Author                   = {Ricardo Coelho and Peter Richmond and Joseph Barry and Stefan Hutzler},
+  Journal                  = {Physica A: Statistical Mechanics and its Applications },
+  Year                     = {2008},
+  Note                     = {Applications of Physics in Financial AnalysisSelected papers from the 6th International Conference ’Applications of Physics in Financial Analysis’ (APFA6), Lisbon, Portugal, 4–7 July 2007Applications of Physics in Financial Analysis },
+  Number                   = {15},
+  Pages                    = {3847 - 3851},
+  Volume                   = {387},
+
+  Abstract                 = {Close examination of wealth distributions reveal the existence of two distinct power law regimes. The Pareto exponents of the super-rich, identified, for example in rich lists such as provided by Forbes, are smaller than the Pareto exponents obtained for top earners in income data sets. Our extension of the Slanina model of wealth is able to reproduce these double power law features. },
+  Doi                      = {http://dx.doi.org/10.1016/j.physa.2008.01.047},
+  ISSN                     = {0378-4371},
+  Keywords                 = {Econophysics},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0378437108000794}
+}
+
+@Article{Egenter1999250,
+  Title                    = {Finite-size effects in Monte Carlo simulations of two stock market models },
+  Author                   = {E. Egenter and T. Lux and D. Stauffer},
+  Journal                  = {Physica A: Statistical Mechanics and its Applications },
+  Year                     = {1999},
+  Number                   = {1–2},
+  Pages                    = {250 - 256},
+  Volume                   = {268},
+
+  Abstract                 = {The microscopic market models of Kim–Markowitz and of Lux–Marchesi are simulated for varying number of investors. If this number goes to infinity, in some quantities nearly periodic oscillations occur. },
+  Doi                      = {http://dx.doi.org/10.1016/S0378-4371(99)00059-X},
+  ISSN                     = {0378-4371},
+  Keywords                 = {Econophysics},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S037843719900059X}
+}
+
+@Article{Goswami2014514,
+  Title                    = {Agent based models for wealth distribution with preference in interaction },
+  Author                   = {Sanchari Goswami and Parongama Sen},
+  Journal                  = {Physica A: Statistical Mechanics and its Applications },
+  Year                     = {2014},
+  Pages                    = {514 - 524},
+  Volume                   = {415},
+
+  Abstract                 = {Abstract We propose a set of conservative models in which agents exchange wealth with a preference in the choice of interacting agents in different ways. The common feature in all the models is that the temporary values of financial status of agents is a deciding factor for interaction. Other factors which may play important role are past interactions and wealth possessed by individuals. Wealth distribution, network properties and activity are the main quantities which have been studied. Evidence of phase transitions and other interesting features are presented. The results show that certain observations of the real economic system can be reproduced by the models. },
+  Doi                      = {http://dx.doi.org/10.1016/j.physa.2014.08.018},
+  ISSN                     = {0378-4371},
+  Keywords                 = {Pareto exponent},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0378437114006967}
+}
+
+@Article{Horváth2006589,
+  Title                    = {A self-adjusted Monte Carlo simulation as a model for financial markets with central regulation },
+  Author                   = {Denis Horváth and Martin Gmitra and Zoltán Kuscsik},
+  Journal                  = {Physica A: Statistical Mechanics and its Applications },
+  Year                     = {2006},
+  Number                   = {2},
+  Pages                    = {589 - 605},
+  Volume                   = {361},
+
+  Abstract                 = {Properties of the self-adjusted Monte Carlo algorithm applied to 2d Ising ferromagnet are studied numerically. The endogenous feedback form expressed in terms of the instant running averages is suggested in order to generate a biased random walk of the temperature that converges to criticality without an external tuning. The robustness of a stationary regime with respect to partial accessibility of the information is demonstrated. Several statistical and scaling aspects have been identified which allow to establish an alternative spin lattice model of the financial market. It turns out that our model alike model suggested by Bornholdt [Int. J. Mod. Phys. C 12 (2001) 667], may be described by Lévy-type stationary distribution of feedback variations with unique exponent α 1 ∼ 3.3 . However, the differences reflected by Hurst exponents suggest that resemblances between the studied models seem to be non-trivial. },
+  Doi                      = {http://dx.doi.org/10.1016/j.physa.2005.06.067},
+  ISSN                     = {0378-4371},
+  Keywords                 = {Monte Carlo},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S037843710500662X}
+}
+
+@Article{Repetowicz2005641,
+  Title                    = {Dynamics of money and income distributions },
+  Author                   = {Przemysław Repetowicz and Stefan Hutzler and Peter Richmond},
+  Journal                  = {Physica A: Statistical Mechanics and its Applications },
+  Year                     = {2005},
+  Number                   = {2–4},
+  Pages                    = {641 - 654},
+  Volume                   = {356},
+
+  Abstract                 = {We study the model of interacting agents proposed by Chakraborti and Chakrabarti [Eur. Phys. J. B 17 (2000) 167] that allows agents to both save and exchange wealth. Closed equations for the wealth distribution are developed using a mean field approximation. We show that when all agents have the same fixed savings propensity, subject to certain well-defined approximations defined in the text, these equations yield the conjecture proposed by Chakraborti and Chakrabarti [Eur. Phys. J. B 17 (2000) 167] for the form of the stationary agent wealth distribution. If the savings propensity for the equations is chosen according to some random distribution, we show further that the wealth distribution for large values of wealth displays a Pareto-like power-law tail, i.e., P ( w ) ∼ w 1 + a . However, the value of a for the model is exactly 1. Exact numerical simulations for the model illustrate how, as the savings distribution function narrows to zero, the wealth distribution changes from a Pareto form to an exponential function. Intermediate regions of wealth may be approximately described by a power law with a &gt; 1 . However, the value never reaches values of ∼ 1.6 –1.7 that characterise empirical wealth data. This conclusion is not changed if three-body agent exchange processes are allowed. We conclude that other mechanisms are required if the model is to agree with empirical wealth data. },
+  Doi                      = {http://dx.doi.org/10.1016/j.physa.2005.04.010},
+  ISSN                     = {0378-4371},
+  Keywords                 = {Elastic and inelastic scattering},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0378437105003481}
+}
+

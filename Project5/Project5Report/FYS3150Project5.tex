@@ -17,6 +17,8 @@
 \usepackage{marvosym }
 \usepackage{subcaption}
 \usepackage[noabbrev]{cleveref}
+\usepackage{wasysym}
+
 
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.7}
@@ -52,30 +54,30 @@ Financial Modelling}
 \begin{document}
 \maketitle
 \begin{abstract}
-We investigate a range of different models for the behavior of financial agents interacting with each other, aiming to extract an equilibrium distribution. We begin with a straightforwards Monte Carlo model, where two financial agents randomly split their wealth among each other. We expand this model by including the possibility of agents saving money, and by modifying the probability of an interaction by taking into account financial proximity and the effect of previous transactions. This is further developed by introducing some analytic solutions, to which we compare our simulations, and by an investigation into the way in which we can assert whether or not equilibrium has been reached.
+We investigate a range of different models for the behavior of financial agents interacting with each other, aiming to extract an equilibrium distribution. We begin with a straightforwards Monte Carlo model, where two financial agents randomly split their wealth among each other. We expand this model by including the possibility of agents saving money, and by modifying the probability of an interaction by taking into account financial proximity and the effect of previous transactions. This is further developed by introducing some analytic solutions, to which we compare our simulations, and by an investigation into the way in which we can assert whether or not equilibrium has been reached. We find good agreement with analytic solutions where they exist. Our model behaves the way we expect for most parameters, but we observe some odd behavior for the case where previous transactions are significantly more important than financial proximity.
 \end{abstract}
 \tableofcontents
 \section{Introduction}
-Monte Carlo simulations of financial agents is at the core of the relatively new, interdisciplinary, field of econophysics. There has been a veritable landslide of such models presented in recent papers \textbf{INSERT REFERENCES HERE}, ranging from simple models, where all agents have the same interaction probability and simply redistribute their money, to far more complex models including savings, financial proximity or psychological propinquity.\\
+Monte Carlo simulations of financial agents is at the core of the relatively new, interdisciplinary, field of econophysics. There has been a veritable landslide of such models presented in recent papers (see e.g. \cite{Self-adjusted}, \cite{Finite-size} or \cite{AgentBased}), ranging from simple models, where all agents have the same interaction probability and simply redistribute their money (see e.g. \cite{Gibbs}), to far more complex models including savings, financial proximity (see \cite{AgentBased} or psychological propinquity.\\
 \linebreak
 We present an overview of four models with varying degrees of complexity, in which we try to extract and understand the equilibrium distributions, as well as some some indicators of equilibrium. We begin with a theoretical overview of our four models, presenting the models, as well as some analytic solutions which exist for some of the models. We continue with a brief overview of our methods, including both how we implement the models and how we assess the equilibration point in our model. We then present our results and a discussion thereof.
 \section{Theoretical model}
-In this section we introduce the theoretical model necessary to model financial agents through Monte Carlo simulations. We also introduce the analytic solutions, wherever they are exist. 
+In this section we introduce the theoretical model necessary to model financial agents through Monte Carlo simulations. We also introduce some analytic solutions. 
 \subsection{Simulating financial transactions}
-We begin all our simulations with $N$ agents, each with a certain amount of wealth $m_i$, where $i \in [1, N]$.  For simplicity, we let all our agents begin with an equal amount of initial wealth, $m_i=m_j$ for $i,j \in [1,N]$. We subsequently let all agents interact with each other, according to four different set of rules, presented below. We let this interaction continue until equilibrium has been achieved, and we repeat these simulations until we have a sufficient amount of statistical data. The details of how this is done can be found in section \ref{Method_section}.
+We begin all our simulations with $N$ agents, each with a certain amount of wealth $m_i$, where $i \in [1, N]$.  For simplicity, we let all our agents begin with an equal amount of initial wealth, $m_i=m_j$ for $i,j \in [1,N]$. We subsequently let all agents interact with each other, according to four different set of rules, presented below. We let this interaction continue until equilibrium has been achieved, and we repeat these simulations until we have a sufficient amount of statistical data. The details of this last point are described in section \ref{Method_section}.
 \subsubsection{Initial model for the interaction between two financial agents (model A)}\label{Initial_model}
-We begin with a simple model for the interaction of two financial agents, which was initially devised \textbf{HERE}. Assume that we, at random, pick two agents $i$ and $j$, each with wealth given by $m_i$ and $m_j$. We model the interaction between $m_i$ and $m_j$ as a complete, unbiased, exchange of wealth, that is; the agents combine their wealth, and then redistribute it by drawing a random number, $\epsilon$ $\in [0,1]$, from a uniform distribution, and then redistributing the wealth according to:
+We begin with a simple model for the interaction of two financial agents, as presented by \cite{Gibbs}. Assume that we, at random, pick two agents $i$ and $j$, each with wealth given by $m_i$ and $m_j$. We model the interaction between $m_i$ and $m_j$ as a complete, unbiased, exchange of wealth, that is; the agents combine their wealth, and then redistribute it by drawing a random number, $\epsilon$ $\in [0,1]$, from a uniform distribution, and then redistributing the wealth according to:
 \begin{equation}
 m_1'=\epsilon(m_1+m_2)
 \end{equation}
 \begin{equation}
 m_2'=(1-\epsilon)(m_1+m_2)
 \end{equation}
-Where the primed quantities represent the wealth of each agent. Notice that the total wealth is conserved in this interaction, seeing as:
+Where the primed quantities represent the wealth of each agent after the transaction. Notice that the total wealth is conserved in this interaction, seeing as:
 $$m_1'+m_2'=\epsilon(m_1+m_2)+(1-\epsilon)(m_1+m_2)=m_1+m_2$$
 Thus we are only redistributing wealth among our agents.
 \subsubsection{First modification: Implementing savings (model B)}\label{Model_B}
-We expand our model slightly by including the possibility of our agents retaining a certain amount of money in the transaction, as thought up by \textbf{HERE}. This is modelled by a parameter $\beta$, which describes the fraction of money saved by each agent. With this modification, we can rewrite the equations describing our interaction as:
+We expand our model slightly by including the possibility of our agents retaining a certain amount of money in the transaction, as done by \cite{Gibbs}. This is modelled by a parameter $\lambda$, which describes the fraction of money saved by each agent. With this modification, we can rewrite the equations describing our interaction as:
 \begin{equation}
 \begin{split}
 m_i'=\lambda m_i+\epsilon(1-\lambda)(m_i+m_j) \\
@@ -88,14 +90,15 @@ Thus we are still only redistributing wealth, but according to a different proba
 \subsubsection{Second modification: Including the effect of proximity (model C)}\label{Model_C}
 Our second modification is inspired by an idea published \textbf{HERE}. Here, we introduce the possibility of two chosen agents not interacting at all, that is; we introduce a probability of interaction. We construct this probability in a biased way; making it more likely for agents with comparable amount of wealth to interact with each other. Specifically, we determine the probability of an interaction occurring between agents $i$ and $j$, $p_{ij}$, from the equation:
 \begin{equation}\label{eq:Nearest_neighbors}
-p_{ij}=|m_i-m_j|^{-\alpha} 
+p_{ij}=\left|\frac{m_i-m_j}{\langle m \rangle} \right|^{-\alpha} 
 \end{equation}
-Where $\alpha$ is a positive parameter which we vary. Thus whenever we have drawn two agents $i$ and $j,$ from our population, we also compute $p_{ij}$, and compare it to a random number, $\epsilon \in [0,1]$, drawn from a uniform distribution. If $\epsilon < p_{ij}$, the transaction occurs, otherwise, no transactions take place. We will implement this model both with and without savings (with $\lambda > 0$ and with $\lambda=0$), and attempt to extract the behavior for different $\alpha$.
+Where $\alpha$ is a positive parameter which we vary and $\langle m \rangle$ is the mean wealth (which equals the initial wealth as we have a uniform initial distribution). Note how this differs slightly from the equation in \textbf{REFERENCE}, seeing as \textbf{FINISH THIS}. Thus whenever we have drawn two agents $i$ and $j,$ from our population, we also compute $p_{ij}$, and compare it to a random number, $\epsilon \in [0,1]$, drawn from a uniform distribution. If $\epsilon < p_{ij}$, the transaction occurs, otherwise, no transactions take place. We will implement this model both with and without savings (with $\lambda > 0$ and with $\lambda=0$), and attempt to extract the behavior for different $\alpha$.
 \subsubsection{Final modification: Including the previous transactions (model D)}\label{Model_D}
 Our final modification is based on an article published \textbf{HERE}. We include an "acquaintance factor", or a psychological propinquity, where the likelihood of a transaction occurring scales with the number of previous transactions between two agents $i$ and $j$. This is a simple modification of equation \ref{eq:Nearest_neighbors}, which we implement as:
 \begin{equation}\label{eq:nearest_with_previous_transactions}
-p_{ij}=|m_i-m_j|^{-\alpha}(c_{ij}+1)^{\gamma}
+p_{ij}=|m_i-m_j|^{-\alpha}\left(\frac{c_{ij}+1}{\max_{i,j} (c_{ij})+1}\right)^{\gamma}
 \end{equation} 
+\textbf{WRITE MORE STUFF}
 Where $c_{ij}$ is the number of previous interactions between agents $i$ and $j$ and $\gamma$ is a positive parameter which we vary. The additional $1$ is added to make it possible for agents that have not previously interacted to perform a transaction. Note that this model is initially identical to the model in equation \ref{eq:Nearest_neighbors}, but deviates at later times.
 \subsection{Analytic solutions}\label{Analytic_solution}
 In this section we present analytic solutions, wherever they are available. Model A and model B have analytic solutions, found \textbf{HERE} which we can use to test the consistency of our simulations directly. We also know approximately how we expect the tail of our other distributions (the richest agents) to behave.
@@ -105,20 +108,46 @@ The model from section \ref{Initial_model}, has an analytic solution which is de
 A(m)=\mu \exp(-\mu m)
 \end{equation}
 Where $\mu$ is a parameter which we have to determine. Note that, because $m$ (the amount of wealth) cannot be negative, this distribution is normalized\footnote{Because $\int_0^{\infty} \mu \exp(-\mu m)dm=1$}.
-\subsubsection{Analytic solution to the first modification (model B)}
-The model from section \ref{Model_B} also has an analytic solution in the continuous limit. This is described in detail \textbf{HERE}, where it is shown that the probability distribution, $B(m)$, approaches:
-\begin{equation}
-B(m)=\frac{n^n}{\Gamma(n)}m^{n-1}e^{-nm}
+\subsubsection{Analytic solution to the first modification (model B) and variance}
+The model from section \ref{Model_B} also has an analytic solution in the continuous limit. This is described in detail \textbf{HERE}. There it is shown that, if we normalize the wealth by its mean, i.e. let $\hat{m}=m/\langle m \rangle$, the probability distribution, $B(\hat{m})$, approaches:
+\begin{equation}\label{eq:Analytic_solution_B}
+B(\hat{m})=\frac{n^n}{\Gamma(n)}\hat{m}^{n-1}e^{-n\hat{m}}
 \end{equation}
 Where $n$ is given by:
 $$n=1+\frac{3\lambda}{1-\lambda}$$
-Note that this enables us to determine $\mu$ from equation \ref{eq:Analytic_solution_A} directly; as noted in section \ref{Model_B}, model A and model B are identical for $\lambda = 0$. Thus, we expect \textbf{FINISH THIS, ASK DANIEL}.
-\subsubsection{Analytic solution for the second and final modification (model C and D)}
-For these models, we do not have analytic solutions readily available. However, as stated \textbf{HERE}, it is known from empirical studies that the richest agents in society (the high-end tail of our distribution) tend to follow a Pareto distribution, given by:
+Note that this enables us to determine $\mu$ from equation \ref{eq:Analytic_solution_A} directly; as noted in section \ref{Model_B}, model A and model B are identical for $\lambda = 0$. Thus, we expect the analytic solution of model A to be given by:
+\begin{equation}
+A(\hat{m})=e^{-\hat{m}}
+\end{equation}
+We can also find an analytic expression for the variance of this distribution, which will be useful when investigating equilibrium, as described in section \ref{Method_section}. We begin with a general expression for a $\Gamma$-distribution:
+\begin{equation}
+B(m) = \frac{1}{\beta^{\alpha}\Gamma(\alpha)}m^{\alpha - 1}\exp\left(-\frac{m}{\beta}\right)
+\end{equation}
+This has a variance given by: 
+\begin{equation}
+V(m) = \alpha \beta^2
+\end{equation}
+If we use the analytic solution \ref{eq:Analytic_solution_B} we find:
+\begin{equation}
+\alpha = n
+\end{equation}
+\begin{equation}
+\beta = \frac{1}{n}
+\end{equation}
+we can find an analytical variance for our distributions. For the distribution for model B:
+\begin{equation}
+V_B(m) = \left( 1 + \frac{3}{1-\lambda} \right) ^{-1}
+\end{equation}
+And for our distribution from model A:
+\begin{equation}
+V_A(m)=1
+\end{equation}
+\subsubsection{Consistency checks for all solutions}
+For model C and D, we do not have analytic solutions readily available. However, as stated \textbf{HERE}, it is known from empirical studies that the richest agents in most society (the high-end tail of our distribution) tend to follow a Pareto distribution, given by:
 \begin{equation}\label{eq:Anayltic_solution_C_D}
 C(m) \propto m^{-1-\beta}
 \end{equation}
-Where $\beta \in [1,2]$. Thus, we check how realistic our models are, by fitting a function of the form given in equation \ref{eq:Anayltic_solution_C_D} to the tail of our distribution, to see whether or not the richest agents follow the empirical Pareto distribution.
+Where $\beta \in [1,2]$. Thus, we can check how realistic our models are, by fitting a function of the form given in equation \ref{eq:Anayltic_solution_C_D} to the tail of our distribution, to see whether or not the richest agents follow the empirical Pareto distribution. This can be done for all models, to assess whether or not they model a realistic economy.
 \section{Methods}\label{Method_section}
 Here, we introduce the methods that we employ to ensure that we get sufficient, reliable, statistical data, as well as some technicalities relating to our numeric implementation of the models discussed in the previous section.
 \subsection{Obtaining reliable data}
@@ -139,16 +168,35 @@ Where $\langle m \rangle$ denotes the mean of the distribution of wealth (which 
 \linebreak
 Because we start with a uniform distribution of wealth, the variance will start out at zero. We expect it to subsequently increase with more transactions and finally to stabilizes, fluctuating around some value. We determine the number of transactions to be the point where the variance stabilizes.
 \subsubsection{Determining the number of Monte Carlo cycles needed}
-We determine the number of Monte Carlo cycles needed by looking at the difference in the average of the distribution between two subsequent Monte Carlo cycles. We calculate this difference as:
+We determine the number of Monte Carlo cycles needed by looking at the difference in the average of the distribution between two subsequent Monte Carlo cycles. We calculate this relative difference as:
 \begin{equation}\label{eq:Relative_diff_MC_steps}
-\delta = |\vec{M}_{i}-\vec{M}_{i-1}|
+\delta = \frac{|\vec{M}_{i}-\vec{M}_{i-1}|}{|\vec{M}_i|}
 \end{equation}
 Where $\vec{M}$ is a vector with $N$ components, containing the wealth of each agent. $M_i$ represents the \textit{average wealth} after $i$ Monte Carlo cycles (i.e. the average of the distributions from all previous Monte Carlo cycles), and $M_{i+1}$ represents the same average, but with an additional Monte Carlo cycle taken into account. We expect $\delta$ to approach zero as the number of Monte Carlo cycles increases, as the statistical fluctuations from each cycles cancel each other out for a sufficiently large number of cycles. Notice, however, that additional Monte Carlo cycles incur additional computation time, which quickly racks up. Therefore, we choose a number of Monte Carlo cycles which balances computational feasibility with a low enough $\delta$. 
+\subsection{Normalizing the data}
+We normalize all our data, so that they represent probability distributions. This is done by dividing the wealth of every player by the mean wealth, $\langle m \rangle$. 
+
+
+\subsection{Determining the number of bins}
+We chose a bin resolution of $0.02 \cdot N$. In order for the computations to be feasible, we require a maximum boundary for the highest bin. As the variance of the distributions varies with $\lambda$ , we implement an upper bound that depends upon $\lambda$. We chose:
+\begin{equation}\label{eq:M_max}
+m_{max} = \frac{2\langle m \rangle}{\sqrt{\lambda + 0.1}} + \chi
+\end{equation}
+$\chi$ is a number that we employ when we want to look at the tail. When we want to look at the tail, we have to ensure to include the few agents with a lot of money. With $\chi = \langle m \rangle$ it can be shown that
+\begin{equation}
+\min[B(m\leq m_{max},\lambda)] = \int_0^{m_{max}} \frac{n^n}{\Gamma(n)}m^{n-1}\exp(-nm) = 0.999636 
+\end{equation}
+Thus we except to include $99.9636 \%$ of the agents when looking at the tail. \\
+\linebreak
+When not looking at the tail, we let $\chi = 0$. Then we expect to include $99.19\%$ of the agents. This was employed in order to reduce the runtime. \\
+\linebreak
+We then divide the interval $(0,m_{\max})$ into bins of size $0.02$, and for each Monte Carlo cycle we update the distribution.
+\subsection{Determining the Tail}\label{Tail_section}
+We used $m_{\max}$ from equation \ref{eq:M_max} to determine the size of the tail. We defined the tail as the interval $(m_{max},m_{max}+\langle m \rangle)$, where we have set $\chi=0$ at the left end point. We expect this interval to include $8 \permil$ of the agents. Not all distributions fitted well into this interval, however, and the lower bound was lowered somewhat for higher values of $\lambda$.
 \subsection{Implementing the Monte Carlo simulations}
 As the main algorithm for simulating the transactions is relatively short, we present, in Pseudo-Code, the program for computing model A below:
 \lstinputlisting{Pseudo_code_simple_walkers.cpp}
 Note that the other models can be easily implemented by expanding the loop over transactions slightly.
-\subsection{Determining the number of bins}
 \section{Results and discussion}
 \subsection{Results from the initial model (model A)}
 \subsubsection{Results from our investigation into the optimal combination of parameters}
@@ -163,10 +211,10 @@ The results from our investigation into the optimal parameters for our initial m
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{diffMCLamb0.png}
+        \includegraphics[height=2.0in]{relDiffL0A0G0.png}
         \caption{The difference in the distribution for successive Monte Carlo steps}\label{fig:ModelA_MC_steps}
     \end{subfigure}
-    \caption{Plots from our investigation into the optimal choice of parameters. Figure \ref{fig:ModelA_Var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref{fig:ModelA_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.}\label{fig:ModelA}
+    \caption{Plots from our investigation into the optimal choice of parameters. Figure \ref{fig:ModelA_Var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m_0=1000$. In figure \ref{fig:ModelA_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo cyclex consists of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.}\label{fig:ModelA}
 \end{figure} %ASK DANIEL ABOUT m0
 \subsubsection{The distribution from model A}
 
@@ -174,7 +222,7 @@ We discuss later how we decide on a combination of parameters. We present the fi
 \begin{figure}[!ht]
 \centering
 \includegraphics[height=2.5in]{distLamb0.png}
-\caption{The final distribution of wealth from model A. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.}\label{fig:ModelA_final_distribution}
+\caption{The final distribution of wealth from model A. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.}\label{fig:ModelA_final_distribution}
 \end{figure}
 \subsubsection{Comparison with the analytic model}
 We also include a logarithmic plot, of the above distribution, together with the analytic solution from section \ref{Analytic_solution}, to investigate how well our numerical distribution fits our analytic model.
@@ -189,15 +237,22 @@ We also include a logarithmic plot, of the above distribution, together with the
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{logDistLamb0WAnalyt.png}
-        \caption{The same plot, with a linear fit.}\label{fig:ModelA_log_fit}
+        \caption{The same plot, with analytic solution}\label{fig:ModelA_log_fit}
     \end{subfigure}
     \caption{A logarithmic plot of figure \ref{fig:ModelA}, used to determine the analytic expression for the distribution in figure \ref{fig:ModelA}}\label{fig:ModelA__log}
 \end{figure}
 Finally, we include the distribution from Model A, together with the analytic plot, to determine how well our analytic model fits our results.
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=2.5in]{distLamb0.png} %FIX THIS
+\includegraphics[height=2.5in]{distLamb0WAnalyt.png} %FIX THIS
 \caption{Plot of figure \ref{fig:ModelA_final_distribution} together with the analytic solution from section \ref{Analytic_solution}}\label{fig:ModelA_final_distribution_with_analytic}
+\end{figure}
+\subsubsection{Investigating the tail of the distribution from model A}
+We also present a power law fit to the tail of our distribution, including both the numeric data, the analytic data and a power law fit applied to the tail of the numeric data. We discuss in section \textbf{INSERT SECTION} how we choose this tail. The plot is shown below:
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=2.5in]{tailPowerlamb0.png} %FIX THIS
+\caption{The tail of the distribution from figure \ref{fig:ModelA_final_distribution}, together with a power law fit and the analytic solution.}\label{fig:ModelA_tail}
 \end{figure}
 \subsection{Discussion of model A}
 \subsubsection{Choosing parameters}
@@ -205,126 +260,316 @@ As seen in figure \ref{fig:ModelA_Var}, the variance from a single run stabilize
 \linebreak
 Figure \ref{fig:ModelA_MC_steps} shows the difference in the distribution between two successive Monte Carlo steps, as described by equation \ref{eq:Relative_diff_MC_steps}. For the first few cycles, this difference is very large (a difference of up to 35), but it quickly falls. We can see that the difference between two successive cycles quickly approaches zero. We choose $10^4$ Monte Carlo cycles as our cutoff point, where the difference is small enough to be essentially zero, but our simulations still run very quickly.
 \subsubsection{The distribution}
-As can be seen in figure \ref{fig:ModelA_final_distribution_with_analytic}, the analytic model agrees excellently with our simulations. The only exception is the very beginning: far fewer people have almost no wealth than predicted by the analytic model. This is not particularly surprising, however. The amount of wealth given to each agent at each transaction in this model depends on the number $\epsilon$, which is a floating point number in the interval $[0,1]$. Note, however, that the probability of $\epsilon$ being either exactly zero or exactly 1 is infinitesimal,  %ASK: EXACTLY ZERO?
-(as these are floating point numbers). For an agent to end up with no wealth after a transaction, $\epsilon$ has to be one of these extreme values. Therefore, there are no agents with zero wealth. %LOOK AT THIS AGAIN
-
+As can be seen in figure \ref{fig:ModelA_final_distribution_with_analytic}, the analytic model agrees excellently with our simulations. The only exception is the very beginning: far fewer people have almost no wealth than predicted by the analytic model. This is not particularly surprising, however. The amount of wealth given to each agent at each transaction in this model depends on the number $\epsilon$, which is a floating point number in the interval $[0,1]$. Note, however, that the probability of $\epsilon$ being either exactly zero or exactly 1 is infinitesimal as these are floating point numbers. For an agent to end up with no wealth after a transaction, $\epsilon$ has to be one of these extreme values. Therefore, there are no agents with zero wealth, and this explains the dip at the very first data point.
+\subsubsection{The tail of the distribution}
+As can be seen in figure \ref{fig:ModelA_tail}, a power law fits the data fairly well. Note that there are significant oscillations in the data, even for many Monte Carlo steps, which are due to the lack of data at the high end of the tail (few people are very rich). Nonetheless, the trend is clear, and the power law hits the analytic solution rather well. Whilst it might be possible to decrease the oscillations in the data by increasing the number of Monte Carlo steps, this does not seems necessary, as the trend is present in the data. This shows that our model is fairly realistic, as it follows the empiric result of a Pareto distribution.
 
 \subsection{Results from the first modification (model B)}
 \subsubsection{Results from our investigation into the optimal combination of parameters}
-The results from our investigation into the optimal parameters for model B, for various values of the saving factor $\lambda$,  are shown below:
+The results from our investigation into the optimal parameters for model B are shown below. We look at $\lambda \in [0,0.25, 0.5, 0.9]$. To determine the optimal parameters, however, we only include the plots for $\lambda = 0.9$ (the largest value of $\lambda$) as this value of $\lambda$ displayed the largest fluctuations.
 \begin{figure}[!ht] %Fix this figure
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{varLamb0.png}
-        \caption{The variance of a single Monte Carlo cycle in model B}\label{fig:ModelB_Var}
+        \includegraphics[height=2.0in]{varLamb09.png} %MAX VARIANCE
+        \caption{The variance of a single Monte Carlo cycle in model B for $\lambda = 0.9$}\label{fig:ModelB_Var}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{diffMCLamb0.png}
-        \caption{The difference in the distribution for successive Monte Carlo steps in model B}\label{fig:ModelB_MC_steps}
+        \includegraphics[height=2.0in]{relDiffL09A0G0.png}
+        \caption{The difference in the distribution for successive Monte Carlo steps in model B, for $\lambda = 0.9$}\label{fig:ModelB_MC_steps}
     \end{subfigure}
-    \caption{Plots from our investigation into the optimal choice of parameters. Figure \ref{fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref{fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.}\label{fig:ModelB}
+    \caption{Plots from our investigation into the optimal choice of parameters in model B. Figure \ref{fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m_0=1000$. We have also included the analytic expression for this, derived in section \textbf{SECTION}. In figure \ref{fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $2\times 10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.}\label{fig:ModelB}
 \end{figure} %ASK DANIEL ABOUT m0
 \subsubsection{The distribution from model B}
 We postpone a discussion of the choice of parameters until the discussion part later. We present the final, average, distribution, for this combination of parameters, below:
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=2.5in]{distLamb0.png} %Fix this one
-\caption{The final distribution of wealth from model B. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.}\label{fig:ModelB_final_distribution}
+\includegraphics[height=2.5in]{distDiffLamb.png} %Fix this one
+\caption{The final distribution of wealth from model B, for various values of $\lambda$. We also plot the analytic solution from section \ref{Analytic_solution}, to compare. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $500$ agents, performing $2\times 10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.}\label{fig:ModelB_final_distribution}
 \end{figure}
-\subsubsection{Comparison with the analytic model}
-We also include a plot, of the above distribution, together with the analytic solution from section \ref{Analytic_solution}, to investigate how well our numerical distribution fits our analytic model.
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=2.5in]{distLamb0.png} %Fix this one
-\caption{Figure \ref{fig:ModelB_final_distribution}, together with the analytic solution from section \ref{Analytic_solution}.}\label{fig:ModelB_final_distribution_with_analytic}
+\includegraphics[height=2.5in]{logDistDiffLamb.png} %Fix this one
+\caption{A logarithmic plot of figure \ref{fig:ModelB_final_distribution}}\label{fig:ModelB_final_distribution_log}
 \end{figure}
+
+\subsubsection{Investigating the tail of the distribution from model B}
+We also present a power law fit to the tail of our distribution, including both the numeric data, the analytic data and a power law fit applied to the tail of the numeric data. We discuss in section \textbf{INSERT SECTION} how we choose this tail. The plots, for our chosen values of $\lambda$, are shown below. Note that we have excluded the plot for $\lambda = 0$, as it is identical to figure \ref{fig:ModelA_tail}.
+\begin{figure}[!ht] %Fix this figure
+    \centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailPowerlamb025.png} %MAX VARIANCE
+        \caption{$\lambda = 0.25$}\label{fig:ModelB_tail_lamb_025}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailPowerlamb05.png}
+        \caption{$\lambda = 0.5$}\label{fig:ModelB_tail_lamb_05}
+    \end{subfigure}
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailLamb9_2.png}
+        \caption{$\lambda = 0.9$}\label{fig:ModelB_tail_lamb_09}
+    \end{subfigure}
+\caption{The tail of the distribution from figure \ref{fig:ModelB_final_distribution} (model B), together with a power law fit and the analytic solution from section \ref{Analytic_solution} for different values of $\lambda$.}\label{fig:ModelB_tail}
+\end{figure} 
+
 \subsection{Discussion of model B}
 \subsubsection{Choosing parameters}
-
+As can be seen in figure \ref{fig:ModelB_Var}, modifying the model by adding savings results in a longer equilibration time. In model A, $10^4$ transactions were more than sufficient to be safely inside equilibrium. This is not the case here. Therefore, we choose to double the number of transactions per Monte Carlo cycle, performing $2\times 10^4$ transactions per cycle. This should ensure that we are well inside equilibrium. Looking at figure \ref{fig:ModelB_MC_steps}, we see that $10^4$ Monte Carlo cycles again ensures that we are well inside equilibrium. Therefore, we again choose to perform $10^4$ Monte Carlo cycles.
 \subsubsection{The distribution}
+The distribution for our chosen values of $\lambda$ is shown, together with the analytic solution, in figure \ref{fig:ModelB_final_distribution} and \ref{fig:ModelB_final_distribution_log}. Note that the distribution for $\lambda=0$ is identical to model A. For higher values of $\lambda$, the distribution appears to transition from a Boltzmann distribution to something that resembles a normal distribution. This is not an obvious behavior.\\
+\linebreak
+Large $\lambda$ implies that the amount of money exchanged at every time step is small. If this is the case, then each transaction results in small differences between players. Therefore, it is difficult to accumulate large amounts of wealth, as every transaction increases or decrease wealth by a small amount. For low values of $\lambda$, however, large amounts of money are exchanged at every time step. Note that, once wealth accumulates with a single agent, the subsequent interaction with this agent will again result in one of the agents having a large amount of wealth. Therefore, the distribution will tend to accumulate wealth with a few agents, leaving the rest relatively poor.\\
+\linebreak
+An alternative way to view this result is to realize that $\lambda=1$ corresponds to a uniform distribution (the initial distribution), whereas $\lambda=0$ corresponds to model A (Boltzmann distribution). Thus, the values of $\lambda$ between these extremes, will vary between these points. This is what we observe; for low $\lambda$, the distribution is approximately equal to the Boltzmann distribution from model A. For high $\lambda$, the distribution is more uniform. 
+\subsubsection{The tail of the distribution}
+In figure \ref{fig:ModelB_tail}, we present the tail of our distribution, together with the analytic solution and our power fit. Note that the fit works well for low values of $\lambda$, but less well for higher values. This is not particularly surprising. For low values of $\lambda$, there are more people with large amounts of wealth. Therefore, there is simply more data at the tail. Note that we have shifted the position of the tail slightly, but even so, there is little data for higher $\lambda$. Nonetheless, the analytic solution clearly indicates that a power law should exist, if we had more data. Therefore, this model also seems to fit well with the assumption that the high-end distribution 
 
 \subsection{Results from the second modification (model C)}
 \subsubsection{Results from our investigation into the optimal combination of parameters}
-The results from our investigation into the optimal parameters for model C, for various combinations of the saving factor $\lambda$ and the closeness factor $\alpha$ are shown below:
+Here, we investigate $\alpha \in [0.5, 1.0, 1.5, 2.0]$, with $\lambda=0$. We present the variance for the two highest $\alpha$ below, as these showed the largest fluctuations.
 \begin{figure}[!ht] %Fix this figure
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{varLamb0.png}
-        \caption{The variance of a single Monte Carlo cycle in model C}\label{fig:ModelC_Var}
+        \includegraphics[height=2.0in]{varL0A2G0.png}
+        \caption{$\alpha=2.0$}\label{fig:ModelC_Var_alpha_2}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{diffMCLamb0.png}
-        \caption{The difference in the distribution for successive Monte Carlo steps in model C}\label{fig:ModelC_MC_steps}
+        \includegraphics[height=2.0in]{varL0A15G0.png}
+        \caption{$\alpha=1.5$}\label{fig:ModelC_Var_alpha_15}
     \end{subfigure}
-    \caption{Plots from our investigation into the optimal choice of parameters. Figure \ref{fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref{fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.}\label{fig:ModelC}
-\end{figure} %ASK DANIEL ABOUT m0
+    \caption{Plot of the variance for two different values of $\alpha$. This is for a single Monte Carlo cycle, with $N=1000$ agents, and initial wealth, $m_0=1000$}\label{fig:ModelC_variance}
+\end{figure}
+We also present how the distribution varies with successive Monte Carlo steps below. We show this only for $\alpha=2.0$, as this showed the largest deviation.
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=2.5in]{relDiffL0A2G0.png} %Fix this one
+\caption{The difference between successive average distributions as a function of the number of Monte Carlo steps. Each Monte Carlo step consists of $2\times 10^5$ transactions.}\label{fig:ModelC_MC_Steps}
+\end{figure}
 \subsubsection{The distribution from model C}
-We again postpone a discussion of the choice of parameters until the discussion part later. We present the final, average, distribution, for this combination of parameters, below:
+Once again, the discussion of the choice of parameters is postponed until a later part. We present the final, average, distribution, for our values of $\alpha$, below, together with a log-log plot.
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=2.5in]{distLamb0.png} %Fix this one
-\caption{The final distribution of wealth from model C. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.}\label{fig:ModelC_final_distribution}
+\includegraphics[height=2.5in]{distAlphas.png} %Fix this one
+\caption{The final distribution of wealth from model C. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $1000$ agents, with $2 \times 10^5$ transactions per Monte Carlo cycles, for a total of $10^3$ Monte Carlo cycles.}\label{fig:ModelC_final_distribution}
 \end{figure}
-\subsubsection{Comparison with the analytic model}
-As stated in section \ref{Analytic_solution}, we do not have an analytic expression for the entire distribution. However: if our model accurately depicts reality, then the higher end of the distribution should approximately follow a Pareto distribution. We show a fit of the form given in equation \ref{eq:Anayltic_solution_C_D}, applied to the tail of the distribution, in the figure below.
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=2.5in]{distLamb0.png} %Fix this one
-\caption{Figure \ref{fig:ModelC_final_distribution}, together with the analytic solution from section \ref{Analytic_solution}.}\label{fig:ModelC_final_distribution_with_analytic}
+\includegraphics[height=2.5in]{logDistAlphas.png} %Fix this one
+\caption{A log-log plot of figure \ref{fig:ModelC_final_distribution}}\label{fig:ModelC_final_distribution_log}
 \end{figure}
+\subsubsection{Investigating the tail of the distribution from model C}
+We also present a power law fit to the tail of our distribution. We discuss in section \textbf{INSERT SECTION} how we choose this tail. The plots, for our chosen values of $\lambda$, are shown below. Note that we have excluded the plot for $\lambda = 0$, as it is identical to figure \ref{fig:ModelA_tail}.
+\begin{figure}[!ht] %Fix this figure
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A05G0.png} %MAX VARIANCE
+        \caption{$\alpha = 0.5$}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A1G0.png}
+        \caption{$\alpha = 1.0$}
+    \end{subfigure}
+     ~
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A15G0.png}
+        \caption{$\alpha = 1.5$}
+    \end{subfigure}
+     ~
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A2G0.png}
+        \caption{$\alpha = 2.0$}
+    \end{subfigure}
+\caption{The tail of the distribution from figure \ref{fig:ModelC_final_distribution} (model C), together with a power law fit.}\label{fig:ModelC_tail}
+\end{figure} 
+\begin{table}[!hb]
+\centering
+\caption{The squared error of the power law fit for different $\alpha$}\label{tab:Parameters_C}
+\begin{tabular}{|c|c|}
+\hline
+$\alpha$ & Squared error\\
+\hline
+0.5& $1.40 \times 10^{-5}$\\
+1& $4.40 \times 10^{-5}$\\
+1.5 & $4.32 \times 10^{-5}$\\
+2& $4.59\times 10^{-5}$\\
+\hline
+\end{tabular}
+\end{table}
 \subsection{Discussion of model C}
 \subsubsection{Choosing parameters}
-
+As shown in figure \ref{fig:ModelC_Var_alpha_15} and \ref{fig:ModelC_Var_alpha_2}, the variance stabilizes very slowly, compared to the earlier models. There is a significant difference between $\alpha=1.5$ and $\alpha=2.0$ - $\alpha=2.0$ takes significantly longer to stabilize. There is clearly a problem for $\alpha=2$, as it does not appear to be stable after $6\times 10^5$ transactions. This was only the case for $\alpha=2$, as $\alpha=1.5$ stabilized after approximately $5\times 10^4$ transactions. Due to time constraints, and to maintain computational efficiency, we therefore decided to run $2\times 10^5$ transactions per Monte Carlo cycle. Note that this will not hit equilibrium for $\alpha=2.0$, but it will hit equilibrium for all other values of $\alpha$.\\
+\linebreak
+Figure \ref{fig:ModelC_MC_Steps} shows how the relative difference in the distribution varies with Monte Carlo cycles. Due to computational constraints, we were only able to produce this up to $10^3$ cycles. However,as the plot shows, the relative difference between successive cycles at this point is less than $0.001$. Therefore, we choose to employ $10^3$ cycles, to maintain computational efficiency. Note that this also indicates that the data for $\alpha=2.0$ are stable, and therefore reliable, despite not being at equilibrium.
 \subsubsection{The distribution}
+Figure \ref{fig:ModelC_final_distribution} shows the distribution for this model. This resembles our initial Boltzmann distribution for low values of $\alpha$. As $\alpha$ increases, however, the distributions become even more skewed - the tail of the distribution moves outwards (there are richer people), and the peak of the distribution increases (there are more poor people). This makes sense; low values of $\alpha$ will have relatively little impact on the distribution. As $\lambda=0$, this will then simply reproduce model A. For higher values of $\alpha$, the distribution changes significantly. Whenever two rich people interact, there is a significant probability that one of them will become much richer, and the other much poorer (depending on the value of $\epsilon$). We bias these interactions, so that the probability of a rich person interacting with a rich person increases significantly, and the probability of a poor person interacting with a poor person increases. Note that wealth only ever gets less concentrated if a rich and a poor person meet, and $\epsilon$ is close to 0.5. By making these interactions \textit{very} unlikely, we have significantly biased the system towards interactions which concentrate wealth on a single agent. This explains the observed distribution rather well. Notice also how the distribution for $\alpha=2.0$ follows this trend, despite not being entirely at equilibrium. This indicates that the lack of equilibrium is not a significant problem. Figure \ref{fig:ModelC_final_distribution_log} also resembles figure \textbf{FIGURE NUMBER} in \textbf{REFERENCE}, which is reassuring.
+\subsubsection{The tail of the distribution}
+Figure \ref{fig:ModelC_tail} show the tail of the distribution, using a cut-off point discussed \textbf{HERE}, and table \ref{tab:Parameters_C} summarizes the square error. Notice how there is a clear power law trend in all of these tails. This indicates that the model, at the very least, is consistent with a Pareto distribution at higher income.
 
 \subsection{Results from the final modification (model D)}
 \subsubsection{Results from our investigation into the optimal combination of parameters}
-The results from our investigation into the optimal parameters for model D, for various values of the saving factor $\lambda$, the interaction factor $\lambda$ and the psychological propinquity factor $\gamma$  are shown below:
-\begin{figure}[!ht] %Fix this figure
+The results from our investigation into the optimal parameters for model D are shown below. We include the plot for $\lambda = 0$, $\alpha=2$ and $\gamma=1$, as this took a significant amount of time to stabilize.
+\begin{figure}[!ht]
     \centering
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{varLamb0.png}
-        \caption{The variance of a single Monte Carlo cycle in model D}\label{fig:ModelD_Var}
+        \includegraphics[height=2.0in]{varL0A2G1.png}
+        \caption{The variance of a single Monte Carlo cycle}\label{fig:ModelD_var}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[H!]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.0in]{diffMCLamb0.png}
-        \caption{The difference in the distribution for successive Monte Carlo steps in model B}\label{fig:ModelD_MC_steps}
+        \includegraphics[height=2.0in]{relDiffL0A2G1.png}
+        \caption{The difference in the distribution for successive Monte Carlo steps}\label{fig:ModelD_MC_steps}
     \end{subfigure}
-    \caption{Plots from our investigation into the optimal choice of parameters. Figure \ref{fig:ModelD_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref{fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.}\label{fig:ModelD}
+    \caption{Plots from our investigation into the optimal choice of parameters, with $\lambda = 0$, $\alpha=2$ and $\gamma=1$. Figure \ref{fig:ModelD_var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=1000$ agents, and initial wealth, $m_0=1000$. In figure \ref{fig:ModelD_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo cycles consists of $2\times 10^5$ transactions.}\label{fig:ModelD_parameters}
 \end{figure} %ASK DANIEL ABOUT m0
+
 \subsubsection{The distribution from model D}
 We postpone a discussion of the choice of parameters until the discussion part later. We present the final, average, distribution, for this combination of parameters, below:
-\begin{figure}[!ht]
-\centering
-\includegraphics[height=2.5in]{distLamb0.png} %Fix this one
-\caption{The final distribution of wealth from model B. Here $\langle m \rangle$ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.}\label{fig:ModelD_final_distribution}
+\begin{figure}[!ht] %Fix this figure
+	\centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+    	\centering
+    	\includegraphics[height=2.0in]{distGammasA0.png}
+    	\caption{$\alpha = 0$, $\lambda=0$}\label{fig:ModelD_dist_1}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{distGammasA1.png} %MAX VARIANCE
+        \caption{$\alpha = 1$, $\lambda=0$}\label{fig:ModelD_dist_2}
+    \end{subfigure}
+    ~ 
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{distGammasA2.png}
+        \caption{$\alpha = 2.0$, $\lambda=0$}\label{fig:ModelD_dist_3}
+    \end{subfigure}%
+    ~
+       \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{distGammasA1L05.png}
+        \caption{$\alpha = 1, \lambda=0.5$}\label{fig:ModelD_dist_4}
+    \end{subfigure}
+\caption{The distribution of model D for different parameter combinations. This was created with $N=1000$ agents, initial money, $m_0=1000$, using $10^3$ Monte Carlo cycles, each consisting of $2\times 10^5$ transactions.}\label{fig:ModelD_dist}
 \end{figure}
-\subsubsection{Comparison with the analytic model}
-We also include a plot, of the above distribution, together with the analytic solution from section \ref{Analytic_solution}, to investigate how well our numerical distribution fits our analytic model.
-\begin{figure}[!ht]
-\centering
-\includegraphics[height=2.5in]{distLamb0.png} %Fix this one
-\caption{Figure \ref{fig:ModelB_final_distribution}, together with the analytic solution form section \ref{Analytic_solution}.}\label{fig:ModelD_final_distribution_with_analytic}
+
+\begin{figure}[!ht] %Fix this figure
+	\centering
+    \begin{subfigure}[H!]{0.5\textwidth}
+    	\centering
+    	\includegraphics[height=2.0in]{logDistGammasA0.png}
+    	\caption{$\alpha = 0$, $\lambda=0$}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{logDistGammasA1.png} %MAX VARIANCE
+        \caption{$\alpha = 1$, $\lambda=0$}\label{fig:ModelD_dist_1_log}
+    \end{subfigure}
+    ~ 
+     \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{logDistGammasA2.png}
+        \caption{$\alpha = 2.0$, $\lambda=0$}
+    \end{subfigure}%
+    ~
+       \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{logDistGammasA1L05.png}
+        \caption{$\alpha = 1, \lambda=0.5$}
+    \end{subfigure}
+\caption{Log-log plot of figure \ref{fig:ModelD_dist}} \label{fig:ModelD_dist_log}
 \end{figure}
+
+
+\subsubsection{Investigating the tail of the distribution from model D}
+We also present a power law fit to the tail of our distribution, including the numeric data a power law fit applied to the tail of the numeric data. We discuss in section \textbf{INSERT SECTION} how we choose this tail. 
+\begin{figure}[!ht] %Fix this figure
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A1G1.png} %MAX VARIANCE
+        \caption{$\lambda=0, \alpha=1, \gamma = 0.5$}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A1G2.png}
+        \caption{$\lambda = 0, \alpha = 1.0, \gamma=2.0$}
+    \end{subfigure}
+     ~
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL0A2G1.png}
+        \caption{$\lambda=0, \alpha = 2, \gamma=1$}
+    \end{subfigure}
+     ~
+    \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL05A1G1.png}
+        \caption{$\lambda=0.5, \alpha=1, \gamma=1$}
+    \end{subfigure}
+    ~
+      \begin{subfigure}[H!]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.0in]{tailL05A1G2.png}
+        \caption{$\lambda=0.5, \alpha=1, \gamma=2$}
+    \end{subfigure}
+\caption{The tail of the distribution from figure \ref{fig:ModelD_dist} (model D), together with a power law fit.}\label{fig:ModelD_tail}
+\end{figure}
+\begin{table}[!hb]
+\centering
+\caption{Square error of power law fit for different combination of parameters}\label{tab:parameters_D}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$\lambda$ & $\alpha$ & $\gamma$ & Squared error\\
+\hline
+0 & 1 & 1 & $4.43\cdot 10^{-5}$\\
+0 & 1 & 2 & $7.69\cdot 10^{-5}$\\
+0 & 2 & 1 & $4.33\cdot 10^{-5}$\\
+0 & 2 & 2 & $7.20 \cdot 10^{-5}$\\
+0.5 & 1 & 1 & $2.22\cdot 10^{-4}$\\
+0.5 & 1 & 2 & $5.62\cdot 10^{-4}$\\
+
+\hline
+\end{tabular}
+\end{table} 
 \subsection{Discussion of model D}
 \subsubsection{Choosing parameters}
+As can be seen in figure \ref{fig:ModelD_dist}, the variance once again takes a long time to stabilizes. Even after $2\times 10^6$ transactions, the equilibrium is still dubious. Therefore, we choose $2 \times 10^5$ transactions per Monte Carlo cycle. Notice how the relative difference between the distributions quickly vanishes even with just $2\times 10^5$ cycles. Therefore, if we choose $10^3$ Monte Carlo cycles, we can assume that we have reliable data. Whilst it is not equilibrium, it is at least stable. This is therefore the most viable alternative to equilibrium, given our strict time constraints. We once again chose $N=1000$ agents, to make comparison between model C and D more reliable. 
 
 \subsubsection{The distribution}
-
-
-
+Figure \ref{fig:ModelD_dist} shows the distribution for a variey of parameters. We begin by discussing figure \ref{fig:ModelD_dist_1}.\\
+\linebreak
+In figure \ref{fig:ModelD_dist_1}, we show purely the effect of the psychological propinquity factor $\gamma$, with $\alpha=0$ and $\lambda=0$. For $\gamma=1$, the effect seems rather small, as the shape is similar to the shape of model A, albeit somewhat more stretched. For $\gamma = 2$ and upwards, however,the distribution suddenly becomes discontinuous, seemingly at exactly twice the mean, splitting the population into a large group of poor to upper middle class and a very small fraction of rich people. There seems to be a rather sharp transition somewhere bewteen $\gamma=1$ and $2$, which may indicate a sort of phase transition in the system. This is a very odd behavior, which must be analyzed in the context of the other results.\\
+\linebreak
+Figure \ref{fig:ModelD_dist_2} and \ref{fig:ModelD_dist_3} include the effect of economic closeness, through the parameters $\alpha$. Notice how this appears to delay the phase transition - for $\alpha=1$, the curves for $\gamma=1$ and $\gamma=2$ seem to follow the Boltzmann distribution which we observed for model C, whereas it again turns into a discontinuous distribution for higher $\gamma$. For $\alpha=2$, the phase transition is further delayed,until $\gamma=4$. This seems to indicate that there are two competing factor at play - that $\alpha$ and $\gamma$ counteract one another. These parameters determine the probability of an interaction happening. This seems to indicate that if the probability of an interaction is given by the $\alpha$ term, the distribution will approximately follow a Boltzmann distribution, whereas the distribution will approach something like a uniform distribution in two different regimes if $\gamma$ is large enough relative to $\alpha$ (and $\gamma$ is larger than unity).\\
+\linebreak
+Finally, consider figure \ref{fig:ModelD_dist_4}, where we also include the effect of saving. Note that the phase transition occurs at the same values for $\gamma$ as in figure \ref{fig:ModelD_dist_2}, which had the same $\alpha$. This indicates that $\lambda$ has little effect on the appearance of the phase transition. However, $\lambda$ drastically changes the shape of the phase transition. By introducing a $\lambda$, we narrow the distribution, and cause the peak to be in rather towards the middle. Note that the distribution for $\gamma < 3$  looks very similar to the distribution from model C. This supports the theory that $\gamma$ and $\alpha$ are somehow competing.\\
+\linebreak
+It is rather difficult to get an intuitive grasp of what is going on. One possible explanation, however, is this: note that, initially (after few transactions), $\gamma$ has little to say, as the factor containing $\gamma$ scales with the interactions. Thus initially, the $\alpha$ factor has to be dominating. As seen earlier, $\alpha$ tends to skew the distribution - so that very few people are extremely rich. Now the rich people will tend to only interact among themselves, whereas the poorer will tend to interact only among themselves. Thus, the correlation matrix, $c_{ij}$, constantly increases for people of comparable wealth. As we scale the $\gamma$ probability with the maximum of the $c_{ij}$ matrix, the probability of two people from different echelons of society interacting becomes utterly negligible. At some point (earlier if $\gamma$ is much larger than $\alpha$), $\gamma$ therefore dominates the interaction, favoring only interaction between people with similar wealth. From this it is not at all clear why the $\gamma$ distribution looks the way it looks however, nor why the discontinuity occurs at $2\langle m \rangle$. This also does not explain the shape of figure \ref{fig:ModelD_dist_4}.
+\subsubsection{The tail of the distribution}
+We show the tails for a variety of parameter combinations in figure \ref{fig:ModelD_tail}, with the errors in table \ref{tab:parameters_D}. Once again, the trend is convincing in all of these plots. This indicates that the tail of our models can be modelled as a Pareto distribution.  
 \section{Conclusion}
 \subsection{Conclusion}
 \subsection{Outlook}
+\addcontentsline{toc}{section}{References}
+\bibliography{Project5Bib}
+\bibliographystyle{apalike}
+
 \end{document}
 
 %%INCLUDE INITIAL MONEY

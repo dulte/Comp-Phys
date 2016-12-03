@@ -16,7 +16,14 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
+\citation{Self-adjusted}
+\citation{Finite-size}
+\citation{AgentBased}
+\citation{Gibbs}
+\citation{AgentBased}
+\citation{Gibbs}
+\citation{Gibbs}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Theoretical model}{2}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Simulating financial transactions}{2}{subsection.2.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}Initial model for the interaction between two financial agents (model A)}{2}{subsubsection.2.1.1}}
@@ -38,133 +45,206 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Analytic solutions}{3}{subsection.2.2}}
 \newlabel{Analytic_solution}{{2.2}{3}{Analytic solutions}{subsection.2.2}{}}
 \newlabel{Analytic_solution@cref}{{[subsection][2][2]2.2}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Analytic solution to the initial model (model A)}{3}{subsubsection.2.2.1}}
-\newlabel{eq:Analytic_solution_A}{{6}{3}{Analytic solution to the initial model (model A)}{equation.2.6}{}}
-\newlabel{eq:Analytic_solution_A@cref}{{[equation][6][]6}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Analytic solution to the first modification (model B)}{3}{subsubsection.2.2.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Analytic solution for the second and final modification (model C and D)}{4}{subsubsection.2.2.3}}
-\newlabel{eq:Anayltic_solution_C_D}{{8}{4}{Analytic solution for the second and final modification (model C and D)}{equation.2.8}{}}
-\newlabel{eq:Anayltic_solution_C_D@cref}{{[equation][8][]8}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{4}{section.3}}
-\newlabel{Method_section}{{3}{4}{Methods}{section.3}{}}
-\newlabel{Method_section@cref}{{[section][3][]3}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Obtaining reliable data}{4}{subsection.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Ensuring we perform a sufficient number of transactions}{4}{subsubsection.3.1.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Analytic solution to the initial model (model A)}{4}{subsubsection.2.2.1}}
+\newlabel{eq:Analytic_solution_A}{{6}{4}{Analytic solution to the initial model (model A)}{equation.2.6}{}}
+\newlabel{eq:Analytic_solution_A@cref}{{[equation][6][]6}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Analytic solution to the first modification (model B) and variance}{4}{subsubsection.2.2.2}}
+\newlabel{eq:Analytic_solution_B}{{7}{4}{Analytic solution to the first modification (model B) and variance}{equation.2.7}{}}
+\newlabel{eq:Analytic_solution_B@cref}{{[equation][7][]7}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Consistency checks for all solutions}{4}{subsubsection.2.2.3}}
+\newlabel{eq:Anayltic_solution_C_D}{{15}{4}{Consistency checks for all solutions}{equation.2.15}{}}
+\newlabel{eq:Anayltic_solution_C_D@cref}{{[equation][15][]15}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{5}{section.3}}
+\newlabel{Method_section}{{3}{5}{Methods}{section.3}{}}
+\newlabel{Method_section@cref}{{[section][3][]3}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Obtaining reliable data}{5}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Ensuring we perform a sufficient number of transactions}{5}{subsubsection.3.1.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Determining the number of Monte Carlo cycles needed}{5}{subsubsection.3.1.2}}
-\newlabel{eq:Relative_diff_MC_steps}{{10}{5}{Determining the number of Monte Carlo cycles needed}{equation.3.10}{}}
-\newlabel{eq:Relative_diff_MC_steps@cref}{{[equation][10][]10}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Implementing the Monte Carlo simulations}{5}{subsection.3.2}}
-\@writefile{lol}{\contentsline {lstlisting}{Pseudo\textunderscore code\textunderscore simple\textunderscore walkers.cpp}{5}{lstlisting.-1}}
+\newlabel{eq:Relative_diff_MC_steps}{{17}{5}{Determining the number of Monte Carlo cycles needed}{equation.3.17}{}}
+\newlabel{eq:Relative_diff_MC_steps@cref}{{[equation][17][]17}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Normalizing the data}{6}{subsection.3.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Determining the number of bins}{6}{subsection.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Results and discussion}{6}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Results from the initial model (model A)}{6}{subsection.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Results from our investigation into the optimal combination of parameters}{6}{subsubsection.4.1.1}}
+\newlabel{eq:M_max}{{18}{6}{Determining the number of bins}{equation.3.18}{}}
+\newlabel{eq:M_max@cref}{{[equation][18][]18}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Determining the Tail}{6}{subsection.3.4}}
+\newlabel{Tail_section}{{3.4}{6}{Determining the Tail}{subsection.3.4}{}}
+\newlabel{Tail_section@cref}{{[subsection][4][3]3.4}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Implementing the Monte Carlo simulations}{6}{subsection.3.5}}
+\@writefile{lol}{\contentsline {lstlisting}{Pseudo\textunderscore code\textunderscore simple\textunderscore walkers.cpp}{6}{lstlisting.-1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results and discussion}{7}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Results from the initial model (model A)}{7}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Results from our investigation into the optimal combination of parameters}{7}{subsubsection.4.1.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:ModelA_Var}{{1a}{6}{The variance of a single Monte Carlo cycle\relax }{figure.caption.2}{}}
-\newlabel{fig:ModelA_Var@cref}{{[subfigure][1][1]1a}{6}}
-\newlabel{sub@fig:ModelA_Var}{{a}{6}{The variance of a single Monte Carlo cycle\relax }{figure.caption.2}{}}
-\newlabel{sub@fig:ModelA_Var@cref}{{[subfigure][1][1]1a}{6}}
-\newlabel{fig:ModelA_MC_steps}{{1b}{6}{The difference in the distribution for successive Monte Carlo steps\relax }{figure.caption.2}{}}
-\newlabel{fig:ModelA_MC_steps@cref}{{[subfigure][2][1]1b}{6}}
-\newlabel{sub@fig:ModelA_MC_steps}{{b}{6}{The difference in the distribution for successive Monte Carlo steps\relax }{figure.caption.2}{}}
-\newlabel{sub@fig:ModelA_MC_steps@cref}{{[subfigure][2][1]1b}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plots from our investigation into the optimal choice of parameters. Figure \ref  {fig:ModelA_Var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref  {fig:ModelA_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }}{6}{figure.caption.2}}
-\newlabel{fig:ModelA}{{1}{6}{Plots from our investigation into the optimal choice of parameters. Figure \ref {fig:ModelA_Var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref {fig:ModelA_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }{figure.caption.2}{}}
-\newlabel{fig:ModelA@cref}{{[figure][1][]1}{6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}The distribution from model A}{6}{subsubsection.4.1.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Comparison with the analytic model}{6}{subsubsection.4.1.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Discussion of model A}{6}{subsection.4.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Choosing parameters}{6}{subsubsection.4.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The final distribution of wealth from model A. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }}{7}{figure.caption.3}}
-\newlabel{fig:ModelA_final_distribution}{{2}{7}{The final distribution of wealth from model A. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }{figure.caption.3}{}}
-\newlabel{fig:ModelA_final_distribution@cref}{{[figure][2][]2}{7}}
-\newlabel{fig:ModelA_log_raw}{{3a}{7}{A logarithmic plot of figure \ref {fig:ModelA}\relax }{figure.caption.4}{}}
-\newlabel{fig:ModelA_log_raw@cref}{{[subfigure][1][3]3a}{7}}
-\newlabel{sub@fig:ModelA_log_raw}{{a}{7}{A logarithmic plot of figure \ref {fig:ModelA}\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:ModelA_log_raw@cref}{{[subfigure][1][3]3a}{7}}
-\newlabel{fig:ModelA_log_fit}{{3b}{7}{The same plot, with a linear fit.\relax }{figure.caption.4}{}}
-\newlabel{fig:ModelA_log_fit@cref}{{[subfigure][2][3]3b}{7}}
-\newlabel{sub@fig:ModelA_log_fit}{{b}{7}{The same plot, with a linear fit.\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:ModelA_log_fit@cref}{{[subfigure][2][3]3b}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A logarithmic plot of figure \ref  {fig:ModelA}, used to determine the analytic expression for the distribution in figure \ref  {fig:ModelA}\relax }}{7}{figure.caption.4}}
-\newlabel{fig:ModelA__log}{{3}{7}{A logarithmic plot of figure \ref {fig:ModelA}, used to determine the analytic expression for the distribution in figure \ref {fig:ModelA}\relax }{figure.caption.4}{}}
-\newlabel{fig:ModelA__log@cref}{{[figure][3][]3}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}The distribution}{7}{subsubsection.4.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Plot of figure \ref  {fig:ModelA_final_distribution} together with the analytic solution from section \ref  {Analytic_solution}\relax }}{8}{figure.caption.5}}
-\newlabel{fig:ModelA_final_distribution_with_analytic}{{4}{8}{Plot of figure \ref {fig:ModelA_final_distribution} together with the analytic solution from section \ref {Analytic_solution}\relax }{figure.caption.5}{}}
-\newlabel{fig:ModelA_final_distribution_with_analytic@cref}{{[figure][4][]4}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Results from the first modification (model B)}{8}{subsection.4.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Results from our investigation into the optimal combination of parameters}{8}{subsubsection.4.3.1}}
-\newlabel{fig:ModelB_Var}{{5a}{8}{The variance of a single Monte Carlo cycle in model B\relax }{figure.caption.6}{}}
-\newlabel{fig:ModelB_Var@cref}{{[subfigure][1][5]5a}{8}}
-\newlabel{sub@fig:ModelB_Var}{{a}{8}{The variance of a single Monte Carlo cycle in model B\relax }{figure.caption.6}{}}
-\newlabel{sub@fig:ModelB_Var@cref}{{[subfigure][1][5]5a}{8}}
-\newlabel{fig:ModelB_MC_steps}{{5b}{8}{The difference in the distribution for successive Monte Carlo steps in model B\relax }{figure.caption.6}{}}
-\newlabel{fig:ModelB_MC_steps@cref}{{[subfigure][2][5]5b}{8}}
-\newlabel{sub@fig:ModelB_MC_steps}{{b}{8}{The difference in the distribution for successive Monte Carlo steps in model B\relax }{figure.caption.6}{}}
-\newlabel{sub@fig:ModelB_MC_steps@cref}{{[subfigure][2][5]5b}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Plots from our investigation into the optimal choice of parameters. Figure \ref  {fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref  {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }}{8}{figure.caption.6}}
-\newlabel{fig:ModelB}{{5}{8}{Plots from our investigation into the optimal choice of parameters. Figure \ref {fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }{figure.caption.6}{}}
-\newlabel{fig:ModelB@cref}{{[figure][5][]5}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}The distribution from model B}{9}{subsubsection.4.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The final distribution of wealth from model B. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }}{9}{figure.caption.7}}
-\newlabel{fig:ModelB_final_distribution}{{6}{9}{The final distribution of wealth from model B. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }{figure.caption.7}{}}
-\newlabel{fig:ModelB_final_distribution@cref}{{[figure][6][]6}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Comparison with the analytic model}{9}{subsubsection.4.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Figure \ref  {fig:ModelB_final_distribution}, together with the analytic solution from section \ref  {Analytic_solution}.\relax }}{9}{figure.caption.8}}
-\newlabel{fig:ModelB_final_distribution_with_analytic}{{7}{9}{Figure \ref {fig:ModelB_final_distribution}, together with the analytic solution from section \ref {Analytic_solution}.\relax }{figure.caption.8}{}}
-\newlabel{fig:ModelB_final_distribution_with_analytic@cref}{{[figure][7][]7}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Discussion of model B}{10}{subsection.4.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Choosing parameters}{10}{subsubsection.4.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}The distribution}{10}{subsubsection.4.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Results from the second modification (model C)}{10}{subsection.4.5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Results from our investigation into the optimal combination of parameters}{10}{subsubsection.4.5.1}}
-\newlabel{fig:ModelC_Var}{{8a}{10}{The variance of a single Monte Carlo cycle in model C\relax }{figure.caption.9}{}}
-\newlabel{fig:ModelC_Var@cref}{{[subfigure][1][8]8a}{10}}
-\newlabel{sub@fig:ModelC_Var}{{a}{10}{The variance of a single Monte Carlo cycle in model C\relax }{figure.caption.9}{}}
-\newlabel{sub@fig:ModelC_Var@cref}{{[subfigure][1][8]8a}{10}}
-\newlabel{fig:ModelC_MC_steps}{{8b}{10}{The difference in the distribution for successive Monte Carlo steps in model C\relax }{figure.caption.9}{}}
-\newlabel{fig:ModelC_MC_steps@cref}{{[subfigure][2][8]8b}{10}}
-\newlabel{sub@fig:ModelC_MC_steps}{{b}{10}{The difference in the distribution for successive Monte Carlo steps in model C\relax }{figure.caption.9}{}}
-\newlabel{sub@fig:ModelC_MC_steps@cref}{{[subfigure][2][8]8b}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Plots from our investigation into the optimal choice of parameters. Figure \ref  {fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref  {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }}{10}{figure.caption.9}}
-\newlabel{fig:ModelC}{{8}{10}{Plots from our investigation into the optimal choice of parameters. Figure \ref {fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }{figure.caption.9}{}}
-\newlabel{fig:ModelC@cref}{{[figure][8][]8}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}The distribution from model C}{10}{subsubsection.4.5.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Comparison with the analytic model}{10}{subsubsection.4.5.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The final distribution of wealth from model C. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }}{11}{figure.caption.10}}
-\newlabel{fig:ModelC_final_distribution}{{9}{11}{The final distribution of wealth from model C. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }{figure.caption.10}{}}
-\newlabel{fig:ModelC_final_distribution@cref}{{[figure][9][]9}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Figure \ref  {fig:ModelC_final_distribution}, together with the analytic solution from section \ref  {Analytic_solution}.\relax }}{11}{figure.caption.11}}
-\newlabel{fig:ModelC_final_distribution_with_analytic}{{10}{11}{Figure \ref {fig:ModelC_final_distribution}, together with the analytic solution from section \ref {Analytic_solution}.\relax }{figure.caption.11}{}}
-\newlabel{fig:ModelC_final_distribution_with_analytic@cref}{{[figure][10][]10}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Discussion of model C}{11}{subsection.4.6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Choosing parameters}{11}{subsubsection.4.6.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}The distribution}{11}{subsubsection.4.6.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Results from the final modification (model D)}{11}{subsection.4.7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.1}Results from our investigation into the optimal combination of parameters}{11}{subsubsection.4.7.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.2}The distribution from model D}{11}{subsubsection.4.7.2}}
-\newlabel{fig:ModelD_Var}{{11a}{12}{The variance of a single Monte Carlo cycle in model D\relax }{figure.caption.12}{}}
-\newlabel{fig:ModelD_Var@cref}{{[subfigure][1][11]11a}{12}}
-\newlabel{sub@fig:ModelD_Var}{{a}{12}{The variance of a single Monte Carlo cycle in model D\relax }{figure.caption.12}{}}
-\newlabel{sub@fig:ModelD_Var@cref}{{[subfigure][1][11]11a}{12}}
-\newlabel{fig:ModelD_MC_steps}{{11b}{12}{The difference in the distribution for successive Monte Carlo steps in model B\relax }{figure.caption.12}{}}
-\newlabel{fig:ModelD_MC_steps@cref}{{[subfigure][2][11]11b}{12}}
-\newlabel{sub@fig:ModelD_MC_steps}{{b}{12}{The difference in the distribution for successive Monte Carlo steps in model B\relax }{figure.caption.12}{}}
-\newlabel{sub@fig:ModelD_MC_steps@cref}{{[subfigure][2][11]11b}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Plots from our investigation into the optimal choice of parameters. Figure \ref  {fig:ModelD_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref  {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }}{12}{figure.caption.12}}
-\newlabel{fig:ModelD}{{11}{12}{Plots from our investigation into the optimal choice of parameters. Figure \ref {fig:ModelD_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m0=500$. In figure \ref {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $N=500$ agents, which interact with a total of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }{figure.caption.12}{}}
-\newlabel{fig:ModelD@cref}{{[figure][11][]11}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The final distribution of wealth from model B. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }}{12}{figure.caption.13}}
-\newlabel{fig:ModelD_final_distribution}{{12}{12}{The final distribution of wealth from model B. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=500$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }{figure.caption.13}{}}
-\newlabel{fig:ModelD_final_distribution@cref}{{[figure][12][]12}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.3}Comparison with the analytic model}{12}{subsubsection.4.7.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Figure \ref  {fig:ModelB_final_distribution}, together with the analytic solution form section \ref  {Analytic_solution}.\relax }}{13}{figure.caption.14}}
-\newlabel{fig:ModelD_final_distribution_with_analytic}{{13}{13}{Figure \ref {fig:ModelB_final_distribution}, together with the analytic solution form section \ref {Analytic_solution}.\relax }{figure.caption.14}{}}
-\newlabel{fig:ModelD_final_distribution_with_analytic@cref}{{[figure][13][]13}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Discussion of model D}{13}{subsection.4.8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.1}Choosing parameters}{13}{subsubsection.4.8.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.2}The distribution}{13}{subsubsection.4.8.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{13}{section.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Conclusion}{13}{subsection.5.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Outlook}{13}{subsection.5.2}}
+\newlabel{fig:ModelA_Var}{{1a}{7}{The variance of a single Monte Carlo cycle\relax }{figure.caption.2}{}}
+\newlabel{fig:ModelA_Var@cref}{{[subfigure][1][1]1a}{7}}
+\newlabel{sub@fig:ModelA_Var}{{a}{7}{The variance of a single Monte Carlo cycle\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:ModelA_Var@cref}{{[subfigure][1][1]1a}{7}}
+\newlabel{fig:ModelA_MC_steps}{{1b}{7}{The difference in the distribution for successive Monte Carlo steps\relax }{figure.caption.2}{}}
+\newlabel{fig:ModelA_MC_steps@cref}{{[subfigure][2][1]1b}{7}}
+\newlabel{sub@fig:ModelA_MC_steps}{{b}{7}{The difference in the distribution for successive Monte Carlo steps\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:ModelA_MC_steps@cref}{{[subfigure][2][1]1b}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plots from our investigation into the optimal choice of parameters. Figure \ref  {fig:ModelA_Var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m_0=1000$. In figure \ref  {fig:ModelA_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo cyclex consists of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }}{7}{figure.caption.2}}
+\newlabel{fig:ModelA}{{1}{7}{Plots from our investigation into the optimal choice of parameters. Figure \ref {fig:ModelA_Var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m_0=1000$. In figure \ref {fig:ModelA_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo cyclex consists of $10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }{figure.caption.2}{}}
+\newlabel{fig:ModelA@cref}{{[figure][1][]1}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}The distribution from model A}{7}{subsubsection.4.1.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Comparison with the analytic model}{7}{subsubsection.4.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The final distribution of wealth from model A. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }}{8}{figure.caption.3}}
+\newlabel{fig:ModelA_final_distribution}{{2}{8}{The final distribution of wealth from model A. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $500$ agents, performing $10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }{figure.caption.3}{}}
+\newlabel{fig:ModelA_final_distribution@cref}{{[figure][2][]2}{8}}
+\newlabel{fig:ModelA_log_raw}{{3a}{8}{A logarithmic plot of figure \ref {fig:ModelA}\relax }{figure.caption.4}{}}
+\newlabel{fig:ModelA_log_raw@cref}{{[subfigure][1][3]3a}{8}}
+\newlabel{sub@fig:ModelA_log_raw}{{a}{8}{A logarithmic plot of figure \ref {fig:ModelA}\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:ModelA_log_raw@cref}{{[subfigure][1][3]3a}{8}}
+\newlabel{fig:ModelA_log_fit}{{3b}{8}{The same plot, with analytic solution\relax }{figure.caption.4}{}}
+\newlabel{fig:ModelA_log_fit@cref}{{[subfigure][2][3]3b}{8}}
+\newlabel{sub@fig:ModelA_log_fit}{{b}{8}{The same plot, with analytic solution\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:ModelA_log_fit@cref}{{[subfigure][2][3]3b}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A logarithmic plot of figure \ref  {fig:ModelA}, used to determine the analytic expression for the distribution in figure \ref  {fig:ModelA}\relax }}{8}{figure.caption.4}}
+\newlabel{fig:ModelA__log}{{3}{8}{A logarithmic plot of figure \ref {fig:ModelA}, used to determine the analytic expression for the distribution in figure \ref {fig:ModelA}\relax }{figure.caption.4}{}}
+\newlabel{fig:ModelA__log@cref}{{[figure][3][]3}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Investigating the tail of the distribution from model A}{8}{subsubsection.4.1.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Discussion of model A}{8}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Choosing parameters}{8}{subsubsection.4.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Plot of figure \ref  {fig:ModelA_final_distribution} together with the analytic solution from section \ref  {Analytic_solution}\relax }}{9}{figure.caption.5}}
+\newlabel{fig:ModelA_final_distribution_with_analytic}{{4}{9}{Plot of figure \ref {fig:ModelA_final_distribution} together with the analytic solution from section \ref {Analytic_solution}\relax }{figure.caption.5}{}}
+\newlabel{fig:ModelA_final_distribution_with_analytic@cref}{{[figure][4][]4}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The tail of the distribution from figure \ref  {fig:ModelA_final_distribution}, together with a power law fit and the analytic solution.\relax }}{9}{figure.caption.6}}
+\newlabel{fig:ModelA_tail}{{5}{9}{The tail of the distribution from figure \ref {fig:ModelA_final_distribution}, together with a power law fit and the analytic solution.\relax }{figure.caption.6}{}}
+\newlabel{fig:ModelA_tail@cref}{{[figure][5][]5}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}The distribution}{9}{subsubsection.4.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}The tail of the distribution}{10}{subsubsection.4.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Results from the first modification (model B)}{10}{subsection.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Results from our investigation into the optimal combination of parameters}{10}{subsubsection.4.3.1}}
+\newlabel{fig:ModelB_Var}{{6a}{10}{The variance of a single Monte Carlo cycle in model B for $\lambda = 0.9$\relax }{figure.caption.7}{}}
+\newlabel{fig:ModelB_Var@cref}{{[subfigure][1][6]6a}{10}}
+\newlabel{sub@fig:ModelB_Var}{{a}{10}{The variance of a single Monte Carlo cycle in model B for $\lambda = 0.9$\relax }{figure.caption.7}{}}
+\newlabel{sub@fig:ModelB_Var@cref}{{[subfigure][1][6]6a}{10}}
+\newlabel{fig:ModelB_MC_steps}{{6b}{10}{The difference in the distribution for successive Monte Carlo steps in model B, for $\lambda = 0.9$\relax }{figure.caption.7}{}}
+\newlabel{fig:ModelB_MC_steps@cref}{{[subfigure][2][6]6b}{10}}
+\newlabel{sub@fig:ModelB_MC_steps}{{b}{10}{The difference in the distribution for successive Monte Carlo steps in model B, for $\lambda = 0.9$\relax }{figure.caption.7}{}}
+\newlabel{sub@fig:ModelB_MC_steps@cref}{{[subfigure][2][6]6b}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Plots from our investigation into the optimal choice of parameters in model B. Figure \ref  {fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m_0=1000$. We have also included the analytic expression for this, derived in section \textbf  {SECTION}. In figure \ref  {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $2\times 10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }}{10}{figure.caption.7}}
+\newlabel{fig:ModelB}{{6}{10}{Plots from our investigation into the optimal choice of parameters in model B. Figure \ref {fig:ModelB_Var} shows how the variance the distribution for model B evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=500$ agents, and the initial wealth, $m_0=1000$. We have also included the analytic expression for this, derived in section \textbf {SECTION}. In figure \ref {fig:ModelB_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo step consists of $2\times 10^4$ transactions. Note that the $x$-axis does not start at zero, for a better graphical presentation of the long-term development.\relax }{figure.caption.7}{}}
+\newlabel{fig:ModelB@cref}{{[figure][6][]6}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}The distribution from model B}{10}{subsubsection.4.3.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Investigating the tail of the distribution from model B}{10}{subsubsection.4.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The final distribution of wealth from model B, for various values of $\lambda $. We also plot the analytic solution from section \ref  {Analytic_solution}, to compare. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $500$ agents, performing $2\times 10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }}{11}{figure.caption.8}}
+\newlabel{fig:ModelB_final_distribution}{{7}{11}{The final distribution of wealth from model B, for various values of $\lambda $. We also plot the analytic solution from section \ref {Analytic_solution}, to compare. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $500$ agents, performing $2\times 10^4$ transactions per Monte Carlo cycles, with a total of $10^4$ Monte Carlo cycles.\relax }{figure.caption.8}{}}
+\newlabel{fig:ModelB_final_distribution@cref}{{[figure][7][]7}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces A logarithmic plot of figure \ref  {fig:ModelB_final_distribution}\relax }}{11}{figure.caption.9}}
+\newlabel{fig:ModelB_final_distribution_log}{{8}{11}{A logarithmic plot of figure \ref {fig:ModelB_final_distribution}\relax }{figure.caption.9}{}}
+\newlabel{fig:ModelB_final_distribution_log@cref}{{[figure][8][]8}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Discussion of model B}{11}{subsection.4.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Choosing parameters}{11}{subsubsection.4.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}The distribution}{11}{subsubsection.4.4.2}}
+\newlabel{fig:ModelB_tail_lamb_025}{{9a}{12}{$\lambda = 0.25$\relax }{figure.caption.10}{}}
+\newlabel{fig:ModelB_tail_lamb_025@cref}{{[subfigure][1][9]9a}{12}}
+\newlabel{sub@fig:ModelB_tail_lamb_025}{{a}{12}{$\lambda = 0.25$\relax }{figure.caption.10}{}}
+\newlabel{sub@fig:ModelB_tail_lamb_025@cref}{{[subfigure][1][9]9a}{12}}
+\newlabel{fig:ModelB_tail_lamb_05}{{9b}{12}{$\lambda = 0.5$\relax }{figure.caption.10}{}}
+\newlabel{fig:ModelB_tail_lamb_05@cref}{{[subfigure][2][9]9b}{12}}
+\newlabel{sub@fig:ModelB_tail_lamb_05}{{b}{12}{$\lambda = 0.5$\relax }{figure.caption.10}{}}
+\newlabel{sub@fig:ModelB_tail_lamb_05@cref}{{[subfigure][2][9]9b}{12}}
+\newlabel{fig:ModelB_tail_lamb_09}{{9c}{12}{$\lambda = 0.9$\relax }{figure.caption.10}{}}
+\newlabel{fig:ModelB_tail_lamb_09@cref}{{[subfigure][3][9]9c}{12}}
+\newlabel{sub@fig:ModelB_tail_lamb_09}{{c}{12}{$\lambda = 0.9$\relax }{figure.caption.10}{}}
+\newlabel{sub@fig:ModelB_tail_lamb_09@cref}{{[subfigure][3][9]9c}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The tail of the distribution from figure \ref  {fig:ModelB_final_distribution} (model B), together with a power law fit and the analytic solution from section \ref  {Analytic_solution} for different values of $\lambda $.\relax }}{12}{figure.caption.10}}
+\newlabel{fig:ModelB_tail}{{9}{12}{The tail of the distribution from figure \ref {fig:ModelB_final_distribution} (model B), together with a power law fit and the analytic solution from section \ref {Analytic_solution} for different values of $\lambda $.\relax }{figure.caption.10}{}}
+\newlabel{fig:ModelB_tail@cref}{{[figure][9][]9}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}The tail of the distribution}{12}{subsubsection.4.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Results from the second modification (model C)}{13}{subsection.4.5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Results from our investigation into the optimal combination of parameters}{13}{subsubsection.4.5.1}}
+\newlabel{fig:ModelC_Var_alpha_2}{{10a}{13}{$\alpha =2.0$\relax }{figure.caption.11}{}}
+\newlabel{fig:ModelC_Var_alpha_2@cref}{{[subfigure][1][10]10a}{13}}
+\newlabel{sub@fig:ModelC_Var_alpha_2}{{a}{13}{$\alpha =2.0$\relax }{figure.caption.11}{}}
+\newlabel{sub@fig:ModelC_Var_alpha_2@cref}{{[subfigure][1][10]10a}{13}}
+\newlabel{fig:ModelC_Var_alpha_15}{{10b}{13}{$\alpha =1.5$\relax }{figure.caption.11}{}}
+\newlabel{fig:ModelC_Var_alpha_15@cref}{{[subfigure][2][10]10b}{13}}
+\newlabel{sub@fig:ModelC_Var_alpha_15}{{b}{13}{$\alpha =1.5$\relax }{figure.caption.11}{}}
+\newlabel{sub@fig:ModelC_Var_alpha_15@cref}{{[subfigure][2][10]10b}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Plot of the variance for two different values of $\alpha $. This is for a single Monte Carlo cycle, with $N=1000$ agents, and initial wealth, $m_0=1000$\relax }}{13}{figure.caption.11}}
+\newlabel{fig:ModelC_variance}{{10}{13}{Plot of the variance for two different values of $\alpha $. This is for a single Monte Carlo cycle, with $N=1000$ agents, and initial wealth, $m_0=1000$\relax }{figure.caption.11}{}}
+\newlabel{fig:ModelC_variance@cref}{{[figure][10][]10}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces The difference between successive average distributions as a function of the number of Monte Carlo steps. Each Monte Carlo step consists of $2\times 10^5$ transactions.\relax }}{13}{figure.caption.12}}
+\newlabel{fig:ModelC_MC_Steps}{{11}{13}{The difference between successive average distributions as a function of the number of Monte Carlo steps. Each Monte Carlo step consists of $2\times 10^5$ transactions.\relax }{figure.caption.12}{}}
+\newlabel{fig:ModelC_MC_Steps@cref}{{[figure][11][]11}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}The distribution from model C}{14}{subsubsection.4.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The final distribution of wealth from model C. Here $\delimiter "426830A m \delimiter "526930B $ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $1000$ agents, with $2 \times 10^5$ transactions per Monte Carlo cycles, for a total of $10^3$ Monte Carlo cycles.\relax }}{14}{figure.caption.13}}
+\newlabel{fig:ModelC_final_distribution}{{12}{14}{The final distribution of wealth from model C. Here $\langle m \rangle $ is the average wealth, which equals the initial wealth per agent, $m_0=1000$. This simulation was run with $1000$ agents, with $2 \times 10^5$ transactions per Monte Carlo cycles, for a total of $10^3$ Monte Carlo cycles.\relax }{figure.caption.13}{}}
+\newlabel{fig:ModelC_final_distribution@cref}{{[figure][12][]12}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces A log-log plot of figure \ref  {fig:ModelC_final_distribution}\relax }}{14}{figure.caption.14}}
+\newlabel{fig:ModelC_final_distribution_log}{{13}{14}{A log-log plot of figure \ref {fig:ModelC_final_distribution}\relax }{figure.caption.14}{}}
+\newlabel{fig:ModelC_final_distribution_log@cref}{{[figure][13][]13}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Investigating the tail of the distribution from model C}{14}{subsubsection.4.5.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces The tail of the distribution from figure \ref  {fig:ModelC_final_distribution} (model C), together with a power law fit.\relax }}{15}{figure.caption.15}}
+\newlabel{fig:ModelC_tail}{{14}{15}{The tail of the distribution from figure \ref {fig:ModelC_final_distribution} (model C), together with a power law fit.\relax }{figure.caption.15}{}}
+\newlabel{fig:ModelC_tail@cref}{{[figure][14][]14}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Discussion of model C}{15}{subsection.4.6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Choosing parameters}{15}{subsubsection.4.6.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The squared error of the power law fit for different $\alpha $\relax }}{15}{table.caption.16}}
+\newlabel{tab:Parameters_C}{{1}{15}{The squared error of the power law fit for different $\alpha $\relax }{table.caption.16}{}}
+\newlabel{tab:Parameters_C@cref}{{[table][1][]1}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}The distribution}{16}{subsubsection.4.6.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}The tail of the distribution}{16}{subsubsection.4.6.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Results from the final modification (model D)}{16}{subsection.4.7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.1}Results from our investigation into the optimal combination of parameters}{16}{subsubsection.4.7.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.2}The distribution from model D}{16}{subsubsection.4.7.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.3}Investigating the tail of the distribution from model D}{16}{subsubsection.4.7.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Discussion of model D}{16}{subsection.4.8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.1}Choosing parameters}{16}{subsubsection.4.8.1}}
+\newlabel{fig:ModelD_var}{{15a}{17}{The variance of a single Monte Carlo cycle\relax }{figure.caption.17}{}}
+\newlabel{fig:ModelD_var@cref}{{[subfigure][1][15]15a}{17}}
+\newlabel{sub@fig:ModelD_var}{{a}{17}{The variance of a single Monte Carlo cycle\relax }{figure.caption.17}{}}
+\newlabel{sub@fig:ModelD_var@cref}{{[subfigure][1][15]15a}{17}}
+\newlabel{fig:ModelD_MC_steps}{{15b}{17}{The difference in the distribution for successive Monte Carlo steps\relax }{figure.caption.17}{}}
+\newlabel{fig:ModelD_MC_steps@cref}{{[subfigure][2][15]15b}{17}}
+\newlabel{sub@fig:ModelD_MC_steps}{{b}{17}{The difference in the distribution for successive Monte Carlo steps\relax }{figure.caption.17}{}}
+\newlabel{sub@fig:ModelD_MC_steps@cref}{{[subfigure][2][15]15b}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Plots from our investigation into the optimal choice of parameters, with $\lambda = 0$, $\alpha =2$ and $\gamma =1$. Figure \ref  {fig:ModelD_var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=1000$ agents, and initial wealth, $m_0=1000$. In figure \ref  {fig:ModelD_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo cycles consists of $2\times 10^5$ transactions.\relax }}{17}{figure.caption.17}}
+\newlabel{fig:ModelD_parameters}{{15}{17}{Plots from our investigation into the optimal choice of parameters, with $\lambda = 0$, $\alpha =2$ and $\gamma =1$. Figure \ref {fig:ModelD_var} shows how the variance of our distribution evolves with the number of transactions. This is for a single Monte Carlo cycle, with $N=1000$ agents, and initial wealth, $m_0=1000$. In figure \ref {fig:ModelD_MC_steps}, we show how the difference between successive average distributions evolves with the number of Monte Carlo steps. Each Monte Carlo cycles consists of $2\times 10^5$ transactions.\relax }{figure.caption.17}{}}
+\newlabel{fig:ModelD_parameters@cref}{{[figure][15][]15}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.2}The distribution}{17}{subsubsection.4.8.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Square error of power law fit for different combination of parameters\relax }}{17}{table.caption.21}}
+\newlabel{tab:parameters_D}{{2}{17}{Square error of power law fit for different combination of parameters\relax }{table.caption.21}{}}
+\newlabel{tab:parameters_D@cref}{{[table][2][]2}{17}}
+\newlabel{fig:ModelD_dist_1}{{16a}{18}{$\alpha = 0$, $\lambda =0$\relax }{figure.caption.18}{}}
+\newlabel{fig:ModelD_dist_1@cref}{{[subfigure][1][16]16a}{18}}
+\newlabel{sub@fig:ModelD_dist_1}{{a}{18}{$\alpha = 0$, $\lambda =0$\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:ModelD_dist_1@cref}{{[subfigure][1][16]16a}{18}}
+\newlabel{fig:ModelD_dist_2}{{16b}{18}{$\alpha = 1$, $\lambda =0$\relax }{figure.caption.18}{}}
+\newlabel{fig:ModelD_dist_2@cref}{{[subfigure][2][16]16b}{18}}
+\newlabel{sub@fig:ModelD_dist_2}{{b}{18}{$\alpha = 1$, $\lambda =0$\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:ModelD_dist_2@cref}{{[subfigure][2][16]16b}{18}}
+\newlabel{fig:ModelD_dist_3}{{16c}{18}{$\alpha = 2.0$, $\lambda =0$\relax }{figure.caption.18}{}}
+\newlabel{fig:ModelD_dist_3@cref}{{[subfigure][3][16]16c}{18}}
+\newlabel{sub@fig:ModelD_dist_3}{{c}{18}{$\alpha = 2.0$, $\lambda =0$\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:ModelD_dist_3@cref}{{[subfigure][3][16]16c}{18}}
+\newlabel{fig:ModelD_dist_4}{{16d}{18}{$\alpha = 1, \lambda =0.5$\relax }{figure.caption.18}{}}
+\newlabel{fig:ModelD_dist_4@cref}{{[subfigure][4][16]16d}{18}}
+\newlabel{sub@fig:ModelD_dist_4}{{d}{18}{$\alpha = 1, \lambda =0.5$\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:ModelD_dist_4@cref}{{[subfigure][4][16]16d}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces The distribution of model D for different parameter combinations. This was created with $N=1000$ agents, initial money, $m_0=1000$, using $10^3$ Monte Carlo cycles, each consisting of $2\times 10^5$ transactions.\relax }}{18}{figure.caption.18}}
+\newlabel{fig:ModelD_dist}{{16}{18}{The distribution of model D for different parameter combinations. This was created with $N=1000$ agents, initial money, $m_0=1000$, using $10^3$ Monte Carlo cycles, each consisting of $2\times 10^5$ transactions.\relax }{figure.caption.18}{}}
+\newlabel{fig:ModelD_dist@cref}{{[figure][16][]16}{18}}
+\bibdata{Project5Bib}
+\bibcite{Finite-size}{Egenter et\nobreakspace  {}al., 1999}
+\newlabel{fig:ModelD_dist_1_log}{{17b}{19}{$\alpha = 1$, $\lambda =0$\relax }{figure.caption.19}{}}
+\newlabel{fig:ModelD_dist_1_log@cref}{{[subfigure][2][17]17b}{19}}
+\newlabel{sub@fig:ModelD_dist_1_log}{{b}{19}{$\alpha = 1$, $\lambda =0$\relax }{figure.caption.19}{}}
+\newlabel{sub@fig:ModelD_dist_1_log@cref}{{[subfigure][2][17]17b}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Log-log plot of figure \ref  {fig:ModelD_dist}\relax }}{19}{figure.caption.19}}
+\newlabel{fig:ModelD_dist_log}{{17}{19}{Log-log plot of figure \ref {fig:ModelD_dist}\relax }{figure.caption.19}{}}
+\newlabel{fig:ModelD_dist_log@cref}{{[figure][17][]17}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.3}The tail of the distribution}{19}{subsubsection.4.8.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces The tail of the distribution from figure \ref  {fig:ModelD_dist} (model D), together with a power law fit.\relax }}{20}{figure.caption.20}}
+\newlabel{fig:ModelD_tail}{{18}{20}{The tail of the distribution from figure \ref {fig:ModelD_dist} (model D), together with a power law fit.\relax }{figure.caption.20}{}}
+\newlabel{fig:ModelD_tail@cref}{{[figure][18][]18}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{20}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Conclusion}{20}{subsection.5.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Outlook}{20}{subsection.5.2}}
+\@writefile{toc}{\contentsline {section}{References}{20}{subsection.5.2}}
+\bibcite{AgentBased}{Goswami and Sen, 2014}
+\bibcite{Self-adjusted}{Horv\IeC {\'a}th et\nobreakspace  {}al., 2006}
+\bibcite{Gibbs}{Patriarca et\nobreakspace  {}al., 2004}
+\bibstyle{apalike}

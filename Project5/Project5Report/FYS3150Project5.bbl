@@ -1,0 +1,31 @@
+\begin{thebibliography}{}
+
+\bibitem[Egenter et~al., 1999]{Finite-size}
+Egenter, E., Lux, T., and Stauffer, D. (1999).
+\newblock Finite-size effects in monte carlo simulations of two stock market
+  models.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  268(1–2):250 -- 256.
+
+\bibitem[Goswami and Sen, 2014]{AgentBased}
+Goswami, S. and Sen, P. (2014).
+\newblock Agent based models for wealth distribution with preference in
+  interaction.
+\newblock {\em Physica A: Statistical Mechanics and its Applications}, 415:514
+  -- 524.
+
+\bibitem[Horváth et~al., 2006]{Self-adjusted}
+Horváth, D., Gmitra, M., and Kuscsik, Z. (2006).
+\newblock A self-adjusted monte carlo simulation as a model for financial
+  markets with central regulation.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  361(2):589 -- 605.
+
+\bibitem[Patriarca et~al., 2004]{Gibbs}
+Patriarca, M., Chakraborti, A., and Kaski, K. (2004).
+\newblock Gibbs versus non-gibbs distributions in money dynamics.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  340(1–3):334 -- 339.
+\newblock News and Expectations in Thermostatistics.
+
+\end{thebibliography}
