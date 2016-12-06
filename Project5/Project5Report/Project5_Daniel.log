@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  6 DEC 2016 12:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  6 DEC 2016 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**FYS3150Project5.tex
-(./FYS3150Project5.tex
+**Project5_Daniel.tex
+(./Project5_Daniel.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 3 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -608,25 +608,24 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-(./FYS3150Project5.aux)
-\openout1 = `FYS3150Project5.aux'.
+No file Project5_Daniel.aux.
+\openout1 = `Project5_Daniel.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 \c@lstlisting=\count124
-
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
@@ -656,7 +655,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 54.
+Package hyperref Info: Link coloring OFF on input line 53.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -666,44 +665,45 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
-
-(./FYS3150Project5.out) (./FYS3150Project5.out)
+LaTeX Info: Redefining \ref on input line 53.
+LaTeX Info: Redefining \pageref on input line 53.
+LaTeX Info: Redefining \nameref on input line 53.
 \@outlinefile=\write3
-\openout3 = `FYS3150Project5.out'.
+\openout3 = `Project5_Daniel.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 55.
+LaTeX Font Info:    Try loading font information for U+msa on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 55.
+LaTeX Font Info:    Try loading font information for U+msb on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 55.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
-(./FYS3150Project5.toc)
 \tf@toc=\write4
-\openout4 = `FYS3150Project5.toc'.
+\openout4 = `Project5_Daniel.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--64
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
 
  []
+
+
+LaTeX Warning: Reference `Method_section' on page 1 undefined on input line 66.
+
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (25.36517pt too wide) detected at line 88
+Overfull \hbox (25.36517pt too wide) detected at line 87
 \OML/cmm/m/it/10 m[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 m[] \OT1/cmr/m/n/10 = \
 OML/cmm/m/it/10 ^^Um[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^O\OT1/cmr/m/n/10 (1
  \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 m[
@@ -717,530 +717,131 @@ t/10 ^^U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/1
 /10 ) = \OML/cmm/m/it/10 m[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 m[]
  []
 
+
+LaTeX Warning: Reference `eq:Nearest_neighbors' on page 2 undefined on input li
+ne 96.
+
+
+LaTeX Warning: Reference `eq:Nearest_neighbors' on page 2 undefined on input li
+ne 100.
+
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 94--98
+
+LaTeX Warning: Reference `Initial_model' on page 3 undefined on input line 104.
+
+
+
+LaTeX Warning: Reference `Model_B' on page 3 undefined on input line 110.
+
+
+LaTeX Warning: Reference `eq:Analytic_solution_A' on page 3 undefined on input 
+line 116.
+
+
+LaTeX Warning: Reference `Model_B' on page 3 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:Anayltic_solution_C_D' on page 3 undefined on inpu
+t line 122.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--129
 
  []
 
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 155--158
+[3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 130.
 
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 159.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--142
+
+ []
+
+[4]
+
+LaTeX Warning: Reference `eq:Analytic_solution_B' on page 5 undefined on input 
+line 163.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--171
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 202.
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 187--193
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 202.
+ (./Project5_Daniel.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 202.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 202.
 
- []
 
+Package rerunfilecheck Warning: File `Project5_Daniel.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--193
+Package rerunfilecheck Info: Checksums for `Project5_Daniel.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  AB524106C343A564F1EAC503E10D1C96;578.
 
- []
+LaTeX Warning: There were undefined references.
 
-[6] (./Pseudo_code_simple_walkers.cpp
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
-) [7]
-<varLamb0.png, id=266, 578.16pt x 397.485pt>
-File: varLamb0.png Graphic file (type png)
- <use varLamb0.png>
-Package pdftex.def Info: varLamb0.png used on input line 211.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
 
-<relDiffL0A0G0.png, id=268, 578.16pt x 397.485pt>
-File: relDiffL0A0G0.png Graphic file (type png)
- <use relDiffL0A0G0.png>
-Package pdftex.def Info: relDiffL0A0G0.png used on input line 217.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 209--220
- []$[]$  $[]$ 
- []
-
-<distLamb0.png, id=275, 578.16pt x 397.485pt>
-File: distLamb0.png Graphic file (type png)
- <use distLamb0.png>
-Package pdftex.def Info: distLamb0.png used on input line 227.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--230
-
- []
-
-[8 <./varLamb0.png> <./relDiffL0A0G0.png> <./distLamb0.png>]
-<logDistLamb0.png, id=288, 578.16pt x 397.485pt>
-File: logDistLamb0.png Graphic file (type png)
- <use logDistLamb0.png>
-Package pdftex.def Info: logDistLamb0.png used on input line 237.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistLamb0WAnalyt.png, id=291, 578.16pt x 397.485pt>
-File: logDistLamb0WAnalyt.png Graphic file (type png)
-
-<use logDistLamb0WAnalyt.png>
-Package pdftex.def Info: logDistLamb0WAnalyt.png used on input line 243.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 235--246
- []$[]$  $[]$ 
- []
-
-<distLamb0WAnalyt.png, id=297, 578.16pt x 397.485pt>
-File: distLamb0WAnalyt.png Graphic file (type png)
-
-<use distLamb0WAnalyt.png>
-Package pdftex.def Info: distLamb0WAnalyt.png used on input line 252.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
- [9 <./logDistLamb0.png> <./logDistLamb0WAnalyt.png> <./distLamb0WAnalyt.png>] 
-<tailPowerlamb0.png, id=314, 578.16pt x 397.485pt>
-File: tailPowerlamb0.png Graphic file (type png)
-
-<use tailPowerlamb0.png>
-Package pdftex.def Info: tailPowerlamb0.png used on input line 260.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 265--268
-
- []
-
-[10 <./tailPowerlamb0.png>] <varLamb09.png, id=331, 578.16pt x 397.485pt>
-File: varLamb09.png Graphic file (type png)
-
-<use varLamb09.png>
-Package pdftex.def Info: varLamb09.png used on input line 280.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <relDiffL09A0G0.png, id=332, 578.16pt x 397.485pt>
-File: relDiffL09A0G0.png Graphic file (type png)
-
-<use relDiffL09A0G0.png>
-Package pdftex.def Info: relDiffL09A0G0.png used on input line 286.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 278--289
- []$[]$  $[]$ 
- []
-
-[11 <./varLamb09.png> <./relDiffL09A0G0.png>]
-<distDiffLamb.png, id=351, 578.16pt x 397.485pt>
-File: distDiffLamb.png Graphic file (type png)
- <use distDiffLamb.png>
-Package pdftex.def Info: distDiffLamb.png used on input line 296.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-<logDistDiffLamb.png, id=354, 578.16pt x 397.485pt>
-File: logDistDiffLamb.png Graphic file (type png)
- <use logDistDiffLamb.png>
-Package pdftex.def Info: logDistDiffLamb.png used on input line 301.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-[12 <./distDiffLamb.png> <./logDistDiffLamb.png>]
-<tailPowerlamb025.png, id=368, 578.16pt x 397.485pt>
-File: tailPowerlamb025.png Graphic file (type png)
-
-<use tailPowerlamb025.png>
-Package pdftex.def Info: tailPowerlamb025.png used on input line 311.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailPowerlamb05.png, id=369, 578.16pt x 397.485pt>
-File: tailPowerlamb05.png Graphic file (type png)
-
-<use tailPowerlamb05.png>
-Package pdftex.def Info: tailPowerlamb05.png used on input line 317.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailL09A0G0_v2.png, id=370, 578.16pt x 397.485pt>
-File: tailL09A0G0_v2.png Graphic file (type png)
-
-<use tailL09A0G0_v2.png>
-Package pdftex.def Info: tailL09A0G0_v2.png used on input line 322.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 309--325
- []$[]$  $[]$ 
- []
-
-[13 <./tailPowerlamb025.png> <./tailPowerlamb05.png> <./tailL09A0G0_v2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 333--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--340
-
- []
-
-[14] <varL0A2G0.png, id=400, 578.16pt x 397.485pt>
-File: varL0A2G0.png Graphic file (type png)
- <use varL0A2G0.png>
-Package pdftex.def Info: varL0A2G0.png used on input line 351.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<varL0A15G0.png, id=401, 578.16pt x 397.485pt>
-File: varL0A15G0.png Graphic file (type png)
- <use varL0A15G0.png>
-Package pdftex.def Info: varL0A15G0.png used on input line 357.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 349--360
- []$[]$  $[]$ 
- []
-
-<relDiffL0A2G0.png, id=402, 578.16pt x 397.485pt>
-File: relDiffL0A2G0.png Graphic file (type png)
- <use relDiffL0A2G0.png>
-Package pdftex.def Info: relDiffL0A2G0.png used on input line 366.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--369
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--369
-
- []
-
-[15 <./varL0A2G0.png> <./varL0A15G0.png> <./relDiffL0A2G0.png>]
-<distAlphas.png, id=413, 578.16pt x 397.485pt>
-File: distAlphas.png Graphic file (type png)
- <use distAlphas.png>
-Package pdftex.def Info: distAlphas.png used on input line 374.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-<logDistAlphas.png, id=414, 578.16pt x 397.485pt>
-File: logDistAlphas.png Graphic file (type png)
- <use logDistAlphas.png>
-Package pdftex.def Info: logDistAlphas.png used on input line 379.
-(pdftex.def)             Requested size: 262.80737pt x 180.67499pt.
-
-[16 <./distAlphas.png> <./logDistAlphas.png>]
-<tailL0A05G0.png, id=426, 578.16pt x 397.485pt>
-File: tailL0A05G0.png Graphic file (type png)
- <use tailL0A05G0.png>
-Package pdftex.def Info: tailL0A05G0.png used on input line 388.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL0A1G0.png, id=427, 578.16pt x 397.485pt>
-File: tailL0A1G0.png Graphic file (type png)
- <use tailL0A1G0.png>
-Package pdftex.def Info: tailL0A1G0.png used on input line 394.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL0A15G0.png, id=428, 578.16pt x 397.485pt>
-File: tailL0A15G0.png Graphic file (type png)
- <use tailL0A15G0.png>
-Package pdftex.def Info: tailL0A15G0.png used on input line 400.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<tailL0A2G0.png, id=429, 578.16pt x 397.485pt>
-File: tailL0A2G0.png Graphic file (type png)
- <use tailL0A2G0.png>
-Package pdftex.def Info: tailL0A2G0.png used on input line 406.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 386--409
-[]$[]$  $[]$
- []
-
-
-Overfull \hbox (6.66504pt too wide) in paragraph at lines 386--409
-[]$   $[]$ 
- []
-
-[17 <./tailL0A05G0.png> <./tailL0A1G0.png> <./tailL0A15G0.png> <./tailL0A2G0.pn
-g>]
-Underfull \hbox (badness 10000) in paragraph at lines 428--433
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 428--433
-
- []
-
-[18] <varL0A2G1.png, id=461, 578.16pt x 397.485pt>
-File: varL0A2G1.png Graphic file (type png)
- <use varL0A2G1.png>
-Package pdftex.def Info: varL0A2G1.png used on input line 445.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<relDiffL0A2G1.png, id=462, 578.16pt x 397.485pt>
-File: relDiffL0A2G1.png Graphic file (type png)
- <use relDiffL0A2G1.png>
-Package pdftex.def Info: relDiffL0A2G1.png used on input line 451.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 443--454
- []$[]$  $[]$ 
- []
-
-[19 <./varL0A2G1.png> <./relDiffL0A2G1.png>]
-<distGammasA0.png, id=476, 578.16pt x 397.485pt>
-File: distGammasA0.png Graphic file (type png)
- <use distGammasA0.png>
-Package pdftex.def Info: distGammasA0.png used on input line 463.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<distGammasA1.png, id=477, 578.16pt x 397.485pt>
-File: distGammasA1.png Graphic file (type png)
- <use distGammasA1.png>
-Package pdftex.def Info: distGammasA1.png used on input line 469.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<distGammasA2.png, id=478, 578.16pt x 397.485pt>
-File: distGammasA2.png Graphic file (type png)
- <use distGammasA2.png>
-Package pdftex.def Info: distGammasA2.png used on input line 475.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<distGammasA1L05.png, id=479, 578.16pt x 397.485pt>
-File: distGammasA1L05.png Graphic file (type png)
- <use distGammasA1L05.png>
-Package pdftex.def Info: distGammasA1L05.png used on input line 481.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 461--484
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 461--484
- []$  $[]$ 
- []
-
-<logDistGammasA0.png, id=480, 578.16pt x 397.485pt>
-File: logDistGammasA0.png Graphic file (type png)
- <use logDistGammasA0.png>
-Package pdftex.def Info: logDistGammasA0.png used on input line 490.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA1.png, id=481, 578.16pt x 397.485pt>
-File: logDistGammasA1.png Graphic file (type png)
- <use logDistGammasA1.png>
-Package pdftex.def Info: logDistGammasA1.png used on input line 496.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA2.png, id=482, 578.16pt x 397.485pt>
-File: logDistGammasA2.png Graphic file (type png)
- <use logDistGammasA2.png>
-Package pdftex.def Info: logDistGammasA2.png used on input line 502.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA1L05.png, id=483, 578.16pt x 397.485pt>
-File: logDistGammasA1L05.png Graphic file (type png)
-
-<use logDistGammasA1L05.png>
-Package pdftex.def Info: logDistGammasA1L05.png used on input line 508.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 488--511
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 488--511
- []$  $[]$ 
- []
-
-[20 <./distGammasA0.png> <./distGammasA1.png> <./distGammasA2.png> <./distGamma
-sA1L05.png>] <tailL0A1G1.png, id=497, 578.16pt x 397.485pt>
-File: tailL0A1G1.png Graphic file (type png)
-
-<use tailL0A1G1.png>
-Package pdftex.def Info: tailL0A1G1.png used on input line 520.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailL0A1G2.png, id=498, 578.16pt x 397.485pt>
-File: tailL0A1G2.png Graphic file (type png)
-
-<use tailL0A1G2.png>
-Package pdftex.def Info: tailL0A1G2.png used on input line 526.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailL0A2G1.png, id=499, 578.16pt x 397.485pt>
-File: tailL0A2G1.png Graphic file (type png)
-
-<use tailL0A2G1.png>
-Package pdftex.def Info: tailL0A2G1.png used on input line 532.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailL05A1G1.png, id=500, 578.16pt x 397.485pt>
-File: tailL05A1G1.png Graphic file (type png)
-
-<use tailL05A1G1.png>
-Package pdftex.def Info: tailL05A1G1.png used on input line 538.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
- <tailL05A1G2.png, id=501, 578.16pt x 397.485pt>
-File: tailL05A1G2.png Graphic file (type png)
-
-<use tailL05A1G2.png>
-Package pdftex.def Info: tailL05A1G2.png used on input line 544.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 518--547
- []$[]$  $[]$ 
- []
-
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 518--547
- []$  $[]$ 
- []
-
-[21 <./logDistGammasA0.png> <./logDistGammasA1.png> <./logDistGammasA2.png> <./
-logDistGammasA1L05.png>] [22 <./tailL0A1G1.png> <./tailL0A1G2.png> <./tailL0A2G
-1.png> <./tailL05A1G1.png> <./tailL05A1G2.png>]
-File: logDistGammasA1.png Graphic file (type png)
- <use logDistGammasA1.png>
-Package pdftex.def Info: logDistGammasA1.png used on input line 586.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA1_v2.png, id=534, 578.16pt x 397.485pt>
-File: logDistGammasA1_v2.png Graphic file (type png)
-
-<use logDistGammasA1_v2.png>
-Package pdftex.def Info: logDistGammasA1_v2.png used on input line 592.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-File: logDistGammasA2.png Graphic file (type png)
- <use logDistGammasA2.png>
-Package pdftex.def Info: logDistGammasA2.png used on input line 598.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-<logDistGammasA2_v2.png, id=535, 578.16pt x 397.485pt>
-File: logDistGammasA2_v2.png Graphic file (type png)
-
-<use logDistGammasA2_v2.png>
-Package pdftex.def Info: logDistGammasA2_v2.png used on input line 604.
-(pdftex.def)             Requested size: 210.2459pt x 144.54pt.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 584--607
-[]$[]$  $[]$
- []
-
-
-Overfull \hbox (6.66504pt too wide) in paragraph at lines 584--607
-[]$   $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-[]\T1/cmr/m/n/10 16d[].
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--611
-
- []
-
-[23
-
-] [24 <./logDistGammasA1_v2.png> <./logDistGammasA2_v2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 615--618
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 619--624
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 619--624
-
- []
-
-[25] (./FYS3150Project5.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 631.
- [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 631.
- (./FYS3150Project5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 631.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 631.
-Package rerunfilecheck Info: File `FYS3150Project5.out' has not changed.
-(rerunfilecheck)             Checksum: E3284B1290A9A74D430BF978775DD9C1;1609.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 631.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 202.
  ) 
 Here is how much of TeX's memory you used:
- 12147 strings out of 495004
- 186176 string characters out of 6180663
- 325964 words of memory out of 5000000
- 14988 multiletter control sequences out of 15000+600000
- 23626 words of font info for 67 fonts, out of 8000000 for 9000
+ 11115 strings out of 495004
+ 171591 string characters out of 6180663
+ 276964 words of memory out of 5000000
+ 14127 multiletter control sequences out of 15000+600000
+ 21181 words of font info for 59 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 42i,15n,58p,1672b,1361s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home
-/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/gunnnar/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/gunnnar/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gunnnar/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecrm0800.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecrm1000.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx1000.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx14
-40.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk>
- </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/g
-unnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/gunnnar/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gunnnar/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy/wasy10.pfb>
-Output written on FYS3150Project5.pdf (26 pages, 1774150 bytes).
+ 42i,15n,58p,807b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home
+/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/gunnnar/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/gunnnar/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/gunnnar/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecbx1200.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecbx1000.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm1000.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx14
+40.600pk> </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk>
+ </home/gunnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/g
+unnnar/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gunnnar/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/wasy/wasy10.pfb>
+Output written on Project5_Daniel.pdf (5 pages, 216502 bytes).
 PDF statistics:
- 1069 PDF objects out of 1200 (max. 8388607)
- 546 compressed objects within 6 object streams
- 152 named destinations out of 1000 (max. 500000)
- 385 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 450 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
